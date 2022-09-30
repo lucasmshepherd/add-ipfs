@@ -1,0 +1,402 @@
+@import "variables"
+  
+html,
+body
+  padding: 0
+  margin: 0
+  width: 100%
+  height: 100%
+
+a
+  color: inherit
+  text-decoration: none
+
+*
+  box-sizing: border-box
+
+.container
+  width: 100%
+  max-width: 1440px
+  margin-left: auto
+  margin-right: auto
+  
+main
+  height: calc(100vh - 130px)
+  display: flex
+  flex-flow: column nowrap
+  justify-content: flex-start
+  align-items: stretch
+  align-content: stretch
+
+  & > *
+    flex: 1 0 auto
+
+// theming
+
+body
+  font-family: $font_content
+  background: $color_dark url('/assets/images/anarchy-fund-background-optimized.jpg') no-repeat 50% 50%
+  background-size: cover
+  color: $color_light
+  //background-blend-mode: multiply
+
+  &.screener
+    background: rgba(16,16,16,1)
+
+h1,h2,h3,h4,h5,h6
+  color: #fff
+
+
+blockquote
+  background: transparent
+  border: 4px solid rgba(255,255,255,.12)
+  border-width: 4px 0
+  //font-family: $font_mono
+  font-size: 1.2em
+  line-height: 36px
+  padding: 20px
+  width: 100%
+  margin: 40px 0 60px
+  color: #fff
+
+  i 
+    display: inline-block
+    transform: scale(1.1)
+    color: $color_4
+    padding: 0 .7em
+
+  hr
+    border-color: rgba(255,255,255,.2)
+    border-width: 1px 0 0
+    border-style: dashed
+    margin: 20px 0
+
+  span
+    display: inline-block
+    background: rgba(255,255,255,.12)
+    padding: 0 8px
+
+.screenBg
+  display: block
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: rgba(16,16,16,.9) url('/assets/video/hoodie-pic.jpg') no-repeat 65% 50%
+  background-size: cover
+  position: fixed
+  z-index: -999
+  opacity: .1
+
+
+.monitor-effect-overlay
+  position: fixed
+  top: 0
+  left: 0
+  height: 100%
+  width: 100%
+  pointer-events: none
+  background: linear-gradient(90deg, rgba(220,0,0,0.25), rgba(0,220,0,0.25), rgba(0,0,220,0.25)), linear-gradient(0deg, rgba(220,0,0,0.25), rgba(0,220,0,0.25), rgba(0,0,220,0.25))
+  background-size: 4px 2px, 4px 2px
+  box-shadow: inset 0 0 60px rgba(150,255,150,0.6)
+  opacity: 0.1
+  animation: tube-flicker 0.05s linear infinite
+  z-index: 999
+@keyframes tube-flicker
+  to
+    filter: brightness(130%)
+
+li[data-current="false"] 
+  .icon-arrow
+    display: none
+
+button.switcher-item
+  background: $color_4
+  font-family: $font_scifi
+  cursor: pointer
+  &.switcher-active-item
+    background: #fff!important
+  &:hover,
+  &:active
+    background: $color_3
+
+.switcher
+  position: absolute
+  top: 6px
+  right: 10px
+  z-index: 99
+
+.glitch-bg-image
+  position: fixed
+  top: 0
+  left: 0
+  bottom: 0
+  right: 0
+  z-index: -5
+  background: linear-gradient( to bottom,#000,#000 40%,#111 50%,#111 )
+  background-size: 100% 4px
+  animation: gradientMove 200ms ease infinite
+  filter: brightness(300%) sepia(200%) opacity(.2)
+  //mix-blend-mode: difference
+  //mix-blend-mode: darken
+
+@keyframes gradientMove
+  0%
+    background-size: 100% 4px
+  50%
+    background-size: 100% 2px
+  100%
+    background-size: 100% 4px
+
+.canvas2
+  position: fixed
+  display: block
+  width: 100%
+  height: 100%
+  top: 0
+  left: 0
+  bottom: 0
+  right: 0
+  z-index: 999999
+  background: none
+
+#terminal
+  white-space: pre-wrap
+  line-height: 1.4
+  b
+    color: $color_4
+    font-weight: normal
+
+#cursor
+  display: inline-block
+  height: 1.25em
+  width: 0.7em
+  margin-top: -.25em
+  vertical-align: middle
+  background-color: $color_5
+
+.invisible
+  opacity: 0
+
+article[class^="widget_"]
+  header
+    div[class*="indicator_"]
+      transition: all 0.3s
+  &:hover
+    header
+      div[class*="indicator_"]
+        background: $color_3
+        box-shadow: $glow_box
+
+@media(min-width: 985px)
+  .close-menu
+    display: none
+@media(max-width: 984px)
+  aside.open
+    right: 0!important
+    box-shadow: 0 -100px 150px rgba(0,0,0,1)
+
+  aside
+    padding-top: 25px
+
+.close-menu
+  position: absolute
+  top: 10px
+  right: 15px
+  font-family: $font_scifi
+  text-transform: uppercase
+  font-size: 12px
+  cursor: pointer
+
+[class^="header_logo_"]
+  a
+    span:nth-child(2)
+      display: none
+
+body.screener a.header_icon__Ss1uo
+  cursor: pointer
+
+@mixin glitchCopy  
+  content: attr(data-text)
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+
+.glitchme 
+  position: relative
+
+  &:before
+    opacity: .5
+    @include glitchCopy
+    left: 1px
+    text-shadow: -2px 0 #ff00c1
+    clip: rect(44px, 450px, 56px, 0)
+    animation: glitch-anim 5s infinite linear alternate-reverse
+
+  &:after 
+    opacity: .5
+    @include glitchCopy
+    left: -1px
+    text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1
+    animation: glitch-anim2 1s infinite linear alternate-reverse
+
+@keyframes glitch-anim 
+  $steps: 20
+  @for $i from 0 through $steps 
+    #{percentage($i*(1/$steps))} 
+      clip: rect(random(100)+px, 9999px, random(100)+px, 0)
+      transform: skew((random(100) / 100) + deg)
+
+@keyframes glitch-anim2 
+  $steps: 20
+  @for $i from 0 through $steps 
+    #{percentage($i*(1/$steps))} 
+      clip: rect(random(100)+px, 9999px, random(100)+px, 0)
+      transform: skew((random(100) / 100) + deg)
+
+@keyframes glitch-skew 
+  $steps: 10
+  @for $i from 0 through $steps 
+    #{percentage($i*(1/$steps))} 
+      transform: skew((random(10) - 5) + deg)
+
+.onclickk
+  display: inline-block
+  border: 1px solid $color_4
+  color: $color_4
+  padding: 0 8px
+  line-height: 1
+  border-radius: 1px
+  cursor: pointer
+  transition: 0.3s background
+  &:hover,
+  &:active
+    background: $color_1
+
+a.onclick
+  color: #fff
+
+.button
+  background: url('/assets/images/buttonbg.svg') no-repeat 0 0
+  background-size: 100% 100%
+  width: 300px
+  height: 50px
+  display: block
+  text-align: right
+  padding-top: 28px
+  padding-right: 16px
+  text-transform: uppercase
+  font-family: $font_scifi
+  font-size: 11px
+  letter-spacing: 0.1em
+  transition: 0.3s color
+  text-shadow: none
+  cursor: pointer
+
+  &:hover,
+  &:active
+    color: #fee500
+    svg
+      fill: #fee500
+
+  &.bottom-right
+    position: absolute
+    bottom: 40px
+    right: 40px
+    @media(max-width: 800px)
+      right: 50%
+      margin-right: -150px
+      transform: scale(.6)
+      bottom: 0
+  &.bottom-center
+    position: absolute
+    bottom: 0
+    right: 50%
+    margin-right: -150px
+    @media(max-width: 800px)
+      transform: scale(.6)
+
+  svg
+    width: 9px
+    height: 9px
+    fill: #fff
+    margin-bottom: -0.5px
+    transition: 0.3s fill
+
+#music
+  position: absolute
+  top: 0
+  left: 0
+  z-index: 9999999999
+
+.close-splash
+  position: fixed
+  bottom: 30px
+  left: 50%
+  margin-left: -150px
+  z-index: 9999999999
+  display: none
+
+  body.entered &
+    display: inline-block
+
+.flex-fill
+  flex: 1 0 auto
+  min-height: 20px
+
+.granted
+  background: #101011
+  color: $color_4
+  font-size: 48px
+  font-family: $font_mono
+  text-transform: uppercase
+  text-align: center
+  line-height: 1.1
+  padding: 40px 60px
+  position: fixed
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  z-index: 99999999
+  animation: fadeIn .3s
+  cursor: pointer
+
+  b
+    font-size: 70%
+    display: block
+    font-weight: normal
+    text-transform: none
+    color: #fff
+
+@keyframes fadeIn
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+
+@media(max-width: 1600px)
+  div#ui[data-layout="mint"]
+    .interface_row__SIGHZ
+      flex-direction: column
+    a.button
+      display: none
+    [data-row="primary"]
+      .widget_scroll__lUw8e
+        padding: 0
+  #chart
+    max-width: 700px
+    .tv-lightweight-charts,
+    .tv-lightweight-charts table
+      width: 100%!important
+
+@media(max-width: 1200px)
+  #chart
+    max-width: 500px
+
+@media(max-width: 600px)
+  #chart
+    max-width: 320px
+
+  //transform: scale(.5)

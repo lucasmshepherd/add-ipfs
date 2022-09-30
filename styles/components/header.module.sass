@@ -1,0 +1,106 @@
+@import '/styles/variables.sass'
+
+.header
+  display: block
+  position: relative
+
+  &[data-connected="true"]
+    .balance
+      background-image: url('/assets/images/add-logo-highlight-01.svg')
+  
+.bar
+  display: block
+  position: fixed
+  height: 15px
+  width: 100%
+  background: transparentize(#050505, 0.5)
+
+.tab
+  position: absolute
+  left: 50%
+  top: 100%
+  transform: translateX(-50%)
+  width: 255px
+  height: 50px
+  @media(max-width: 700px)
+    left: 100%
+
+.tabg
+  fill: transparentize(#050505, 0.5)
+
+.addbar
+  display: flex
+  flex-flow: row nowrap
+  justify-content: space-between
+  align-items: flex-end
+  align-content: stretch
+  height: 80px
+  padding: 0 10px
+  @media(max-width: 700px)
+    height: 68px
+
+.logo
+  margin: 0
+  padding: 0
+  line-height: 0
+  a
+    display: inline-block
+
+.icon
+  position: absolute
+  left: 50%
+  top: 50%
+  text-align: center
+  transform: translate(-50%, -50%)
+  cursor: pointer
+  &:before,
+  &:after
+    position: absolute
+    top: 50%
+    margin-top: -8px
+    font-size: 10px
+    line-height: 1
+    font-family: $font_scifi
+  svg
+    width: 48px
+    height: 48px
+  span:nth-child(2) 
+    display: none!important
+  @media(max-width: 984px)
+    //cursor: pointer
+  @media(max-width: 700px)
+    margin-left: -18%
+    &:before
+      content: "OPEN"
+      right: 115%
+      margin-top: -10px
+      top: 40%
+    &:after
+      content: "MENU"
+      top: 40%
+      left: auto
+      right: 115%
+      margin-top: 0px
+    
+
+.balance
+  background: url('/assets/images/add-logo.svg') no-repeat 100% 50%
+  background-size: 18px
+  display: inline-block
+  font-family: $font_scifi
+  text-transform: uppercase
+  text-align: right
+  cursor: pointer
+  height: 44px
+  line-height: 44px
+  padding-right: 24px
+  a
+    transition: 0.3s color
+  a:hover,
+  a:active
+    color: $color_3
+  &[data-connected="true"]
+    cursor: default
+
+  @media(max-width: 700px)
+    display: none

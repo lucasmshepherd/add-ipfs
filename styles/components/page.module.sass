@@ -1,0 +1,178 @@
+@import '/styles/variables.sass'
+
+.hoodiebg
+  background: url('/assets/images/hoodiepoint.jpg') no-repeat 0 -160px
+  position: absolute
+  background-size: auto 100%
+  height: 1000px
+  width: 100%
+  opacity: .5
+  @media(max-width: 1200px)
+    background-position: 20% -160px
+  @media(max-width: 600px)
+    background-position: 50% -160px
+
+.manifesto
+  position: relative
+  padding: 150px 60px
+  height: 100%
+  font-size: 16px
+  line-height: 1.6
+  width: 100%
+  max-width: 600px
+  @media(max-width: 600px)
+    padding-left: 30px
+    padding-right: 30px
+
+.manifoot
+  position: relative
+  //background: url('/assets/images/owlglow.svg') no-repeat 50% 0
+  background-size: 200% auto
+  font-size: 16px
+  line-height: 1.6
+  width: 100%
+  letter-spacing: 0
+  padding: 60px
+  //mix-blend-mode: color-dodge
+  margin-top: -100px
+  //z-index: -1
+  @media(max-width: 1200px)
+    background-position: 50% 150px
+  @media(max-width: 600px)
+    padding-left: 30px
+    padding-right: 30px
+    min-height: 600px
+    background-position: 50% 230px
+
+  a
+    display: block
+    font-size: 20px
+    letter-spacing: .3em
+    margin: 60px auto 40px
+    font-family: $font_scifi
+    text-transform: uppercase
+    text-align: center
+    width: 500px
+    //border-bottom: 2px solid #fff
+    //color: $color_3
+    @media(max-width: 600px)
+      letter-spacing: .1em
+      width: 100%
+
+  p
+    margin: 0 auto 20px
+    big
+      font-size: 150%
+      font-weight :300
+    //max-width: 600px
+    //text-align: center
+    //font-family: $font_scifi
+    //font-size: 13px4
+    @media(max-width: 600px)
+      //text-align: center
+      big
+        font-size: 120%
+
+.title
+  font-family: $font_title
+  font-size: 58px
+  line-height: 1
+  margin-bottom: 15px
+  @media(max-width: 600px)
+    font-size: 42px
+
+p.subtitle
+  margin-top: 0
+  //color: $color_4
+  font-size: 18px
+  font-style: italic
+  letter-spacing: .08em
+
+.split
+  position: relative
+  margin-top: -60px
+  display: flex
+  flex-flow: row nowrap
+  justify-content: flex-start
+  align-items: flex-start
+  align-content: flex-start
+  font-size: 16px
+  line-height: 1.8
+  letter-spacing: 0
+  font-weight: 300
+  @media(max-width: 1200px)
+    flex-flow: column nowrap
+
+  h3
+    font-family: $font_title
+    font-size: 28px
+    letter-spacing: 1px
+
+  p
+    margin-bottom: 30px
+
+  & > *
+    flex: 0 0 50%
+    padding: 60px
+    @media(max-width: 600px)
+      padding: 30px
+
+  & > span
+    flex: 0 0 440px
+    margin-left: auto!important
+    img
+      width: 100%!important
+      height: auto!important
+      max-height: none!important
+      min-height: 0!important
+      bottom: auto!important
+      right: auto!important
+    @media(max-width: 1200px)
+      flex: 0 0 300px
+      width: 300px!important
+    @media(max-width: 600px)
+      flex: 0 0 200px
+      width: 200px!important
+  & > div
+    flex: 0 1 auto
+    padding-top: 120px
+    @media(max-width: 1200px)
+      padding-top: 0
+      margin-top: -40px
+
+.divider
+  margin-left: 0
+  border-color: rgba(255,255,255,.12)
+  border-width: 2px
+  margin: 5px 0 50px
+
+.definitions
+  letter-spacing: 0
+  list-style-type: none
+  @media(max-width: 600px)
+    line-height: 1.4
+  li
+    position: relative
+    margin-bottom: 10px
+
+    &:before
+      content: "1"
+      position: absolute
+      top: 0
+      left: -30px
+      opacity: .5
+
+    &:nth-child(2):before
+      content: "2"
+    &:nth-child(3):before
+      content: "3"
+    &:nth-child(4):before
+      content: "4"
+    &:nth-child(5):before
+      content: "6"
+    &:nth-child(6):before
+      content: "6"
+    &:nth-child(7):before
+      content: "7"
+    
+  

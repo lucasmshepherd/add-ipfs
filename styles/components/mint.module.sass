@@ -1,0 +1,52 @@
+@import '/styles/variables.sass'
+
+.mint
+  display: flex
+  flex-flow: column nowrap
+  justify-content: flex-start
+  align-items: stretch
+  align-content: stretch
+  @media(max-width: 1600px)
+    flex-direction: row
+    align-items: center
+  
+.nft
+  flex: 0 1 auto
+  margin: 0 -30px 20px
+  @media(max-width: 1600px)
+    flex: 0 1 300px
+    margin: 0 30px 0 15px
+
+.title
+  color: $color_5
+  margin-bottom: 5px
+  margin-top: 0
+
+.text
+  margin-top: 0
+  @media(max-width: 1600px)
+    margin-bottom: 10px
+  
+
+.price
+  font-size: 40px
+  margin-bottom: -10px
+  color: $color_4
+
+.usd
+  color: rgba(255,255,255,.5)
+  margin-bottom: 30px
+  flex: 1 0 auto
+  @media(max-width: 1600px)
+    margin-bottom: 10px
+
+.content
+  display: flex
+  flex-flow: column nowrap
+  justify-content: flex-start
+  align-items: stretch
+  align-content: stretch
+  flex: 1 0 auto
+  @media(max-width: 1600px)
+    flex: 0 1 auto
+    padding-top: 10px

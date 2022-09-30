@@ -1,0 +1,58 @@
+@import '/styles/variables.sass'
+  
+.menu
+  list-style-type: none
+  margin: 0
+  padding: 0
+  text-align: left
+  li
+    display: flex
+    flex-flow: row nowrap
+    justify-content: flex-start
+    align-items: center
+    align-content: stretch
+    a
+      display: block
+      padding: 0 5px
+      margin: 2px 0
+      line-height: 22px
+      cursor: pointer
+      &:hover,
+      &:active
+        color: $color_dark
+        background-color: $color_5
+        svg
+          fill: $color_dark
+    &[data-child="true"]
+      padding-left: 6px
+      svg
+        transform: scale(.8)
+    &[data-hide="true"]
+      display: none
+    &[data-connected="false"]
+      opacity: .5
+      a
+        cursor: default
+        &:hover,
+        &:active
+          color: inherit
+          background-color: transparent
+          svg
+            fill: #fff
+    &[data-current="true"]
+      color: $color_5
+      svg
+        //fill: #fff
+      a
+        cursor: default
+        &:hover,
+        &:active
+          color: inherit
+          background-color: transparent
+          svg
+            fill: $color_5
+
+    svg
+      width: 12px
+      fill: $color_5
+      margin-right: 6px

@@ -1,0 +1,32 @@
+@import '/styles/variables.sass'
+  
+.visualizer
+  width: 100%
+  overflow: hidden
+  user-select: none
+
+  *
+    font-family: monospace, serif
+    font-size: 0.5rem
+    color: #8dc927
+
+  .visualizer--click-target
+    //cursor: pointer
+
+  .visualizer---row
+    pointer-events: none
+
+.onoff
+  position: absolute
+  top: 0
+  left: 0
+  z-index: 99999
+  width: 100%
+  height: 100%
+  display: flex
+  flex-flow: row nowrap
+  justify-content: flex-end
+  align-items: center
+  align-content: stretch
+  padding-right: 18px
+  cursor: pointer

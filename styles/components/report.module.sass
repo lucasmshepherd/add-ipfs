@@ -1,0 +1,36 @@
+@import '/styles/variables.sass'
+
+.table
+  display: block
+  color: $color_5
+  line-height: 1.1
+  //border: 1px solid $color_5
+
+  .row
+    //border: 1px solid $color_5
+    border-bottom: 1px solid $color_5
+    display: flex
+    flex-flow: row nowrap
+    justify-content: flex-start
+    align-items: stretch
+    align-content: stretch
+    &:last-child
+      border-bottom: 0
+  .cell
+    display: flex
+    flex-flow: column nowrap
+    justify-content: center
+    align-items: stretch
+    align-content: stretch
+    padding: 10px 15px
+    flex: 1 0 75%
+    line-height: .9
+    svg
+      fill: $color_4!important
+    &:nth-child(2)
+      border-left: 1px solid $color_5
+      font-size: 32px
+      flex: 0 0 25%
+      padding-left: 20px
+      text-align: right
+      align-items: flex-end
