@@ -1,5 +1,4 @@
 import Widget from './widget.js'
-//import Source from './source.js'
 import Files from './files.js'
 import TerminalStake from './terminal-stake.js'
 import TerminalProposals from './terminal-proposals.js'
@@ -15,11 +14,8 @@ import Visualizer from './visualizer.js'
 import MintNft from './mint-nft.js'
 import News from './news.js'
 import Page from './page.js'
-//import Static from './static.js'
-//import EnterTransition from './enter-transition.js'
-//import Screen from './screen.js'
-//import Introduction from './introduction.js'
 import UserInterface, { Pane, PaneRow, Sidebar } from './user-interface.js'
+
 //import styles from '../styles/components/interface.module.sass'
 
 import dynamic from 'next/dynamic'

@@ -10,10 +10,10 @@ export default class Splash extends React.Component {
     $('body').removeClass('entered');
 
     const MESSAGES = [];
-    MESSAGES.push({delay:0,    text:"Our DAO is geared toward the advancement"});
-    MESSAGES.push({delay:1200, text:"of a more decentralized society and provide"});
-    MESSAGES.push({delay:2200, text:"the means to fund projects without censorship"});
-    MESSAGES.push({delay:3600, text:"from central authorities."});
+    MESSAGES.push({delay:0,    text:"The Anarchist Development DAO is geared toward"});
+    MESSAGES.push({delay:1200, text:"the rapid advancement of a more decentralized"});
+    MESSAGES.push({delay:2200, text:"society while providing the means to fund projects"});
+    MESSAGES.push({delay:3600, text:"without censorship from central authorities."});
     //MESSAGES.push({delay:5200, text:"from central authorities."});
 
     const $container = $("#introductionWrapper");
