@@ -250,6 +250,12 @@ export default function Directory(props) {
             </Link>
           </li>
 
+          <li data-current={ widgets == "training" ? 'true' : 'false' }>
+            <Link className="anchor" href="/training">
+              <a>{folder}<span>library</span>{arrow}</a>
+            </Link>
+          </li>
+
           <li>
             <a href="https://anarchistdevelopmentdao.gitbook.io/anarchist-development-dao/" rel="noreferrer" target="_blank">
               <span>faq.gitbook</span>

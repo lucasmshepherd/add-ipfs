@@ -14,6 +14,7 @@ import Visualizer from './visualizer.js'
 import MintNft from './mint-nft.js'
 import News from './news.js'
 import Page from './page.js'
+import Learn from './learn.js'
 import UserInterface, { Pane, PaneRow, Sidebar } from './user-interface.js'
 
 //import styles from '../styles/components/interface.module.sass'
@@ -33,7 +34,7 @@ export default function Interface(props) {
           <Pane>
             <PaneRow name="primary">
               <Widget type="terminal" title="terminal_" icon="globe">
-                <Terminal page={page} />
+                <Terminal />
               </Widget>
             </PaneRow>
             <PaneRow name="secondary">
@@ -179,9 +180,49 @@ export default function Interface(props) {
     )
   }
 
+  else if (page == "training") {
+    return (
+      <> 
+        <UserInterface layout={page}>
+          <Pane>
+            <PaneRow name="primary">
+              <Widget type={page} title="training_" icon="triangles">
+                <Learn />
+              </Widget>
+            </PaneRow>
+          </Pane>
+          <Sidebar>
+            <PaneRow name="fill">
+              <Widget type="menu" title="dir_nav_" icon="triangles">
+                <Directory widgets={page} />
+              </Widget>
+            </PaneRow>
+            <PaneRow name="small">
+              <Widget type="audio" title="freq_v_" icon="arc">
+                <Visualizer />
+              </Widget>
+            </PaneRow>
+            <PaneRow>
+              <Widget type="social" title="social_" icon="globe">
+                <Social />
+              </Widget>
+            </PaneRow>
+          </Sidebar>
+        </UserInterface>
+      </>
+    )
+  }
+
   else if (page == "mint") {
     return (
       <> 
+        <audio id="mech-glitch" preload="auto">
+          <source src="/assets/audio/gizmo-glitch.ogg" type="audio/ogg"/>
+          <source src="/assets/audio/gizmo-glitch.aac" type="audio/aac"/>
+          <source src="/assets/audio/gizmo-glitch.mp3" type="audio/mpeg"/>
+          <source src="/assets/audio/gizmo-glitch.m4a" type="audio/mp4"/>
+          Your browser does not support the audio tag.
+        </audio>
         <UserInterface layout={page}>
           <Pane>
             <PaneRow name="primary">

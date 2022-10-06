@@ -32,10 +32,10 @@ export default function MintNft(props) {
         </div>
         <div className={styles.content}>
           <h3 className={styles.title}><span className="glitchme" data-text={tierText}>{tierText}</span></h3>
-          <div className={styles.text}>{content}</div>
           <div className={styles.price}>
             {price} ETH
           </div>
+          <div className={styles.text}>{content}</div>
           <a href="#" className="button">PURCHASE NFT</a>
         </div>
       </div>

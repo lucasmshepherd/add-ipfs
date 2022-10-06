@@ -49,6 +49,8 @@
       cursor: url('/assets/images/cursor.svg'), auto
     .foot
       display: none
+  &[data-widget="training"]
+    flex: 0 1 100%
 
 .title
   flex: 0 0 32px
@@ -218,6 +220,9 @@
   &[data-feed="menu"]
     .scroll
       padding: 10px
+
+  &[data-feed="training"]
+    flex: 0 1 auto
 
 @keyframes tube-flicker
   to
