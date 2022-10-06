@@ -12,6 +12,7 @@
     "test": "npm run build && playwright test tests"
   },
   "dependencies": {
+    "eris": "^0.17.1",
     "html-react-parser": "^3.0.1",
     "ipfs-core": "^0.15.2",
     "jquery": "^3.6.0",
