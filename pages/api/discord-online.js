@@ -12,6 +12,7 @@ export default function handler(req, res) {
 
   fetch("https://discordapp.com/api/guilds/1001818021049929800/widget.json", requestOptions)
     .then(response => response.json())
+    //.then(result => console.log(result))
     .then(result => res.status(200).send(result))
     .catch(error => console.log('error', error));
 }

@@ -14,6 +14,7 @@ import Visualizer from './visualizer.js'
 import MintNft from './mint-nft.js'
 import News from './news.js'
 import Online from './online.js'
+import Feed from './feed.js'
 import Page from './page.js'
 import Learn from './learn.js'
 import UserInterface, { Pane, PaneRow, Sidebar } from './user-interface.js'
@@ -39,11 +40,11 @@ export default function Interface(props) {
               </Widget>
             </PaneRow>
             <PaneRow name="secondary">
-              <Widget type="terminal" title="discord?_" icon="arc">
-                <i>connect to discord API<br/>BSaaz73pJD</i>
+            <Widget type="discord" title="recent_news_" icon="triangles">
+                {/*<News />*/}
               </Widget>
-              <Widget type="files" title="dir_" icon="arc">
-                <Files />
+              <Widget type="discord" title="online_mem_" icon="triangles">
+                {/*<Online />*/}
               </Widget>
             </PaneRow>
           </Pane>
@@ -271,11 +272,8 @@ export default function Interface(props) {
               </Widget>
             </PaneRow>
             <PaneRow name="secondary">
-              <Widget type="discord" title="recent_news_" icon="triangles">
-                <News />
-              </Widget>
-              <Widget type="discord" title="online_mem_" icon="triangles">
-                <Online />
+              <Widget type="rss" title="rss_feeds_" icon="triangles">
+                <Feed />
               </Widget>
             </PaneRow>
           </Pane>
