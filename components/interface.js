@@ -13,6 +13,7 @@ import Social from './social.js'
 import Visualizer from './visualizer.js'
 import MintNft from './mint-nft.js'
 import News from './news.js'
+import Online from './online.js'
 import Page from './page.js'
 import Learn from './learn.js'
 import UserInterface, { Pane, PaneRow, Sidebar } from './user-interface.js'
@@ -270,8 +271,11 @@ export default function Interface(props) {
               </Widget>
             </PaneRow>
             <PaneRow name="secondary">
-              <Widget type="news" title="recent_news_" icon="triangles">
+              <Widget type="discord" title="recent_news_" icon="triangles">
                 <News />
+              </Widget>
+              <Widget type="discord" title="online_mem_" icon="triangles">
+                <Online />
               </Widget>
             </PaneRow>
           </Pane>
