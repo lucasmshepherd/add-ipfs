@@ -41,10 +41,10 @@ export default function Interface(props) {
             </PaneRow>
             <PaneRow name="secondary">
             <Widget type="discord" title="recent_news_" icon="triangles">
-                {/*<News />*/}
+                <News />
               </Widget>
               <Widget type="discord" title="online_mem_" icon="triangles">
-                {/*<Online />*/}
+                <Online />
               </Widget>
             </PaneRow>
           </Pane>
@@ -136,6 +136,39 @@ export default function Interface(props) {
             <PaneRow name="fill">
               <Widget type="files" title="files_" icon="triangles">
                 <Files />
+              </Widget>
+            </PaneRow>
+            <PaneRow>
+              <Widget type="social" title="social_" icon="globe">
+                <Social />
+              </Widget>
+            </PaneRow>
+          </Sidebar>
+        </UserInterface>
+      </>
+    )
+  }
+
+  else if (page == "donate") {
+    return (
+      <> 
+        <UserInterface layout={page}>
+          <Pane>
+            <PaneRow name="primary">
+              <Widget type={page} title="donations_" icon="globe">
+                {/*<Donate />*/}
+              </Widget>
+            </PaneRow>
+          </Pane>
+          <Sidebar>
+            <PaneRow name="fill">
+              <Widget type="menu" title="dir_nav_" icon="triangles">
+                <Directory widgets={page} />
+              </Widget>
+            </PaneRow>
+            <PaneRow name="small">
+              <Widget type="audio" title="freq_v_" icon="arc">
+                <Visualizer />
               </Widget>
             </PaneRow>
             <PaneRow>

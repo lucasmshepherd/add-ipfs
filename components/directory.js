@@ -7,7 +7,7 @@ import parse from 'html-react-parser'
 import styles from '../styles/components/directory.module.sass'
 
 export default function Directory(props) {
-  var folder, arrow, lock, exlink, barrow, down
+  var folder, arrow, lock, exlink, barrow, down, wallet
   const dispatch = useDispatch();
   const connected = useSelector((state) => state.users.connected);
   const widgets = props.widgets
@@ -21,7 +21,7 @@ export default function Directory(props) {
   exlink = parse('<svg class="icon-xlink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 135"><rect y="120" width="15" height="15"/><rect x="15" y="105" width="15" height="15"/><rect x="30" y="90" width="15" height="15"/><rect x="45" y="75" width="15" height="15"/><rect x="60" y="60" width="15" height="15"/><rect x="75" y="45" width="15" height="15"/><rect x="90" y="30" width="15" height="15"/><polygon points="135 0 135 60 120 60 120 30 105 30 105 14.99 75 14.99 75 0 135 0"/></svg>')
   barrow = parse('<svg class="icon-barrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 135"><polygon points="0 120 0 135 135 135 135 0 119.94 0 119.94 120 60 120 60 75 45 75 45 90 30 90 30 105 15 105 15 120 0 120"/></svg>')
   down = parse('<svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 135"><polygon points="135 120 135 135 0 135 0 0 15.06 0 15.06 120 75 120 75 75 90 75 90 90 105 90 105 105 120 105 120 120 135 120"/></svg>')
-  
+  wallet = parse('<svg class="icon-wallet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 135"><rect x="120" y="30" width="15" height="90"/><polygon points="119.48 120 119.48 135 15 135 15 120 90 120 90 45 105 45 105 120 119.48 120"/><polygon points="90 30 90 45 15 45 15 120 0 120 0 30 15 30 15 15 30 15 30 30 90 30"/><rect x="30" width="75" height="15"/><rect x="105" y="15" width="15" height="15"/></svg>')
 
   if(widgets == 'freedom') {
     return (
@@ -66,15 +66,9 @@ export default function Directory(props) {
             </Link>
           </li>
 
-          <li data-child="true">
+          <li data-child="true" className={styles.sitegoo}>
             <a href="#" rel="noreferrer" target="_blank">{exlink}
               <span>purchase_add_on_uniswap</span>
-            </a>
-          </li>
-
-          <li data-child="true">
-            <a href="#" rel="noreferrer" target="_blank">{exlink}
-              <span>donate</span>
             </a>
           </li>
 
@@ -228,29 +222,35 @@ export default function Directory(props) {
           
           <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
             <Link className="anchor" href="/transition">
-              <a>{folder}<span>dapp</span>{arrow}</a>
+              <a>{wallet}<span>dapp</span>{arrow}</a>
             </Link>
           </li>
           
           <li data-connected={connected} data-current={ widgets == "mint" ? 'true' : 'false' }>
             <Link className="anchor" href="/mint">
-              <a>{folder}<span>mint_nft</span>{arrow}</a>
+              <a>{wallet}<span>mint_nft</span>{arrow}</a>
+            </Link>
+          </li>
+
+          <li data-current={ widgets == "donate" ? 'true' : 'false' }>
+            <Link className="anchor" href="/donate">
+              <a>{wallet}<span>donate</span>{arrow}</a>
             </Link>
           </li>
           
-          <li data-current={ widgets == "manifesto" ? 'true' : 'false' }>
+          <li className={styles.sitego} data-current={ widgets == "manifesto" ? 'true' : 'false' }>
             <Link className="anchor" href="/manifesto">
               <a>{folder}<span>manifesto</span>{arrow}</a>
             </Link>
           </li>
 
-          <li data-current={ widgets == "tv" ? 'true' : 'false' }>
+          <li className={styles.sitego} data-current={ widgets == "tv" ? 'true' : 'false' }>
             <Link className="anchor" href="/tv">
               <a>{folder}<span>anarchist_tv</span>{arrow}</a>
             </Link>
           </li>
 
-          <li data-current={ widgets == "training" ? 'true' : 'false' }>
+          <li className={styles.sitego} data-current={ widgets == "training" ? 'true' : 'false' }>
             <Link className="anchor" href="/training">
               <a>{folder}<span>library</span>{arrow}</a>
             </Link>
