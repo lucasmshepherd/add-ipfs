@@ -8,7 +8,7 @@ export default function News() {
   const { data, error } = useSWR('/api/discord-latest', fetcher)
 
   if (error) return <div>Failed to load</div>
-  if (!data) return <div>Loading...</div>
+  if (!data) return <div>Loading...</div> 
 
   return (
     <div className={styles.article}>
