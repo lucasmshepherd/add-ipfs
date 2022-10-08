@@ -1,7 +1,7 @@
 {
+  "currentTeam": "team_ohJ7GuKdxOGa1DAi7s95VLV4",
   "headers": [
     {
-      "currentTeam": "team_ohJ7GuKdxOGa1DAi7s95VLV4",
       "source": "/api/(.*)",
       "headers": [
         { "key": "Access-Control-Allow-Credentials", "value": "true" },
