@@ -1,5 +1,4 @@
-
-export default function handler(req, res) {
+export default async function handler(req, res) {
   var myHeaders = new Headers();
   myHeaders.append("Authorization", "Bot MTAyNzQ5MTk2NzYwNjcyMjU5MQ.GWbxtJ.qzjftXxrub8UeMzWLg5XJp8KRk1G89YRGPMX-8");
   myHeaders.append("Cookie", "__dcfduid=ff19bcca457611edb6f566e4cd123cf2; __sdcfduid=ff19bcca457611edb6f566e4cd123cf27195b43c64e57f842df4a2afa8d0b8a17afc8816d33b612a6372eeaf3cfdd7de");
@@ -9,10 +8,20 @@ export default function handler(req, res) {
     headers: myHeaders,
     redirect: 'follow'
   };
-
-  fetch("https://discordapp.com/api/guilds/1001818021049929800/widget.json", requestOptions)
-    .then(response => response.json())
-    //.then(result => console.log(result))
-    .then(result => res.status(200).send(result))
-    .catch(error => console.log('error', error));
+  return new Promise(async (resolve) => {
+    switch (req.method) {
+      case "GET": {
+        try {
+          let response = await fetch("https://discordapp.com/api/guilds/1001818021049929800/widget.json", requestOptions);
+          res.status(200).send(await response.json());
+          return resolve();
+        } catch (error) {
+          res.status(500).end();
+          return resolve();
+        }
+      }
+    }
+    res.status(405).end();
+    return resolve();
+  });
 }
