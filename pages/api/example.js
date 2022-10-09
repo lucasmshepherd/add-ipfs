@@ -1,3 +1,3 @@
 export default function handler(req, res) {
-  res.status(200).json({ example: 'Test Resonse' })
+  res.status(200).json({ example: 'Test Resonser' })
 }
