@@ -6,7 +6,7 @@
     "clean": "rimraf ./dist ./.next",
     "dev": "next dev",
     "build": "next build && next export -o dist",
-    "deploy": "next build && next start",
+    "deploy": "next build",
     "serve": "npm run dev",
     "start": "next start",
     "lint": "next lint",
