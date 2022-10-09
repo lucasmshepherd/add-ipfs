@@ -1,12 +1,12 @@
-export default async function handler(req, res) {
-  const result = await resolveAfter2Seconds();
-  res.status(200).json({  result })
-}
+import { NextApiRequest, NextApiResponse } from 'next';
 
-function resolveAfter2Seconds() {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve('test async');
-    }, 2000);
+export default function handler(
+  request,
+  response,
+) {
+  response.status(200).json({
+    body: request.body,
+    query: request.query,
+    cookies: request.cookies,
   });
 }
