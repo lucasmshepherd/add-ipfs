@@ -174,7 +174,7 @@ export default function Interface(props) {
               </Widget>
             </PaneRow>
             <PaneRow name="fill">
-              <Widget type="social" title="social_" icon="globe">
+              <Widget type="social" title="donate_" icon="globe">
                 <Donater />
               </Widget>
             </PaneRow>
