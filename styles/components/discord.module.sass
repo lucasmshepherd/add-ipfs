@@ -2,11 +2,13 @@
 
 .article
   display: block
-  margin-bottom: 50px
+  & > div
+    hr:last-child
+      display: none
   h2
     color: $color_5
     margin-top: -20px
-    margin-bottom: 0
+    margin-bottom: 20px
   .date
     color: rgba(255,255,255,.5)
   p

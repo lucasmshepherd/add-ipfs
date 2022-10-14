@@ -1,11 +1,14 @@
 //state
 import { createStore, applyMiddleware, combineReducers } from 'redux'
+//import { legacy_createStore as createStore } from 'redux'
 import { HYDRATE, createWrapper } from 'next-redux-wrapper'
 import users from './users/reducer'
+import music from './music/reducer'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 const combinedReducer = combineReducers({
-  users,
+  users, 
+  music
 })
 
 const masterReducer = (state, action) => {
@@ -14,6 +17,9 @@ const masterReducer = (state, action) => {
       ...state,
       users: {
         connected: state.users.connected
+      },
+      music: {
+        playing: state.music.playing
       }
     }
     return nextState

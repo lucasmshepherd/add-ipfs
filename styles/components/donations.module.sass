@@ -1,0 +1,65 @@
+@import '/styles/variables.sass'
+
+.donatebg
+  background: url('/assets/images/banner-donations.jpg') no-repeat 50% 0
+  position: absolute
+  background-size: cover
+  height: 300px
+  width: 100%
+  opacity: .5
+  @media(max-width: 1200px)
+    background-position: 20% -160px
+  @media(max-width: 600px)
+    background-position: 50% -160px
+
+.donatebgglitch
+  background: url('https://media.giphy.com/media/MfLZdaDjjTxaU/giphy.gif')
+  background-position: center
+  background-repeat: no-repeat
+  background-size: cover
+  /*effect*/
+  mix-blend-mode: color
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  filter: hue-rotate(220deg)
+
+.donations
+  position: relative
+  padding: 150px 60px
+  height: 300px
+  font-size: 16px
+  line-height: 1.6
+  width: 100%
+  max-width: 600px
+  @media(max-width: 600px)
+    padding-left: 30px
+    padding-right: 30px
+
+.title
+  font-family: $font_title
+  font-size: 58px
+  line-height: 1
+  margin-bottom: 15px
+  color: $color_3
+  mix-blend-mode: color-dodge
+  @media(max-width: 600px)
+    font-size: 42px
+
+p.subtitle
+  margin-top: 0
+  //color: $color_4
+  font-size: 18px
+  font-style: italic
+  letter-spacing: .08em
+
+.divider
+  margin-left: 0
+  border-color: rgba(255,255,255,.12)
+  border-width: 2px
+  margin: 5px 0 50px
+
+.content
+  padding: 30px 60px 30px

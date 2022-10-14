@@ -2,10 +2,10 @@ import Image from 'next/image'
 import styles from '../styles/components/page.module.sass'
 import Beznos from '../public/assets/images/beznos.jpg'
 
-export default function Page(props) {
+export default function Manifesto(props) {
   return (
     <>
-      <div className={styles.hoodiebg}></div>
+      <div className={styles.hoodiebg}><div className={styles.bgglitch}>&nbsp;</div></div>
       <div className={styles.manifesto}>
         <h2 className={styles.title}>Anarchy</h2>
         <p className={styles.subtitle}>{"an ¬ ar ¬ chy  |  ˈa-nər-kē , -ˌnär-"}</p>

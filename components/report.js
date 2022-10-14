@@ -20,7 +20,7 @@ export default function Report() {
           <div className={styles.cell}>0</div>
         </div>
         <div className={styles.row}>
-          <div className={styles.cell}>projects fundded in ETH</div>
+          <div className={styles.cell}>projects funded in ETH</div>
           <div className={styles.cell}>0</div>
         </div>
         <div className={styles.row}>

@@ -1,6 +1,4 @@
 import { useRouter } from 'next/router'
-import { loginUser } from '../store/users/action'
-import { wrapper } from '../store/store'
 import Source from '../components/source.js'
 import Interface from '../components/interface.js'
 import Delay from '../components/delay.js'
@@ -23,9 +21,5 @@ const Index = (props) => {
     </>
   )
 }
-
-export const getStaticProps = wrapper.getStaticProps((store) => () => {
-  store.dispatch(loginUser())
-})
 
 export default Index

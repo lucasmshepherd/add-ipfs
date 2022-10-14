@@ -1,7 +1,7 @@
 import { Html, Head, Main, NextScript } from 'next/document'
-import IpfsComponent from '../components/ipfs'
 
 export default function Document() {
+  
   return (
     
     <Html lang="en">
@@ -9,7 +9,6 @@ export default function Document() {
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet" />
       </Head>
       <body>
-        {/*<div className="glitch-bg-image"></div>*/}
         <div className="monitor-effect-overlay"></div>
         <Main />
         <NextScript />

@@ -40,9 +40,11 @@
     height: 68px
 
 .logo
+  position: relative
   margin: 0
   padding: 0
   line-height: 0
+  user-select: none
   a
     display: inline-block
 
@@ -100,7 +102,26 @@
   a:active
     color: $color_3
   &[data-connected="true"]
-    cursor: default
+    //cursor: default
 
   @media(max-width: 700px)
     display: none
+
+.audio
+  //outline: 1px solid yellow
+  width: 48px
+  height: 48px
+  fill: $color_5
+  position: absolute
+  left: 100%
+  top: 50%
+  margin: -24px 0 0 0
+  cursor: pointer
+  line-height: 48px
+  text-align: center
+
+  span
+    position: absolute!important
+    top: 50%
+    left: 50%
+    transform: translate(-50%,-50%)

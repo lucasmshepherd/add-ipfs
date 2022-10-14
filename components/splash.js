@@ -152,8 +152,9 @@ export default class Splash extends React.Component {
 
           <div className={styles.wrapper} id="introductionWrapper">
             <div className={styles.introduction} id="introduction">
-              {/*<span id="introductionAnimate">Animate</span>*/}
+
             </div>
+            <Link href="/welcome"><div className="button close-splash">Press Enter</div></Link>
           </div>
         </div>
       </>

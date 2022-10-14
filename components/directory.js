@@ -37,6 +37,20 @@ export default function Directory(props) {
     )
   }
 
+  else if(widgets == 'donate') {
+    return (
+      <> 
+        <ul id="menu" className={styles.menu}>
+          <li data-current={ widgets == "home" ? 'true' : 'false' }>
+            <Link className="anchor" href="/welcome">
+              <a><span>back</span>{arrow}</a>
+            </Link>
+          </li>
+        </ul>
+      </>
+    )
+  }
+
   else if (widgets == 'dapp') {
     return (
       <> 

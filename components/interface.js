@@ -15,7 +15,9 @@ import MintNft from './mint-nft.js'
 import News from './news.js'
 import Online from './online.js'
 import Feed from './feed.js'
-import Page from './page.js'
+import Manifesto from './manifesto.js'
+import Donations from './donations.js'
+import Donater from './donater.js'
 import Learn from './learn.js'
 import UserInterface, { Pane, PaneRow, Sidebar } from './user-interface.js'
 
@@ -49,15 +51,15 @@ export default function Interface(props) {
             </PaneRow>
           </Pane>
           <Sidebar>
+            <PaneRow name="small">
+              <Widget type="audio" title="freq_v_" icon="triangles">
+                <Visualizer />
+              </Widget>
+            </PaneRow>
             <PaneRow>
               <span className="close-menu">close</span>
               <Widget type="menu" title="dir_nav_" icon="triangles">
                 <Directory widgets={page} />
-              </Widget>
-            </PaneRow>
-            <PaneRow name="small">
-              <Widget type="audio" title="freq_v_" icon="triangles">
-                <Visualizer />
               </Widget>
             </PaneRow>
             <PaneRow name="fill">
@@ -88,15 +90,15 @@ export default function Interface(props) {
             </PaneRow>
 
           </Pane>
+          <PaneRow name="small">
+              <Widget type="audio" title="freq_v_" icon="arc">
+                <Visualizer />
+              </Widget>
+            </PaneRow>
           <Sidebar>
             <PaneRow name="fill">
               <Widget type="menu" title="dir_nav_" icon="triangles">
                 <Directory widgets={page} />
-              </Widget>
-            </PaneRow>
-            <PaneRow name="small">
-              <Widget type="audio" title="freq_v_" icon="arc">
-                <Visualizer />
               </Widget>
             </PaneRow>
             <PaneRow>
@@ -156,24 +158,24 @@ export default function Interface(props) {
           <Pane>
             <PaneRow name="primary">
               <Widget type={page} title="donations_" icon="globe">
-                {/*<Donate />*/}
+                <Donations />
               </Widget>
             </PaneRow>
           </Pane>
           <Sidebar>
-            <PaneRow name="fill">
-              <Widget type="menu" title="dir_nav_" icon="triangles">
-                <Directory widgets={page} />
-              </Widget>
-            </PaneRow>
             <PaneRow name="small">
               <Widget type="audio" title="freq_v_" icon="arc">
                 <Visualizer />
               </Widget>
             </PaneRow>
             <PaneRow>
+              <Widget type="menu" title="dir_nav_" icon="triangles">
+                <Directory widgets={page} />
+              </Widget>
+            </PaneRow>
+            <PaneRow name="fill">
               <Widget type="social" title="social_" icon="globe">
-                <Social />
+                <Donater />
               </Widget>
             </PaneRow>
           </Sidebar>
@@ -189,19 +191,19 @@ export default function Interface(props) {
           <Pane>
             <PaneRow name="primary">
               <Widget type={page} title="manifesto_" icon="triangles">
-                <Page />
+                <Manifesto />
               </Widget>
             </PaneRow>
           </Pane>
           <Sidebar>
-            <PaneRow name="fill">
-              <Widget type="menu" title="dir_nav_" icon="triangles">
-                <Directory widgets={page} />
-              </Widget>
-            </PaneRow>
             <PaneRow name="small">
               <Widget type="audio" title="freq_v_" icon="arc">
                 <Visualizer />
+              </Widget>
+            </PaneRow>
+            <PaneRow name="fill">
+              <Widget type="menu" title="dir_nav_" icon="triangles">
+                <Directory widgets={page} />
               </Widget>
             </PaneRow>
             <PaneRow>
@@ -227,14 +229,14 @@ export default function Interface(props) {
             </PaneRow>
           </Pane>
           <Sidebar>
-            <PaneRow name="fill">
-              <Widget type="menu" title="dir_nav_" icon="triangles">
-                <Directory widgets={page} />
-              </Widget>
-            </PaneRow>
             <PaneRow name="small">
               <Widget type="audio" title="freq_v_" icon="arc">
                 <Visualizer />
+              </Widget>
+            </PaneRow>
+            <PaneRow name="fill">
+              <Widget type="menu" title="dir_nav_" icon="triangles">
+                <Directory widgets={page} />
               </Widget>
             </PaneRow>
             <PaneRow>
@@ -273,14 +275,14 @@ export default function Interface(props) {
             </PaneRow>
           </Pane>
           <Sidebar>
-            <PaneRow>
-              <Widget type="menu" title="dir_nav_" icon="triangles">
-                <Directory widgets={page} />
-              </Widget>
-            </PaneRow>
             <PaneRow name="small">
               <Widget type="audio" title="freq_v_" icon="arc">
                 <Visualizer />
+              </Widget>
+            </PaneRow>
+            <PaneRow>
+              <Widget type="menu" title="dir_nav_" icon="triangles">
+                <Directory widgets={page} />
               </Widget>
             </PaneRow>
             <PaneRow name="fill">
@@ -311,14 +313,14 @@ export default function Interface(props) {
             </PaneRow>
           </Pane>
           <Sidebar>
-            <PaneRow>
-              <Widget type="menu" title="dir_nav_" icon="triangles">
-                <Directory widgets={page} />
-              </Widget>
-            </PaneRow>
             <PaneRow name="small">
               <Widget type="audio" title="freq_v_" icon="arc">
                 <Visualizer />
+              </Widget>
+            </PaneRow>
+            <PaneRow>
+              <Widget type="menu" title="dir_nav_" icon="triangles">
+                <Directory widgets={page} />
               </Widget>
             </PaneRow>
             <PaneRow name="fill">
@@ -344,14 +346,14 @@ export default function Interface(props) {
             </PaneRow>
           </Pane>
           <Sidebar>
-            <PaneRow>
-              <Widget type="menu" title="dir_nav_" icon="triangles">
-                <Directory widgets={page} />
-              </Widget>
-            </PaneRow>
             <PaneRow name="small">
               <Widget type="audio" title="freq_v_" icon="arc">
                 <Visualizer />
+              </Widget>
+            </PaneRow>
+            <PaneRow>
+              <Widget type="menu" title="dir_nav_" icon="triangles">
+                <Directory widgets={page} />
               </Widget>
             </PaneRow>
             <PaneRow name="fill">
@@ -377,14 +379,14 @@ export default function Interface(props) {
             </PaneRow>
           </Pane>
           <Sidebar>
-            <PaneRow>
-              <Widget type="menu" title="dir_nav_" icon="triangles">
-                <Directory widgets={page} />
-              </Widget>
-            </PaneRow>
             <PaneRow name="small">
               <Widget type="audio" title="freq_v_" icon="arc">
                 <Visualizer />
+              </Widget>
+            </PaneRow>
+            <PaneRow>
+              <Widget type="menu" title="dir_nav_" icon="triangles">
+                <Directory widgets={page} />
               </Widget>
             </PaneRow>
             <PaneRow name="fill">
@@ -410,14 +412,14 @@ export default function Interface(props) {
             </PaneRow>
           </Pane>
           <Sidebar>
-            <PaneRow>
-              <Widget type="menu" title="dir_nav_" icon="triangles">
-                <Directory widgets={page} />
-              </Widget>
-            </PaneRow>
             <PaneRow name="small">
               <Widget type="audio" title="freq_v_" icon="arc">
                 <Visualizer />
+              </Widget>
+            </PaneRow>
+            <PaneRow>
+              <Widget type="menu" title="dir_nav_" icon="triangles">
+                <Directory widgets={page} />
               </Widget>
             </PaneRow>
             <PaneRow name="fill">
@@ -443,14 +445,14 @@ export default function Interface(props) {
             </PaneRow>
           </Pane>
           <Sidebar>
-            <PaneRow>
-              <Widget type="menu" title="dir_nav_" icon="triangles">
-                <Directory widgets={page} />
-              </Widget>
-            </PaneRow>
             <PaneRow name="small">
               <Widget type="audio" title="freq_v_" icon="arc">
                 <Visualizer />
+              </Widget>
+            </PaneRow>
+            <PaneRow>
+              <Widget type="menu" title="dir_nav_" icon="triangles">
+                <Directory widgets={page} />
               </Widget>
             </PaneRow>
             <PaneRow name="fill">
@@ -476,14 +478,14 @@ export default function Interface(props) {
             </PaneRow>
           </Pane>
           <Sidebar>
-            <PaneRow>
-              <Widget type="menu" title="dir_nav_" icon="triangles">
-                <Directory widgets={page} />
-              </Widget>
-            </PaneRow>
             <PaneRow name="small">
               <Widget type="audio" title="freq_v_" icon="arc">
                 <Visualizer />
+              </Widget>
+            </PaneRow>
+            <PaneRow>
+              <Widget type="menu" title="dir_nav_" icon="triangles">
+                <Directory widgets={page} />
               </Widget>
             </PaneRow>
             <PaneRow name="fill">
@@ -509,14 +511,14 @@ export default function Interface(props) {
             </PaneRow>
           </Pane>
           <Sidebar>
-            <PaneRow>
-              <Widget type="menu" title="dir_nav_" icon="triangles">
-                <Directory widgets={page} />
-              </Widget>
-            </PaneRow>
             <PaneRow name="small">
               <Widget type="audio" title="freq_v_" icon="arc">
                 <Visualizer />
+              </Widget>
+            </PaneRow>
+            <PaneRow>
+              <Widget type="menu" title="dir_nav_" icon="triangles">
+                <Directory widgets={page} />
               </Widget>
             </PaneRow>
             <PaneRow name="fill">
@@ -546,14 +548,14 @@ export default function Interface(props) {
             </PaneRow>
           </Pane>
           <Sidebar>
-            <PaneRow>
-              <Widget type="menu" title="dir_nav_" icon="triangles">
-                <Directory widgets={page} />
-              </Widget>
-            </PaneRow>
             <PaneRow name="small">
               <Widget type="audio" title="freq_v_" icon="arc">
                 <Visualizer />
+              </Widget>
+            </PaneRow>
+            <PaneRow>
+              <Widget type="menu" title="dir_nav_" icon="triangles">
+                <Directory widgets={page} />
               </Widget>
             </PaneRow>
             <PaneRow name="fill">

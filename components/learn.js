@@ -77,6 +77,11 @@ export default function Learn(props) {
             <span>{doc} </span><b>Decentralized Society Whitepaper</b>
           </a>
         </li>
+        <li>
+          <a href="https://theanarchistlibrary.org/special/index" rel="noreferrer" target="_blank">
+            <span>{exlink} </span><b>The Anarchist Library</b>
+          </a>
+        </li>
       </ul>
     </>
   )

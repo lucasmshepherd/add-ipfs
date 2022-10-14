@@ -78,6 +78,8 @@
   font-size: 58px
   line-height: 1
   margin-bottom: 15px
+  color: $color_3
+  mix-blend-mode: color-dodge
   @media(max-width: 600px)
     font-size: 42px
 
@@ -87,6 +89,8 @@ p.subtitle
   font-size: 18px
   font-style: italic
   letter-spacing: .08em
+  color: $color_3
+  mix-blend-mode: color-dodge
 
 .split
   position: relative
@@ -176,3 +180,17 @@ p.subtitle
       content: "7"
     
   
+
+.bgglitch
+  background: url('https://media.giphy.com/media/MfLZdaDjjTxaU/giphy.gif')
+  background-position: center
+  background-repeat: no-repeat
+  background-size: cover
+  /*effect*/
+  mix-blend-mode: color
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  filter: hue-rotate(250deg) saturate(20%)
