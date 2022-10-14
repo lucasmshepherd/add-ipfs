@@ -7,10 +7,6 @@
   height: 300px
   width: 100%
   opacity: .5
-  @media(max-width: 1200px)
-    background-position: 20% -160px
-  @media(max-width: 600px)
-    background-position: 50% -160px
 
 .donatebgglitch
   background: url('https://media.giphy.com/media/MfLZdaDjjTxaU/giphy.gif')
@@ -40,6 +36,11 @@
 
 .title
   font-family: $font_title
+  font-size: 26px
+  line-height: 1.1
+
+.heading
+  font-family: $font_title
   font-size: 58px
   line-height: 1
   margin-bottom: 15px
@@ -63,6 +64,8 @@ p.subtitle
 
 .content
   padding: 30px 60px 30px
+  @media(max-width: 600px)
+    padding: 0 30px 0
 
 .form
   text-align: center
