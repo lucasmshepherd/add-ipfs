@@ -12,7 +12,7 @@ export default function News() {
   function urlify(text) {
     var urlRegex = /(https?:\/\/[^\s]+)/g;
     return text.replace(urlRegex, function(url) {
-      return '<a rel="noreferrer nofollowe" target="_blank" href="' + url + '">' + url + '</a>';
+      return '[<a rel="noreferrer nofollowe" target="_blank" href="' + url + '">' + 'Click Here' + '</a>]';
     })
   }
 
