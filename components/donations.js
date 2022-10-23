@@ -1,36 +1,29 @@
 import Image from 'next/image'
+// components
+//import Banner from '../public/assets/images/banner-donations.jpg'
+import Donater from './donater.js'
 //styles
 import styles from '../styles/components/donations.module.sass'
 // media
-import Banner from '../public/assets/images/banner-donations.jpg'
 
 export default function Donations(props) {
   return (
     <>
       <div className={styles.donatebg}><div className={styles.donatebgglitch}>&nbsp;</div></div>
       <div className={styles.donations}>
-        <h2 className={styles.heading}>DONATIONS</h2>
+        <h2 className={styles.heading}>FURTHER THE CAUSE</h2>
       </div>
       {/*<Image src={Banner} layout="responsive" priority="true" alt="Anarchist Computer Center" />*/}
-      <div className={styles.content}>
-        <h3 className={styles.title}>Some title goes here</h3>
-
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
-        <hr className={styles.divider} />
-        <h3 className={styles.title}>Some title goes here</h3>
-
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
-        <hr className={styles.divider} />
-        <h3 className={styles.title}>Some title goes here</h3>
-
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
-
-
-        <blockquote>
-          Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
-          <hr/>
-          Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
-        </blockquote>
+      <div className={styles.sidebyside}>
+        <div className={styles.content}>
+          <h3 className={styles.title}>How will your donation be used?</h3>
+          <p>All donations will be used to help build a more decentralized society; this includes but is not limited to supporting existing causes for decentralization while raising awareness of Anarchist Development DAO through every marketing avenue.</p>
+          <p>If you have a preferred cause you would like to support, please let us know by leaving a message along with your donation.</p>
+          <p>There is no minimum or maximum amount of donation required. Enter the amount you wish to donate and pledge a donation. Every fraction of ETH counts! In the future, we plan to accept a variety of cryptocurrencies.</p>
+          <p>Thank you again for the support,</p>
+          <p><b className="glitchme" data-text="Let Anarchy Reign!">Let Anarchy Reign!</b></p>
+        </div>
+        <Donater />
       </div>
     </>
   )

@@ -7,15 +7,12 @@ export default function Donater() {
   return (
     <>
       <form className={styles.form}>
-          <h3>How to Donate</h3>
-          <p>Connect your wallet and enter the amount of ETH you would like to donate.</p>
-          <label>pledge_amount</label>
-          <input type="text" name="amount" placeholder="0.00 ETH" className="eth-input"></input>
+          <h3>Claim ADD</h3>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+          <label>claim</label>
+          <input type="text" name="amount" placeholder="0.00 ADD" value="11,092.54 ADD" className="eth-input"></input>
 
-          <label>note_content</label>
-          <textarea rows="4" name="notes" placeholder="Optional Message"></textarea>
-
-        <button type="submit" className="button-mono">{accent}Pledge Donation</button>
+        <button type="submit" className="button-mono">{accent}Claim ADD</button>
       </form>
     </>
   )

@@ -6,7 +6,7 @@
 
   &[data-connected="true"]
     .balance
-      background-image: url('/assets/images/add-logo-highlight-01.svg')
+      //background-image: url('/assets/images/add-logo-highlight-01.svg')
   
 .bar
   display: block
@@ -54,7 +54,6 @@
   top: 50%
   text-align: center
   transform: translate(-50%, -50%)
-  cursor: pointer
   &:before,
   &:after
     position: absolute
@@ -83,19 +82,109 @@
       left: auto
       right: 115%
       margin-top: 0px
-    
+
+.logout
+  height: 44px
+  width: 44px
+  background-color: darken($color_1,8%)
+  border: 1px solid $color_1
+  //outline: 1px solid yellow
+  //border: 1px solid $color_2
+  box-shadow: 0 2px 4px rgba(0,0,0,.4)
+  cursor: pointer
+  text-align: center
+  position: relative
+  border-radius: 1px
+  transition: 0.3s background-color
+  &:hover
+    background-color: $color_1
+    box-shadow: 0 4px 6px rgba(0,0,0,.3)
+    svg
+      fill: $color_4
+  &:active
+    background-color: lighten($color_1,8%)
+    box-shadow: 0 4px 6px rgba(0,0,0,.3)
+    svg
+      fill: $color_3
+  svg
+    fill: $color_5
+    width: 14px
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%,-50%)
+    transition: 0.3s fill
+
+.login
+  height: 44px
+  width: 44px
+  background-color: $color_1
+  //outline: 1px solid yellow
+  //border: 1px solid $color_2
+  box-shadow: 0 2px 4px rgba(0,0,0,.4)
+  cursor: pointer
+  text-align: center
+  position: relative
+  border-radius: 1px
+  transition: 0.3s background-color
+  &:hover
+    background-color: $color_2
+    box-shadow: 0 4px 6px rgba(0,0,0,.3)
+    svg
+      fill: $color_4
+  &:active
+    background-color: $color_5
+    box-shadow: 0 4px 6px rgba(0,0,0,.3)
+    svg
+      fill: #fff
+  svg
+    fill: $color_5
+    width: 14px
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%,-50%)
+    transition: 0.3s fill
 
 .balance
-  background: url('/assets/images/add-logo.svg') no-repeat 100% 50%
+  //background: url('/assets/images/add-logo.svg') no-repeat 93% 50%
   background-size: 18px
   display: inline-block
-  font-family: $font_scifi
-  text-transform: uppercase
-  text-align: right
-  cursor: pointer
+  font-family: $font_mono
+  //text-transform: uppercase
+  background-color: $color_dark
+  border: 1px solid rgba(255,255,255,.12)
+  border-radius: 1px
   height: 44px
-  line-height: 44px
-  padding-right: 24px
+  line-height: 40px
+  font-size: 24px
+  padding: 0 15px 0 15px
+  letter-spacing: 0.05em
+  position: relative
+  margin-right: 2px
+  .add
+    width: 14px
+    margin-bottom: -2px
+    margin-left: 8px
+    fill: rgba(255,255,255,.2)
+    position: absolute
+    top: 50%
+    right: 10px
+    margin-top: -7px
+  svg
+    fill: $color_4
+    width: 16px
+  label
+    position: absolute
+    top: -8px
+    background-color: $color-dark
+    left: 3px
+    text-transform: uppercase
+    font-size: 14px
+    height: 14px
+    line-height: 14px
+    color: $color_5
+    padding: 0 2px
   a
     transition: 0.3s color
   a:hover,
@@ -109,19 +198,54 @@
 
 .audio
   //outline: 1px solid yellow
-  width: 48px
+  width: 140px
   height: 48px
-  fill: $color_5
+  fill: $color_1
   position: absolute
   left: 100%
   top: 50%
-  margin: -24px 0 0 0
+  margin: -24px 0 0 20px
   cursor: pointer
   line-height: 48px
-  text-align: center
 
-  span
+  & > span
     position: absolute!important
     top: 50%
-    left: 50%
+    left: 0
     transform: translate(-50%,-50%)
+
+.visualizer
+  width: 100%
+  overflow: hidden
+  user-select: none
+  position: absolute
+  top: 50%
+  left: 15px
+  width: 120px
+  transform: translateY(-50%)
+  pointer-events: none
+  color: $color_1
+
+  *
+    font-family: monospace, serif
+    font-size: 0.4rem
+
+.vwrapper
+  & > div
+    display: block
+    & > div
+      padding: 0
+      height: 8px
+      line-height: 8px
+
+.identity
+  font-size: 13px
+  line-height: 13px
+  display: block
+  position: absolute
+  font-family: $font_mono
+  top: 1px
+  letter-spacing: 0.07em
+  right: 5px
+  //transform: translateX(-50%)
+  color: rgba(255,255,255,.2)

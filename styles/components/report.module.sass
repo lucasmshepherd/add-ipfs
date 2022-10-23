@@ -5,6 +5,13 @@
   color: $color_5
   line-height: 1.1
   //border: 1px solid $color_5
+  h4
+    margin: 0
+    font-weight: normal
+    color: $color_5
+  span
+    color: #fff
+    font-size: 120%
 
   .row
     //border: 1px solid $color_5
@@ -14,6 +21,9 @@
     justify-content: flex-start
     align-items: stretch
     align-content: stretch
+    position: relative
+    &:last-child
+      border-bottom: 0
   .cell
     display: flex
     flex-flow: column nowrap
@@ -25,6 +35,9 @@
     line-height: .9
     svg
       fill: $color_4!important
+      position: absolute
+      top: 13px
+      right: 5px
     &:nth-child(2)
       border-left: 1px solid $color_5
       font-size: 32px

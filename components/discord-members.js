@@ -11,7 +11,7 @@ export default function Online() {
     const members = data.members
 
     for (let i = 0; i < members.length; i++) {
-      rows.push(<li key={i}>{members[i].username}</li>);
+      rows.push(<li key={i}><span style={{backgroundImage: "url(" + members[i].avatar_url + ")"}}></span>{members[i].username}</li>);
     }
   }
 
@@ -20,7 +20,7 @@ export default function Online() {
 
   return (
     <div className={styles.article}>
-      <h2 className={styles.title}>Members Online</h2>
+      <h3 className={styles.title}>Anarchists Online</h3>
       <ul className={styles.members}>
         {rows}
       </ul>

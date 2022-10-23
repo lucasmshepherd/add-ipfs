@@ -9,7 +9,7 @@ export default class Terminal extends React.Component {
 
     var cursor = $('#cursor');
     var terminal = $('#terminal');
-    var text = ["line secure ... booting sequence 4/4 packets<br/>+++++ access granted +++++<br/><br/>type <a class='onclick' onclick='helpConsole()'>HELP</a> for commands<br/>$> ", ""];
+    var text = ["Anarchist Development DAO<br/>line secure ... booting sequence 4/4 packets<br/>+++++ access granted +++++<br/>type <a class='onclick' onclick='helpConsole()'>HELP</a> for commands<br/>$> ", ""];
     var commandHistory = [];
     var lineY = 1;
     var index = 0;
@@ -60,7 +60,7 @@ export default class Terminal extends React.Component {
     function resetConsole() {
         clearConsole();
         lineY++;
-        text[lineY] = ["Anarchy Development DAO<br/>line secure ... booting sequence 4/4<br/>+++++ access granted +++++<br/>type <a class='onclick-help' onclick='helpConsole()'>HELP</a> for commands"];
+        text[lineY] = ["Anarchist Development DAO<br/>line secure ... booting sequence 4/4<br/>+++++ access granted +++++<br/>type <a class='onclick' onclick='helpConsole()'>HELP</a> for commands"];
         printConsole(text);
     }
 

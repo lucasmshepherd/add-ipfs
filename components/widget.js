@@ -12,44 +12,51 @@ export default function Widget(props) {
   const connected = "false"
   const type = props.type
   const label = props.title
+  const scroll = props.scroll
+  const nopad = props.page
   var icon = props.icon
   let noticeText = ""
+  let video
 
   /*function scrollit() {
     var myDiv = document.getElementById("myDiv");
     myDiv.scrollTop = myDiv.scrollHeight;
   }*/
 
-  if (type == "source") {
-    if (connected == "true") {
-      noticeText = "let anarchy reign"
-    } else {
-      noticeText = "let anarchy reign"
-    }
+  if (icon == "triangles") {
+    icon = Icon1
+  } else if (icon == "globe") {
+    icon = Icon4
+  } else if (icon == "arc") {
+    icon = Icon2
   }
 
-  if (icon == "triangles") {
-    icon = Icon1;
-  } else if (icon == "globe") {
-    icon = Icon4;
-  } else if (icon == "arc") {
-    icon = Icon2;
+  if (type == "discord") {
+    video = ( <video id="videobg" className={styles.videobg} autoPlay muted loop preload="auto">
+                <source src="/assets/video/bg-video2-opt2.mp4" type="video/mp4"/>
+                <source src="/assets/video/bg-video2-opt2.webm" type="video/webm"/>
+                <source src="/assets/video/bg-video2-opt2.ogg" type="video/ogg"/>
+                Your browser does not support the video tag.
+              </video>)
   }
 
   return (
     <>
       <article className={styles.widget} data-widget={type} data-valid={connected}>
+        {video}
         <span className={styles.noticet}>{noticeText}</span>
-        <header className={styles.title}>
-          <span className={styles.icon}>
-            <Image layout="fixed" src={icon} priority="true" alt="ADD" width="22" height="22" />
-          </span>
-          <span className={styles.label}>
-            {label}
-          </span>
-          <div className={styles.indicator} data-state="off"></div>
-        </header>
-        <div className={styles.content} data-feed={type}>
+        { label &&
+          <header className={styles.title}>
+            <span className={styles.icon}>
+              <Image layout="fixed" src={icon} priority="true" alt="ADD" width="22" height="22" />
+            </span>
+            <span className={styles.label}>
+              {label}
+            </span>
+            <div className={styles.indicator} data-state="off"></div>
+          </header>
+        }
+        <div className={styles.content} data-feed={type} data-scroll={scroll} data-nopad={nopad}>
           <div className={styles.scroll}>
             {props.children}
           </div>
@@ -74,7 +81,7 @@ export default function Widget(props) {
             <path d="M25.109 0.15332H22.5303V1.00699H25.109V0.15332Z" fill="white"/>
           </svg>
           <span className="numbers">
-            42659897
+          {Math.floor(Math.random() * 9897)} {Math.floor(Math.random() * 42659897)}
           </span>
         </footer>
       </article>

@@ -9,7 +9,7 @@ export default class Terminal extends React.Component {
 
     var cursor = $('#cursor');
     var terminal = $('#terminal');
-    var text = ["----------------------------------------------<br/>User: Unknown<br/><b>Balance: 0 dADD</b><br/>Claimable ADD: 0<br/>----------------------------------------------<br/>1 Deposit<br/>2 Withdrawal<br/>3 Claim<br/>STAKE - Solidity Connection<br/>$> ", ""];
+    var text = ["-----------------------------------------------------<br/>0x42881D5F526406032A537A51EC9A1513BAD9A5E5<br/>-----------------------------------------------------<br/>1 Deposit<br/>2 Withdrawal<br/>3 Claim<br/>$> ", ""];
     var commandHistory = [];
     var lineY = 1;
     var index = 0;

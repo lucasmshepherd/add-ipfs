@@ -13,7 +13,7 @@ const Index = (props) => {
         <Source />
       </Delay>
       <Delay waitBeforeShow={4000}>
-        <div className="granted" onClick={() => router.push('/dapp')}>
+        <div className="granted" onClick={() => router.push('/stake')}>
           <span className="glitchme" data-text="Access Granted">Access Granted</span>
           <b>Freedom Awaits You.  Click Here.</b>
         </div>

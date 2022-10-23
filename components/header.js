@@ -63,7 +63,7 @@ export default function Header() {
     // display settings
     let repeat_char = '/';
     const filler_char = '-';
-    const char_across = 40;
+    const char_across = 25;
 
     // get the stream from the audio file
     if(isFirefox){
@@ -110,7 +110,7 @@ export default function Header() {
 
           // where the magic happens
           dataArray2.forEach((level, index) => {
-            let levelFloor = Math.floor(level / 7); // lower number equals great amplitude
+            let levelFloor = Math.floor(level / 10); // lower number equals great amplitude
             if (levelFloor > char_across) { levelFloor = char_across; } // ensure it doesn't exceed our limit
             
             let repeatChars = repeat_char.repeat(levelFloor);
@@ -119,7 +119,7 @@ export default function Header() {
             const REMAINING_CHARS = char_across - levelFloor;
             let fillerChars = filler_char.repeat(REMAINING_CHARS);
             
-            ascii_visualizer.innerHTML += `<div class="visualizer--row"><span style="color: #8dc927;">${repeatChars}</span><span style="color:#767676">${fillerChars}</span></div>`
+            ascii_visualizer.innerHTML += `<div class="visualizer--row"><span style="color: #47731b ">${repeatChars}</span><span>${fillerChars}</span></div>`
           });
         }
       };
@@ -141,6 +141,9 @@ export default function Header() {
       {/*<Player />*/}
       <header className={styles.header} data-connected={connected}>
         <div className={styles.bar}>
+          { connected == "true" &&
+            <span className={styles.identity}>0x42881D5F526406032A537A51EC9A1513BAD9A5E5</span>
+          }
           <div className={styles.tab}>
             <svg className={styles.tabg} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 255.17 50.89"><g id="Layer_1-2"><path d="M255.17,0c-4.01,0-9.62,2.35-12.44,5.21l-40,40.47c-2.84,2.87-8.44,5.21-12.44,5.21H64.88c-4.01,0-9.61-2.35-12.44-5.21L12.44,5.21C9.61,2.34,4,0,0,0H255.17Z"/></g></svg>
             <Link href="/"> 
@@ -160,6 +163,22 @@ export default function Header() {
             </Link>
             <div id="audio" className={styles.audio} onClick={audioIsPlaying ? handlePause: handlePlay }>
               <Image layout="fixed" src={audioIconSource} priority="true" alt="ADD" width="14" height="14" />
+              <div id="visualizer" className={styles.visualizer} data-playing={playing}>
+                <div className={styles.vwrapper}>
+                  <div className="visualizer---row-container">
+                    {
+                      [...Array(3),]
+                      .map((value, index) => {
+                        return (
+                          <div className='visualizer--row' key={index}>
+                            <span>-------------------------</span>
+                          </div>
+                        )
+                      })
+                    }
+                  </div>
+                </div>
+              </div>
             </div>
             </h1>
             <Balance />

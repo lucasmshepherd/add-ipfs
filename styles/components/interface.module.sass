@@ -5,7 +5,7 @@
   height: 100%
   max-width: 100%
   position: relative
-  padding-bottom: 30px
+  //padding-bottom: 30px
   &[data-layout]
     display: flex
     flex-flow: row nowrap
@@ -23,6 +23,12 @@
       flex: 1 1 auto
     .side
       flex: 0 0 $sidebar_width
+      .row
+        footer
+          display: none
+      .row:last-child
+        footer
+          display: flex
       
 
 .pane
@@ -56,6 +62,7 @@
   align-items: stretch
   align-content: stretch
   transition: all 0.3s
+  max-width: 320px
 
   @media(max-width: 984px)
     position: fixed

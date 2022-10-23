@@ -1,0 +1,39 @@
+@import '/styles/variables.sass'
+
+.loader
+  background: $color_dark
+  display: block
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  perspective: 800px
+  &:before
+    opacity: .5
+    z-index: -1
+    content: ""
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background: url('/assets/images/hoodie-guy-dark-bg.jpg') no-repeat 50% 50%
+    background-size: cover
+
+.anim
+  svg
+    fill: #fff
+    width: 100px
+    position: absolute
+    top: 50%
+    left: 50%
+    margin: -50px 0 0 -50px
+    animation: rotateMe 2s infinite
+    transform: rotate3d(0, 1, 0, 90deg)
+
+@keyframes rotateMe
+  0%
+    transform: rotate3d(0, 1, 0, 0deg)
+  100%
+    transform: rotate3d(0, 1, 0, 180deg)
