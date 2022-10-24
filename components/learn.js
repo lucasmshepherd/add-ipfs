@@ -9,7 +9,7 @@ export default function Learn(props) {
   doc = (<svg className="icon-doc" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 135"><path d="M120,30V15h-15V0H0V135H135V30h-15ZM15,120V15H90v30h30V120H15Z"/></svg>)
   return (
     <>
-      <h2 className={styles.title}>Anarchist Library</h2>
+      <h2 className={styles.title}>Anarchist Un_iversity</h2>
       <ul className={styles.books}>
         <li>
           <a href="https://theanarchistlibrary.org/library/the-curious-george-brigade-anarchy-in-the-age-of-dinosaurs.pdf" rel="noreferrer" target="_blank">
