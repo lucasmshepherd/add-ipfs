@@ -109,15 +109,15 @@ export default function Directory(props) {
             </Link>
           </li>
 
-          <li data-child="true" data-current={ widgets == "withdrawal" ? 'true' : 'false' }>
-            <Link className="anchor" href="/withdrawal">
-              <a>{down}<span>withdrawal</span>{arrow}</a>
-            </Link>
-          </li>
-
           <li data-child="true" data-current={ widgets == "claim" ? 'true' : 'false' }>
             <Link className="anchor" href="/claim">
               <a>{down}<span>claim</span>{arrow}</a>
+            </Link>
+          </li>
+
+          <li data-child="true" data-current={ widgets == "withdrawal" ? 'true' : 'false' }>
+            <Link className="anchor" href="/withdrawal">
+              <a>{down}<span>withdrawal</span>{arrow}</a>
             </Link>
           </li>
 
@@ -275,7 +275,7 @@ export default function Directory(props) {
 
           <li className={styles.sitego} data-current={ widgets == "tv" ? 'true' : 'false' }>
             <Link className="anchor" href="/tv">
-              <a><span>_tv</span>{arrow}</a>
+              <a><span>_vision</span>{arrow}</a>
             </Link>
           </li>
 
@@ -287,7 +287,7 @@ export default function Directory(props) {
 
           <li>
             <a href="https://anarchistdevelopmentdao.gitbook.io/anarchist-development-dao/" rel="noreferrer" target="_blank">
-              <span>_faq</span>
+              <span>faq.gitbook</span>
             </a>
           </li>
 

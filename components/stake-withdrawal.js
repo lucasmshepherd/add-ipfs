@@ -7,11 +7,12 @@ export default function Donater() {
   return (
     <>
       <form className={styles.form}>
-          <h3>Withdrawal ADD</h3>
+          <h3>Withdrawal Staked ADD</h3>
+          <p>WARNING: This will remove ADD from your staked ADD balance and extinguish a tiny fire in the heart of a budding Anarchist who may have a massive potential for mayhem.</p>
           <label>withdrawal_amount ( <a href="#">set to maximum</a> )</label>
           <input type="text" name="amount" placeholder="0.00 ADD" className="eth-input"></input>
 
-        <button type="submit" className="button-mono">{accent}Withdraw</button>
+        <button type="submit" className="button-mono push-right">{accent}Withdraw</button>
       </form>
     </>
   )

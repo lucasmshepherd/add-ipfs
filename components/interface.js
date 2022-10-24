@@ -18,7 +18,9 @@ import Members from './discord-members.js'
 import Feed from './feed.js'
 import Manifesto from './manifesto.js'
 import Donations from './donations.js'
+import Donations2 from './donations2.js'
 import Donater from './donater.js'
+import DonateId from './donate-id.js'
 import Deposit from './stake-deposit.js'
 import Withdrawal from './stake-withdrawal.js'
 import Claim from './stake-claim.js'
@@ -130,13 +132,13 @@ export default function Interface(props) {
             page == "donate" &&
               <PaneRow name="primary">
                 <Widget type={page} title="donations_" icon="globe" scroll="true" page="true">
-                  <Donations />
+                  <Donations2 />
                 </Widget>
               </PaneRow>
             } {/* manifesto */} { 
             page == "manifesto" &&
               <PaneRow name="primary">
-                <Widget type={page} title="manifesto_" icon="triangles" page="true">
+                <Widget type={page} title="manifesto_" icon="triangles" page="true" scroll="true">
                   <Manifesto />
                 </Widget>
               </PaneRow>
@@ -203,7 +205,7 @@ export default function Interface(props) {
             </PaneRow>
             {/* balances */}
             {(() => {
-              if ( page == "donate" ) { // Donations
+              if ( page == "donateeeee" ) { // Donations
                 return (
                   <PaneRow>
                     <Widget type="donations" title="donate_" icon="globe">

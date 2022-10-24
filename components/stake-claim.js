@@ -8,11 +8,11 @@ export default function Donater() {
     <>
       <form className={styles.form}>
           <h3>Claim ADD</h3>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
-          <label>claim</label>
+          <p>Claim your <b>earned</b> ADD rewards.  This will not affect your staked ADD balance.</p>
+          <label>claim_rewards</label>
           <input type="text" name="amount" placeholder="0.00 ADD" value="11,092.54 ADD" className="eth-input"></input>
 
-        <button type="submit" className="button-mono">{accent}Claim ADD</button>
+        <button type="submit" className="button-mono push-right">{accent}Claim Rewards</button>
       </form>
     </>
   )
