@@ -92,8 +92,8 @@ export default function Directory(props) {
         <ul id="menu" className={styles.menu}>
 
           <li data-current={ widgets == "welcome" ? 'true' : 'false' }>
-            <Link className="anchor" href="/dapp">
-                <a><span>back</span>{arrow}</a>
+            <Link className="anchor" href="/welcome">
+                <a><span>root</span>{arrow}</a>
             </Link>
           </li>
 
