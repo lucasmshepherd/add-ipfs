@@ -22,6 +22,7 @@ import Donations2 from './donations2.js'
 import Donater from './donater.js'
 import DonateId from './donate-id.js'
 import Deposit from './stake-deposit.js'
+import Nfts from './nfts.js'
 import Withdrawal from './stake-withdrawal.js'
 import Claim from './stake-claim.js'
 import Learn from './learn.js'
@@ -82,6 +83,34 @@ export default function Interface(props) {
                       </Widget>
                     </PaneRow>
                   </>
+                )
+              }
+            })()}
+            {(() => {
+              if ( page == "mint" ) {
+                return (
+                  <PaneRow name="primary">
+                    <Widget type={page} title="anarchy_nft_t_1_" icon="triangles">
+                      <MintNft tier="1" />
+                    </Widget>
+                    <Widget type={page} title="anarchy_nft_t_2_" icon="triangles">
+                      <MintNft tier="2" />
+                    </Widget>
+                    <Widget type={page} title="anarchy_nft_t_3_" icon="triangles">
+                      <MintNft tier="3" />
+                    </Widget>
+                  </PaneRow>
+                )
+              }
+            })()}
+            {(() => {
+              if ( page == "nfts" ) {
+                return (
+                  <PaneRow name="primary">
+                    <Widget type={page} title="my_nft_list_" icon="triangles">
+                      <Nfts />
+                    </Widget>
+                  </PaneRow>
                 )
               }
             })()}
@@ -250,7 +279,7 @@ export default function Interface(props) {
             })()}
             {/* Social */}
             {(() => {
-              if ( page == "welcome" || page == "training" || page == "tv" || page == "manifesto" || page == "stake" || page == "deposit" || page == "withdrawal" || page == "claim" ) {
+              if ( page == "welcome" || page == "training" || page == "nfts" || page == "mint" || page == "tv" || page == "manifesto" || page == "stake" || page == "deposit" || page == "withdrawal" || page == "claim" ) {
                 return (
                   <PaneRow>
                     <Widget type="social" title="social_" icon="triangles">
