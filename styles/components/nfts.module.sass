@@ -24,19 +24,27 @@
   display: flex
   flex-flow: row nowrap
   justify-content: flex-start
-  align-items: center
+  align-items: stretch
   border: 2px solid $color_2
   margin-bottom: 2px
+  span
+    word-break: break-all
+  small
+    line-height: 1
+    color: $color_5
+  a
+    color: $color_3
 
   & > *
     border: 1px solid $color_1
     flex: 1 0 100px
-    height: 100px
+    min-height: 100px
     padding: 10px
     &:nth-child(1)
       flex: 0 1 100px
       padding: 0
       text-align: center
       line-height: 100px
+      height: 100px
     &:last-child
       flex: 1 0 200px
