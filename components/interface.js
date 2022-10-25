@@ -31,7 +31,7 @@ import UserInterface, { Pane, PaneRow, Sidebar } from './user-interface.js'
 import { useSelector, useDispatch } from 'react-redux'
 import { loginUser, logoutUser } from '../store/users/action'
 
-//import styles from '../styles/components/discord.module.sass'
+import styles from '../styles/components/interface.module.sass'
 
 import dynamic from 'next/dynamic'
 const Chart = dynamic(() => import('./chart.js'), {
@@ -189,7 +189,7 @@ export default function Interface(props) {
             page == "transition" &&
             <PaneRow name="primary">
               <Widget type="video" title="welcome_" icon="triangles">
-                <video style={{ width: '100%', height: '100%', position: 'absolute' }} autoPlay muted preload="auto">
+                <video className={styles.fullscreen} autoPlay muted loop preload="auto">
                   <source src="/assets/video/extrastatic.mp4" type="video/mp4"/>
                   <source src="/assets/video/extrastatic.webm" type="video/webm"/>
                   Your browser does not support the video tag.
@@ -294,86 +294,7 @@ export default function Interface(props) {
       </>
     )
 
-  if (page == "mint") {
-    return (
-      <> 
-        <audio id="mech-glitch" preload="auto">
-          <source src="/assets/audio/gizmo-glitch.ogg" type="audio/ogg"/>
-          <source src="/assets/audio/gizmo-glitch.aac" type="audio/aac"/>
-          <source src="/assets/audio/gizmo-glitch.mp3" type="audio/mpeg"/>
-          <source src="/assets/audio/gizmo-glitch.m4a" type="audio/mp4"/>
-          Your browser does not support the audio tag.
-        </audio>
-        <UserInterface layout={page}>
-          <Pane>
-            <PaneRow name="primary">
-              <Widget type={page} title="anarchy_nft_t_1_" icon="triangles">
-                <MintNft tier="1" />
-              </Widget>
-              <Widget type={page} title="anarchy_nft_t_2_" icon="triangles">
-                <MintNft tier="2" />
-              </Widget>
-              <Widget type={page} title="anarchy_nft_t_3_" icon="triangles">
-                <MintNft tier="3" />
-              </Widget>
-            </PaneRow>
-          </Pane>
-          <Sidebar>
-            <PaneRow name="small">
-              <Widget type="audio" title="freq_v_" icon="arc">
-                <Visualizer />
-              </Widget>
-            </PaneRow>
-            <PaneRow>
-              <Widget type="menu" title="dir_nav_" icon="triangles">
-                <Directory widgets={page} />
-              </Widget>
-            </PaneRow>
-            <PaneRow name="fill">
-              <Widget type="report" title="num_rep_" icon="triangles">
-                <Report  page={page} />
-              </Widget>
-            </PaneRow>
-          </Sidebar>
-        </UserInterface>
-      </>
-    )
-  }
-
-  if (page == "stake") {
-    return (
-      <> 
-        <UserInterface layout={page}>
-          <Pane>
-            <PaneRow name="primary">
-              <Widget type={page} title="dapp_" icon="triangles">
-                <TerminalStake page={page} />
-              </Widget>
-            </PaneRow>
-          </Pane>
-          <Sidebar>
-            <PaneRow name="small">
-              <Widget type="audio" title="freq_v_" icon="arc">
-                <Visualizer />
-              </Widget>
-            </PaneRow>
-            <PaneRow>
-              <Widget type="menu" title="dir_nav_" icon="triangles">
-                <Directory widgets={page} />
-              </Widget>
-            </PaneRow>
-            <PaneRow name="fill">
-              <Widget type="report" title="num_rep_" icon="triangles">
-                <Report />
-              </Widget>
-            </PaneRow>
-          </Sidebar>
-        </UserInterface>
-      </>
-    )
-  }
-
-  else if (page == "proposals") {
+  if (page == "proposals") {
     return (
       <> 
         <UserInterface layout={page}>
@@ -497,43 +418,6 @@ export default function Interface(props) {
             <PaneRow name="fill">
               <Widget type="report" title="num_rep_" icon="triangles">
                 <Report />
-              </Widget>
-            </PaneRow>
-          </Sidebar>
-        </UserInterface>
-      </>
-    )
-  }
-
-  else if (page == "transition") {
-    return (
-      <> 
-        <UserInterface layout={page}>
-          <Pane>
-            <PaneRow name="primary">
-              <Widget type="video" title="welcome_" icon="triangles">
-                <video style={{ width: '100%', height: '100%', position: 'absolute' }} autoPlay muted preload="auto">
-                  <source src="/assets/video/extrastatic.mp4" type="video/mp4"/>
-                  <source src="/assets/video/extrastatic.webm" type="video/webm"/>
-                  Your browser does not support the video tag.
-                </video>
-              </Widget>
-            </PaneRow>
-          </Pane>
-          <Sidebar>
-            <PaneRow name="small">
-              <Widget type="audio" title="freq_v_" icon="arc">
-                <Visualizer />
-              </Widget>
-            </PaneRow>
-            <PaneRow>
-              <Widget type="menu" title="dir_nav_" icon="triangles">
-                <Directory widgets={page} />
-              </Widget>
-            </PaneRow>
-            <PaneRow name="fill">
-              <Widget type="report" title="num_rep_" icon="triangles">
-                <Report  page={page} />
               </Widget>
             </PaneRow>
           </Sidebar>
