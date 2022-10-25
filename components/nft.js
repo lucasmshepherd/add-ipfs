@@ -25,7 +25,7 @@ export default function Nft(props) {
           <Image src={Media} width="98px" height="98px"  layout="fixed" alt={title} />
         </a>
         <span className={styles.id}>{title}</span>
-        <span className={styles.id}>{status}</span>
+        <span className={styles.id}>Not Staked</span>
         <span className={styles.id}>Purchased 10/01/22</span>
         <span className={styles.id}>Coming soon!</span>
       </li>
@@ -34,7 +34,7 @@ export default function Nft(props) {
           <Image src={Media} width="98px" height="98px"  layout="fixed" alt={title} />
         </a>
         <span className={styles.id}>{title}</span>
-        <span className={styles.id}>Loaned to<br/><small>0x42881D5F526406032A537A51EC9A1513BAD9A5E5</small></span>
+        <span className={styles.id}>Loaned to<br/><small>0x42881D5F526406032A537A51EC9A1513BAD9A5E5</small> for 5 days</span>
         <span className={styles.id}>Purchased 10/01/22<br/>Loaned 10/03/22</span>
         <span className={styles.id}>Coming soon!</span>
       </li>
@@ -43,7 +43,7 @@ export default function Nft(props) {
           <Image src={Media} width="98px" height="98px"  layout="fixed" alt={title} />
         </a>
         <span className={styles.id}>{title}</span>
-        <span className={styles.id}>Submitted for<br/><a href="#">Proposal Details</a></span>
+        <span className={styles.id}>Submitted for<br/><a href="#">AP000192</a></span>
         <span className={styles.id}>Purchased 10/01/22<br/>Proposal 10/12/22</span>
         <span className={styles.id}>Coming soon!</span>
       </li>
@@ -53,7 +53,7 @@ export default function Nft(props) {
         </a>
         <span className={styles.id}>{title}</span>
         <span className={styles.id}>Borrowed from<br/><small>0x42881D5F526406032A537A51EC9A1513BAD9A5E5</small></span>
-        <span className={styles.id}>Borrowed 10/03/22<br/><b>3 days left</b></span>
+        <span className={styles.id}>Borrowed 10/03/22<br/><b>5 days left</b></span>
         <span className={styles.id}>Coming soon!</span>
       </li>
     </>
