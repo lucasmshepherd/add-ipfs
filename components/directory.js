@@ -4,8 +4,13 @@ import { loginUser } from '../store/users/action'
 import Link from 'next/link'
 
 import styles from '../styles/components/directory.module.sass'
+import {  useWeb3React } from "@web3-react/core";
 
 export default function Directory(props) {
+  const {
+    active
+  } = useWeb3React();
+
   const dispatch = useDispatch()
   const connected = useSelector((state) => state.users.connected)
   const widgets = props.widgets
@@ -63,7 +68,7 @@ export default function Directory(props) {
             </Link>
           </li>
           
-          <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
+          <li data-connected={active} data-current={ widgets == "dapp" ? 'true' : 'false' }>
             <Link className="anchor" href="/dapp">
               <a>{folder}<span>anarchy_dapp</span>{arrow}</a>
             </Link>
@@ -183,13 +188,13 @@ export default function Directory(props) {
             </Link>
           </li>
 
-          <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
+          <li data-connected={active} data-current={ widgets == "dapp" ? 'true' : 'false' }>
             <Link className="anchor" href="#">
               <a>{folder}<span>da-p1p%</span>{arrow}</a>
             </Link>
           </li>
 
-          <li data-connected={connected} data-current={ widgets == "mint" ? 'true' : 'false' }>
+          <li data-connected={active} data-current={ widgets == "mint" ? 'true' : 'false' }>
             <Link className="anchor" href="#">
               <a>{folder}<span>3min$t_nf-t!</span>{arrow}</a>
             </Link>
@@ -245,9 +250,9 @@ export default function Directory(props) {
             <span>anarchy dapp</span>
           </li>
 
-          <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
+          <li data-connected={active} data-current={ widgets == "dapp" ? 'true' : 'false' }>
             <Link className="anchor" href="/transition">
-              <a><span>stake_add{connected ? unlocked : locked}</span>{arrow}</a>
+              <a><span>stake_add{active ? unlocked : locked}</span>{arrow}</a>
             </Link>
           </li>
 
