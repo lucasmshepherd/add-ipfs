@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router'
+//state
+import { useSelector } from 'react-redux'
 // components
 import Source from '../components/source.js'
 import Interface from '../components/interface.js'
 import Delay from '../components/delay.js'
 import Widget from '../components/widget.js'
-//state
-import { useSelector } from 'react-redux'
 
 
 
