@@ -44,7 +44,7 @@ export default function Interface(props) {
   let page = props.page
   let id = "0x42881D5F526406032A537A51EC9A1513BAD9A5E5"
   
-  //if (page == "welcome") {
+
     return (
       <> 
         <UserInterface layout={page}>
@@ -293,6 +293,7 @@ export default function Interface(props) {
         </UserInterface>
       </>
     )
+
 
   if (page == "proposals") {
     return (
