@@ -6,6 +6,16 @@ import Layout from './_layout'
 import Loading from '../components/loading'
 // style
 import '../styles/globals.sass'
+// Web 3 React For Wallet Connection
+import { Web3ReactProvider } from "@web3-react/core";
+import { ethers } from "ethers"
+import '../styles/integration.css'
+
+export const getLibrary = (provider) => {
+  const library = new ethers.providers.Web3Provider(provider);
+  library.pollingInterval = 8000; // Frequency provider is polling
+  return library;
+};
 
 function MyApp({ Component, pageProps }) {
   const [isLoading, setLoading] = useState(false);
@@ -32,9 +42,11 @@ function MyApp({ Component, pageProps }) {
   else
     return (
       <>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <Web3ReactProvider getLibrary={getLibrary}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </Web3ReactProvider>
       </>
     )
 }

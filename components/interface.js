@@ -21,7 +21,7 @@ import Donations from './donations.js'
 import Donations2 from './donations2.js'
 import Donater from './donater.js'
 import DonateId from './donate-id.js'
-import Deposit from './stake-deposit.js'
+import Deposit, {StakeInfo} from './stake-deposit.js'
 import Nfts from './nfts.js'
 import Withdrawal from './stake-withdrawal.js'
 import Claim from './stake-claim.js'
@@ -70,16 +70,7 @@ export default function Interface(props) {
                   <>
                     <PaneRow>
                       <Widget type="purchase" icon="triangles">
-                        { connected == "true" ?
-                            <ul className="clean-list">
-                              <li><span>staked_add:</span><span>2,000,000<sup>.00</sup></span></li>
-                              <hr />
-                              <li><span>current_cycle:</span><span>+1,452<sup>.12</sup></span></li>
-                              <li><span>claimable_add:</span><span>11,092<sup>.54</sup></span></li>
-                            </ul>
-                          :
-                          <div>ERROR: No wallet found</div>
-                        }
+                        <StakeInfo />
                       </Widget>
                     </PaneRow>
                   </>
