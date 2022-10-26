@@ -36,7 +36,7 @@ export default function MintNft(props) {
             {price} ETH
           </div>
           <div className={styles.text}>{content}</div>
-          <a href="#" className="button">PURCHASE NFT</a>
+          <a href="#" className="button-mono button-fill push-right">PURCHASE NFT</a>
         </div>
       </div>
     </>

@@ -18,7 +18,7 @@ export default function News() {
 
   if(data) {
     for (var i = 0; i < data.length; i++) {
-      if(i == 4) { break }
+      if(i == 5) { break }
       if(data[i].content.length < 2) { continue; }
       item = data[i].content
       date = data[i].timestamp
