@@ -290,7 +290,14 @@ async function StakeCall(){
             connected ? 
             <>
                 {approveStatus ? 
-                    <button type='button' onClick={approveTokens} className="button-mono push-right">{accent}APPROVE</button>
+                    // <button type='button' onClick={approveTokens} className="button-mono push-right">{accent}APPROVE</button>
+                    <>
+                        {balanceOf == 0 ?
+                            <></>
+                            :
+                            <button type='button' onClick={approveTokens} className="button-mono push-right">{accent}APPROVE</button>
+                        }
+                    </>
                     :
                     <>
                         {stakeStatus ? 

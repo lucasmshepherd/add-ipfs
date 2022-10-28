@@ -6,23 +6,28 @@ import Delay from '../components/delay.js'
 import Widget from '../components/widget.js'
 //state
 import { useSelector } from 'react-redux'
-
-
+// web3 react
+import {  useWeb3React } from "@web3-react/core";
 
 const Index = (props) => {
+  const {
+    active,
+    account
+  } = useWeb3React();
+
   const connected = useSelector((state) => state.users.connected)
   const router = useRouter()
   return (
     <>
       <canvas id="canvas" className="canvas2"></canvas>
       <Interface page="transition" />
-      { connected == "true" &&
+      { active &&
         <Delay waitBeforeShow={2000}>
           <Source />
         </Delay>
       }
       <Delay waitBeforeShow={3000}>
-        { connected == "true" ?
+        { active ?
           <div className="granted" onClick={() => router.push('/deposit')}>
             <Widget type="granted" title="access_verify_" icon="globe" scroll="true">
               <span className="glitchme" data-text="Access Granted">Access Granted</span>
