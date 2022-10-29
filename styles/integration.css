@@ -138,9 +138,12 @@
     width: 160px;
     display: inline-block;
     text-align: center;
-    height: 40px;
+    height: 48px;
     font-size: 25px;
-    border: none;
+    border: 1px solid;
+    margin: 0;
+    border-right: none;
+    border-left: none;
   }
 
   .mint-input-gp{

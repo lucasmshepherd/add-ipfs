@@ -296,9 +296,9 @@ export default function Directory(props) {
             </Link>
           </li>
 
-          <li data-connected={connected} data-current={ widgets == "mint" ? 'true' : 'false' }>
+          <li data-connected={active} data-current={ widgets == "mint" ? 'true' : 'false' }>
             <Link className="anchor" href="/mint">
-              <a><span>mint_nft{connected ? unlocked : locked}</span>{arrow}</a>
+              <a><span>mint_nft{active ? unlocked : locked}</span>{arrow}</a>
             </Link>
           </li>
 
