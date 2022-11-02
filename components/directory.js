@@ -250,25 +250,19 @@ export default function Directory(props) {
         <ul id="menu" className={styles.menu}>
 
           <li className={styles.title}>
-            <span>anarchy dapp{connected == "true" ? unlocked : locked}</span>
+            <span>anarchy dapp{active ? unlocked : locked}</span>
           </li>
 
           <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
             <Link className="anchor" href="/transition">
-              <a><span>stake_add{active ? unlocked : locked}</span>{arrow}</a>
+              <a><span>dashboard</span>{arrow}</a>
             </Link>
           </li>
 
-          <li data-connected={connected} data-current={ widgets == "mint" ? 'true' : 'false' }>
-            <Link className="anchor" href="/mint">
-              <a><span>mint_nft{connected ? unlocked : locked}</span>{arrow}</a>
+          <li data-connected={connected} data-current={ widgets == "stake" ? 'true' : 'false' }>
+            <Link className="anchor" href="/deposit">
+              <a><span>stake_add</span>{arrow}</a>
             </Link>
-          </li>
-
-          <li>
-            <a href="#" rel="noreferrer" target="_blank">
-              <span>purchase_add</span>
-            </a>
           </li>
 
           {/*<li data-connected={connected} data-current={ widgets == "mint" ? 'true' : 'false' }>
@@ -276,48 +270,6 @@ export default function Directory(props) {
               <a><span>_mint_nft{connected ? unlocked : locked}</span>{arrow}</a>
             </Link>
           </li>*/}
-
-          <li className={styles.title}>
-            <span>anarchists</span>
-          </li>
-
-          <li className={styles.sitego} data-current={ widgets == "manifesto" ? 'true' : 'false' }>
-            <Link className="anchor" href="/manifesto">
-              <a><span>anarchist_manifesto</span>{arrow}</a>
-            </Link>
-          </li>
-
-          <li className={styles.sitego} data-current={ widgets == "tv" ? 'true' : 'false' }>
-            <Link className="anchor" href="/tv">
-              <a><span>anarchist_vision</span>{arrow}</a>
-            </Link>
-          </li>
-
-          <li className={styles.sitego} data-current={ widgets == "training" ? 'true' : 'false' }>
-            <Link className="anchor" href="/training">
-              <a><span>anarchist_university</span>{arrow}</a>
-            </Link>
-          </li>*/}
-
-          {(() => {
-            if ( widgets == "nfts" || widgets == "mint" || widgets == "loan" ) {
-              return (
-                <>
-                  <li data-child="true" data-current={ widgets == "mint" ? 'true' : 'false' }>
-                    <Link className="anchor" href="/mint">
-                      <a>{down}<span>mint</span>{arrow}</a>
-                    </Link>
-                  </li>
-
-                  <li data-child="true" data-current={ widgets == "loan" ? 'true' : 'false' }>
-                    <Link className="anchor" href="/loan">
-                      <a>{down}<span>loan</span>{arrow}</a>
-                    </Link>
-                  </li>
-                </>
-              )
-            }
-          })()}
 
           {(() => {
             if ( widgets != "nfts" ) {
