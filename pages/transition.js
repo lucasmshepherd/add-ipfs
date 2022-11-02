@@ -7,11 +7,11 @@ import Widget from '../components/widget.js'
 // dApp
 import {  useWeb3React } from "@web3-react/core"
 
-
 const Index = (props) => {
   const {
     active
   } = useWeb3React();
+
   const router = useRouter()
   return (
     <>
