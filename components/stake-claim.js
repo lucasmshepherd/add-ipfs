@@ -84,7 +84,7 @@ export default function Donater() {
           <h3>Claim Daily Rewards</h3>
           <p>Claim your earned ETH daily rewards.</p>
           <label>claim_daily_rewards</label>
-          <input type="text" name="amount" placeholder="0.00 ADD" value={pendingReward + " ADD"} className="eth-input"></input>
+          <input type="text" name="amount" placeholder="0.00 ETH" value={pendingReward.toFixed(18) + " ETH"} className="eth-input"></input>
 
         {pendingReward > 0 && active ?
           <button type="button" onClick={withdrawReward} className="button-mono push-right">{accent}Claim Daily Rewards</button>

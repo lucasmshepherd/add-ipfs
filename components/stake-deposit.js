@@ -321,6 +321,11 @@ async function StakeCall(){
   )
 }
 
+function numberWithCommas(n) {
+  var parts=n.toString().split(".");
+  return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");
+}
+
 export function StakeInfo() {
 
   const {
@@ -355,10 +360,10 @@ export function StakeInfo() {
       <>
         {tokensStaked > 0 ?
           <ul className="clean-list">
-            <li><span>staked_ADD:</span><span>{tokensStaked}</span></li>
+            <li><span>staked_ADD:</span><span>{numberWithCommas(tokensStaked.toFixed(2))}</span></li>
             <hr />
             {/* <li><span>current_cycle:</span><span>+1,452<sup>.12</sup></span></li> */}
-            <li><span>claimable_ETH:</span><span>{pendingReward}</span></li>
+            <li><span>claimable_ETH:</span><span>{pendingReward.toFixed(18)}</span></li>
           </ul>
           :
           <div>ERROR: Haven&apos;t staked yet.</div>
