@@ -15,6 +15,29 @@ p
   a
     color: $color_3
 
+p.highlight
+  color: #fff
+
+a 
+  span.highlight
+    border: 1px solid $color_3
+    color: $color_3
+    width: 100%
+    text-align: center
+    display: block !important
+    padding: 3px !important
+    border-radius: 2px
+    transition: background 0.3s, color 0.3s
+    background: $color_dark
+
+  &:hover
+    span.highlight
+      background: $color_4
+      color: $color_dark
+  &:active
+    span.highlight
+      background: $color_3
+      color: $color_dark
 
 *
   box-sizing: border-box
@@ -35,6 +58,10 @@ main
 
   & > *
     flex: 1 0 auto
+
+p.clean
+  margin-top: 0
+  margin-bottom: 0
 
 .clean-list
   margin: 0
@@ -324,6 +351,9 @@ a.onclick
   text-shadow: none
   cursor: pointer
 
+  &.button-fill
+    max-width: none
+
   svg
     fill: $color_5
     width: 50px
@@ -411,36 +441,6 @@ a.onclick
   flex: 1 0 auto
   min-height: 20px
 
-.granted
-  background: #101011
-  color: $color_4
-  font-size: 48px
-  font-family: $font_mono
-  text-transform: uppercase
-  text-align: center
-  line-height: 1.1
-  padding: 40px 60px
-  position: fixed
-  top: 50%
-  left: 50%
-  transform: translate(-50%, -50%)
-  z-index: 99999999
-  animation: fadeIn .3s
-  cursor: pointer
-
-  b
-    font-size: 70%
-    display: block
-    font-weight: normal
-    text-transform: none
-    color: #fff
-
-@keyframes fadeIn
-  0%
-    opacity: 0
-  100%
-    opacity: 1
-
 @media(max-width: 1600px)
   div#ui[data-layout="mint"]
     .interface_row__SIGHZ
@@ -489,3 +489,14 @@ input, textarea
   
   &::placeholder
     color: darken($color_5, 30%)
+
+.warning
+  background: #af3535
+  color: #fff
+  padding: 3px 5px
+
+#purchase
+  margin-top: 10px
+
+  a
+    background: none!important

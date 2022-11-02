@@ -103,6 +103,13 @@ export default function Balance() {
   const [logged, setLogged] = useState(false)
   const [balance, setBalance] = useState(0)
 
+  let bal = numberWithCommas(balance)
+
+  function numberWithCommas(n) {
+    var parts=n.toString().split(".");
+    return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");
+  }
+
   const getAddBalance = async() => {
     const { ethereum } = window;
     Web3EthContract.setProvider(ethereum);
@@ -132,7 +139,7 @@ export default function Balance() {
               {balance <= 0 ?
                 <a href='#' target='_blank' rel='nofollower'>Purchase ADD</a>
                 :
-                balance
+                bal
               }
             </>
             :

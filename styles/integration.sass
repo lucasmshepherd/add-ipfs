@@ -1,0 +1,172 @@
+@import 'variables.sass'	
+.ReactModal__Overlay 
+	background: none !important
+.img_icon 
+	height: 30px 
+	display: inline-block 
+	float: left 
+.popupMain 
+	background-color: rgba(0,0,0,.8)
+	position: fixed 
+	height: 100% 
+	width: 100% 
+	top: 0
+	left: 0
+	color: #000 !important 
+	&.show 
+		display: block 
+.popupcenter 
+	position: fixed
+	top: 50%
+	left: 50%
+	transform: translate(-50%,-50%)
+	border: 1px solid $color_border
+	box-shadow: 0 0 10px inset transparentize(#fee500,.95), 0 0 12px transparentize(#fee500,.9), 0 5px 5px transparentize(#000,.75)
+	background: transparentize(#010101,.3)
+	max-width: 450px 
+	width: 100%
+	margin-top: -32px
+	border: 1px solid $color_border
+	.popheader 
+		padding: 15px 10px 
+	h3 
+		margin: 0px 
+		font-size: 11px
+		letter-spacing: 0.12em
+		color: #47731b
+		font-weight: normal
+	p
+		margin: 0
+.popheader
+	flex: 0 0 32px
+	display: flex
+	flex-flow: row nowrap
+	justify-content: flex-start
+	align-items: center
+	align-content: stretch
+	height: 32px
+	padding: 0 10px 0 5px
+	background: $widget_title
+	font-size: $font_size_ui_title_bar
+	letter-spacing: .12em
+	color:  $color_2
+	
+	.close_icon 
+		position: absolute 
+		width: 32px
+		height: 32px
+		line-height: 37px
+		right: 0
+		top: 0
+		background: $color_1
+		text-align: center
+.sn_wallet 
+	.a_box 
+		width: 89% 
+		margin: auto 
+		border: 1px solid 
+		display: block 
+		padding: 10px 
+		border-radius: 6px 
+		margin-bottom: 14px 
+		text-decoration: none 
+		color: $color_4
+		font-family: $font_mono 
+		clear: both 
+		overflow: hidden 
+		font-size: 28px 
+		line-height: 1
+		background: $color_1
+		cursor: pointer
+		transition: 0.3s background-color
+		span 
+			padding: 3px 10px 
+			display: inline-block 
+		&:hover
+			background-color: $color_2
+			svg
+				fill: $color_4
+		&:active
+			background-color: lighten($color_2, 6%)
+			svg
+				fill: #fff
+.popbody 
+	padding: 20px 10px 10px
+.close_icon 
+	cursor: pointer 
+@media(max-width: 767px) 
+	.popupcenter
+		max-width: 95%
+	.stacke_form 
+		background: #161c18 
+		padding: 20px 30px 
+.mt-50 
+	margin-top: 50px 
+.stacke_form 
+	label 
+		font-size: 24px 
+		color: #fff 
+		font-weight: 500 
+	.border_btn 
+		background: url('/assets/images/buttonbg.svg') no-repeat 0 0 
+		background-size: 100% 100% 
+		width: 25% 
+		max-width: 300px 
+		height: 50px 
+		display: block 
+		text-align: right 
+		padding-top: 20px 
+		padding-right: 16px 
+		padding-bottom: 6px 
+		text-transform: uppercase 
+		font-family: "Detacher", sans-serif 
+		font-size: 12px 
+		letter-spacing: 0.1em 
+		transition: 0.3s color 
+		cursor: pointer 
+		margin: 5px 
+#stakeTokensInput 
+	color: #fff 
+	height: 46px 
+	padding: 0px 16px 
+	background: #122214 
+	border: 1px solid rgba(254, 229, 0, 0.2) 
+	width: 100% 
+	font-size: 22px 
+	font-family: inherit 
+	letter-spacing: 1.5px 
+#showStake 
+	width: 100% 
+	text-align: left 
+	td 
+		color: #8EA66F 
+		border: 1px solid 
+		padding: 0 10px 
+		min-width: 120px 
+		&:last-child 
+			display: flex 
+#input-quantity 
+	min-width: 50px 
+	width: 160px 
+	display: inline-block 
+	text-align: center 
+	height: 40px 
+	font-size: 25px 
+	border: none 
+.mint-input-gp 
+	display: flex 
+	align-content: center 
+	justify-content: center 
+.btn_min_handle 
+	padding: 9px 12px 
+	position: relative 
+	display: inline-block 
+	background: #742405 !important 
+	border: 1px solid #fff !important 
+	border-radius: 0px 
+	color: #fff 
+	cursor: pointer 
+.do_min 
+	border-radius: 4px 0 0 4px 
+.do_plus 
+	border-radius: 0 4px 4px 0 

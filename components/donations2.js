@@ -23,7 +23,7 @@ export default function Donations(props) {
           <p>Thank you again for the support,</p>
           <p><b className="glitchme" data-text="Let Anarchy Reign!">Let Anarchy Reign!</b></p>
         </div>
-        <Donater />
+        {/*<Donater />*/}
       </div>
     </>
   )

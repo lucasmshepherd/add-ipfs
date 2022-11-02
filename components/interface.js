@@ -18,6 +18,7 @@ import Members from './discord-members.js'
 import Feed from './feed.js'
 import Manifesto from './manifesto.js'
 import Donations from './donations.js'
+import About from './about.js'
 import Donations2 from './donations2.js'
 import Donater from './donater.js'
 import DonateId from './donate-id.js'
@@ -124,6 +125,13 @@ export default function Interface(props) {
               <PaneRow name="primary">
                 <Widget type={page} title="donations_" icon="globe" scroll="true" page="true">
                   <Donations2 />
+                </Widget>
+              </PaneRow>
+            } {/* about */} { 
+            page == "about" &&
+              <PaneRow name="primary">
+                <Widget type={page} title="about_" icon="globe" scroll="true" page="true">
+                  <About />
                 </Widget>
               </PaneRow>
             } {/* manifesto */} { 

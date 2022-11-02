@@ -49,6 +49,49 @@
     background: $color_1
     .scroll
       padding: 10px 20px
+  &[data-widget="granted"]
+    background: rgba(1,1,1,.9)
+    position: fixed
+    top: 50%
+    left: 50%
+    transform: translate(-50%,-50%)
+    width: 100%
+    max-width: 500px
+    height: 200px
+    z-index: 99999999
+    animation: fadeIn .3s
+    cursor: pointer
+    text-align: center
+    .scroll
+      padding: 0
+      display: flex
+      flex-flow: column nowrap
+      justify-content: center
+      align-items: center
+      span
+        font-size: 48px
+        display: block
+        color: $color_3
+        font-family: $font_mono
+        text-transform: uppercase
+        text-align: center
+        line-height: 1.1
+        margin-top: -10px
+        i
+          color: #ff0000
+          font-weight: bold
+    b
+      font-size: 30px
+      display: block
+      font-weight: normal
+      text-transform: none
+      color: #fff
+
+@keyframes fadeIn
+  0%
+    opacity: 0
+  100%
+    opacity: 1
 
 .title
   flex: 0 0 32px
@@ -194,7 +237,7 @@
 
   &[data-feed="menu"]
     .scroll
-      padding: 10px 20px 13px
+      padding: 3px 20px 15px
 
   &[data-nopad="true"]
     .scroll
@@ -207,7 +250,6 @@
       left: 0
 
       //padding-bottom: 15px
-
 @keyframes tube-flicker
   to
     filter: brightness(130%)
