@@ -51,7 +51,7 @@ export default function Donater() {
             } else {
                 swal({
                     title: "Withdraw Reward Request Submitted Successfully",
-                    text: "Please Wait For Wallet Confirmation",
+                    text: "Please wait for wallet confirmation...",
                     type: "success",
                     showCancelButton: false,
                     confirmButtonClass: "btn-danger",
@@ -84,16 +84,13 @@ export default function Donater() {
     <>
       <form className={styles.form}>
           <h3>Withdrawal Staked ADD</h3>
-          <p>WARNING: This will remove ADD from your staked ADD balance and extinguish a tiny fire in the heart of a budding Anarchist who may have a massive potential for mayhem.</p>
-          <label>withdrawal_amount
-             {/* ( <a href="#">set to maximum</a> ) */}
-          </label>
+          <p><span className="warning">WARNING</span> This will remove all of your staked ADD balance and extinguish a tiny fire in the heart of a budding Anarchist who may have a massive potential for mayhem.</p>
+          <label>withdrawal_amount</label>
           <input type="text" name="amount" placeholder="0.00 ADD" className="eth-input" value={withdrawAmount + " ADD"} readOnly></input>
-
         {active && withdrawAmount > 0 ?
-          <button type="button" onClick={withdraw} className="button-mono push-right">{accent}Withdraw</button>
+            <button type="button" onClick={withdraw} className="button-mono push-right">{accent}Withdraw</button>
           :
-          <div style={{color:'red'}}>ERROR: Nothing to Withdraw Right Now</div>
+            <div style={{color:'red'}}>ERROR: Nothing to withdraw right now.</div>
         }
       </form>
     </>

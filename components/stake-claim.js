@@ -50,7 +50,7 @@ export default function Donater() {
             } else {
                 swal({
                     title: "Withdraw Reward Request Submitted Successfully",
-                    text: "Please Wait For Wallet Confirmation",
+                    text: "Please wait for wallet confirmation...",
                     type: "success",
                     showCancelButton: false,
                     confirmButtonClass: "btn-danger",
@@ -81,13 +81,13 @@ export default function Donater() {
   return (
     <>
       <form className={styles.form}>
-          <h3>Claim ADD</h3>
-          <p>Claim your <b>earned</b> ADD rewards.  This will not affect your staked ADD balance.</p>
-          <label>claim_rewards</label>
-          <input type="text" name="amount" placeholder="0.00 ADD" value={pendingReward + " ADD"} className="eth-input"></input>
+          <h3>Claim Daily Rewards</h3>
+          <p>Claim your earned ETH daily rewards.</p>
+          <label>claim_daily_rewards</label>
+          <input type="text" name="amount" placeholder="0.00 ETH" value={pendingReward.toFixed(18) + " ETH"} className="eth-input"></input>
 
         {pendingReward > 0 && active ?
-          <button type="button" onClick={withdrawReward} className="button-mono push-right">{accent}Claim Rewards</button>
+          <button type="button" onClick={withdrawReward} className="button-mono push-right">{accent}Claim Daily Rewards</button>
           :
           // <button type="button" onClick={error} className="button-mono push-right" disabled>{accent}Claim Rewards</button>
           <div style={{color:'red'}}>ERROR: Nothing to Claim Right Now</div>

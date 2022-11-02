@@ -79,7 +79,7 @@ $('.do-min').click(function () {
     if ($(inVarID).val() > 1) {
         $(inVarID).val(parseInt(quantity) - parseInt(1));
     }
-    priceChnage();
+    priceChange();
 });
 
 $('.do-plus').click(function () {
@@ -92,11 +92,11 @@ $('.do-plus').click(function () {
     }
     $(inVarID).val(parseInt(quantity) + parseInt(1));
 
-    priceChnage();
+    priceChange();
 });
 
 $(".inputQuantity").change(function (e) {
-    priceChnage();
+    priceChange();
 });
 $(".approveForMint").click(function (e) {
     approveForMint();
@@ -399,7 +399,7 @@ async function init2() {
         else if (accounts.length == 0) {
             swal({
                 title: "Error Found",
-                text: 'Your Wallet is Locked. Please Unlock It To Use DAPP',
+                text: 'Your wallet is locked. Please unlock it to use the Anarchy dApp',
                 type: "error",
                 showCancelButton: false,
                 confirmButtonClass: "btn-danger",
@@ -410,7 +410,7 @@ async function init2() {
         else if (networkId != defaultNetwork.NETWORK.ID) {
             swal({
                 title: "Error Found",
-                text: 'Make Sure You Are Using The ' + defaultNetwork.NETWORK.NAME,
+                text: 'Make sure you are using the ' + defaultNetwork.NETWORK.NAME,
                 type: "error",
                 showCancelButton: false,
                 confirmButtonClass: "btn-danger",
@@ -529,7 +529,7 @@ async function approveTokens(){
             } else {
                 swal({
                     title: "Approve Request Submitted Successfully",
-                    text: "Please Wait For Wallet Confirmation",
+                    text: "Please wait for wallet confirmation...",
                     type: "success",
                     showCancelButton: false,
                     confirmButtonClass: "btn-danger",
@@ -580,7 +580,7 @@ async function StakeCall(){
             } else {
                 swal({
                     title: "Approve Request Submitted Successfully",
-                    text: "Please Wait For Wallet Confirmation",
+                    text: "Please wait for wallet confirmation...",
                     type: "success",
                     showCancelButton: false,
                     confirmButtonClass: "btn-danger",
@@ -819,10 +819,10 @@ async function userStatsUpdate() {
             }
         } 
     }
-    priceChnage();
+    priceChange();
 }
 
-function priceChnage() {
+function priceChange() {
     if ($(".inputQuantity").val() == '') {
         $(".inputQuantity").val(1);
     }
@@ -906,7 +906,7 @@ async function mintOne() {
                                 } else {
                                     swal({
                                         title: "Mint Request Submitted Successfully",
-                                        text: "Please Wait For Wallet Confirmation",
+                                        text: "Please wait for wallet confirmation...",
                                         type: "success",
                                         showCancelButton: false,
                                         confirmButtonClass: "btn-danger",
@@ -978,7 +978,7 @@ async function mintTwo() {
                                 } else {
                                     swal({
                                         title: "Mint Request Submitted Successfully",
-                                        text: "Please Wait For Wallet Confirmation",
+                                        text: "Please wait for wallet confirmation...",
                                         type: "success",
                                         showCancelButton: false,
                                         confirmButtonClass: "btn-danger",
@@ -990,7 +990,7 @@ async function mintTwo() {
                         }).catch(function (error) {
                             swal({
                                 title: "Error Found",
-                                text: 'Insufficient Funds For Transaction in Wallet',
+                                text: 'Insufficient wallet funds for transaction',
                                 type: "error",
                                 showCancelButton: false,
                                 confirmButtonClass: "btn-danger",
@@ -1049,7 +1049,7 @@ async function mintThree() {
                                 } else {
                                     swal({
                                         title: "Mint Request Submitted Successfully",
-                                        text: "Please Wait For Wallet Confirmation",
+                                        text: "Please wait for wallet confirmation...",
                                         type: "success",
                                         showCancelButton: false,
                                         confirmButtonClass: "btn-danger",
@@ -1061,7 +1061,7 @@ async function mintThree() {
                         }).catch(function (error) {
                             swal({
                                 title: "Error Found",
-                                text: 'Insufficient Funds For Transaction in Wallet',
+                                text: 'Insufficient wallet funds For transaction',
                                 type: "error",
                                 showCancelButton: false,
                                 confirmButtonClass: "btn-danger",
@@ -1104,7 +1104,7 @@ async function mintEnable(){
             } else {
                 swal({
                     title: "Request Submitted Successfully",
-                    text: "Please Wait For Wallet Confirmation",
+                    text: "Please wait for wallet confirmation...",
                     type: "success",
                     showCancelButton: false,
                     confirmButtonClass: "btn-danger",
@@ -1150,7 +1150,7 @@ async function approveForMint(){
             } else {
                 swal({
                     title: "Request Submitted Successfully",
-                    text: "Please Wait For Wallet Confirmation",
+                    text: "Please wait for wallet confirmation...",
                     type: "success",
                     showCancelButton: false,
                     confirmButtonClass: "btn-danger",
@@ -1193,7 +1193,7 @@ async function withdraw(){
             } else {
                 swal({
                     title: "Withdraw Request Submitted Successfully",
-                    text: "Please Wait For Wallet Confirmation",
+                    text: "Please wait for wallet confirmation...",
                     type: "success",
                     showCancelButton: false,
                     confirmButtonClass: "btn-danger",
@@ -1205,7 +1205,7 @@ async function withdraw(){
     }).catch(function (error) {
         swal({
             title: "Error Found",
-            text: 'Insufficient Funds For Transaction in Wallet',
+            text: 'Insufficient wallet funds for transaction...',
             type: "error",
             showCancelButton: false,
             confirmButtonClass: "btn-danger",
@@ -1235,7 +1235,7 @@ async function withdrawAll(){
             } else {
                 swal({
                     title: "Withdraw Request Submitted Successfully",
-                    text: "Please Wait For Wallet Confirmation",
+                    text: "Please wait for wallet confirmation...",
                     type: "success",
                     showCancelButton: false,
                     confirmButtonClass: "btn-danger",
@@ -1247,7 +1247,7 @@ async function withdrawAll(){
     }).catch(function (error) {
         swal({
             title: "Error Found",
-            text: 'Insufficient Funds For Transaction in Wallet',
+            text: 'Insufficient wallet funds for transaction',
             type: "error",
             showCancelButton: false,
             confirmButtonClass: "btn-danger",
@@ -1277,7 +1277,7 @@ async function withdrawReward(){
             } else {
                 swal({
                     title: "Withdraw Reward Request Submitted Successfully",
-                    text: "Please Wait For Wallet Confirmation",
+                    text: "Please wait for wallet confirmation...",
                     type: "success",
                     showCancelButton: false,
                     confirmButtonClass: "btn-danger",

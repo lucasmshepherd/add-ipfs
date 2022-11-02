@@ -9,7 +9,7 @@ import '../styles/globals.sass'
 // Web 3 React For Wallet Connection
 import { Web3ReactProvider } from "@web3-react/core";
 import { ethers } from "ethers"
-import '../styles/integration.css'
+import '../styles/integration.sass'
 
 export const getLibrary = (provider) => {
   const library = new ethers.providers.Web3Provider(provider);

@@ -101,7 +101,7 @@ const initUserStats = async() => {
     
     if(approved > 0){
       if(balanceOf < minTokensToStake){
-        setErrorContract("Insufficient Tokens for Staking");
+        setErrorContract("Insufficient tokens for staking.");
         setStakeStatus(false)
       }else{
         setApproveStatus(false);
@@ -132,7 +132,7 @@ useEffect(() => {
                 setApproveStatus(true)
             }else if(stakeCount < minTokensToStake){
                 if(balanceOf < minTokensToStake){
-                  setErrorContract("Insufficient Tokens for Staking");
+                  setErrorContract("Insufficient tokens for staking.");
                   setStakeStatus(false)
               }else{
                 setErrorContract(`Stake ${minTokensToStake} Minimum Tokens`);
@@ -142,7 +142,7 @@ useEffect(() => {
             else{
                 setApproveStatus(false)
                 if(balanceOf < minTokensToStake){
-                    setErrorContract("Insufficient Tokens for Staking");
+                    setErrorContract("Insufficient tokens for staking.");
                     setStakeStatus(false)
                 }else{
                     setErrorContract("");
@@ -183,7 +183,7 @@ async function approveTokens(){
             } else {
                 swal({
                     title: "Approve Request Submitted Successfully",
-                    text: "Please Wait For Wallet Confirmation",
+                    text: "Please wait for wallet confirmation...",
                     type: "success",
                     showCancelButton: false,
                     confirmButtonClass: "btn-danger",
@@ -252,7 +252,7 @@ async function StakeCall(){
                 } else {
                     swal({
                         title: "Stake Request Submitted Successfully",
-                        text: "Please Wait For Wallet Confirmation",
+                        text: "Please wait for wallet confirmation...",
                         type: "success",
                         showCancelButton: false,
                         confirmButtonClass: "btn-danger",
@@ -276,21 +276,32 @@ async function StakeCall(){
 
 }
 
+    let bal = numberWithCommas((balanceOf).toFixed(2))
+
+    function numberWithCommas(n) {
+        var parts=n.toString().split(".");
+        return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");
+    }
+
   return (
     <>
       <form className={styles.form}>
           <h3>Stake ADD</h3>
-          <p>{(balanceOf).toFixed(2)} ADD Available</p>
+          <p>{bal} ADD Available</p>
           <label>stake_amount</label>
           <input value={stakeCount} onChange={(e) => setStakeCount(e.target.value)} type="number" name="amount" placeholder="0.00 ADD" className="eth-input"></input>
 
           <div className="col-sm-12" id="error-stake" style={{color: "red"}}>{errorContract}</div>
 
           {
-            connected ? 
+            active ? 
             <>
                 {approveStatus ? 
-                    <button type='button' onClick={approveTokens} className="button-mono push-right">{accent}APPROVE</button>
+                    <> 
+                        {!balanceOf == 0 &&
+                            <button type='button' onClick={approveTokens} className="button-mono push-right">{accent}APPROVE</button> 
+                        } 
+                    </>
                     :
                     <>
                         {stakeStatus ? 
@@ -308,6 +319,11 @@ async function StakeCall(){
       </form>
     </>
   )
+}
+
+function numberWithCommas(n) {
+  var parts=n.toString().split(".");
+  return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");
 }
 
 export function StakeInfo() {
@@ -344,17 +360,17 @@ export function StakeInfo() {
       <>
         {tokensStaked > 0 ?
           <ul className="clean-list">
-            <li><span>staked_add:</span><span>{tokensStaked}</span></li>
+            <li><span>staked_ADD:</span><span>{numberWithCommas(tokensStaked.toFixed(2))}</span></li>
             <hr />
             {/* <li><span>current_cycle:</span><span>+1,452<sup>.12</sup></span></li> */}
-            <li><span>claimable_add:</span><span>{pendingReward}</span></li>
+            <li><span>claimable_ETH:</span><span>{pendingReward.toFixed(18)}</span></li>
           </ul>
           :
-          <div>ERROR: Haven&apos;t Staked Yet</div>
+          <div>ERROR: Haven&apos;t staked yet.</div>
         }
       </>
       :
-      <div>ERROR: No wallet found</div>
+      <div>No wallet found.</div>
     }
    </>
   )

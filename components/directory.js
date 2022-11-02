@@ -1,6 +1,5 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { loginUser } from '../store/users/action'
 import Link from 'next/link'
 
 import styles from '../styles/components/directory.module.sass'
@@ -12,12 +11,8 @@ export default function Directory(props) {
   } = useWeb3React();
 
   const dispatch = useDispatch()
-  const connected = useSelector((state) => state.users.connected)
+  const connected = active
   const widgets = props.widgets
-
-  function loginUserNow() {
-    dispatch(loginUser());
-  };
 
   const folder = (<svg className="icon-folder" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 135"><g><rect x="15" y="30" width="30" height="15"/><rect y="14.99" width="15" height="105.01"/><rect x="45" y="45" width="75" height="15"/><rect x="120" y="60" width="15" height="60"/><rect x="15" y="120" width="105" height="15"/></g><g><rect x="15" width="30" height="15"/><rect x="45" y="15" width="75" height="15"/><rect x="120" y="30" width="15" height="30"/></g></svg>)
   const arrow = (<svg className="icon-arrow" width="10" height="9" viewBox="0 0 10 9" xmlns="http://www.w3.org/2000/svg"><path d="M5.21793 0.969727V2.83831L3.04271 4.12316H9.80615C9.80615 4.11741 9.80615 4.11486 9.80615 4.11486L9.81348 5.75824H3.04597L5.21467 7.04118V8.96973L0.129678 5.76654V4.11295L5.21793 0.969727Z" /></svg>)
@@ -35,20 +30,6 @@ export default function Directory(props) {
         <ul id="menu" className={styles.menu}>
           <li data-current={ widgets == "home" ? 'true' : 'false' }>
             <Link className="anchor" href="/tv">
-              <a><span>back</span>{arrow}</a>
-            </Link>
-          </li>
-        </ul>
-      </>
-    )
-  }
-
-  else if(widgets == 'donate') {
-    return (
-      <> 
-        <ul id="menu" className={styles.menu}>
-          <li data-current={ widgets == "home" ? 'true' : 'false' }>
-            <Link className="anchor" href="/welcome">
               <a><span>back</span>{arrow}</a>
             </Link>
           </li>
@@ -75,8 +56,8 @@ export default function Directory(props) {
           </li>
 
           <li data-child="true" data-current={ widgets == "stake" ? 'true' : 'false' }>
-            <Link className="anchor" href="/stake">
-              <a>{down}<span>stake_add</span>{arrow}</a>
+            <Link className="anchor" href="/deposit">
+              <a>{down}<span>stake_ADD</span>{arrow}</a>
             </Link>
           </li>
 
@@ -144,19 +125,19 @@ export default function Directory(props) {
 
           <li data-current={ widgets == "stake" ? 'true' : 'false' }>
             <Link className="anchor" href="/stake">
-              <a>{folder}<span>stake_add</span>{arrow}</a>
+              <a>{folder}<span>stake_ADD</span>{arrow}</a>
+            </Link>
+          </li>
+
+          <li data-child="true" data-current={ widgets == "claim" ? 'true' : 'false' }>
+            <Link className="anchor" href="/claim">
+              <a>{down}<span>claim_reward</span>{arrow}</a>
             </Link>
           </li>
 
           <li data-child="true" data-current={ widgets == "deposit" ? 'true' : 'false' }>
             <Link className="anchor" href="/deposit">
               <a>{down}<span>deposit</span>{arrow}</a>
-            </Link>
-          </li>
-
-          <li data-child="true" data-current={ widgets == "claim" ? 'true' : 'false' }>
-            <Link className="anchor" href="/claim">
-              <a>{down}<span>claim</span>{arrow}</a>
             </Link>
           </li>
 
@@ -268,29 +249,11 @@ export default function Directory(props) {
       <> 
         <ul id="menu" className={styles.menu}>
 
-          <li data-current={ widgets == "welcome" ? 'true' : 'false' }>
-            <Link className="anchor" href="/welcome">
-                <a><span>root</span>{arrow}</a>
-            </Link>
-          </li>
-
-          <li data-current={ widgets == "donate" ? 'true' : 'false' }>
-            <Link className="anchor" href="/donate">
-              <a><span>further_the_cause</span>{arrow}</a>
-            </Link>
-          </li>
-
-          <li data-current={ widgets == "donate" ? 'true' : 'false' }>
-            <Link className="anchor" href="/donate">
-              <a target="_blank" rel="nofollower" href="#"><span>token_mechanics<b>.pdf</b></span>{arrow}</a>
-            </Link>
-          </li>
-
           <li className={styles.title}>
-            <span>anarchy dapp</span>
+            <span>anarchy dapp{connected == "true" ? unlocked : locked}</span>
           </li>
 
-          <li data-connected={active} data-current={ widgets == "dapp" ? 'true' : 'false' }>
+          <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
             <Link className="anchor" href="/transition">
               <a><span>stake_add{active ? unlocked : locked}</span>{arrow}</a>
             </Link>
@@ -334,11 +297,84 @@ export default function Directory(props) {
             <Link className="anchor" href="/training">
               <a><span>anarchist_university</span>{arrow}</a>
             </Link>
-          </li>
+          </li>*/}
 
-          <li>
-            <a href="https://anarchistdevelopmentdao.gitbook.io/anarchist-development-dao/" rel="noreferrer" target="_blank">
-              <span>faq.gitbook</span>
+          {(() => {
+            if ( widgets == "nfts" || widgets == "mint" || widgets == "loan" ) {
+              return (
+                <>
+                  <li data-child="true" data-current={ widgets == "mint" ? 'true' : 'false' }>
+                    <Link className="anchor" href="/mint">
+                      <a>{down}<span>mint</span>{arrow}</a>
+                    </Link>
+                  </li>
+
+                  <li data-child="true" data-current={ widgets == "loan" ? 'true' : 'false' }>
+                    <Link className="anchor" href="/loan">
+                      <a>{down}<span>loan</span>{arrow}</a>
+                    </Link>
+                  </li>
+                </>
+              )
+            }
+          })()}
+
+          {(() => {
+            if ( widgets != "nfts" ) {
+              return (
+                <>
+                  <li className={styles.title}>
+                    <span>anarchist dao</span>
+                  </li>
+
+                  <li data-current="false">
+                    <Link className="anchor" href="/donate">
+                      <a target="_blank" rel="nofollower" href="assets/docs/ADD-Token-Mechanics-Anarchist-DAO.pdf"><span>token_mechanics</span>{arrow}</a>
+                    </Link>
+                  </li>
+
+                  <li data-current={ widgets == "about" ? 'true' : 'false' }>
+                    <Link className="anchor" href="/about">
+                      <a><span>about_the_crew</span>{arrow}</a>
+                    </Link>
+                  </li>
+
+                  <li data-current={ widgets == "donate" ? 'true' : 'false' }>
+                    <Link className="anchor white-icon" href="/donate">
+                      <a><span>further_the_cause</span>{arrow}</a>
+                    </Link>
+                  </li>
+
+                  <li className={styles.title}>
+                    <span>anarchists</span>
+                  </li>
+
+                  <li className={styles.sitego} data-current={ widgets == "manifesto" ? 'true' : 'false' }>
+                    <Link className="anchor" href="/manifesto">
+                      <a><span>anarchist_manifesto</span>{arrow}</a>
+                    </Link>
+                  </li>
+
+                  <li className={styles.sitego} data-current={ widgets == "tv" ? 'true' : 'false' }>
+                    <Link className="anchor" href="/tv">
+                      <a><span>anarchist_vision</span>{arrow}</a>
+                    </Link>
+                  </li>
+
+                  <li className={styles.sitego} data-current={ widgets == "training" ? 'true' : 'false' }>
+                    <Link className="anchor" href="/training">
+                      <a><span>anarchist_university</span>{arrow}</a>
+                    </Link>
+                  </li>
+
+                </>
+              )
+            }
+          })()}
+
+          <li id="purchase">
+            <a href="#" rel="noreferrer" target="_blank">
+              <span className="highlight">purchase_ADD</span>
             </a>
           </li>
 

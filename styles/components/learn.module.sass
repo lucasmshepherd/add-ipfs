@@ -1,7 +1,7 @@
 @import '/styles/variables.sass'
 
 .title
-  margin-top: 0
+  margin-top: 300px
   margin-bottom: 10px
 
 .books
@@ -22,3 +22,27 @@
       left: 4px
       top: 50%
       margin-top: -6px
+
+.learnbg
+  background: url('/assets/images/banner-library.jpg') no-repeat 0 100%
+  position: absolute
+  top: 0
+  left: 0
+  background-size: cover
+  height: 300px
+  width: 100%
+  opacity: .5
+
+.learnbgglitch
+  background: url('https://media.giphy.com/media/MfLZdaDjjTxaU/giphy.gif')
+  background-position: center
+  background-repeat: no-repeat
+  background-size: cover
+  /*effect*/
+  mix-blend-mode: color
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  filter: hue-rotate(220deg)
