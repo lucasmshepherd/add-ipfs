@@ -27,6 +27,11 @@ export default function Donater() {
     setWithdrawAmount((userInfo[0])/10**18);
   }
 
+  function numberWithCommas(n) {
+    var parts=n.toString().split(".");
+    return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");
+  }
+
   async function withdraw(){
     const { ethereum } = window;
     Web3EthContract.setProvider(ethereum);
@@ -86,7 +91,7 @@ export default function Donater() {
           <h3>Withdrawal Staked ADD</h3>
           <p><span className="warning">WARNING</span> This will remove all of your staked ADD balance and extinguish a tiny fire in the heart of a budding Anarchist who may have a massive potential for mayhem.</p>
           <label>withdrawal_amount</label>
-          <input type="text" name="amount" placeholder="0.00 ADD" className="eth-input" value={withdrawAmount + " ADD"} readOnly></input>
+          <input type="text" name="amount" placeholder="0.00 ADD" className="eth-input" value={numberWithCommas(withdrawAmount.toFixed(2)) + " ADD"} readOnly></input>
         {active && withdrawAmount > 0 ?
             <button type="button" onClick={withdraw} className="button-mono push-right">{accent}Withdraw</button>
           :

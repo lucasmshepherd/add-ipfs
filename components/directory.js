@@ -38,40 +38,6 @@ export default function Directory(props) {
     )
   }
 
-  else if (widgets == 'dapp') {
-    return (
-      <> 
-        <ul id="menu" className={styles.menu}>
-
-          <li data-current={ widgets == "welcome" ? 'true' : 'false' }>
-            <Link className="anchor" href="/welcome">
-                <a><span>root</span>{arrow}</a>
-            </Link>
-          </li>
-          
-          <li data-connected={active} data-current={ widgets == "dapp" ? 'true' : 'false' }>
-            <Link className="anchor" href="/dapp">
-              <a>{folder}<span>anarchy_dapp</span>{arrow}</a>
-            </Link>
-          </li>
-
-          <li data-child="true" data-current={ widgets == "stake" ? 'true' : 'false' }>
-            <Link className="anchor" href="/deposit">
-              <a>{down}<span>stake_ADD</span>{arrow}</a>
-            </Link>
-          </li>
-
-          <li data-child="true" data-current={ widgets == "proposals" ? 'true' : 'false' }>
-            <Link className="anchor" href="/proposals">
-              <a>{down}<span>proposals</span>{arrow}</a>
-            </Link>
-          </li>
-
-        </ul>
-      </>
-    )
-  }
-
   else if (widgets == 'mint' || widgets == 'nfts') {
     return (
       <> 
@@ -112,14 +78,14 @@ export default function Directory(props) {
     )
   }
 
-  else if (widgets == 'stake' || widgets == 'deposit' || widgets == 'withdrawal' || widgets == 'claim') {
+  else if ( widgets == 'dapp' || widgets == 'stake' || widgets == 'deposit' || widgets == 'withdrawal' || widgets == 'claim') {
     return (
       <> 
         <ul id="menu" className={styles.menu}>
 
-          <li data-current={ widgets == "welcome" ? 'true' : 'false' }>
-            <Link className="anchor" href="/welcome">
-                <a><span>root</span>{arrow}</a>
+          <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
+            <Link className="anchor" href="/dapp">
+              <a><span>dashboard</span>{arrow}</a>
             </Link>
           </li>
 
@@ -129,15 +95,15 @@ export default function Directory(props) {
             </Link>
           </li>
 
-          <li data-child="true" data-current={ widgets == "claim" ? 'true' : 'false' }>
-            <Link className="anchor" href="/claim">
-              <a>{down}<span>claim_reward</span>{arrow}</a>
-            </Link>
-          </li>
-
           <li data-child="true" data-current={ widgets == "deposit" ? 'true' : 'false' }>
             <Link className="anchor" href="/deposit">
               <a>{down}<span>deposit</span>{arrow}</a>
+            </Link>
+          </li>
+
+          <li data-child="true" data-current={ widgets == "claim" ? 'true' : 'false' }>
+            <Link className="anchor" href="/claim">
+              <a>{down}<span>claim_reward</span>{arrow}</a>
             </Link>
           </li>
 

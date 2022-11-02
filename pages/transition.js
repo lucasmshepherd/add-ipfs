@@ -24,7 +24,7 @@ const Index = (props) => {
       }
       <Delay waitBeforeShow={3000}>
         { active ?
-          <div className="granted" onClick={() => router.push('/deposit')}>
+          <div className="granted" onClick={() => router.push('/dapp')}>
             <Widget type="granted" title="access_verify_" icon="globe" scroll="true">
               <span className="glitchme" data-text="Access Granted">Access Granted</span>
               <b>Freedom Awaits You.  Click Here.</b>

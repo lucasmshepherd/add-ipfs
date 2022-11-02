@@ -135,7 +135,7 @@ useEffect(() => {
                   setErrorContract("Insufficient tokens for staking.");
                   setStakeStatus(false)
               }else{
-                setErrorContract(`Stake ${minTokensToStake} Minimum Tokens`);
+                setErrorContract(`Stake ${numberWithCommas(minTokensToStake.toFixed(2))} Minimum Tokens`);
 
               }
             }
