@@ -81,9 +81,10 @@ export default function Donater() {
   return (
     <>
       <form className={styles.form}>
-          <h3>Claim Daily Rewards</h3>
-          <p>Claim your earned ETH daily rewards.</p>
-          <label>claim_daily_rewards</label>
+          <h3>Claim ETH Rewards</h3>
+          <p>Claim your Anarchist DAO rewards.  Rewards are based on the amount you have staked <a href="" title="DAO FAQ">and more</a>.</p>
+          <p><span className="note">NOTE</span> Withdrawal allowed once per week.</p>
+          <label>claim_rewards</label>
           <input type="text" name="amount" placeholder="0.00 ETH" value={pendingReward.toFixed(18) + " ETH"} className="eth-input"></input>
 
         {pendingReward > 0 && active ?

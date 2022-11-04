@@ -287,7 +287,7 @@ async function StakeCall(){
     <>
       <form className={styles.form}>
           <h3>Stake ADD</h3>
-          <p>{bal} ADD Available</p>
+          <p>{bal} ADD Available for Staking</p>
           <label>stake_amount</label>
           <input value={stakeCount} onChange={(e) => setStakeCount(e.target.value)} type="number" name="amount" placeholder="0.00 ADD" className="eth-input"></input>
 

@@ -73,9 +73,9 @@ export default function Report(props) {
                     <div className={styles.row}>
                       <div className={styles.cell}><h4>ADD_price</h4><span>{active ? addPrice.toFixed(2) : lock}</span></div>
                     </div>
-                    <div className={styles.row}>
+                    {/*<div className={styles.row}>
                       <div className={styles.cell}><h4>APR</h4><span>{active ? apRate + "%" : lock}</span></div>
-                    </div>
+                    </div>*/} 
                     <div className={styles.row}>
                       <div className={styles.cell}><h4>total_ADD_staked</h4><span>{active ? numberWithCommas(totalStaked.toFixed(2)) : lock}</span></div>
                     </div>

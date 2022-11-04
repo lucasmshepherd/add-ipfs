@@ -90,7 +90,7 @@ export default function Directory(props) {
           </li>
 
           <li data-current={ widgets == "stake" ? 'true' : 'false' }>
-            <Link className="anchor" href="/stake">
+            <Link className="anchor" href="/deposit">
               <a>{folder}<span>stake_ADD</span>{arrow}</a>
             </Link>
           </li>
@@ -221,13 +221,7 @@ export default function Directory(props) {
 
           <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
             <Link className="anchor" href="/transition">
-              <a><span>dashboard</span>{arrow}</a>
-            </Link>
-          </li>
-
-          <li data-connected={connected} data-current={ widgets == "stake" ? 'true' : 'false' }>
-            <Link className="anchor" href="/deposit">
-              <a><span>stake_add</span>{arrow}</a>
+              <a><span>stake_and_vote</span>{arrow}</a>
             </Link>
           </li>
 
@@ -260,6 +254,12 @@ export default function Directory(props) {
                   <li data-current={ widgets == "donate" ? 'true' : 'false' }>
                     <Link className="anchor white-icon" href="/donate">
                       <a><span>further_the_cause</span>{arrow}</a>
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link className="anchor white-icon" href="/donate">
+                      <a><span>faq.gitbook</span></a>
                     </Link>
                   </li>
 
