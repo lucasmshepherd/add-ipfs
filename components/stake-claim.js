@@ -91,7 +91,7 @@ export default function Donater() {
           <button type="button" onClick={withdrawReward} className="button-mono push-right">{accent}Claim Daily Rewards</button>
           :
           // <button type="button" onClick={error} className="button-mono push-right" disabled>{accent}Claim Rewards</button>
-          <div style={{color:'red'}}>ERROR: Nothing to Claim Right Now</div>
+          <div style={{color:'#af3535', fontStyle:'italic'}}>You currently have no rewards to claim.</div>
         }
       </form>
     </>

@@ -143,7 +143,7 @@ export default function Balance() {
               }
             </>
             :
-            <a href='#' onClick={onOpen}>Connect Your Wallet</a>
+            <a href='#' onClick={onOpen}><i>Connect Your Wallet</i></a>
           }
           {/* {balance} */}
           {/* { change > 0 && <sup>{change}</sup>} */}

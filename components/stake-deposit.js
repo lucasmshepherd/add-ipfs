@@ -35,7 +35,7 @@ const [maxWalletAmount, setMaxWalletAmount] = useState(0)
 const [approved, setApproved] = useState(0)
 const [tokensToApprove, setTokensToApprove] = useState(0)
 
-const [stakeCount, setStakeCount] = useState(10)
+const [stakeCount, setStakeCount] = useState(0)
 
 const [errorContract, setErrorContract] = useState('');
 
@@ -220,8 +220,8 @@ async function StakeCall(){
     
     if(stakeCount < minTokensToStake){
         swal({
-            title: "Oops!!",
-            text: `Stake ${minTokensToStake} Minimum Tokens`,
+            title: "Minimum Staking",
+            text: `Stake ${numberWithCommas(minTokensToStake.toFixed(2))} Minimum Tokens`,
             type: "error",
             showCancelButton: false,
             confirmButtonClass: "btn-danger",
@@ -313,7 +313,7 @@ async function StakeCall(){
                         }
                     </>
                 }
-            </> : <>Connect Wallet To Continue</>
+            </> : <><div style={{color:'#af3535', fontStyle:'italic'}}>Connect Wallet To Continue</div></>
         }
 
       </form>
@@ -366,11 +366,11 @@ export function StakeInfo() {
             <li><span>claimable_ETH:</span><span>{pendingReward.toFixed(18)}</span></li>
           </ul>
           :
-          <div>ERROR: Haven&apos;t staked yet.</div>
+          <div><i>Haven&apos;t staked yet.</i></div>
         }
       </>
       :
-      <div>No wallet found.</div>
+      <div><i>No wallet found.</i></div>
     }
    </>
   )

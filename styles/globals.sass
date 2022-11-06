@@ -330,13 +330,15 @@ body.screener a.header_icon__Ss1uo
 a.onclick
   color: #fff
 
-.button-mono
+.button-mono,
+.swal-button
   background-color: $color_1
   border: 1px solid $color_1
   position: relative
   background-size: 100% 100%
   width: 100%
   max-width: 300px
+  min-width: 120px
   height: 50px
   display: block
   text-align: right
@@ -350,6 +352,7 @@ a.onclick
   transition: 0.3s background-color
   text-shadow: none
   cursor: pointer
+  border-radius: 1px
 
   &.button-fill
     max-width: none
@@ -491,9 +494,9 @@ input, textarea
     color: darken($color_5, 30%)
 
 .note
-  background: $color_1
+  border: 1px solid white
   color: #fff
-  padding: 3px 5px
+  padding: 3px 5px 4px 6px
 
 .warning
   background: #af3535
@@ -505,3 +508,35 @@ input, textarea
 
   a
     background: none!important
+
+
+.swal-modal
+  background: $color_1
+  position: fixed
+  top: 50%
+  left: 50%
+  transform: translate(-50%,-50%)
+  width: 100%
+  max-width: 500px
+  z-index: 99999999
+  animation: fadeIn .3s
+  cursor: pointer
+  text-align: center
+  color: #fff
+  border-radius: 1px
+  border: 1px solid $color_2
+  border-bottom-width: 2px
+
+.swal-title
+  font-size: 48px
+  display: block
+  color: $color_3
+  font-family: $font_mono
+  letter-spacing: 0.03em
+  text-align: center
+  line-height: 1.1
+  margin-top: -10px
+  color: #fff
+
+.swal-text
+  color: #fff

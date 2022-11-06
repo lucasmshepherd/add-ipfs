@@ -257,14 +257,14 @@ export default function Directory(props) {
                     </Link>
                   </li>
 
-                  <li>
-                    <Link className="anchor white-icon" href="/donate">
-                      <a><span>faq.gitbook</span></a>
-                    </Link>
-                  </li>
-
                   <li className={styles.title}>
                     <span>anarchists</span>
+                  </li>
+
+                  <li>
+                    <a className="anchor white-icon" target="_blank" rel="noreferrer" href="https://docs.fundanarchy.io">
+                      <span>anarchist_docs</span>
+                    </a>
                   </li>
 
                   <li className={styles.sitego} data-current={ widgets == "manifesto" ? 'true' : 'false' }>
