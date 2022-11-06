@@ -87,8 +87,8 @@ export default function Donater() {
   return (
     <>
       <form className={styles.form}>
-          <h3>Withdrawal Staked ADD</h3>
-          <p><span className="warning">WARNING</span> This will remove all of your staked ADD balance and extinguish a tiny fire in the heart of a budding Anarchist who may have a massive potential for mayhem.</p>
+          <h3>Withdraw Staked ADD</h3>
+          <p><span className="warning">WARNING</span> This will remove all of your staked ADD balance, stop your weekly ETH rewards, and extinguish a tiny fire in the heart of a budding Anarchist who may have a massive potential for mayhem.</p>
           <label>withdrawal_amount</label>
           <input type="text" name="amount" placeholder="0.00 ADD" className="eth-input" value={numberWithCommas(withdrawAmount.toFixed(2)) + " ADD"} readOnly></input>
         {active && withdrawAmount > 0 ?
