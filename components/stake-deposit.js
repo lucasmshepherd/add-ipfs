@@ -63,18 +63,22 @@ useEffect(() => {
         }else{
             setConnected(false)
         }
-            
+        
     }
     onLoad();
 }, [account, active, changeInBalanceOf]);
 
 useEffect(()=>{
-    const interval = setInterval(() => {
-      changeInBalance()
-    }, 2000);
-    
-    return () => clearInterval(interval);
-  },[])
+    if(active){
+        const interval = setInterval(() => {
+            changeInBalance()
+        }, 2000);
+          
+          return () => clearInterval(interval);
+    }else{
+        setConnected(false)
+    }
+  },[active])
 
 const changeInBalance = async() => {
     const { ethereum } = window;
