@@ -18,7 +18,6 @@
 # misc
 .DS_Store
 *.pem
-/public/assets/video
 
 # debug
 npm-debug.log*

@@ -21,10 +21,17 @@ export default function Files() {
         </div>
         <div className={styles.folder} data-connected="true" data-video="live">
           <Image layout="responsive" src={Icon1} priority="true" alt="folder" />
-          <Link className="anchor" href="/tv">
-          <div className={styles.fthumb} style={{ background: "url('/assets/images/hoodie-guy-dark-bg.jpg') no-repeat 50% 50%" }}/>
+          <Link className="anchor" href="/system">
+          <div className={styles.fthumb} style={{ background: "url('/assets/video/system_failure_thumb.jpg') no-repeat 50% 50%" }}/>
           </Link>
-          <div className={styles.flabel}>syst3m_404</div>
+          <div className={styles.flabel}>sy5t3m_f4ilur3</div>
+        </div>
+        <div className={styles.folder} data-connected="true" data-video="live">
+          <Image layout="responsive" src={Icon1} priority="true" alt="folder" />
+          <Link className="anchor" href="/need">
+          <div className={styles.fthumb} style={{ background: "url('/assets/video/they_need_us_thumb.jpg') no-repeat 50% 0" }}/>
+          </Link>
+          <div className={styles.flabel}>th3y_n33d_u5</div>
         </div>
       </div>
     </>
