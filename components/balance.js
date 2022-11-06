@@ -108,8 +108,8 @@ export default function Balance() {
     Web3EthContract.setProvider(ethereum);
     const contract_token = new Web3EthContract(TokenContract.abi, TokenContract.TOKEN_CONTRACT_ADDRES);
 
-    let userAddBal = (await contract_token.methods.balanceOf(account).call()/10**18).toFixed(2)
-    setBalance(userAddBal);
+    // let userAddBal = (await contract_token.methods.balanceOf(account).call()/10**18).toFixed(2);
+    setBalance((await contract_token.methods.balanceOf(account).call()/10**18).toFixed(2));
   }
 
   useEffect(() => {
@@ -121,6 +121,14 @@ export default function Balance() {
       }
   }, [active, account, balance]);
 
+  useEffect(()=>{
+    const interval = setInterval(() => {
+      getAddBalance();
+    }, 2000);
+    
+    return () => clearInterval(interval);
+  },[balance])
+
   return (
     <> 
       <div className="flex-fill"></div>
@@ -129,7 +137,7 @@ export default function Balance() {
         <span title="ADD Balance">
           {active ? 
             <>
-              {balance <= 0 ?
+              {balance <= 1 ?
                 <a href='#' target='_blank' rel='nofollower'>Purchase ADD</a>
                 :
                 balance

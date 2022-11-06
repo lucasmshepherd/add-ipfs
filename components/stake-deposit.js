@@ -35,13 +35,15 @@ const [maxWalletAmount, setMaxWalletAmount] = useState(0)
 const [approved, setApproved] = useState(0)
 const [tokensToApprove, setTokensToApprove] = useState(0)
 
-const [stakeCount, setStakeCount] = useState(10)
+const [stakeCount, setStakeCount] = useState(1)
 
 const [errorContract, setErrorContract] = useState('');
 
 const [connected, setConnected] = useState(false)
 
-const [stakeLimit, setStakeLimit] = useState(0)
+const [stakeLimit, setStakeLimit] = useState(0);
+
+const [changeInBalanceOf, setChangeInBalanceOf] = useState(0);
 
 // ONLOAD USE EFFECT 
 // ONLOAD USE EFFECT 
@@ -64,7 +66,22 @@ useEffect(() => {
             
     }
     onLoad();
-}, [account, active]);
+}, [account, active, changeInBalanceOf]);
+
+useEffect(()=>{
+    const interval = setInterval(() => {
+      changeInBalance()
+    }, 2000);
+    
+    return () => clearInterval(interval);
+  },[])
+
+const changeInBalance = async() => {
+    const { ethereum } = window;
+    Web3EthContract.setProvider(ethereum);
+    const contract_token = new Web3EthContract(TokenContract.abi, tokenContractAddress);
+    setChangeInBalanceOf(await contract_token.methods.balanceOf(account).call()/10**18);
+}
 
 const initStake = async() => {
     const { ethereum } = window;
@@ -152,6 +169,9 @@ useEffect(() => {
             }
             if(stakeCount > stakeLimit){
                 setStakeCount(stakeLimit)
+            }
+            if(stakeCount > balanceOf){
+                setStakeCount(balanceOf)
             }
         }else{
             setErrorContract("");
@@ -341,7 +361,11 @@ export function StakeInfo() {
 
   useEffect(() => {
     if(active){
-      getStakedTokens();
+        const interval = setInterval(() => {
+            getStakedTokens();
+        }, 2000);
+        
+        return () => clearInterval(interval);
     }
   }, [active, account]);
 

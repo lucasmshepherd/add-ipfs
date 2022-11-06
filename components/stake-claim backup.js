@@ -22,12 +22,7 @@ export default function Donater() {
   const [claimAfter, setClaimAfter] = useState(0);
   const [timeRemaining, setTimeRemaining] = useState(0);
 
-  const [claimPeriodLeft, setClaimPeriodLeft] = useState(0)
-
-  const [day, setDay] = useState(0);
-  const [hour, setHour] = useState(0);
-  const [min, setMin] = useState(0);
-  const [sec, setSec] = useState(0);
+  const [storage, setStorage] = useState(0)
 
   const getPendingReward = async() => {
     // const web3 = new Web3(SACN_LINK_PROVIDER);
@@ -63,32 +58,60 @@ export default function Donater() {
       Web3EthContract.setProvider(ethereum);
       const contract = new Web3EthContract(StakeContract.abi, StakeContract.STAKE_CONTRACT_ADDRESS);
 
+      let claimPeriodLeft = await contract.methods.claimPeriodLeft(account).call();
       
-      setClaimPeriodLeft(await contract.methods.claimPeriodLeft(account).call());
-      var countDownDate = claimPeriodLeft;
+      // const formatted = moment.utc(claimPeriodLeft*1000).format('DD:HH:mm:ss');
+      // setTimeRemaining(formatted);
 
-      setInterval(() => {
-        countDownDate = countDownDate - 1;
-        secondsToDhms(countDownDate);
-      },1000); 
+      var countDownDate = claimPeriodLeft * 1000;
+      setInterval(function() {
+        console.log("countDownDate",countDownDate)
+        
+  //      var now = new Date().getTime();
+  //        console.log("now time",now)
+        // var distance = countDownDate - now;
+        var distance = (countDownDate - 1);
+        setStorage(distance)
+
+        distance = moment.utc(distance).format('DD:HH:mm:ss');
+        setTimeRemaining(distance);
+        // localStorage.setItem('A', distance)
+      },1000);
+
     }
+
     if(active){
       getTimeRemaining();
     }
-  },[active,account, claimPeriodLeft])
+  },[active,account])
 
-  function secondsToDhms(seconds) {
-      seconds = Number(seconds);
-      var d = Math.floor(seconds / (3600*24));
-      var h = Math.floor(seconds % (3600*24) / 3600);
-      var m = Math.floor(seconds % 3600 / 60);
-      var s = Math.floor(seconds % 60);
-      
-      setDay( d > 0 ? d + (d == 1 ? " Day, " : " Days ") : "");
-      setHour( h > 0 ? h + (h == 1 ? " Hour, " : " Hours, ") : "");
-      setMin( m > 0 ? m + (m == 1 ? " Minute, " : " Minutes, ") : "");
-      setSec( s > 0 ? s + (s == 1 ? " Second" : " Seconds") : "");
-    }
+  function mytimecountdown(unixtime)
+  {   
+      var countDownDate = unixtime * 1000;
+      var x = setInterval(function() {
+  
+          var now = new Date().getTime();
+        
+          var distance = countDownDate - now;
+        
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+          //document.getElementById("demo").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+          if(typeof(document.getElementById("nextRebase")) != 'undefined' && document.getElementById("nextRebase")!=null){
+               document.getElementById("nextRebase").innerHTML = ('0' + hours).slice(-2)+':'+('0' + minutes).slice(-2)+':'+('0' + seconds).slice(-2);
+          }
+          if (distance < 0) {
+            clearInterval(x);
+           // document.getElementById("demo").innerHTML = "EXPIRED";
+           if(typeof(document.getElementById("nextRebase")) != 'undefined' && document.getElementById("nextRebase")!=null){
+            document.getElementById("nextRebase").innerHTML = "00:00:00";
+           }
+          }
+        }, 1000);
+  }
 
   async function withdrawReward(){
     const { ethereum } = window;
@@ -140,26 +163,25 @@ export default function Donater() {
     if(active){
       getPendingReward();
     }
-  }, [active, account, pendingReward]);
+  }, [active, account]);
 
   return (
     <>
       <form className={styles.form}>
           <h3>Claim ADD</h3>
           <p>Claim your <b>earned</b> ADD rewards.  This will not affect your staked ADD balance.</p>
-          <p>NOTE : You can claim your rewards once every {claimAfter} days after every staing</p>
+          <p>NOTE : You can claim your rewards once every {claimAfter} days</p>
           <label>claim_rewards</label>
-          <input type="text" name="amount" placeholder="0.00 ADD" value={pendingReward + " ADD"} className="eth-input" readOnly />
+          <input type="text" name="amount" placeholder="0.00 ADD" value={pendingReward + " ADD"} className="eth-input"></input>
 
           {active ?
             <>
-              {claimPeriodLeft <= 0 ?
-              // {pendingReward > 0 && claimPeriodLeft <= 0 ?
+              {pendingReward > 0 ?
                 <button type="button" onClick={withdrawReward} className="button-mono push-right">{accent}Claim Rewards</button>
                 :
                 // <button type="button" onClick={error} className="button-mono push-right" disabled>{accent}Claim Rewards</button>
-                <div>Cooldown : {day} {hour} {min} {sec} </div>
-                // <div>Cooldown : {timeRemaining}</div>
+                // <div style={{color:'red'}}>Cooldown : <span id='nextRebase'></span></div>
+                <div style={{color:'red'}}>Cooldown : {timeRemaining}</div>
               }
             </>
             :
