@@ -366,13 +366,13 @@ a.onclick
     transition: fill 0.3s
 
   &:hover
-    background-color: $color_2
+    background-color: $color_2!important
     svg
-      fill: $color_4
+      fill: $color_4!important
   &:active
-    background-color: $color_5
+    background-color: $color_5!important
     svg
-      fill: #fff
+      fill: #fff!important
 .push-right
   margin-left: auto
 .button
@@ -510,7 +510,7 @@ input, textarea
     background: none!important
 
 .swal-modal
-  background: $color_1
+  background: lighten($color_1, 2%)
   position: fixed
   top: 50%
   left: 50%
@@ -527,9 +527,9 @@ input, textarea
   border-bottom-width: 2px
 
 .swal-title
-  font-size: 48px
+  font-size: 36px
   display: block
-  color: $color_3
+  color: $color_4!important
   font-family: $font_mono
   letter-spacing: 0.03em
   text-align: center
@@ -539,3 +539,7 @@ input, textarea
 
 .swal-text
   color: #fff
+  text-align: center
+
+.swal-button
+  border: 1px solid #fff

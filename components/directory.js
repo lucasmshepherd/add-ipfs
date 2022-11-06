@@ -23,6 +23,7 @@ export default function Directory(props) {
   const locked = (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 105 135"><path d="M90,45.1V15h-15v30.1H30V15H15v30.1H0v89.9H105V45.1h-15Zm0,74.9H15V60H90v60Z"/><rect x="29.82" width="45.18" height="15"/><rect x="45" y="75" width="15" height="30"/></svg>)
   const unlocked = (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 135"><rect y="15" width="15" height="30"/><path d="M75,45.1V15h-15v30.1H30v89.9h105V45.1h-60Zm45,74.9H45V60H120v60Z"/><rect x="14.82" width="45.18" height="15"/><rect x="75" y="75" width="15" height="30"/></svg>)
   const num = (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 135"><rect y="30" width="15" height="75"/><rect x="30.62" width="74.38" height="15"/><rect x="120" y="30" width="15" height="75"/><rect x="30.34" y="120" width="74.66" height="15"/><rect x="105" y="105" width="15" height="15"/><rect x="105" y="15" width="15" height="15"/><rect x="15" y="15" width="15" height="15"/><rect x="15" y="105" width="15" height="15"/><rect x="45" y="45" width="15" height="45"/><rect x="75" y="45" width="15" height="45"/><rect x="60" y="75" width="15" height="15"/><rect x="60" y="45" width="15" height="15"/><rect x="30" y="45" width="15" height="15"/><rect x="45" y="30" width="15" height="15"/><rect x="75" y="30" width="15" height="15"/><rect x="90" y="45" width="15" height="15"/><rect x="90" y="75" width="15" height="15"/><rect x="75" y="90" width="15" height="15"/><rect x="45" y="90" width="15" height="15"/><rect x="30" y="75" width="15" height="15"/></svg>)
+  const excl = (<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 135"><rect y="30" width="15" height="75"/><rect x="30.62" width="74.38" height="15"/><rect x="120" y="30" width="15" height="75"/><rect x="30.34" y="120" width="74.66" height="15"/><rect x="105" y="105" width="15" height="15"/><rect x="105" y="15" width="15" height="15"/><rect x="15" y="15" width="15" height="15"/><rect x="15" y="105" width="15" height="15"/><rect x="60" y="30" width="15" height="45"/><rect x="60" y="90" width="15" height="15"/></svg>)
 
   if(widgets == 'freedom' || widgets == 'system' || widgets == 'need') {
     return (
@@ -107,9 +108,9 @@ export default function Directory(props) {
             </Link>
           </li>
 
-          <li data-child="true" data-current={ widgets == "withdrawal" ? 'true' : 'false' }>
+          <li data-current={ widgets == "withdrawal" ? 'true' : 'false' } data-dimmed="true">
             <Link className="anchor" href="/withdrawal">
-              <a>{down}<span>withdrawal</span>{arrow}</a>
+              <a>{excl}<span>withdrawal</span>{arrow}</a>
             </Link>
           </li>
 

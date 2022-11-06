@@ -35,15 +35,13 @@ const [maxWalletAmount, setMaxWalletAmount] = useState(0)
 const [approved, setApproved] = useState(0)
 const [tokensToApprove, setTokensToApprove] = useState(0)
 
-const [stakeCount, setStakeCount] = useState(1)
+const [stakeCount, setStakeCount] = useState(0)
 
 const [errorContract, setErrorContract] = useState('');
 
 const [connected, setConnected] = useState(false)
 
-const [stakeLimit, setStakeLimit] = useState(0);
-
-const [changeInBalanceOf, setChangeInBalanceOf] = useState(0);
+const [stakeLimit, setStakeLimit] = useState(0)
 
 // ONLOAD USE EFFECT 
 // ONLOAD USE EFFECT 
@@ -66,26 +64,7 @@ useEffect(() => {
             
     }
     onLoad();
-}, [account, active, changeInBalanceOf]);
-
-useEffect(()=>{
-    if(active){
-        const interval = setInterval(() => {
-            changeInBalance()
-        }, 2000);
-
-          return () => clearInterval(interval);
-    }else{
-        setConnected(false)
-    }
-  },[active])
-
-const changeInBalance = async() => {
-    const { ethereum } = window;
-    Web3EthContract.setProvider(ethereum);
-    const contract_token = new Web3EthContract(TokenContract.abi, tokenContractAddress);
-    setChangeInBalanceOf(await contract_token.methods.balanceOf(account).call()/10**18);
-}
+}, [account, active]);
 
 const initStake = async() => {
     const { ethereum } = window;
@@ -122,7 +101,7 @@ const initUserStats = async() => {
     
     if(approved > 0){
       if(balanceOf < minTokensToStake){
-        setErrorContract("Insufficient Tokens for Staking");
+        setErrorContract("Insufficient tokens for staking.");
         setStakeStatus(false)
       }else{
         setApproveStatus(false);
@@ -153,7 +132,7 @@ useEffect(() => {
                 setApproveStatus(true)
             }else if(stakeCount < minTokensToStake){
                 if(balanceOf < minTokensToStake){
-                  setErrorContract("Insufficient Tokens for Staking");
+                  setErrorContract("Insufficient tokens for staking.");
                   setStakeStatus(false)
               }else{
                 setErrorContract(`Stake ${numberWithCommas(minTokensToStake.toFixed(2))} Minimum Tokens`);
@@ -163,7 +142,7 @@ useEffect(() => {
             else{
                 setApproveStatus(false)
                 if(balanceOf < minTokensToStake){
-                    setErrorContract("Insufficient Tokens for Staking");
+                    setErrorContract("Insufficient tokens for staking.");
                     setStakeStatus(false)
                 }else{
                     setErrorContract("");
@@ -173,9 +152,6 @@ useEffect(() => {
             }
             if(stakeCount > stakeLimit){
                 setStakeCount(stakeLimit)
-            }
-            if(stakeCount > balanceOf){
-                setStakeCount(balanceOf)
             }
         }else{
             setErrorContract("");
@@ -201,17 +177,17 @@ async function approveTokens(){
                     type: "error",
                     showCancelButton: false,
                     confirmButtonClass: "btn-danger",
-                    confirmButtonText: "Close",
+                    confirmButtonText: "Ok",
                     closeOnConfirm: false
                 });
             } else {
                 swal({
                     title: "Approve Request Submitted Successfully",
-                    text: "Please wait for wallet confirmation.",
+                    text: "Please wait for wallet confirmation...",
                     type: "success",
                     showCancelButton: false,
                     confirmButtonClass: "btn-danger",
-                    confirmButtonText: "Close",
+                    confirmButtonText: "Ok",
                     closeOnConfirm: false
                 });
             }
@@ -223,7 +199,7 @@ async function approveTokens(){
                 type: "error",
                 showCancelButton: false,
                 confirmButtonClass: "btn-danger",
-                confirmButtonText: "Close",
+                confirmButtonText: "Ok",
                 closeOnConfirm: false
             });
         });
@@ -249,7 +225,7 @@ async function StakeCall(){
             type: "error",
             showCancelButton: false,
             confirmButtonClass: "btn-danger",
-            confirmButtonText: "Close",
+            confirmButtonText: "Ok",
             closeOnConfirm: false
         });
         setStakeCount(minTokensToStake);
@@ -265,22 +241,22 @@ async function StakeCall(){
             }, function (error, tx) {
                 if (error) {
                     swal({
-                        title: "Hold Up",
+                        title: "Error Found",
                         text: error.message,
                         type: "error",
                         showCancelButton: false,
                         confirmButtonClass: "btn-danger",
-                        confirmButtonText: "Close",
+                        confirmButtonText: "Ok",
                         closeOnConfirm: false
                     });
                 } else {
                     swal({
                         title: "Stake Request Submitted Successfully",
-                        text: "Please wait for wallet confirmation.  It may take a moment.",
+                        text: "Please wait for wallet confirmation...",
                         type: "success",
                         showCancelButton: false,
                         confirmButtonClass: "btn-danger",
-                        confirmButtonText: "Close",
+                        confirmButtonText: "Ok",
                         closeOnConfirm: false
                     });
                 }
@@ -292,7 +268,7 @@ async function StakeCall(){
                 type: "error",
                 showCancelButton: false,
                 confirmButtonClass: "btn-danger",
-                confirmButtonText: "Close",
+                confirmButtonText: "Ok",
                 closeOnConfirm: false
             });
         });
@@ -300,30 +276,31 @@ async function StakeCall(){
 
 }
 
-let bal = numberWithCommas((balanceOf).toFixed(2))
+    let bal = numberWithCommas((balanceOf).toFixed(2))
 
+    function numberWithCommas(n) {
+        var parts=n.toString().split(".");
+        return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");
+    }
 
   return (
     <>
       <form className={styles.form}>
           <h3>Stake ADD</h3>
-          <p>{bal} ADD Available</p>
+          <p>{bal} ADD Available for Staking</p>
           <label>stake_amount</label>
           <input value={stakeCount} onChange={(e) => setStakeCount(e.target.value)} type="number" name="amount" placeholder="0.00 ADD" className="eth-input"></input>
 
           <div className="col-sm-12" id="error-stake" style={{color: "red"}}>{errorContract}</div>
 
           {
-            connected ? 
+            active ? 
             <>
                 {approveStatus ? 
-                    // <button type='button' onClick={approveTokens} className="button-mono push-right">{accent}APPROVE</button>
-                    <>
-                        {balanceOf == 0 ?
-                            <></>
-                            :
-                            <button type='button' onClick={approveTokens} className="button-mono push-right">{accent}APPROVE</button>
-                        }
+                    <> 
+                        {!balanceOf == 0 &&
+                            <button type='button' onClick={approveTokens} className="button-mono push-right">{accent}APPROVE</button> 
+                        } 
                     </>
                     :
                     <>
@@ -344,10 +321,9 @@ let bal = numberWithCommas((balanceOf).toFixed(2))
   )
 }
 
-
 function numberWithCommas(n) {
-    var parts=n.toString().split(".");
-    return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");
+  var parts=n.toString().split(".");
+  return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");
 }
 
 export function StakeInfo() {
@@ -374,11 +350,7 @@ export function StakeInfo() {
 
   useEffect(() => {
     if(active){
-        const interval = setInterval(() => {
-            getStakedTokens();
-        }, 2000);
-        
-        return () => clearInterval(interval);
+      getStakedTokens();
     }
   }, [active, account]);
 
@@ -388,10 +360,10 @@ export function StakeInfo() {
       <>
         {tokensStaked > 0 ?
           <ul className="clean-list">
-            <li><span>staked_balance:</span><span>{numberWithCommas(tokensStaked.toFixed(2)) + " ADD"}</span></li>
+            <li><span>staked_ADD:</span><span>{numberWithCommas(tokensStaked.toFixed(2))}</span></li>
             <hr />
             {/* <li><span>current_cycle:</span><span>+1,452<sup>.12</sup></span></li> */}
-            <li><span>claimable_rewards:</span><span>{pendingReward == 0 ? "0.00 ETH" : pendingReward.toFixed(18) + " ETH"}</span></li>
+            <li><span>claimable_ETH:</span><span>{pendingReward.toFixed(18)}</span></li>
           </ul>
           :
           <div><i>Haven&apos;t staked yet.</i></div>

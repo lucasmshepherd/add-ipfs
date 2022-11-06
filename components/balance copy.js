@@ -103,7 +103,6 @@ export default function Balance() {
   const [logged, setLogged] = useState(false)
   const [balance, setBalance] = useState(0)
 
-  
   let bal = numberWithCommas(balance)
 
   function numberWithCommas(n) {
@@ -116,8 +115,8 @@ export default function Balance() {
     Web3EthContract.setProvider(ethereum);
     const contract_token = new Web3EthContract(TokenContract.abi, TokenContract.TOKEN_CONTRACT_ADDRES);
 
-    // let userAddBal = (await contract_token.methods.balanceOf(account).call()/10**18).toFixed(2);
-    setBalance((await contract_token.methods.balanceOf(account).call()/10**18).toFixed(2));
+    let userAddBal = (await contract_token.methods.balanceOf(account).call()/10**18).toFixed(2)
+    setBalance(userAddBal);
   }
 
   useEffect(() => {
@@ -129,18 +128,6 @@ export default function Balance() {
       }
   }, [active, account, balance]);
 
-  useEffect(()=>{
-    if(active){
-      const interval = setInterval(() => {
-        getAddBalance();
-      }, 2000);
-
-      return () => clearInterval(interval);
-    }else{
-      setLogged(false)
-    }
-  },[balance])
-
   return (
     <> 
       <div className="flex-fill"></div>
@@ -149,14 +136,14 @@ export default function Balance() {
         <span title="ADD Balance">
           {active ? 
             <>
-              {balance <= 1 ?
+              {balance <= 0 ?
                 <a href='#' target='_blank' rel='nofollower'>Purchase ADD</a>
                 :
                 bal
               }
             </>
             :
-            <a href='#' onClick={onOpen}>Connect Your Wallet</a>
+            <a href='#' onClick={onOpen}><i>Connect Your Wallet</i></a>
           }
           {/* {balance} */}
           {/* { change > 0 && <sup>{change}</sup>} */}
