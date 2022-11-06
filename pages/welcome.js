@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import {useEffect} from 'react'
 import Interface from '../components/interface.js'
 
 const Index = (props) => {

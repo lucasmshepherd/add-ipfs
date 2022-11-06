@@ -20,7 +20,7 @@ import Donations from './donations.js'
 import About from './about.js'
 import Donations2 from './donations2.js'
 import Donater from './donater.js'
-import DonateId from './donate-id.js'
+//import DonateId from './donate-id.js'
 import Deposit, {StakeInfo} from './stake-deposit.js'
 import Nfts from './nfts.js'
 import Withdrawal from './stake-withdrawal.js'
@@ -37,7 +37,6 @@ const Chart = dynamic(() => import('./chart.js'), {
 
 export default function Interface(props) {
   let page = props.page
-  let id = "0x42881D5F526406032A537A51EC9A1513BAD9A5E5"
   
   //if (page == "welcome") {
     return (

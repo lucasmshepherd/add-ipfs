@@ -1,13 +1,15 @@
-import { loginUser } from '../store/users/action'
-import { wrapper } from '../store/store'
+import Head from 'next/head.js'
 import Interface from '../components/interface.js'
 
 const Index = (props) => {
-  return <Interface page="need" />
+  return (
+    <>
+      <Head>
+        <title>Anarchist DAO - Video: They Need Us</title>
+      </Head>
+      <Interface page="need" />
+    </>
+  )
 }
-
-export const getStaticProps = wrapper.getStaticProps((store) => () => {
-  store.dispatch(loginUser())
-})
 
 export default Index
