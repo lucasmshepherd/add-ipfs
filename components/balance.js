@@ -119,14 +119,18 @@ export default function Balance() {
       } else {
         setLogged(false)
       }
-  }, [active, account, balance]);
-
-  useEffect(()=>{
-    const interval = setInterval(() => {
-      getAddBalance();
-    }, 2000);
+    }, [active, account, balance]);
     
-    return () => clearInterval(interval);
+    useEffect(()=>{
+    if(active){
+      const interval = setInterval(() => {
+        getAddBalance();
+      }, 2000);
+      
+      return () => clearInterval(interval);
+    }else{
+      setLogged(false)
+    }
   },[balance])
 
   return (
