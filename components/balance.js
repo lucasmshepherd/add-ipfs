@@ -65,6 +65,7 @@ export default function Balance() {
       activate(connectors[provider])
     };
   }, [activate]);
+
   //Wallet Connection 
 
   let text = "Connect"
@@ -75,7 +76,6 @@ export default function Balance() {
 
   const [logged, setLogged] = useState(false)
   const [balance, setBalance] = useState(0)
-
   
   let bal = numberWithCommas(balance)
 
