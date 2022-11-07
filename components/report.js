@@ -52,6 +52,11 @@ export default function Report(props) {
     setAddBurned(await contract_token.methods.balanceOf(deadAddress).call()/10**18)
   }
 
+  function numberWithCommas(n) {
+    var parts=n.toString().split(".");
+    return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");
+  }
+
   useEffect(() => {
     if(active){
       getReportValues();
@@ -65,14 +70,14 @@ export default function Report(props) {
               if ( page == "stake" || page == "deposit" || page == "withdrawal" || page == "claim" ) {
                 return (
                   <>
-                    <div className={styles.row}>
-                      <div className={styles.cell}><h4>ADD_price</h4><span>{active ? addPrice : lock}</span></div>
+                    {/*<div className={styles.row}>
+                      <div className={styles.cell}><h4>ADD_price</h4><span>{active ? addPrice.toFixed(2) : lock}</span></div>
                     </div>
                     <div className={styles.row}>
-                      <div className={styles.cell}><h4>APR</h4><span>{active ? apRate : lock}</span></div>
-                    </div>
+                      <div className={styles.cell}><h4>APR</h4><span>{active ? apRate + "%" : lock}</span></div>
+                    </div>*/} 
                     <div className={styles.row}>
-                      <div className={styles.cell}><h4>total_ADD_staked</h4><span>{active ? totalStaked : lock}</span></div>
+                      <div className={styles.cell}><h4>total_ADD_staked</h4><span>{active ? numberWithCommas(totalStaked.toFixed(2)) : lock}</span></div>
                     </div>
                   </>
                 )
@@ -80,7 +85,7 @@ export default function Report(props) {
             })()}
         { page == "dapp" &&
           <>
-            <div className={styles.row}>
+            {/*<div className={styles.row}>
               <div className={styles.cell}><h4>days_since_launch</h4><span>{active ? daySinceLaunch : lock}</span></div>
             </div>
             <div className={styles.row}>
@@ -90,19 +95,16 @@ export default function Report(props) {
               <div className={styles.cell}><h4>anarchist_wallet_count</h4><span>{active ? walletCount : lock}</span></div>
             </div>
             <div className={styles.row}>
-              <div className={styles.cell}><h4>marketcap</h4><span>{active ? marketCap : lock}</span></div>
-            </div>
+              <div className={styles.cell}><h4>marketcap</h4><span>{active ? marketCap.toFixed(2) : lock}</span></div>
+            </div>*/}
             <div className={styles.row}>
-              <div className={styles.cell}><h4>total_value_locked</h4><span>{active ? valueLocked : lock}</span></div>
+              <div className={styles.cell}><h4>total_value_locked</h4><span>{active ? numberWithCommas(valueLocked.toFixed(2)) : lock}</span></div>
             </div>
-            <div className={styles.row}>
+            {/*<div className={styles.row}>
               <div className={styles.cell}><h4>total_eth_sent</h4><span>{active ? ethSent : lock}</span></div>
-            </div>
+            </div>*/}
             <div className={styles.row}>
-              <div className={styles.cell}><h4>treasury_balance</h4><span>{active ? treasuryBalance.toFixed(2) : lock}</span></div>
-            </div>
-            <div className={styles.row}>
-              <div className={styles.cell}><h4>ADD_burned</h4><span>{active ? addBurned : lock}</span></div>
+              <div className={styles.cell}><h4>treasury_balance</h4><span>{active ? numberWithCommas(treasuryBalance.toFixed(2)) : lock}</span></div>
             </div>
           </>
         }

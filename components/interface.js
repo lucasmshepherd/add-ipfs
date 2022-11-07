@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import Widget from './widget.js'
 import Files from './files.js'
 import TerminalStake from './terminal-stake.js'
@@ -17,19 +16,17 @@ import Announcements from './discord-announcements.js'
 import Members from './discord-members.js'
 import Feed from './feed.js'
 import Manifesto from './manifesto.js'
-import Donations from './donations.js'
+//import Donations from './donations.js'
+import About from './about.js'
 import Donations2 from './donations2.js'
 import Donater from './donater.js'
-import DonateId from './donate-id.js'
+//import DonateId from './donate-id.js'
 import Deposit, {StakeInfo} from './stake-deposit.js'
 import Nfts from './nfts.js'
 import Withdrawal from './stake-withdrawal.js'
 import Claim from './stake-claim.js'
 import Learn from './learn.js'
 import UserInterface, { Pane, PaneRow, Sidebar } from './user-interface.js'
-// state
-import { useSelector, useDispatch } from 'react-redux'
-import { loginUser, logoutUser } from '../store/users/action'
 
 import styles from '../styles/components/interface.module.sass'
 
@@ -39,10 +36,7 @@ const Chart = dynamic(() => import('./chart.js'), {
 });
 
 export default function Interface(props) {
-  const dispatch = useDispatch()
-  const connected = useSelector((state) => state.users.connected)
   let page = props.page
-  let id = "0x42881D5F526406032A537A51EC9A1513BAD9A5E5"
   
 
     return (
@@ -155,6 +149,13 @@ export default function Interface(props) {
                   <Donations2 />
                 </Widget>
               </PaneRow>
+            } {/* about */} { 
+            page == "about" &&
+              <PaneRow name="primary">
+                <Widget type={page} title="about_" icon="globe" scroll="true" page="true">
+                  <About />
+                </Widget>
+              </PaneRow>
             } {/* manifesto */} { 
             page == "manifesto" &&
               <PaneRow name="primary">
@@ -204,11 +205,35 @@ export default function Interface(props) {
             } {/* freedom */} { 
             page == "freedom" &&
               <PaneRow name="primary">
-                <Widget type="video" title="welcome_" icon="triangles">
+                <Widget type="video" title="freedom_" icon="triangles">
                 <video style={{ width: '100%', height: '100%', position: 'absolute' }} controls autoPlay preload="auto">
                   <source src="/assets/video/freedom.mp4" type="video/mp4"/>
                   <source src="/assets/video/freedom.webm" type="video/webm"/>
                   <source src="/assets/video/freedom.ogg" type="video/ogg"/>
+                  Your browser does not support the video tag.
+                </video>
+                </Widget>
+              </PaneRow>
+            } {/* system */} { 
+            page == "system" &&
+              <PaneRow name="primary">
+                <Widget type="video" title="system_failure_" icon="triangles">
+                <video style={{ width: '100%', height: '100%', position: 'absolute' }} controls autoPlay preload="auto">
+                  <source src="/assets/video/system_failure.mp4" type="video/mp4"/>
+                  <source src="/assets/video/system_failure.webm" type="video/webm"/>
+                  <source src="/assets/video/system_failure.ogg" type="video/ogg"/>
+                  Your browser does not support the video tag.
+                </video>
+                </Widget>
+              </PaneRow>
+            } {/* need */} { 
+            page == "need" &&
+              <PaneRow name="primary">
+                <Widget type="video" title="they_need_us_" icon="triangles">
+                <video style={{ width: '100%', height: '100%', position: 'absolute' }} controls autoPlay preload="auto">
+                  <source src="/assets/video/They-Need-Us.mp4" type="video/mp4"/>
+                  <source src="/assets/video/They-Need-Us.webm" type="video/webm"/>
+                  <source src="/assets/video/They-Need-Us.ogg" type="video/ogg"/>
                   Your browser does not support the video tag.
                 </video>
                 </Widget>
@@ -249,7 +274,7 @@ export default function Interface(props) {
                     </Widget>
                   </PaneRow>
                 )
-              } else if ( page == "freedom" ) { // Media Files
+              } else if ( page == "freedom" || page == "system" || page == "need" ) { // Media Files
                 return (
                   <PaneRow name="fill">
                     <Widget type="files" title="files_" icon="triangles">
