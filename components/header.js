@@ -24,6 +24,7 @@ export default function Header() {
     active
   } = useWeb3React();
 
+  let audioPlaying
   let audioIconSource = AudioOffIcon
   const dispatch = useDispatch()
   // state

@@ -2,7 +2,7 @@ import Widget from './widget.js'
 import Files from './files.js'
 import TerminalStake from './terminal-stake.js'
 import TerminalProposals from './terminal-proposals.js'
-import TerminalDelegate from './terminal-delegate.js'
+//import TerminalDelegate from './terminal-delegate.js'
 import TerminalSubmit from './terminal-submit.js'
 import TerminalPending from './terminal-pending.js'
 import TerminalClosed from './terminal-closed.js'
@@ -33,7 +33,7 @@ import styles from '../styles/components/interface.module.sass'
 import dynamic from 'next/dynamic'
 const Chart = dynamic(() => import('./chart.js'), {
   ssr: false
-});
+})
 
 export default function Interface(props) {
   let page = props.page
@@ -295,7 +295,7 @@ export default function Interface(props) {
             })()}
             {/* Social */}
             {(() => {
-              if ( page == "welcome" || page == "training" || page == "nfts" || page == "mint" || page == "tv" || page == "manifesto" || page == "stake" || page == "deposit" || page == "withdrawal" || page == "claim" ) {
+              if ( page == "welcome" || page == "training" || page == "nfts" || page == "mint" || page == "tv" || page == "manifesto" || page == "stake" || page == "dapp" || page == "deposit" || page == "withdrawal" || page == "claim" || page == "donate" || page == "about" ) {
                 return (
                   <PaneRow>
                     <Widget type="social" title="social_" icon="triangles">

@@ -20,7 +20,6 @@ export const getLibrary = (provider) => {
 function MyApp({ Component, pageProps }) {
   const [isLoading, setLoading] = useState(false)
 
-
   // This will run one time after the component mounts
   useEffect(() => {
     const onPageLoad = () => {

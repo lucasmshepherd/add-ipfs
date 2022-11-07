@@ -1,15 +1,16 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react'
 import styles from '../styles/components/donations.module.sass'
+import { Howl } from 'howler'
 
 //Stake Integration Requirements
-import { providerURL } from './walletConnect/utils';
+import { providerURL } from './walletConnect/utils'
 import TokenContract from './integration/token.json'
 import StakeContract from './integration/stake.json'
-import {  useWeb3React } from "@web3-react/core";
-import { connectors } from "./walletConnect/connectors";
-import Web3EthContract from "web3-eth-contract";
+import {  useWeb3React } from "@web3-react/core"
+import { connectors } from "./walletConnect/connectors"
+import Web3EthContract from "web3-eth-contract"
 import Web3 from 'web3'
-import swal from 'sweetalert';
+import swal from 'sweetalert'
 
 export default function Donater() {
   let accent = (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54.96 3.72"><path d="M54.96,2.98h-15.7v.74h15.7v-.74Z"/><path d="M35.33,2.98H0v.74H35.33v-.74Z"/><path d="M54.95,1.48H0v.74H54.95v-.74Z"/><path d="M54.96,0H23.56V.74h31.4V0Z"/><path d="M19.63,0h-3.92V.74h3.92V0Z"/><path d="M11.78,0h-3.92V.74h3.92V0Z"/><path d="M3.92,0H0V.74H3.92V0Z"/></svg>)
@@ -17,37 +18,60 @@ export default function Donater() {
   const {
     active,
     account
-  } = useWeb3React();
+  } = useWeb3React()
 
 
-const SACN_LINK_PROVIDER = providerURL();
+const SACN_LINK_PROVIDER = providerURL()
 
 const [StakeContractAddress, setStakeContractAddress] = useState(StakeContract.STAKE_CONTRACT_ADDRESS)
 const [tokenContractAddress, setTokenContractAddress] = useState(TokenContract.TOKEN_CONTRACT_ADDRES)
-
-const [approveStatus, setApproveStatus] = useState(true);
-const [stakeStatus, setStakeStatus] = useState(false);
-
+const [approveStatus, setApproveStatus] = useState(true)
+const [stakeStatus, setStakeStatus] = useState(false)
 const [minTokensToStake, setMinTokensToStake] = useState(0)
 const [tokensStaked, setTokensStaked] = useState(0)
 const [balanceOf, setBalanceOf] = useState(0)
 const [maxWalletAmount, setMaxWalletAmount] = useState(0)
 const [approved, setApproved] = useState(0)
 const [tokensToApprove, setTokensToApprove] = useState(0)
-
 const [stakeCount, setStakeCount] = useState(1)
-
-const [errorContract, setErrorContract] = useState('');
-
+const [errorContract, setErrorContract] = useState('')
 const [connected, setConnected] = useState(false)
+const [stakeLimit, setStakeLimit] = useState(0)
+const [changeInBalanceOf, setChangeInBalanceOf] = useState(0)
+const [audio, setAudio] = useState('null')
 
-const [stakeLimit, setStakeLimit] = useState(0);
+useEffect(() => {
+setAudio([    
+    '/assets/audio/gizmo-glitch.mp3', 
+    '/assets/audio/gizmo-glitch-2.m4a', 
+    '/assets/audio/gizmo-glitch-2.ogg', 
+    '/assets/audio/gizmo-glitch-2.aac'
+])
+},[])
 
-const [changeInBalanceOf, setChangeInBalanceOf] = useState(0);
-
-// ONLOAD USE EFFECT 
-// ONLOAD USE EFFECT 
-// ONLOAD USE EFFECT
+const soundEffect = () => {
+    var sound = new Howl({
+        src: audio,
+        autoplay: false,
+        loop: false,
+        volume: 0.5
+    })
+    sound.play()
+}
+const soundEffectGood = () => {
+    var sound = new Howl({
+        src: [    
+            '/assets/audio/mech-glitch.mp3', 
+            '/assets/audio/mech-glitch.m4a', 
+            '/assets/audio/mech-glitch.ogg', 
+            '/assets/audio/mech-glitch.aac'
+        ],
+        autoplay: false,
+        loop: false,
+        volume: 0.5
+    })
+    sound.play()
+}
 
 useEffect(() => {
 
@@ -183,6 +207,7 @@ useEffect(() => {
 }, [active, stakeCount, approved, account]);
 
 async function approveTokens(){
+    soundEffectGood()
     const { ethereum } = window;
     Web3EthContract.setProvider(ethereum);
 
@@ -243,6 +268,7 @@ async function StakeCall(){
     // console.log("count stake", countStake)
     
     if(stakeCount < minTokensToStake){
+        soundEffect()
         swal({
             title: "Minimum Staking",
             text: `Stake ${numberWithCommas(minTokensToStake.toFixed(2))} Minimum Tokens`,
@@ -255,6 +281,7 @@ async function StakeCall(){
         setStakeCount(minTokensToStake);
     }
     else{
+        soundEffectGood()
         var countStake = web3.utils.toWei(String(stakeCount), 'ether');
 
         contract.methods.deposit(countStake).estimateGas({

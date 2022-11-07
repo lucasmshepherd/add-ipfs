@@ -1,6 +1,6 @@
+import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-//state
-import { useSelector } from 'react-redux'
+import { Howl } from 'howler'
 // components
 import Source from '../components/source.js'
 import Interface from '../components/interface.js'
@@ -15,6 +15,28 @@ const Index = (props) => {
   } = useWeb3React();
 
   const router = useRouter()
+
+  const [audio, setAudio] = useState('null')
+
+  useEffect(() => {
+    setAudio([    
+      '/assets/audio/button-glitch-2.mp3', 
+      '/assets/audio/button-glitch-2.m4a', 
+      '/assets/audio/button-glitch-2.ogg', 
+      '/assets/audio/button-glitch-2.aac'
+    ])
+  },[])
+
+  const soundEffect = () => {
+    var sound = new Howl({
+      src: audio,
+      autoplay: true,
+      loop: false,
+      volume: 0.5
+    })
+    sound.play()
+  }
+
   return (
     <>
       <canvas id="canvas" className="canvas2"></canvas>
@@ -30,7 +52,7 @@ const Index = (props) => {
             <Widget type="granted" title="access_verify_" icon="globe" scroll="true">
               <span className="glitchme" data-text="Access Granted">Access Granted</span>
               <b>Freedom awaits you...</b>
-              <div className="button-mono">Enter</div>
+              <div className="button-mono" onClick={soundEffect}>Enter</div>
             </Widget>
           </div>
         :
