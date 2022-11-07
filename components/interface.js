@@ -38,7 +38,7 @@ const Chart = dynamic(() => import('./chart.js'), {
 export default function Interface(props) {
   let page = props.page
   
-  //if (page == "welcome") {
+
     return (
       <> 
         <UserInterface layout={page}>
@@ -309,6 +309,7 @@ export default function Interface(props) {
         </UserInterface>
       </>
     )
+
 
   if (page == "proposals") {
     return (
