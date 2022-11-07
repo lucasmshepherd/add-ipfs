@@ -267,15 +267,15 @@ export default function Directory(props) {
                     </Link>
                   </li>
 
-                  <li data-current={ widgets == "about" ? 'true' : 'false' }>
-                    <Link className="anchor" href="/about">
-                      <a onClick={soundEffect}><span>about_the_crew</span>{arrow}</a>
-                    </Link>
-                  </li>
-
                   <li data-current={ widgets == "donate" ? 'true' : 'false' }>
                     <Link className="anchor white-icon" href="/donate">
                       <a onClick={soundEffect}><span>further_the_cause</span>{arrow}</a>
+                    </Link>
+                  </li>
+
+                  <li data-current={ widgets == "about" ? 'true' : 'false' }>
+                    <Link className="anchor" href="/about">
+                      <a onClick={soundEffect}><span>tek_sup.port</span>{arrow}</a>
                     </Link>
                   </li>
 
@@ -303,7 +303,7 @@ export default function Directory(props) {
 
                   <li className={styles.sitego} data-current={ widgets == "training" ? 'true' : 'false' }>
                     <Link className="anchor" href="/training">
-                      <a onClick={soundEffect}><span>anarchist_university</span>{arrow}</a>
+                      <a onClick={soundEffect}><span>anarchist_education</span>{arrow}</a>
                     </Link>
                   </li>
 
