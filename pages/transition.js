@@ -27,14 +27,16 @@ const Index = (props) => {
           <div className="granted" onClick={() => router.push('/dapp')}>
             <Widget type="granted" title="access_verify_" icon="globe" scroll="true">
               <span className="glitchme" data-text="Access Granted">Access Granted</span>
-              <b>Freedom Awaits You.  Click Here.</b>
+              <b>Freedom awaits you...</b>
+              <div className="button-mono">Enter</div>
             </Widget>
           </div>
         :
           <div className="granted" onClick={() => router.push('/welcome')}>
             <Widget type="granted" title="access_verify_" icon="globe" scroll="true">
               <span className="glitchme" data-text="Access Denied"><i>Access Denied</i></span>
-              <b>Please connect a wallet.<br/>Click here to go back.</b>
+              <b>Please connect a wallet...</b>
+              <div className="button-mono btn-warning">Go Back</div>
             </Widget>
           </div>
         }
