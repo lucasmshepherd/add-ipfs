@@ -308,7 +308,13 @@ async function StakeCall(){
           <label>stake_amount</label>
           <input value={stakeCount} onChange={(e) => setStakeCount(e.target.value)} type="number" name="amount" placeholder="0.00 ADD" className="eth-input"></input>
 
-          <div className="col-sm-12" id="error-stake" style={{color: "red"}}>{errorContract}</div>
+          <div className="col-sm-12" id="error-stake" style={{color: "red"}}>
+            {balanceOf == 0 ? 
+                "Insufficient ADD Tokens"
+                :
+                errorContract          
+            }
+          </div>
 
           {
             connected ? 
