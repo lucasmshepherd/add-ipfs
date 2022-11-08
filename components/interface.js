@@ -10,7 +10,6 @@ import Terminal from './terminal.js'
 import Directory from './directory.js'
 import Report from './report.js'
 import Social from './social.js'
-import Visualizer from './visualizer.js'
 import MintNft from './mint-nft.js'
 import Announcements from './discord-announcements.js'
 import Members from './discord-members.js'
@@ -325,7 +324,7 @@ export default function Interface(props) {
           <Sidebar>
             <PaneRow name="small">
               <Widget type="audio" title="freq_v_" icon="arc">
-                <Visualizer />
+
               </Widget>
             </PaneRow>
             <PaneRow>
@@ -358,7 +357,7 @@ export default function Interface(props) {
           <Sidebar>
             <PaneRow name="small">
               <Widget type="audio" title="freq_v_" icon="arc">
-                <Visualizer />
+
               </Widget>
             </PaneRow>
             <PaneRow>
@@ -391,7 +390,7 @@ export default function Interface(props) {
           <Sidebar>
             <PaneRow name="small">
               <Widget type="audio" title="freq_v_" icon="arc">
-                <Visualizer />
+
               </Widget>
             </PaneRow>
             <PaneRow>
@@ -424,7 +423,7 @@ export default function Interface(props) {
           <Sidebar>
             <PaneRow name="small">
               <Widget type="audio" title="freq_v_" icon="arc">
-                <Visualizer />
+   
               </Widget>
             </PaneRow>
             <PaneRow>
