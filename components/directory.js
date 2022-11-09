@@ -86,64 +86,6 @@ export default function Directory(props) {
     )
   }
 
-  else if (widgets == 'dapp') {
-    return (
-      <> 
-        <ul id="menu" className={styles.menu}>
-
-          <li data-current={ widgets == "welcome" ? 'true' : 'false' }>
-            <Link className="anchor" href="/welcome">
-                <a onClick={soundEffect}><span>root</span>{arrow}</a>
-            </Link>
-          </li>
-          
-          <li data-connected={connected} data-current={ widgets == "mint" ? 'true' : 'false' }>
-            <Link className="anchor" href="/mint">
-              <a onClick={soundEffect}>{folder}<span>mint_nft</span>{arrow}</a>
-            </Link>
-          </li>
-
-          <li data-child="true" data-current={ widgets == "nfts" ? 'true' : 'false' }>
-            <Link className="anchor" href="/my-list">
-              <a onClick={soundEffect}>{down}<span>my_list</span>{arrow}</a>
-            </Link>
-          </li>
-
-          {/*<li data-child="true" data-current={ widgets == "stake-nft" ? 'true' : 'false' }>
-            <Link className="anchor" href="/stake-nft">
-              <a>{down}<span>stake</span>{arrow}</a>
-            </Link>
-          </li>
-
-          <li data-child="true" data-current={ widgets == "loan" ? 'true' : 'false' }>
-            <Link className="anchor" href="/loan">
-              <a>{down}<span>loan</span>{arrow}</a>
-            </Link>
-    </li>*/}
-
-          <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
-            <Link className="anchor" href="/dapp">
-              <a>{folder}<span>anarchy_dapp</span>{arrow}</a>
-            </Link>
-          </li>
-
-          <li data-child="true" data-current={ widgets == "stake" ? 'true' : 'false' }>
-            <Link className="anchor" href="/stake">
-              <a>{down}<span>stake_add</span>{arrow}</a>
-            </Link>
-          </li>
-
-          <li data-child="true" data-current={ widgets == "proposals" ? 'true' : 'false' }>
-            <Link className="anchor" href="/proposals">
-              <a>{down}<span>proposals</span>{arrow}</a>
-            </Link>
-          </li>
-
-        </ul>
-      </>
-    )
-  }
-
   else if ( widgets == 'dapp' || widgets == 'stake' || widgets == 'deposit' || widgets == 'withdrawal' || widgets == 'claim') {
     return (
       <> 
@@ -295,7 +237,7 @@ export default function Directory(props) {
             <Link className="anchor" href="/mint">
               <a><span>_mint_nft{connected ? unlocked : locked}</span>{arrow}</a>
             </Link>
-          </li>*/}
+          </li>
 
           <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
             <Link className="anchor" href="/dapp">
@@ -313,7 +255,7 @@ export default function Directory(props) {
             <Link className="anchor" href="/my-list">
               <a><span>my_nfts</span>{arrow}</a>
             </Link>
-          </li>
+          </li>*/}
 
           {(() => {
             if ( widgets == "nfts" || widgets == "mint" || widgets == "loan" ) {
@@ -345,12 +287,6 @@ export default function Directory(props) {
 
                   <li data-current="false">
                     <a target="_blank" rel="nofollower" href="assets/docs/ADD-Token-Mechanics-Anarchist-DAO.pdf"><span>token_mechanics</span>{arrow}</a>
-                  </li>
-
-                  <li data-current={ widgets == "about" ? 'true' : 'false' }>
-                    <Link className="anchor" href="/about">
-                      <a><span>about_the_crew</span>{arrow}</a>
-                    </Link>
                   </li>
 
                   <li data-current={ widgets == "donate" ? 'true' : 'false' }>
