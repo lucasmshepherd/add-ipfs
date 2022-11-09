@@ -22,5 +22,5 @@ export const truncateAddress = (address) => {
         testnet : 'https://goerli.infura.io/v3/84807e24ba43429cbf4912fe7c337dfb',
         mainnet : 'https://mainnet.infura.io/v3/84807e24ba43429cbf4912fe7c337dfb'
     }
-    return SCAN_LINK.testnet
+    return SCAN_LINK.mainnet
   }

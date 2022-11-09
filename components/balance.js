@@ -98,7 +98,8 @@ export default function Balance() {
   useEffect(() => {
     const provider = window.localStorage.getItem("provider");
     if (provider) {
-      setNetwork(Number(5));
+      setNetwork(Number(1));
+      // setNetwork(Number(5));
       activate(connectors[provider])
     };
   }, [activate]);
@@ -137,7 +138,19 @@ export default function Balance() {
       } else {
         setLogged(false)
       }
-  }, [active, account, balance]);
+    }, [active, account, balance]);
+    
+    useEffect(()=>{
+    if(active){
+      const interval = setInterval(() => {
+        getAddBalance();
+      }, 2000);
+      
+      return () => clearInterval(interval);
+    }else{
+      setLogged(false)
+    }
+  },[balance])
 
   useEffect(()=>{
     if(active){
