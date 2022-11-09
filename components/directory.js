@@ -221,7 +221,7 @@ export default function Directory(props) {
 
           <li data-connected={connected} data-current={ widgets == "nfts" ? 'true' : 'false' }>
             <Link className="anchor" href="/my-list">
-              <a><span>my_nfts</span>{arrow}</a>
+              <a><span>my_NFTs</span>{arrow}</a>
             </Link>
           </li>
 
@@ -265,7 +265,7 @@ export default function Directory(props) {
 
                   <li data-current={ widgets == "about" ? 'true' : 'false' }>
                     <Link className="anchor" href="/about">
-                      <a onClick={soundEffect}><span>tek_sup.port</span>{arrow}</a>
+                      <a onClick={soundEffect}><span>tEk_sup.port</span>{arrow}</a>
                     </Link>
                   </li>
 
