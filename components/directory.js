@@ -58,13 +58,27 @@ export default function Directory(props) {
   const num = (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 135"><rect y="30" width="15" height="75"/><rect x="30.62" width="74.38" height="15"/><rect x="120" y="30" width="15" height="75"/><rect x="30.34" y="120" width="74.66" height="15"/><rect x="105" y="105" width="15" height="15"/><rect x="105" y="15" width="15" height="15"/><rect x="15" y="15" width="15" height="15"/><rect x="15" y="105" width="15" height="15"/><rect x="45" y="45" width="15" height="45"/><rect x="75" y="45" width="15" height="45"/><rect x="60" y="75" width="15" height="15"/><rect x="60" y="45" width="15" height="15"/><rect x="30" y="45" width="15" height="15"/><rect x="45" y="30" width="15" height="15"/><rect x="75" y="30" width="15" height="15"/><rect x="90" y="45" width="15" height="15"/><rect x="90" y="75" width="15" height="15"/><rect x="75" y="90" width="15" height="15"/><rect x="45" y="90" width="15" height="15"/><rect x="30" y="75" width="15" height="15"/></svg>)
   const excl = (<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 135"><rect y="30" width="15" height="75"/><rect x="30.62" width="74.38" height="15"/><rect x="120" y="30" width="15" height="75"/><rect x="30.34" y="120" width="74.66" height="15"/><rect x="105" y="105" width="15" height="15"/><rect x="105" y="15" width="15" height="15"/><rect x="15" y="15" width="15" height="15"/><rect x="15" y="105" width="15" height="15"/><rect x="60" y="30" width="15" height="45"/><rect x="60" y="90" width="15" height="15"/></svg>)
 
-  if(widgets == 'freedom' || widgets == 'system' || widgets == 'need' || widgets == 'donate') {
+  if(widgets == 'freedom' || widgets == 'system' || widgets == 'need') {
     return (
       <> 
         <ul id="menu" className={styles.menu}>
           <li data-current={ widgets == "home" ? 'true' : 'false' }>
             <Link className="anchor" href="/tv">
               <a onClick={soundEffect}><span>back</span>{arrow}</a>
+            </Link>
+          </li>
+        </ul>
+      </>
+    )
+  }
+
+  else if(widgets == 'donate') {
+    return (
+      <> 
+        <ul id="menu" className={styles.menu}>
+          <li data-current={ widgets == "home" ? 'true' : 'false' }>
+            <Link className="anchor" href="/welcome">
+              <a><span>back</span>{arrow}</a>
             </Link>
           </li>
         </ul>
