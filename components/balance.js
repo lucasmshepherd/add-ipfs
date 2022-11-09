@@ -1,7 +1,7 @@
 import React,{ useEffect, useState } from 'react'
 //style
 import styles from '../styles/components/header.module.sass'
-
+import { Howl } from 'howler'
 //Wallet Connect Requirements
 import SelectWalletModal from "./walletConnect/modal";
 import {  useWeb3React } from "@web3-react/core";
@@ -32,12 +32,48 @@ export default function Balance() {
   const [signedMessage, setSignedMessage] = useState("");
   const [verified, setVerified] = useState();
   const [isOpen , setIsOpen] = useState(false)
+  const [audio, setAudio] = useState('null')
+
+  useEffect(() => {
+    setAudio([    
+      '/assets/audio/stutter-glitch.mp3', 
+      '/assets/audio/stutter-glitch.m4a', 
+      '/assets/audio/stutter-glitch.ogg', 
+      '/assets/audio/stutter-glitch.aac'
+    ])
+  },[])
+
+  const soundEffect = () => {
+    var sound = new Howl({
+      src: audio,
+      autoplay: false,
+      loop: false,
+      volume: 0.5
+    })
+    sound.play()
+  }
+
+  const soundEffectGood = () => {
+    var sound = new Howl({
+      src: [    
+        '/assets/audio/warp-glitch.mp3', 
+        '/assets/audio/warp-glitch.m4a', 
+        '/assets/audio/warp-glitch.ogg', 
+        '/assets/audio/warp-glitch.aac'
+      ],
+      autoplay: false,
+      loop: false,
+      volume: 0.5
+    })
+    sound.play()
+  }
 
   useEffect(()=>{
     localStorage.setItem("userAddress",account)
   },[account])
 
   const onOpen = (e) => {
+    soundEffectGood()
     setIsOpen(true)
   };
   const onClose = (e) => {
@@ -53,6 +89,7 @@ export default function Balance() {
   };
 
   const disconnect = () => {
+    soundEffect()
     refreshState();
     deactivate();
     // localStorage.setItem("userAddress",null)
