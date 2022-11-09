@@ -9,7 +9,7 @@ export default class Terminal extends React.Component {
 
     var cursor = $('#cursor');
     var terminal = $('#terminal');
-    var text = ["Anarchist Development DAO<br/>line secure ... booting sequence 4/4 packets<br/>+++++ access granted +++++<br/>type <a class='onclick'>HELP</a> for commands<br/>$> ", ""];
+    var text = ["Anarchist Development DAO<br/>line secure ... booting sequence 4/4 packets<br/>+++++ access granted +++++<br/>type <a class='onclick'>HELP</a> for commands\n\n$> ", ""];
     var commandHistory = [];
     var lineY = 1;
     var index = 0;
@@ -28,7 +28,7 @@ export default class Terminal extends React.Component {
 
     function helpConsole() {
         lineY++;
-        text[lineY] = ["\n<a class='onclick'>CLEAR / RESET</a> : clear/reset the terminal log\n<a class='onclick'>DONATE</a> : further the cause\n<a class='onclick'>SUPPORT</a> : about us\n<a class='onclick'>EDUCATION</a> : anarchist training\n<a class='onclick'>VISION</a> : watch videos \n<a class='onclick'>MANIFESTO</a> : read the manifesto"];
+        text[lineY] = ["\n<a class='onclick'>CLEAR / RESET</a> : refresh the terminal log\n<a class='onclick'>DONATE</a> : further the cause\n<a class='onclick'>SUPPORT</a> : about us\n<a class='onclick'>EDUCATION</a> : anarchist training\n<a class='onclick'>VISION</a> : watch videos \n<a class='onclick'>MANIFESTO</a> : read the manifesto\n"];
         printConsole(text);
     }
     
@@ -75,7 +75,7 @@ export default class Terminal extends React.Component {
     function resetConsole() {
         clearConsole();
         lineY++;
-        text[lineY] = ["Anarchist Development DAO<br/>line secure ... booting sequence 4/4<br/>+++++ access granted +++++<br/>type <div class='onclick'>HELP</div> for commands"];
+        text[lineY] = ["Anarchist Development DAO<br/>line secure ... booting sequence 4/4 packets<br/>+++++ access granted +++++<br/>type <a class='onclick'>HELP</a> for commands\n"];
         printConsole(text);
     }
 
