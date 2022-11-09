@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import $ from 'jquery'
 // state
 import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch} from 'react-redux'
@@ -24,6 +25,7 @@ export default function Header() {
     active
   } = useWeb3React();
 
+  let audioPlaying
   let audioIconSource = AudioOffIcon
   const dispatch = useDispatch()
   // state
@@ -68,7 +70,7 @@ export default function Header() {
     // display settings
     let repeat_char = '/';
     const filler_char = '-';
-    const char_across = 25;
+    const char_across = 22;
 
     // get the stream from the audio file
     if(isFirefox){
@@ -141,6 +143,16 @@ export default function Header() {
     setAudioIsLoading(false);
   }, [audioFile])
 
+  useEffect(() => {
+    $('.header_mobicon__o9BKL').on("mousedown", function() {
+      $('.interface_side__JXlwM').addClass('open')
+    })
+    $('.close-menu').on("mousedown", function() {
+      $('.interface_side__JXlwM').removeClass('open')
+    })
+    
+  }, [])
+
   return (
     <> 
       {/*<Player />*/}
@@ -179,7 +191,7 @@ export default function Header() {
                       .map((value, index) => {
                         return (
                           <div className='visualizer--row' key={index}>
-                            <span>-------------------------</span>
+                            <span>----------------------</span>
                           </div>
                         )
                       })

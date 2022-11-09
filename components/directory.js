@@ -1,18 +1,51 @@
-import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { Howl } from 'howler'
 
 import styles from '../styles/components/directory.module.sass'
 import {  useWeb3React } from "@web3-react/core";
 
 export default function Directory(props) {
+  const [audio, setAudio] = useState('null')
   const {
     active
   } = useWeb3React();
-
-  const dispatch = useDispatch()
   const connected = active
   const widgets = props.widgets
+
+  useEffect(() => {
+    setAudio([    
+      '/assets/audio/button-glitch-2.mp3', 
+      '/assets/audio/button-glitch-2.m4a', 
+      '/assets/audio/button-glitch-2.ogg', 
+      '/assets/audio/button-glitch-2.aac'
+    ])
+  },[])
+
+  const soundEffect = () => {
+    var sound = new Howl({
+      src: audio,
+      autoplay: false,
+      loop: false,
+      volume: 0.5
+    })
+    sound.play()
+  }
+
+  const dappEffect = () => {
+    var sound = new Howl({
+      src: [    
+        '/assets/audio/static-glitch.mp3', 
+        '/assets/audio/static-glitch.m4a', 
+        '/assets/audio/static-glitch.ogg', 
+        '/assets/audio/static-glitch.aac'
+      ],
+      autoplay: false,
+      loop: false,
+      volume: 0.5
+    })
+    sound.play()
+  }
 
   const folder = (<svg className="icon-folder" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 135"><g><rect x="15" y="30" width="30" height="15"/><rect y="14.99" width="15" height="105.01"/><rect x="45" y="45" width="75" height="15"/><rect x="120" y="60" width="15" height="60"/><rect x="15" y="120" width="105" height="15"/></g><g><rect x="15" width="30" height="15"/><rect x="45" y="15" width="75" height="15"/><rect x="120" y="30" width="15" height="30"/></g></svg>)
   const arrow = (<svg className="icon-arrow" width="10" height="9" viewBox="0 0 10 9" xmlns="http://www.w3.org/2000/svg"><path d="M5.21793 0.969727V2.83831L3.04271 4.12316H9.80615C9.80615 4.11741 9.80615 4.11486 9.80615 4.11486L9.81348 5.75824H3.04597L5.21467 7.04118V8.96973L0.129678 5.76654V4.11295L5.21793 0.969727Z" /></svg>)
@@ -31,7 +64,7 @@ export default function Directory(props) {
         <ul id="menu" className={styles.menu}>
           <li data-current={ widgets == "home" ? 'true' : 'false' }>
             <Link className="anchor" href="/tv">
-              <a><span>back</span>{arrow}</a>
+              <a onClick={soundEffect}><span>back</span>{arrow}</a>
             </Link>
           </li>
         </ul>
@@ -46,33 +79,21 @@ export default function Directory(props) {
 
           <li data-current={ widgets == "welcome" ? 'true' : 'false' }>
             <Link className="anchor" href="/welcome">
-                <a><span>root</span>{arrow}</a>
+                <a onClick={soundEffect}><span>root</span>{arrow}</a>
             </Link>
           </li>
           
           <li data-connected={connected} data-current={ widgets == "mint" ? 'true' : 'false' }>
             <Link className="anchor" href="/mint">
-              <a>{folder}<span>mint_nft</span>{arrow}</a>
+              <a onClick={soundEffect}>{folder}<span>mint_nft</span>{arrow}</a>
             </Link>
           </li>
 
           <li data-child="true" data-current={ widgets == "nfts" ? 'true' : 'false' }>
             <Link className="anchor" href="/my-list">
-              <a>{down}<span>my_list</span>{arrow}</a>
+              <a onClick={soundEffect}>{down}<span>my_list</span>{arrow}</a>
             </Link>
           </li>
-
-          {/*<li data-child="true" data-current={ widgets == "stake-nft" ? 'true' : 'false' }>
-            <Link className="anchor" href="/stake-nft">
-              <a>{down}<span>stake</span>{arrow}</a>
-            </Link>
-          </li>
-
-          <li data-child="true" data-current={ widgets == "loan" ? 'true' : 'false' }>
-            <Link className="anchor" href="/loan">
-              <a>{down}<span>loan</span>{arrow}</a>
-            </Link>
-    </li>*/}
 
         </ul>
       </>
@@ -86,31 +107,31 @@ export default function Directory(props) {
 
           <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
             <Link className="anchor" href="/dapp">
-              <a><span>dashboard</span>{arrow}</a>
+              <a onClick={soundEffect}><span>dashboard</span>{arrow}</a>
             </Link>
           </li>
 
           <li data-current={ widgets == "stake" ? 'true' : 'false' }>
             <Link className="anchor" href="/deposit">
-              <a>{folder}<span>stake_ADD</span>{arrow}</a>
+              <a onClick={soundEffect}>{folder}<span>stake_ADD</span>{arrow}</a>
             </Link>
           </li>
 
           <li data-child="true" data-current={ widgets == "deposit" ? 'true' : 'false' }>
             <Link className="anchor" href="/deposit">
-              <a>{down}<span>deposit</span>{arrow}</a>
+              <a onClick={soundEffect}>{down}<span>deposit</span>{arrow}</a>
             </Link>
           </li>
 
           <li data-child="true" data-current={ widgets == "claim" ? 'true' : 'false' }>
             <Link className="anchor" href="/claim">
-              <a>{down}<span>claim_reward</span>{arrow}</a>
+              <a onClick={soundEffect}>{down}<span>claim_reward</span>{arrow}</a>
             </Link>
           </li>
 
           <li data-current={ widgets == "withdrawal" ? 'true' : 'false' } data-dimmed="true">
             <Link className="anchor" href="/withdrawal">
-              <a>{excl}<span>withdrawal</span>{arrow}</a>
+              <a onClick={soundEffect}>{excl}<span>withdrawal</span>{arrow}</a>
             </Link>
           </li>
 
@@ -126,37 +147,37 @@ export default function Directory(props) {
 
           <li data-current={ widgets == "welcome" ? 'true' : 'false' }>
             <Link className="anchor" href="/dapp">
-                <a><span>back</span>{arrow}</a>
+                <a onClick={soundEffect}><span>back</span>{arrow}</a>
             </Link>
           </li>
 
           <li data-current={ widgets == "proposals" ? 'true' : 'false' }>
             <Link className="anchor" href="/proposals">
-              <a>{folder}<span>proposals</span>{arrow}</a>
+              <a onClick={soundEffect}>{folder}<span>proposals</span>{arrow}</a>
             </Link>
           </li>
 
           <li data-child="true" data-current={ widgets == "submit" ? 'true' : 'false' }>
             <Link className="anchor" href="/submit">
-              <a>{down}<span>submit</span>{arrow}</a>
+              <a onClick={soundEffect}>{down}<span>submit</span>{arrow}</a>
             </Link>
           </li>
 
           <li data-child="true" data-current={ widgets == "pending" ? 'true' : 'false' }>
             <Link className="anchor" href="/pending">
-              <a>{down}<span>pending</span>{arrow}</a>
+              <a onClick={soundEffect}>{down}<span>pending</span>{arrow}</a>
             </Link>
           </li>
 
           <li data-child="true" data-current={ widgets == "closed" ? 'true' : 'false' }>
             <Link className="anchor" href="/closed">
-              <a>{down}<span>closed</span>{arrow}</a>
+              <a onClick={soundEffect}>{down}<span>closed</span>{arrow}</a>
             </Link>
           </li>
 
           <li data-child="true" data-current={ widgets == "delegate" ? 'true' : 'false' }>
             <Link className="anchor" href="/delegate">
-              <a>{down}<span>delegate_votes</span>{arrow}</a>
+              <a onClick={soundEffect}>{down}<span>delegate_votes</span>{arrow}</a>
             </Link>
           </li>
 
@@ -172,36 +193,36 @@ export default function Directory(props) {
 
           <li data-current={ widgets == "welcome" ? 'true' : 'false' }>
             <Link className="anchor" href="#">
-                <a>{folder}<span>rXoaat</span>{arrow}</a>
+                <a onClick={soundEffect}>{folder}<span>rXoaat</span>{arrow}</a>
             </Link>
           </li>
 
           <li data-connected={active} data-current={ widgets == "dapp" ? 'true' : 'false' }>
             <Link className="anchor" href="#">
-              <a>{folder}<span>da-p1p%</span>{arrow}</a>
+              <a onClick={soundEffect}>{folder}<span>da-p1p%</span>{arrow}</a>
             </Link>
           </li>
 
           <li data-connected={active} data-current={ widgets == "mint" ? 'true' : 'false' }>
             <Link className="anchor" href="#">
-              <a>{folder}<span>3min$t_nf-t!</span>{arrow}</a>
+              <a onClick={soundEffect}>{folder}<span>3min$t_nf-t!</span>{arrow}</a>
             </Link>
           </li>
 
           <li data-current={ widgets == "manifesto" ? 'true' : 'false' }>
             <Link className="anchor" href="#">
-              <a>{folder}<span>manF_if7es11to</span>{arrow}</a>
+              <a onClick={soundEffect}>{folder}<span>manF_if7es11to</span>{arrow}</a>
             </Link>
           </li>
 
           <li data-current={ widgets == "tv" ? 'true' : 'false' }>
             <Link className="anchor" href="#">
-              <a>{folder}<span>ana--rchiK#3st_tv</span>{arrow}</a>
+              <a onClick={soundEffect}>{folder}<span>ana--rchiK#3st_tv</span>{arrow}</a>
             </Link>
           </li>
 
           <li>
-            <a href="https://anarchistdevelopmentdao.gitbook.io/anarchist-development-dao/" rel="noreferrer" target="_blank">
+            <a onClick={soundEffect} href="https://anarchistdevelopmentdao.gitbook.io/anarchist-development-dao/" rel="noreferrer" target="_blank">
               <span>fa*$q.gitas23~book</span>
             </a>
           </li>
@@ -222,7 +243,7 @@ export default function Directory(props) {
 
           <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
             <Link className="anchor" href="/transition">
-              <a><span>stake_and_vote</span>{arrow}</a>
+              <a onClick={dappEffect}><span>stake_and_vote</span>{arrow}</a>
             </Link>
           </li>
 
@@ -242,19 +263,19 @@ export default function Directory(props) {
 
                   <li data-current="false">
                     <Link className="anchor" href="/donate">
-                      <a target="_blank" rel="nofollower" href="assets/docs/ADD-Token-Mechanics-Anarchist-DAO.pdf"><span>token_mechanics</span>{arrow}</a>
-                    </Link>
-                  </li>
-
-                  <li data-current={ widgets == "about" ? 'true' : 'false' }>
-                    <Link className="anchor" href="/about">
-                      <a><span>about_the_crew</span>{arrow}</a>
+                      <a onClick={soundEffect} target="_blank" rel="nofollower" href="assets/docs/ADD-Token-Mechanics-Anarchist-DAO.pdf"><span>token_mechanics</span>{arrow}</a>
                     </Link>
                   </li>
 
                   <li data-current={ widgets == "donate" ? 'true' : 'false' }>
                     <Link className="anchor white-icon" href="/donate">
-                      <a><span>further_the_cause</span>{arrow}</a>
+                      <a onClick={soundEffect}><span>further_the_cause</span>{arrow}</a>
+                    </Link>
+                  </li>
+
+                  <li data-current={ widgets == "about" ? 'true' : 'false' }>
+                    <Link className="anchor" href="/about">
+                      <a onClick={soundEffect}><span>tek_sup.port</span>{arrow}</a>
                     </Link>
                   </li>
 
@@ -263,26 +284,26 @@ export default function Directory(props) {
                   </li>
 
                   <li>
-                    <a className="anchor white-icon" target="_blank" rel="noreferrer" href="https://docs.fundanarchy.io">
+                    <a onClick={soundEffect} className="anchor white-icon" target="_blank" rel="noreferrer" href="https://docs.fundanarchy.io">
                       <span>anarchist_docs</span>
                     </a>
                   </li>
 
                   <li className={styles.sitego} data-current={ widgets == "manifesto" ? 'true' : 'false' }>
                     <Link className="anchor" href="/manifesto">
-                      <a><span>anarchist_manifesto</span>{arrow}</a>
+                      <a onClick={soundEffect}><span>anarchist_manifesto</span>{arrow}</a>
                     </Link>
                   </li>
 
                   <li className={styles.sitego} data-current={ widgets == "tv" ? 'true' : 'false' }>
                     <Link className="anchor" href="/tv">
-                      <a><span>anarchist_vision</span>{arrow}</a>
+                      <a onClick={soundEffect}><span>anarchist_vision</span>{arrow}</a>
                     </Link>
                   </li>
 
                   <li className={styles.sitego} data-current={ widgets == "training" ? 'true' : 'false' }>
                     <Link className="anchor" href="/training">
-                      <a><span>anarchist_university</span>{arrow}</a>
+                      <a onClick={soundEffect}><span>anarchist_education</span>{arrow}</a>
                     </Link>
                   </li>
 
@@ -292,7 +313,7 @@ export default function Directory(props) {
           })()}
 
           <li id="purchase">
-            <a href="#" rel="noreferrer" target="_blank">
+            <a onClick={soundEffect} href="#" rel="noreferrer" target="_blank">
               <span className="highlight">purchase_ADD</span>
             </a>
           </li>

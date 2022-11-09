@@ -11,7 +11,7 @@ export default function Donations(props) {
     <>
       <div className={styles.aboutbg}><div className={styles.donatebgglitch}>&nbsp;</div></div>
       <div className={styles.donations}>
-        <h2 className={styles.heading}>ABOUT THE CREW</h2>
+        <h2 className={styles.heading}>tek_sup.port</h2>
       </div>
       {/*<Image src={Banner} layout="responsive" priority="true" alt="Anarchist Computer Center" />*/}
       <div className={styles.sidebyside}>

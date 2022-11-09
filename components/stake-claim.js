@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styles from '../styles/components/donations.module.sass'
+import { Howl } from 'howler'
 //Claim Requirements
 import Web3EthContract from "web3-eth-contract";
 import Web3 from 'web3'
@@ -17,17 +18,52 @@ export default function Donater() {
     account
   } = useWeb3React();
   
-  const [pendingReward, setPendingReward] = useState(0);
-  const [tokensStaked, setTokensStaked] = useState(0);
-  const [claimAfter, setClaimAfter] = useState(0);
-  const [timeRemaining, setTimeRemaining] = useState(0);
+  const [pendingReward, setPendingReward] = useState(0)
+  const [tokensStaked, setTokensStaked] = useState(0)
+  const [claimAfter, setClaimAfter] = useState(0)
+  const [timeRemaining, setTimeRemaining] = useState(0)
 
   const [claimPeriodLeft, setClaimPeriodLeft] = useState(0)
 
-  const [day, setDay] = useState(0);
-  const [hour, setHour] = useState(0);
-  const [min, setMin] = useState(0);
-  const [sec, setSec] = useState(0);
+  const [day, setDay] = useState(0)
+  const [hour, setHour] = useState(0)
+  const [min, setMin] = useState(0)
+  const [sec, setSec] = useState(0)
+
+  const [audio, setAudio] = useState('null')
+
+  useEffect(() => {
+    setAudio([    
+        '/assets/audio/gizmo-glitch.mp3', 
+        '/assets/audio/gizmo-glitch-2.m4a', 
+        '/assets/audio/gizmo-glitch-2.ogg', 
+        '/assets/audio/gizmo-glitch-2.aac'
+    ])
+  },[])
+
+  const soundEffect = () => {
+    var sound = new Howl({
+        src: audio,
+        autoplay: false,
+        loop: false,
+        volume: 0.5
+    })
+    sound.play()
+  }
+  const soundEffectGood = () => {
+      var sound = new Howl({
+          src: [    
+              '/assets/audio/mech-glitch.mp3', 
+              '/assets/audio/mech-glitch.m4a', 
+              '/assets/audio/mech-glitch.ogg', 
+              '/assets/audio/mech-glitch.aac'
+          ],
+          autoplay: false,
+          loop: false,
+          volume: 0.5
+      })
+      sound.play()
+  }
 
   const getPendingReward = async() => {
     // const web3 = new Web3(SACN_LINK_PROVIDER);
@@ -91,6 +127,7 @@ export default function Donater() {
     }
 
   async function withdrawReward(){
+    soundEffectGood()
     const { ethereum } = window;
     Web3EthContract.setProvider(ethereum);
     const contract = new Web3EthContract(StakeContract.abi, StakeContract.STAKE_CONTRACT_ADDRESS);

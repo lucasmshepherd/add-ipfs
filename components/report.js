@@ -1,6 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import { useSelector } from 'react-redux'
-import parse from 'html-react-parser'
 
 import styles from '../styles/components/report.module.sass'
 
@@ -34,7 +32,6 @@ export default function Report(props) {
       ethSent = 0.00
   let lock = (<svg className="icon-lock" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 135"><rect x="15" y="60" width="15" height="75"/><rect x="15" y="120" width="105" height="15"/><rect x="105" y="60" width="15" height="75"/><rect x="15" y="45.1" width="105" height="14.9"/><rect x="30" y="15" width="15" height="30"/><rect x="90" y="15" width="15" height="30"/><rect x="44.82" width="45.18" height="15"/><rect x="60" y="75" width="15" height="30"/></svg>)
   let page = props.page
-  const connected = useSelector((state) => state.users.connected)
 
   const getReportValues = async() => {
     const web3 = new Web3(SACN_LINK_PROVIDER);

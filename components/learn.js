@@ -10,7 +10,7 @@ export default function Learn(props) {
   return (
     <>
       <div className={styles.learnbg}><div className={styles.learnbgglitch}>&nbsp;</div></div>
-      <h2 className={styles.title}>Anarchist University</h2>
+      <h2 className={styles.title}>Anarchist Education</h2>
       <ul className={styles.books}>
         <li>
           <a href="https://theanarchistlibrary.org/special/index" rel="noreferrer" target="_blank">
