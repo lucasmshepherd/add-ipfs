@@ -1,7 +1,15 @@
+import Head from 'next/head.js'
 import Interface from '../components/interface.js'
 
 const Index = (props) => {
-  return <Interface page="withdrawal" />
+  return (
+    <>
+      <Head>
+        <title>Anarchist DAO - Withdrawal</title>
+      </Head>
+      <Interface page="withdrawal" />
+    </>
+  )
 }
 
 export default Index

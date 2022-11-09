@@ -9,22 +9,21 @@ import '../styles/globals.sass'
 // Web 3 React For Wallet Connection
 import { Web3ReactProvider } from "@web3-react/core";
 import { ethers } from "ethers"
-import '../styles/integration.css'
+import '../styles/integration.sass'
 
 export const getLibrary = (provider) => {
-  const library = new ethers.providers.Web3Provider(provider);
-  library.pollingInterval = 8000; // Frequency provider is polling
-  return library;
+  const library = new ethers.providers.Web3Provider(provider)
+  library.pollingInterval = 8000 // Frequency provider is polling
+  return library
 };
 
 function MyApp({ Component, pageProps }) {
-  const [isLoading, setLoading] = useState(false);
-
+  const [isLoading, setLoading] = useState(false)
 
   // This will run one time after the component mounts
   useEffect(() => {
     const onPageLoad = () => {
-      setLoading(true);
+      setLoading(true)
     }
 
     // Check if the page has already loaded

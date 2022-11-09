@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styles from '../styles/components/donations.module.sass'
+import { Howl } from 'howler'
 //Claim Requirements
 import Web3EthContract from "web3-eth-contract";
 import Web3 from 'web3'
@@ -17,17 +18,52 @@ export default function Donater() {
     account
   } = useWeb3React();
   
-  const [pendingReward, setPendingReward] = useState(0);
-  const [tokensStaked, setTokensStaked] = useState(0);
-  const [claimAfter, setClaimAfter] = useState(0);
-  const [timeRemaining, setTimeRemaining] = useState(0);
+  const [pendingReward, setPendingReward] = useState(0)
+  const [tokensStaked, setTokensStaked] = useState(0)
+  const [claimAfter, setClaimAfter] = useState(0)
+  const [timeRemaining, setTimeRemaining] = useState(0)
 
   const [claimPeriodLeft, setClaimPeriodLeft] = useState(0)
 
-  const [day, setDay] = useState(0);
-  const [hour, setHour] = useState(0);
-  const [min, setMin] = useState(0);
-  const [sec, setSec] = useState(0);
+  const [day, setDay] = useState(0)
+  const [hour, setHour] = useState(0)
+  const [min, setMin] = useState(0)
+  const [sec, setSec] = useState(0)
+
+  const [audio, setAudio] = useState('null')
+
+  useEffect(() => {
+    setAudio([    
+        '/assets/audio/gizmo-glitch.mp3', 
+        '/assets/audio/gizmo-glitch-2.m4a', 
+        '/assets/audio/gizmo-glitch-2.ogg', 
+        '/assets/audio/gizmo-glitch-2.aac'
+    ])
+  },[])
+
+  const soundEffect = () => {
+    var sound = new Howl({
+        src: audio,
+        autoplay: false,
+        loop: false,
+        volume: 0.5
+    })
+    sound.play()
+  }
+  const soundEffectGood = () => {
+      var sound = new Howl({
+          src: [    
+              '/assets/audio/mech-glitch.mp3', 
+              '/assets/audio/mech-glitch.m4a', 
+              '/assets/audio/mech-glitch.ogg', 
+              '/assets/audio/mech-glitch.aac'
+          ],
+          autoplay: false,
+          loop: false,
+          volume: 0.5
+      })
+      sound.play()
+  }
 
   const getPendingReward = async() => {
     // const web3 = new Web3(SACN_LINK_PROVIDER);
@@ -84,13 +120,14 @@ export default function Donater() {
       var m = Math.floor(seconds % 3600 / 60);
       var s = Math.floor(seconds % 60);
       
-      setDay( d > 0 ? d + (d == 1 ? " Day, " : " Days ") : "");
-      setHour( h > 0 ? h + (h == 1 ? " Hour, " : " Hours, ") : "");
-      setMin( m > 0 ? m + (m == 1 ? " Minute, " : " Minutes, ") : "");
-      setSec( s > 0 ? s + (s == 1 ? " Second" : " Seconds") : "");
+      setDay( d > 0 ? d + (d == 1 ? " day, " : " days, ") : "");
+      setHour( h > 0 ? h + (h == 1 ? " hour, " : " hours, ") : "");
+      setMin( m > 0 ? m + (m == 1 ? " minute, " : " minutes, ") : "");
+      setSec( s > 0 ? s + (s == 1 ? " second" : " seconds") : "");
     }
 
   async function withdrawReward(){
+    soundEffectGood()
     const { ethereum } = window;
     Web3EthContract.setProvider(ethereum);
     const contract = new Web3EthContract(StakeContract.abi, StakeContract.STAKE_CONTRACT_ADDRESS);
@@ -145,11 +182,11 @@ export default function Donater() {
   return (
     <>
       <form className={styles.form}>
-          <h3>Claim ADD</h3>
-          <p>Claim your <b>earned</b> ADD rewards.  This will not affect your staked ADD balance.</p>
-          <p>NOTE : You can claim your rewards once every {claimAfter} days after every staing</p>
+      <h3>Claim Weekly Rewards</h3>
+          <p>Claim your Anarchist DAO rewards!  Payouts are based on the amount you have staked <a href="https://docs.fundanarchy.io/anarchist-development-dao/staking/anarchist-develoment-dao-staking/what-is-the-benefit-to-staking" target="_blank" rel="noreferrer" title="DAO FAQ">and more</a>.</p>
+          <p><span className="note">NOTE</span> You can claim your rewards once every ({claimAfter}) days after staking.</p>
           <label>claim_rewards</label>
-          <input type="text" name="amount" placeholder="0.00 ADD" value={pendingReward + " ADD"} className="eth-input" readOnly />
+          <input type="text" name="amount" placeholder="0.00 ETH" value={pendingReward == 0 ? "0.00 ETH" : pendingReward.toFixed(18) + " ETH"} className="eth-input" readOnly />
 
           {active ?
             <>
@@ -158,12 +195,12 @@ export default function Donater() {
                 <button type="button" onClick={withdrawReward} className="button-mono push-right">{accent}Claim Rewards</button>
                 :
                 // <button type="button" onClick={error} className="button-mono push-right" disabled>{accent}Claim Rewards</button>
-                <div>Cooldown : {day} {hour} {min} {sec} </div>
+                <div><i>{day ? "Claim again in " + day + hour + min + sec : "" }</i></div>
                 // <div>Cooldown : {timeRemaining}</div>
               }
             </>
             :
-            <div style={{color:'red'}}>ERROR: No wallet found</div>
+            <div style={{color:'#af3535', fontStyle:'italic'}}>No wallet found</div>
 
           }
       </form>

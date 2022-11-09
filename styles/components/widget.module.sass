@@ -57,10 +57,11 @@
     transform: translate(-50%,-50%)
     width: 100%
     max-width: 500px
-    height: 200px
+    height: 260px
     z-index: 99999999
     animation: fadeIn .3s
     cursor: pointer
+    text-align: center
     .scroll
       padding: 0
       display: flex
@@ -77,7 +78,7 @@
         line-height: 1.1
         margin-top: -10px
         i
-          color: #ff0000
+          color: #af3535
           font-weight: bold
     b
       font-size: 30px
@@ -85,6 +86,7 @@
       font-weight: normal
       text-transform: none
       color: #fff
+      margin-bottom: 20px
 
 @keyframes fadeIn
   0%
@@ -144,6 +146,10 @@
   width: 100%
   padding: 30px
   min-height: 100%
+
+  @media (max-width: 700px)
+    [data-row="primary"] &
+      position: relative!important
 
 .content
   height: calc(100% - 56px)
@@ -236,7 +242,7 @@
 
   &[data-feed="menu"]
     .scroll
-      padding: 10px 20px 13px
+      padding: 3px 20px 15px
 
   &[data-nopad="true"]
     .scroll
@@ -249,7 +255,6 @@
       left: 0
 
       //padding-bottom: 15px
-
 @keyframes tube-flicker
   to
     filter: brightness(130%)
@@ -289,7 +294,7 @@
   height: 80%
   top: 10%
   left: 5%
-  background-size: 100% 100%!important
+  background-size: cover!important
 
 .folder
   //background: url('/assets/images/folder.svg') no-repeat 50% 50%
