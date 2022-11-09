@@ -58,7 +58,7 @@ export default function Directory(props) {
   const num = (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 135"><rect y="30" width="15" height="75"/><rect x="30.62" width="74.38" height="15"/><rect x="120" y="30" width="15" height="75"/><rect x="30.34" y="120" width="74.66" height="15"/><rect x="105" y="105" width="15" height="15"/><rect x="105" y="15" width="15" height="15"/><rect x="15" y="15" width="15" height="15"/><rect x="15" y="105" width="15" height="15"/><rect x="45" y="45" width="15" height="45"/><rect x="75" y="45" width="15" height="45"/><rect x="60" y="75" width="15" height="15"/><rect x="60" y="45" width="15" height="15"/><rect x="30" y="45" width="15" height="15"/><rect x="45" y="30" width="15" height="15"/><rect x="75" y="30" width="15" height="15"/><rect x="90" y="45" width="15" height="15"/><rect x="90" y="75" width="15" height="15"/><rect x="75" y="90" width="15" height="15"/><rect x="45" y="90" width="15" height="15"/><rect x="30" y="75" width="15" height="15"/></svg>)
   const excl = (<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 135"><rect y="30" width="15" height="75"/><rect x="30.62" width="74.38" height="15"/><rect x="120" y="30" width="15" height="75"/><rect x="30.34" y="120" width="74.66" height="15"/><rect x="105" y="105" width="15" height="15"/><rect x="105" y="15" width="15" height="15"/><rect x="15" y="15" width="15" height="15"/><rect x="15" y="105" width="15" height="15"/><rect x="60" y="30" width="15" height="45"/><rect x="60" y="90" width="15" height="15"/></svg>)
 
-  if(widgets == 'freedom' || widgets == 'system' || widgets == 'need') {
+  if(widgets == 'freedom' || widgets == 'system' || widgets == 'need' || widgets == 'donate') {
     return (
       <> 
         <ul id="menu" className={styles.menu}>
@@ -67,78 +67,6 @@ export default function Directory(props) {
               <a onClick={soundEffect}><span>back</span>{arrow}</a>
             </Link>
           </li>
-        </ul>
-      </>
-    )
-  }
-
-  else if(widgets == 'donate') {
-    return (
-      <> 
-        <ul id="menu" className={styles.menu}>
-          <li data-current={ widgets == "home" ? 'true' : 'false' }>
-            <Link className="anchor" href="/welcome">
-              <a><span>back</span>{arrow}</a>
-            </Link>
-          </li>
-        </ul>
-      </>
-    )
-  }
-
-  else if (widgets == 'dapp') {
-    return (
-      <> 
-        <ul id="menu" className={styles.menu}>
-
-          <li data-current={ widgets == "welcome" ? 'true' : 'false' }>
-            <Link className="anchor" href="/welcome">
-                <a onClick={soundEffect}><span>root</span>{arrow}</a>
-            </Link>
-          </li>
-          
-          <li data-connected={connected} data-current={ widgets == "mint" ? 'true' : 'false' }>
-            <Link className="anchor" href="/mint">
-              <a onClick={soundEffect}>{folder}<span>mint_nft</span>{arrow}</a>
-            </Link>
-          </li>
-
-          <li data-child="true" data-current={ widgets == "nfts" ? 'true' : 'false' }>
-            <Link className="anchor" href="/my-list">
-              <a onClick={soundEffect}>{down}<span>my_list</span>{arrow}</a>
-            </Link>
-          </li>
-
-          {/*<li data-child="true" data-current={ widgets == "stake-nft" ? 'true' : 'false' }>
-            <Link className="anchor" href="/stake-nft">
-              <a>{down}<span>stake</span>{arrow}</a>
-            </Link>
-          </li>
-
-          <li data-child="true" data-current={ widgets == "loan" ? 'true' : 'false' }>
-            <Link className="anchor" href="/loan">
-              <a>{down}<span>loan</span>{arrow}</a>
-            </Link>
-    </li>*/}
-
-          <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
-            <Link className="anchor" href="/dapp">
-              <a>{folder}<span>anarchy_dapp</span>{arrow}</a>
-            </Link>
-          </li>
-
-          <li data-child="true" data-current={ widgets == "stake" ? 'true' : 'false' }>
-            <Link className="anchor" href="/stake">
-              <a>{down}<span>stake_add</span>{arrow}</a>
-            </Link>
-          </li>
-
-          <li data-child="true" data-current={ widgets == "proposals" ? 'true' : 'false' }>
-            <Link className="anchor" href="/proposals">
-              <a>{down}<span>proposals</span>{arrow}</a>
-            </Link>
-          </li>
-
         </ul>
       </>
     )
@@ -291,24 +219,6 @@ export default function Directory(props) {
             </Link>
           </li>
 
-          {/*<li data-connected={connected} data-current={ widgets == "mint" ? 'true' : 'false' }>
-            <Link className="anchor" href="/mint">
-              <a><span>_mint_nft{connected ? unlocked : locked}</span>{arrow}</a>
-            </Link>
-          </li>*/}
-
-          <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
-            <Link className="anchor" href="/dapp">
-              <a><span>dashboard</span>{arrow}</a>
-            </Link>
-          </li>
-
-          <li data-connected={connected} data-current={ widgets == "stake" ? 'true' : 'false' }>
-            <Link className="anchor" href="/proposals">
-              <a><span>stake_&_vote</span>{arrow}</a>
-            </Link>
-          </li>
-
           <li data-connected={connected} data-current={ widgets == "nfts" ? 'true' : 'false' }>
             <Link className="anchor" href="/my-list">
               <a><span>my_nfts</span>{arrow}</a>
@@ -345,12 +255,6 @@ export default function Directory(props) {
 
                   <li data-current="false">
                     <a target="_blank" rel="nofollower" href="assets/docs/ADD-Token-Mechanics-Anarchist-DAO.pdf"><span>token_mechanics</span>{arrow}</a>
-                  </li>
-
-                  <li data-current={ widgets == "about" ? 'true' : 'false' }>
-                    <Link className="anchor" href="/about">
-                      <a><span>about_the_crew</span>{arrow}</a>
-                    </Link>
                   </li>
 
                   <li data-current={ widgets == "donate" ? 'true' : 'false' }>
