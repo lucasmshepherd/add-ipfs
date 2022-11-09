@@ -229,7 +229,7 @@ export default function Directory(props) {
 
           <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
             <Link className="anchor" href="/transition">
-              <a onClick={dappEffect}><span>stake_and_vote</span>{arrow}</a>
+              <a onClick={dappEffect}><span>stake_ADD</span>{arrow}</a>
             </Link>
           </li>
 
@@ -297,7 +297,7 @@ export default function Directory(props) {
 
                   <li data-current={ widgets == "about" ? 'true' : 'false' }>
                     <Link className="anchor" href="/about">
-                      <a onClick={soundEffect}><span>tek_sup.port</span>{arrow}</a>
+                      <a onClick={soundEffect}><span>tEk_sup.port</span>{arrow}</a>
                     </Link>
                   </li>
 
