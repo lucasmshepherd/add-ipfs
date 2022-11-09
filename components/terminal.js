@@ -9,39 +9,62 @@ export default class Terminal extends React.Component {
 
     var cursor = $('#cursor');
     var terminal = $('#terminal');
-    var text = ["Anarchist Development DAO<br/>line secure ... booting sequence 4/4 packets<br/>+++++ access granted +++++<br/>type <a class='onclick' onclick='helpConsole()'>HELP</a> for commands<br/>$> ", ""];
+    var text = ["Anarchist Development DAO<br/>line secure ... booting sequence 4/4 packets<br/>+++++ access granted +++++<br/>type <a class='onclick'>HELP</a> for commands<br/>$> ", ""];
     var commandHistory = [];
     var lineY = 1;
     var index = 0;
     var historyIndex = 0;
 
-    /*$('[data-widget="terminal"]').on("mousedown", function() {
-        $('aside').addClass("open");
-    })*/
-
     var commands = [
         { name: "clear", function: clearConsole },
         { name: "reset", function: resetConsole },
         { name: "help", function: helpConsole },
-        { name: "freedom", function: freedomConsole },
-        { name: "anarchy", function: manifestoConsole }
+        { name: "vision", function: visionConsole },
+        { name: "manifesto", function: manifestoConsole },
+        { name: "donate", function: donateConsole },
+        { name: "support", function: supportConsole },
+        { name: "learn", function: learnConsole }
     ]
 
     function helpConsole() {
         lineY++;
-        text[lineY] = ["\nclear/reset       CLEAR or RESET the terminal\nfreedom          Play FREEDOM video\nanarchy          Navigate to anarchist MANIFESTO"];
+        text[lineY] = ["\n<a class='onclick'>CLEAR / RESET</a> : clear/reset the terminal log\n<a class='onclick'>DONATE</a> : further the cause\n<a class='onclick'>SUPPORT</a> : about us\n<a class='onclick'>EDUCATION</a> : anarchist training\n<a class='onclick'>VISION</a> : watch videos \n<a class='onclick'>MANIFESTO</a> : read the manifesto"];
         printConsole(text);
     }
     
+    function learnConsole() {
+        lineY++;
+        text[lineY] = ["\nloading..."];
+        printConsole(text);
+        Router.push('/education');
+    }    
+    
+    function supportConsole() {
+        lineY++;
+        text[lineY] = ["\nloading..."];
+        printConsole(text);
+        Router.push('/about');
+    }    
+    
+    function donateConsole() {
+        lineY++;
+        text[lineY] = ["\nloading..."];
+        printConsole(text);
+        Router.push('/donate');
+    }    
+    
     function manifestoConsole() {
+        lineY++;
+        text[lineY] = ["\nloading..."];
+        printConsole(text);
         Router.push('/manifesto');
     }    
     
-    function freedomConsole() {
+    function visionConsole() {
         lineY++;
-        text[lineY] = ["\no."];
+        text[lineY] = ["\nloading..."];
         printConsole(text);
-        Router.push('/freedom');
+        Router.push('/tv');
     }
     
     function clearConsole() {
@@ -52,7 +75,7 @@ export default class Terminal extends React.Component {
     function resetConsole() {
         clearConsole();
         lineY++;
-        text[lineY] = ["Anarchist Development DAO<br/>line secure ... booting sequence 4/4<br/>+++++ access granted +++++<br/>type <a class='onclick' onclick='helpConsole()'>HELP</a> for commands"];
+        text[lineY] = ["Anarchist Development DAO<br/>line secure ... booting sequence 4/4<br/>+++++ access granted +++++<br/>type <div class='onclick'>HELP</div> for commands"];
         printConsole(text);
     }
 
@@ -66,6 +89,8 @@ export default class Terminal extends React.Component {
         terminal.html(text);
         terminal.append('<span id="cursor"></span>');
         cursor = $('#cursor');
+        var elem = document.getElementById('terminalPane');
+        elem.scrollTop = elem.scrollHeight;
     }
     
     function processCommand(rawData) {
