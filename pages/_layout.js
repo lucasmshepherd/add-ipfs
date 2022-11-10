@@ -1,7 +1,6 @@
 // components
 import Header from '../components/header'
 import Footer from '../components/footer'
-//import Player from '../components/player'
 // state
 import { loginUser, logoutUser } from '../store/users/action'
 import { playMusic, stopMusic } from '../store/music/action'
@@ -13,7 +12,6 @@ export default function Layout({ children }) {
       <Header />
       <main>{children}</main>
       <Footer />
-      {/*<Player />*/}
     </>
   )
 }

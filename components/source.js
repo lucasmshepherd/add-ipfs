@@ -1,12 +1,10 @@
 import React from 'react';
 
-import styles from '../styles/components/widget.module.sass'
- 
 export default class Source extends React.Component {
 
   componentDidMount () {
 
-    var charString =
+  var charString =
     "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヰヱヲ0123456789+-*/$%&";
   var charArray = charString.split("");
   var charStep = 16;
@@ -142,7 +140,7 @@ export default class Source extends React.Component {
     canvas.height = height;
     canvas.width = width;
     ctx = canvas.getContext("2d");
-    ctx.font = "14px courier";
+    ctx.font = fontSize + "px courier";
     ctx.imageSmoothingEnabled = false;
     //window.onmousemove = hover;
     initCoords();

@@ -67,7 +67,7 @@ export default function Manifesto(props) {
 
         <p>Already traders within the DeFi space already practice an unrealized form of Anarchism by defying the supremacy of archaic fiat currencies. The Anarchist Development DAO is ready to harness and hone this instinct and to fulfill the promise of ultimate freedom that Bitcoin and crypto first unleashed upon the world.</p>
 
-        <p>Enter the Anarchist Development Protocol protocol: the backbone of our cause. DAO members can submit proposals to fund new technology, investigations, protest movements, or other worthy causes in the pursuit of a more decentralized and healthy society.</p>
+        <p>Enter the Anarchist Development Protocol: the backbone of our cause. DAO members can submit proposals to fund new technology, investigations, protest movements, or other worthy causes in the pursuit of a more decentralized and healthy society.</p>
 
         <p>While the DAO will eventually become <i>completely autonomous</i> in all aspects of governance and decision-making, the core ADD development team believes that real change starts with individuals taking action. This team will establish momentum, impact, and initial revenue streams to fund the DAO treasury in conjunction with community proposals.</p>
 

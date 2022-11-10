@@ -32,7 +32,7 @@ import swal from 'sweetalert';
               method: 'wallet_addEthereumChain',
               params: [
                 {
-                  chainName: 'Goerli Testnet',
+                  chainName: 'Mainnet',
                   chainId: web3.utils.toHex(chainId),
                   nativeCurrency: { name: 'ETH', decimals: 18, symbol: 'ETH' },
                   rpcUrls: ['https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161']

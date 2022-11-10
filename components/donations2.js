@@ -19,11 +19,11 @@ export default function Donations(props) {
           <blockquote>0xB1FFA2C89C45C8E865aA80d764aE94E8e880E43C</blockquote>
           <h3 className={styles.title}>How will your donation be used?</h3>
           <p>All donations will be used to help build a more decentralized society; this includes but is not limited to supporting existing causes for decentralization while raising awareness of Anarchist Development DAO through every marketing avenue.</p>
-          <p>If you have a preferred cause you would like to support, please let us know by leaving a message in <a href="https://discord.gg/BSaaz73pJD" target="_blank" rel="noreferrer nofollower">discord</a> along with your donation.</p>
+          <p>If you have a preferred cause you would like to support, please let us know by leaving a message in <a href="https://discord.gg/anarchist-development-dao" target="_blank" rel="noreferrer">discord</a> along with your donation.</p>
           <p>Thank you again for the support,</p>
           <p><b className="glitchme" data-text="Let Anarchy Reign!">Let Anarchy Reign!</b></p>
         </div>
-        <Donater />
+        {/*<Donater />*/}
       </div>
     </>
   )

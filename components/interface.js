@@ -1,9 +1,8 @@
-import { useState, useEffect } from 'react'
 import Widget from './widget.js'
 import Files from './files.js'
 import TerminalStake from './terminal-stake.js'
 import TerminalProposals from './terminal-proposals.js'
-import TerminalDelegate from './terminal-delegate.js'
+//import TerminalDelegate from './terminal-delegate.js'
 import TerminalSubmit from './terminal-submit.js'
 import TerminalPending from './terminal-pending.js'
 import TerminalClosed from './terminal-closed.js'
@@ -11,40 +10,34 @@ import Terminal from './terminal.js'
 import Directory from './directory.js'
 import Report from './report.js'
 import Social from './social.js'
-import Visualizer from './visualizer.js'
 import MintNft from './mint-nft.js'
 import Announcements from './discord-announcements.js'
 import Members from './discord-members.js'
 import Feed from './feed.js'
 import Manifesto from './manifesto.js'
-import Donations from './donations.js'
+//import Donations from './donations.js'
+import About from './about.js'
 import Donations2 from './donations2.js'
 import Donater from './donater.js'
-import DonateId from './donate-id.js'
+//import DonateId from './donate-id.js'
 import Deposit, {StakeInfo} from './stake-deposit.js'
 import Nfts from './nfts.js'
 import Withdrawal from './stake-withdrawal.js'
 import Claim from './stake-claim.js'
 import Learn from './learn.js'
 import UserInterface, { Pane, PaneRow, Sidebar } from './user-interface.js'
-// state
-import { useSelector, useDispatch } from 'react-redux'
-import { loginUser, logoutUser } from '../store/users/action'
 
 import styles from '../styles/components/interface.module.sass'
 
 import dynamic from 'next/dynamic'
 const Chart = dynamic(() => import('./chart.js'), {
   ssr: false
-});
+})
 
 export default function Interface(props) {
-  const dispatch = useDispatch()
-  const connected = useSelector((state) => state.users.connected)
   let page = props.page
-  let id = "0x42881D5F526406032A537A51EC9A1513BAD9A5E5"
   
-  //if (page == "welcome") {
+
     return (
       <> 
         <UserInterface layout={page}>
@@ -155,6 +148,13 @@ export default function Interface(props) {
                   <Donations2 />
                 </Widget>
               </PaneRow>
+            } {/* about */} { 
+            page == "about" &&
+              <PaneRow name="primary">
+                <Widget type={page} title="about_" icon="globe" scroll="true" page="true">
+                  <About />
+                </Widget>
+              </PaneRow>
             } {/* manifesto */} { 
             page == "manifesto" &&
               <PaneRow name="primary">
@@ -204,11 +204,35 @@ export default function Interface(props) {
             } {/* freedom */} { 
             page == "freedom" &&
               <PaneRow name="primary">
-                <Widget type="video" title="welcome_" icon="triangles">
+                <Widget type="video" title="freedom_" icon="triangles">
                 <video style={{ width: '100%', height: '100%', position: 'absolute' }} controls autoPlay preload="auto">
                   <source src="/assets/video/freedom.mp4" type="video/mp4"/>
                   <source src="/assets/video/freedom.webm" type="video/webm"/>
                   <source src="/assets/video/freedom.ogg" type="video/ogg"/>
+                  Your browser does not support the video tag.
+                </video>
+                </Widget>
+              </PaneRow>
+            } {/* system */} { 
+            page == "system" &&
+              <PaneRow name="primary">
+                <Widget type="video" title="system_failure_" icon="triangles">
+                <video style={{ width: '100%', height: '100%', position: 'absolute' }} controls autoPlay preload="auto">
+                  <source src="/assets/video/system_failure.mp4" type="video/mp4"/>
+                  <source src="/assets/video/system_failure.webm" type="video/webm"/>
+                  <source src="/assets/video/system_failure.ogg" type="video/ogg"/>
+                  Your browser does not support the video tag.
+                </video>
+                </Widget>
+              </PaneRow>
+            } {/* need */} { 
+            page == "need" &&
+              <PaneRow name="primary">
+                <Widget type="video" title="they_need_us_" icon="triangles">
+                <video style={{ width: '100%', height: '100%', position: 'absolute' }} controls autoPlay preload="auto">
+                  <source src="/assets/video/They-Need-Us.mp4" type="video/mp4"/>
+                  <source src="/assets/video/They-Need-Us.webm" type="video/webm"/>
+                  <source src="/assets/video/They-Need-Us.ogg" type="video/ogg"/>
                   Your browser does not support the video tag.
                 </video>
                 </Widget>
@@ -249,7 +273,7 @@ export default function Interface(props) {
                     </Widget>
                   </PaneRow>
                 )
-              } else if ( page == "freedom" ) { // Media Files
+              } else if ( page == "freedom" || page == "system" || page == "need" ) { // Media Files
                 return (
                   <PaneRow name="fill">
                     <Widget type="files" title="files_" icon="triangles">
@@ -270,7 +294,7 @@ export default function Interface(props) {
             })()}
             {/* Social */}
             {(() => {
-              if ( page == "welcome" || page == "training" || page == "nfts" || page == "mint" || page == "tv" || page == "manifesto" || page == "stake" || page == "deposit" || page == "withdrawal" || page == "claim" ) {
+              if ( page == "welcome" || page == "training" || page == "nfts" || page == "mint" || page == "tv" || page == "manifesto" || page == "stake" || page == "dapp" || page == "deposit" || page == "withdrawal" || page == "claim" || page == "donate" || page == "about" ) {
                 return (
                   <PaneRow>
                     <Widget type="social" title="social_" icon="triangles">
@@ -284,6 +308,7 @@ export default function Interface(props) {
         </UserInterface>
       </>
     )
+
 
   if (page == "proposals") {
     return (
@@ -299,7 +324,7 @@ export default function Interface(props) {
           <Sidebar>
             <PaneRow name="small">
               <Widget type="audio" title="freq_v_" icon="arc">
-                <Visualizer />
+
               </Widget>
             </PaneRow>
             <PaneRow>
@@ -332,7 +357,7 @@ export default function Interface(props) {
           <Sidebar>
             <PaneRow name="small">
               <Widget type="audio" title="freq_v_" icon="arc">
-                <Visualizer />
+
               </Widget>
             </PaneRow>
             <PaneRow>
@@ -365,7 +390,7 @@ export default function Interface(props) {
           <Sidebar>
             <PaneRow name="small">
               <Widget type="audio" title="freq_v_" icon="arc">
-                <Visualizer />
+
               </Widget>
             </PaneRow>
             <PaneRow>
@@ -398,7 +423,7 @@ export default function Interface(props) {
           <Sidebar>
             <PaneRow name="small">
               <Widget type="audio" title="freq_v_" icon="arc">
-                <Visualizer />
+   
               </Widget>
             </PaneRow>
             <PaneRow>

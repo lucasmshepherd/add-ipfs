@@ -1,6 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import { useSelector } from 'react-redux'
-import parse from 'html-react-parser'
 
 import styles from '../styles/components/report.module.sass'
 
@@ -34,7 +32,6 @@ export default function Report(props) {
       ethSent = 0.00
   let lock = (<svg className="icon-lock" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 135"><rect x="15" y="60" width="15" height="75"/><rect x="15" y="120" width="105" height="15"/><rect x="105" y="60" width="15" height="75"/><rect x="15" y="45.1" width="105" height="14.9"/><rect x="30" y="15" width="15" height="30"/><rect x="90" y="15" width="15" height="30"/><rect x="44.82" width="45.18" height="15"/><rect x="60" y="75" width="15" height="30"/></svg>)
   let page = props.page
-  const connected = useSelector((state) => state.users.connected)
 
   const getReportValues = async() => {
     const web3 = new Web3(SACN_LINK_PROVIDER);
@@ -52,6 +49,11 @@ export default function Report(props) {
     setAddBurned(await contract_token.methods.balanceOf(deadAddress).call()/10**18)
   }
 
+  function numberWithCommas(n) {
+    var parts=n.toString().split(".");
+    return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");
+  }
+
   useEffect(() => {
     if(active){
       getReportValues();
@@ -65,14 +67,14 @@ export default function Report(props) {
               if ( page == "stake" || page == "deposit" || page == "withdrawal" || page == "claim" ) {
                 return (
                   <>
-                    <div className={styles.row}>
-                      <div className={styles.cell}><h4>ADD_price</h4><span>{active ? addPrice : lock}</span></div>
+                    {/*<div className={styles.row}>
+                      <div className={styles.cell}><h4>ADD_price</h4><span>{active ? addPrice.toFixed(2) : lock}</span></div>
                     </div>
                     <div className={styles.row}>
-                      <div className={styles.cell}><h4>APR</h4><span>{active ? apRate : lock}</span></div>
-                    </div>
+                      <div className={styles.cell}><h4>APR</h4><span>{active ? apRate + "%" : lock}</span></div>
+                    </div>*/} 
                     <div className={styles.row}>
-                      <div className={styles.cell}><h4>total_ADD_staked</h4><span>{active ? totalStaked : lock}</span></div>
+                      <div className={styles.cell}><h4>total_ADD_staked</h4><span>{active ? numberWithCommas(totalStaked.toFixed(2)) : lock}</span></div>
                     </div>
                   </>
                 )
@@ -80,7 +82,7 @@ export default function Report(props) {
             })()}
         { page == "dapp" &&
           <>
-            <div className={styles.row}>
+            {/*<div className={styles.row}>
               <div className={styles.cell}><h4>days_since_launch</h4><span>{active ? daySinceLaunch : lock}</span></div>
             </div>
             <div className={styles.row}>
@@ -90,19 +92,16 @@ export default function Report(props) {
               <div className={styles.cell}><h4>anarchist_wallet_count</h4><span>{active ? walletCount : lock}</span></div>
             </div>
             <div className={styles.row}>
-              <div className={styles.cell}><h4>marketcap</h4><span>{active ? marketCap : lock}</span></div>
-            </div>
+              <div className={styles.cell}><h4>marketcap</h4><span>{active ? marketCap.toFixed(2) : lock}</span></div>
+            </div>*/}
             <div className={styles.row}>
-              <div className={styles.cell}><h4>total_value_locked</h4><span>{active ? valueLocked : lock}</span></div>
+              <div className={styles.cell}><h4>total_value_locked</h4><span>{active ? numberWithCommas(valueLocked.toFixed(2)) : lock}</span></div>
             </div>
-            <div className={styles.row}>
+            {/*<div className={styles.row}>
               <div className={styles.cell}><h4>total_eth_sent</h4><span>{active ? ethSent : lock}</span></div>
-            </div>
+            </div>*/}
             <div className={styles.row}>
-              <div className={styles.cell}><h4>treasury_balance</h4><span>{active ? treasuryBalance.toFixed(2) : lock}</span></div>
-            </div>
-            <div className={styles.row}>
-              <div className={styles.cell}><h4>ADD_burned</h4><span>{active ? addBurned : lock}</span></div>
+              <div className={styles.cell}><h4>treasury_balance</h4><span>{active ? numberWithCommas(treasuryBalance.toFixed(2)) : lock}</span></div>
             </div>
           </>
         }

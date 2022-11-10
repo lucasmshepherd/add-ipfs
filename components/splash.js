@@ -7,8 +7,6 @@ export default class Splash extends React.Component {
 
   componentDidMount () {
 
-    $('body').removeClass('entered');
-
     const MESSAGES = [];
     MESSAGES.push({delay:0,    text:"The Anarchist Development DAO is geared toward"});
     MESSAGES.push({delay:1200, text:"the rapid advancement of a more decentralized"});

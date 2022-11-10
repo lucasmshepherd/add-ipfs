@@ -1,15 +1,16 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react'
 import styles from '../styles/components/donations.module.sass'
+import { Howl } from 'howler'
 
 //Stake Integration Requirements
-import { providerURL } from './walletConnect/utils';
+import { providerURL } from './walletConnect/utils'
 import TokenContract from './integration/token.json'
 import StakeContract from './integration/stake.json'
-import {  useWeb3React } from "@web3-react/core";
-import { connectors } from "./walletConnect/connectors";
-import Web3EthContract from "web3-eth-contract";
+import {  useWeb3React } from "@web3-react/core"
+import { connectors } from "./walletConnect/connectors"
+import Web3EthContract from "web3-eth-contract"
 import Web3 from 'web3'
-import swal from 'sweetalert';
+import swal from 'sweetalert'
 
 export default function Donater() {
   let accent = (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54.96 3.72"><path d="M54.96,2.98h-15.7v.74h15.7v-.74Z"/><path d="M35.33,2.98H0v.74H35.33v-.74Z"/><path d="M54.95,1.48H0v.74H54.95v-.74Z"/><path d="M54.96,0H23.56V.74h31.4V0Z"/><path d="M19.63,0h-3.92V.74h3.92V0Z"/><path d="M11.78,0h-3.92V.74h3.92V0Z"/><path d="M3.92,0H0V.74H3.92V0Z"/></svg>)
@@ -17,37 +18,60 @@ export default function Donater() {
   const {
     active,
     account
-  } = useWeb3React();
+  } = useWeb3React()
 
 
-const SACN_LINK_PROVIDER = providerURL();
+const SACN_LINK_PROVIDER = providerURL()
 
 const [StakeContractAddress, setStakeContractAddress] = useState(StakeContract.STAKE_CONTRACT_ADDRESS)
 const [tokenContractAddress, setTokenContractAddress] = useState(TokenContract.TOKEN_CONTRACT_ADDRES)
-
-const [approveStatus, setApproveStatus] = useState(true);
-const [stakeStatus, setStakeStatus] = useState(false);
-
+const [approveStatus, setApproveStatus] = useState(true)
+const [stakeStatus, setStakeStatus] = useState(false)
 const [minTokensToStake, setMinTokensToStake] = useState(0)
 const [tokensStaked, setTokensStaked] = useState(0)
 const [balanceOf, setBalanceOf] = useState(0)
 const [maxWalletAmount, setMaxWalletAmount] = useState(0)
 const [approved, setApproved] = useState(0)
 const [tokensToApprove, setTokensToApprove] = useState(0)
-
 const [stakeCount, setStakeCount] = useState(1)
-
-const [errorContract, setErrorContract] = useState('');
-
+const [errorContract, setErrorContract] = useState('')
 const [connected, setConnected] = useState(false)
+const [stakeLimit, setStakeLimit] = useState(0)
+const [changeInBalanceOf, setChangeInBalanceOf] = useState(0)
+const [audio, setAudio] = useState('null')
 
-const [stakeLimit, setStakeLimit] = useState(0);
+useEffect(() => {
+setAudio([    
+    '/assets/audio/gizmo-glitch.mp3', 
+    '/assets/audio/gizmo-glitch-2.m4a', 
+    '/assets/audio/gizmo-glitch-2.ogg', 
+    '/assets/audio/gizmo-glitch-2.aac'
+])
+},[])
 
-const [changeInBalanceOf, setChangeInBalanceOf] = useState(0);
-
-// ONLOAD USE EFFECT 
-// ONLOAD USE EFFECT 
-// ONLOAD USE EFFECT
+const soundEffect = () => {
+    var sound = new Howl({
+        src: audio,
+        autoplay: false,
+        loop: false,
+        volume: 0.5
+    })
+    sound.play()
+}
+const soundEffectGood = () => {
+    var sound = new Howl({
+        src: [    
+            '/assets/audio/mech-glitch.mp3', 
+            '/assets/audio/mech-glitch.m4a', 
+            '/assets/audio/mech-glitch.ogg', 
+            '/assets/audio/mech-glitch.aac'
+        ],
+        autoplay: false,
+        loop: false,
+        volume: 0.5
+    })
+    sound.play()
+}
 
 useEffect(() => {
 
@@ -73,7 +97,6 @@ useEffect(()=>{
         const interval = setInterval(() => {
             changeInBalance()
         }, 2000);
-          
           return () => clearInterval(interval);
     }else{
         setConnected(false)
@@ -156,7 +179,7 @@ useEffect(() => {
                   setErrorContract("Insufficient Tokens for Staking");
                   setStakeStatus(false)
               }else{
-                setErrorContract(`Stake ${minTokensToStake} Minimum Tokens`);
+                setErrorContract(`Stake ${numberWithCommas(minTokensToStake.toFixed(2))} Minimum Tokens`);
 
               }
             }
@@ -183,6 +206,7 @@ useEffect(() => {
 }, [active, stakeCount, approved, account]);
 
 async function approveTokens(){
+    soundEffectGood()
     const { ethereum } = window;
     Web3EthContract.setProvider(ethereum);
 
@@ -201,17 +225,17 @@ async function approveTokens(){
                     type: "error",
                     showCancelButton: false,
                     confirmButtonClass: "btn-danger",
-                    confirmButtonText: "Ok",
+                    confirmButtonText: "Close",
                     closeOnConfirm: false
                 });
             } else {
                 swal({
                     title: "Approve Request Submitted Successfully",
-                    text: "Please Wait For Wallet Confirmation",
+                    text: "Please wait for wallet confirmation.",
                     type: "success",
                     showCancelButton: false,
                     confirmButtonClass: "btn-danger",
-                    confirmButtonText: "Ok",
+                    confirmButtonText: "Close",
                     closeOnConfirm: false
                 });
             }
@@ -223,7 +247,7 @@ async function approveTokens(){
                 type: "error",
                 showCancelButton: false,
                 confirmButtonClass: "btn-danger",
-                confirmButtonText: "Ok",
+                confirmButtonText: "Close",
                 closeOnConfirm: false
             });
         });
@@ -243,18 +267,20 @@ async function StakeCall(){
     // console.log("count stake", countStake)
     
     if(stakeCount < minTokensToStake){
+        soundEffect()
         swal({
-            title: "Oops!!",
-            text: `Stake ${minTokensToStake} Minimum Tokens`,
+            title: "Minimum Staking",
+            text: `Stake ${numberWithCommas(minTokensToStake.toFixed(2))} Minimum Tokens`,
             type: "error",
             showCancelButton: false,
             confirmButtonClass: "btn-danger",
-            confirmButtonText: "Ok",
+            confirmButtonText: "Close",
             closeOnConfirm: false
         });
         setStakeCount(minTokensToStake);
     }
     else{
+        soundEffectGood()
         var countStake = web3.utils.toWei(String(stakeCount), 'ether');
 
         contract.methods.deposit(countStake).estimateGas({
@@ -265,22 +291,22 @@ async function StakeCall(){
             }, function (error, tx) {
                 if (error) {
                     swal({
-                        title: "Error Found",
+                        title: "Hold Up",
                         text: error.message,
                         type: "error",
                         showCancelButton: false,
                         confirmButtonClass: "btn-danger",
-                        confirmButtonText: "Ok",
+                        confirmButtonText: "Close",
                         closeOnConfirm: false
                     });
                 } else {
                     swal({
                         title: "Stake Request Submitted Successfully",
-                        text: "Please Wait For Wallet Confirmation",
+                        text: "Please wait for wallet confirmation.  It may take a moment.",
                         type: "success",
                         showCancelButton: false,
                         confirmButtonClass: "btn-danger",
-                        confirmButtonText: "Ok",
+                        confirmButtonText: "Close",
                         closeOnConfirm: false
                     });
                 }
@@ -292,7 +318,7 @@ async function StakeCall(){
                 type: "error",
                 showCancelButton: false,
                 confirmButtonClass: "btn-danger",
-                confirmButtonText: "Ok",
+                confirmButtonText: "Close",
                 closeOnConfirm: false
             });
         });
@@ -300,11 +326,14 @@ async function StakeCall(){
 
 }
 
+let bal = numberWithCommas((balanceOf).toFixed(2))
+
+
   return (
     <>
       <form className={styles.form}>
           <h3>Stake ADD</h3>
-          <p>{(balanceOf).toFixed(2)} ADD Available</p>
+          <p>{bal} ADD Available</p>
           <label>stake_amount</label>
           <input value={stakeCount} onChange={(e) => setStakeCount(e.target.value)} type="number" name="amount" placeholder="0.00 ADD" className="eth-input"></input>
 
@@ -339,12 +368,18 @@ async function StakeCall(){
                         }
                     </>
                 }
-            </> : <>Connect Wallet To Continue</>
+            </> : <><div style={{color:'#af3535', fontStyle:'italic'}}>Connect Wallet To Continue</div></>
         }
 
       </form>
     </>
   )
+}
+
+
+function numberWithCommas(n) {
+    var parts=n.toString().split(".");
+    return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");
 }
 
 export function StakeInfo() {
@@ -385,17 +420,17 @@ export function StakeInfo() {
       <>
         {tokensStaked > 0 ?
           <ul className="clean-list">
-            <li><span>staked_add:</span><span>{tokensStaked}</span></li>
+            <li><span>staked_balance:</span><span>{numberWithCommas(tokensStaked.toFixed(2)) + " ADD"}</span></li>
             <hr />
             {/* <li><span>current_cycle:</span><span>+1,452<sup>.12</sup></span></li> */}
-            <li><span>claimable_add:</span><span>{pendingReward}</span></li>
+            <li><span>claimable_rewards:</span><span>{pendingReward == 0 ? "0.00 ETH" : pendingReward.toFixed(18) + " ETH"}</span></li>
           </ul>
           :
-          <div>ERROR: Haven&apos;t Staked Yet</div>
+          <div><i>Haven&apos;t staked yet.</i></div>
         }
       </>
       :
-      <div>ERROR: No wallet found</div>
+      <div><i>No wallet found.</i></div>
     }
    </>
   )

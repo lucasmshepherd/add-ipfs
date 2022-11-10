@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import $ from 'jquery'
 // state
 import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch} from 'react-redux'
@@ -28,7 +29,6 @@ export default function Header() {
   let audioIconSource = AudioOffIcon
   const dispatch = useDispatch()
   // state
-  const connected = useSelector((state) => state.users.connected)
   const playing = useSelector((state) => state.music.playing)
 
   if(playing == "true") {
@@ -70,7 +70,7 @@ export default function Header() {
     // display settings
     let repeat_char = '/';
     const filler_char = '-';
-    const char_across = 25;
+    const char_across = 22;
 
     // get the stream from the audio file
     if(isFirefox){
@@ -143,16 +143,29 @@ export default function Header() {
     setAudioIsLoading(false);
   }, [audioFile])
 
+  useEffect(() => {
+    $('.header_mobicon__o9BKL').on("mousedown", function() {
+      $('.interface_side__JXlwM').addClass('open')
+    })
+    $('.close-menu').on("mousedown", function() {
+      $('.interface_side__JXlwM').removeClass('open')
+    })
+    
+  }, [])
+
   return (
     <> 
       {/*<Player />*/}
-      <header className={styles.header} data-connected={connected}>
+      <header className={styles.header} data-connected={active}>
         <div className={styles.bar}>
           { active &&
             <span className={styles.identity}>{account}</span>
           }
           <div className={styles.tab}>
             <svg className={styles.tabg} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 255.17 50.89"><g id="Layer_1-2"><path d="M255.17,0c-4.01,0-9.62,2.35-12.44,5.21l-40,40.47c-2.84,2.87-8.44,5.21-12.44,5.21H64.88c-4.01,0-9.61-2.35-12.44-5.21L12.44,5.21C9.61,2.34,4,0,0,0H255.17Z"/></g></svg>
+            <a className={styles.mobicon}>
+              OPEN<br/>MENU
+            </a>
             <Link href="/"> 
               <a className={styles.icon}>
                 <Image layout="fixed" src={LogoIcon} priority="true" alt="ADD" width="48" height="48" />
@@ -178,7 +191,7 @@ export default function Header() {
                       .map((value, index) => {
                         return (
                           <div className='visualizer--row' key={index}>
-                            <span>-------------------------</span>
+                            <span>----------------------</span>
                           </div>
                         )
                       })

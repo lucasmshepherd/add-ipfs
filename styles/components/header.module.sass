@@ -14,6 +14,11 @@
   height: 15px
   width: 100%
   background: transparentize(#050505, 0.5)
+  z-index: 999
+
+  @media (max-width: 700px)
+    height: 47px
+    background: $color_dark
 
 .tab
   position: absolute
@@ -27,6 +32,8 @@
 
 .tabg
   fill: transparentize(#050505, 0.5)
+  @media(max-width: 700px)
+    fill: $color_dark
 
 .addbar
   display: flex
@@ -37,7 +44,7 @@
   height: 80px
   padding: 0 10px
   @media(max-width: 700px)
-    height: 68px
+    height: 108px
 
 .logo
   position: relative
@@ -48,20 +55,25 @@
   a
     display: inline-block
 
+.mobicon
+  position: absolute
+  top: 10px
+  left: 65px
+  display: inline-block
+  font-size: 12px
+  line-height: 14px
+  font-family: $font_scifi
+  cursor: pointer
+  user-select: none
+  @media(min-width: 701px)
+    display: none
+
 .icon
   position: absolute
   left: 50%
   top: 50%
   text-align: center
   transform: translate(-50%, -50%)
-  &:before,
-  &:after
-    position: absolute
-    top: 50%
-    margin-top: -8px
-    font-size: 10px
-    line-height: 1
-    font-family: $font_scifi
   svg
     width: 48px
     height: 48px
@@ -71,72 +83,24 @@
     //cursor: pointer
   @media(max-width: 700px)
     margin-left: -18%
-    &:before
-      content: "OPEN"
-      right: 115%
-      margin-top: -10px
-      top: 40%
-    &:after
-      content: "MENU"
-      top: 40%
-      left: auto
-      right: 115%
-      margin-top: 0px
+    display: none!important
 
-.logout
-  height: 44px
-  width: 44px
-  background-color: darken($color_1,8%)
-  border: 1px solid $color_1
-  //outline: 1px solid yellow
-  //border: 1px solid $color_2
-  box-shadow: 0 2px 4px rgba(0,0,0,.4)
-  cursor: pointer
-  text-align: center
-  position: relative
-  border-radius: 1px
-  transition: 0.3s background-color
-  &:hover
-    background-color: $color_1
-    box-shadow: 0 4px 6px rgba(0,0,0,.3)
-    svg
-      fill: $color_4
-  &:active
-    background-color: lighten($color_1,8%)
-    box-shadow: 0 4px 6px rgba(0,0,0,.3)
-    svg
-      fill: $color_3
-  svg
-    fill: $color_5
-    width: 14px
-    position: absolute
-    top: 50%
-    left: 50%
-    transform: translate(-50%,-50%)
-    transition: 0.3s fill
 
+.logout,
 .login
   height: 44px
   width: 44px
-  background-color: $color_1
-  //outline: 1px solid yellow
-  //border: 1px solid $color_2
   box-shadow: 0 2px 4px rgba(0,0,0,.4)
+  border: 1px solid $color_1
   cursor: pointer
   text-align: center
   position: relative
   border-radius: 1px
   transition: 0.3s background-color
   &:hover
-    background-color: $color_2
     box-shadow: 0 4px 6px rgba(0,0,0,.3)
-    svg
-      fill: $color_4
   &:active
-    background-color: $color_5
     box-shadow: 0 4px 6px rgba(0,0,0,.3)
-    svg
-      fill: #fff
   svg
     fill: $color_5
     width: 14px
@@ -145,6 +109,31 @@
     left: 50%
     transform: translate(-50%,-50%)
     transition: 0.3s fill
+  @media (max-width: 700px)
+    position: fixed
+    top: 4px
+    right: 3px
+    z-index: 99999
+    height: 40px
+    width: 40px
+
+.logout
+  background-color: darken($color_1,8%)
+  &:hover
+    background-color: $color_1
+  &:active
+    background-color: lighten($color_1,8%)
+    svg
+      fill: $color_3
+
+.login
+  background-color: $color_1
+  &:hover
+    background-color: $color_2
+  &:active
+    background-color: $color_5
+    svg
+      fill: #fff
 
 .balance
   //background: url('/assets/images/add-logo.svg') no-repeat 93% 50%
@@ -185,6 +174,8 @@
     line-height: 14px
     color: $color_5
     padding: 0 2px
+    @media (max-width: 700px)
+      display: none
   a
     transition: 0.3s color
   a:hover,
@@ -192,9 +183,16 @@
     color: $color_3
   &[data-connected="true"]
     //cursor: default
-
-  @media(max-width: 700px)
-    display: none
+  
+  @media (max-width: 700px)
+    position: fixed
+    top: 4px
+    left: 4px
+    z-index: 9999
+    width: 100%
+    height: 40px
+    line-height: 36px
+    background: none
 
 .audio
   //outline: 1px solid yellow
@@ -249,3 +247,11 @@
   right: 5px
   //transform: translateX(-50%)
   color: rgba(255,255,255,.2)
+  @media (max-width: 700px)
+    top: auto
+    text-align: center
+    width: 100%
+    position: fixed
+    bottom: 0
+    width: 100%
+    background-color: $color_dark

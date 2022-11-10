@@ -19,14 +19,6 @@ export default class Terminal extends React.Component {
         $('aside').addClass("open");
     })*/
 
-    $('.close-menu').on("mousedown", function() {
-        $('aside').removeClass("open");
-    })
-
-    $('[class^="header_icon_"]').on("mousedown", function() {
-        $('aside').toggleClass("open");
-    })
-
     var commands = [
         { name: "clear", function: clearConsole },
         { name: "reset", function: resetConsole },
