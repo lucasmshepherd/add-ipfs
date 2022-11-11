@@ -97,6 +97,18 @@ export default function Directory(props) {
 
           </li>
 
+          <li data-current="false">
+                    <a target="_blank" rel="noreferrer" href="https://www.dextools.io/app/en/ether/pair-explorer/0x8fead6e1be5af7b5beda08688018d55079e6de35"><span>add_chart</span></a>
+                  </li>
+
+          <li data-current="false">
+                    <a target="_blank" rel="noreferrer" href="https://etherscan.io/token/0x6542c8f90915a57314f4167b81851a3cd731c6e2"><span>smart_contract</span></a>
+                  </li>
+
+                  <li data-current="false">
+                    <a target="_blank" rel="noreferrer" href="https://github.com/solidproof/projects/tree/main/FundAnarchy"><span>kyc_audit</span></a>
+                  </li>
+
           <li data-current={ widgets == "stake" ? 'true' : 'false' }>
             <Link className="anchor" href="/deposit">
               <a onClick={soundEffect}>{folder}<span>stake_ADD</span>{arrow}</a>
@@ -283,18 +295,6 @@ export default function Directory(props) {
                 <>
                   <li className={styles.title}>
                     <span>anarchist dao</span>
-                  </li>
-
-                  <li data-current="false">
-                    <a target="_blank" rel="noreferrer" href="https://etherscan.io/token/0x6542c8f90915a57314f4167b81851a3cd731c6e2"><span>smart_contract</span></a>
-                  </li>
-
-                  <li data-current="false">
-                    <a target="_blank" rel="noreferrer" href="https://www.dextools.io/app/en/ether/pair-explorer/0x8fead6e1be5af7b5beda08688018d55079e6de35"><span>add_chart</span></a>
-                  </li>
-
-                  <li data-current="false">
-                    <a target="_blank" rel="noreferrer" href="https://github.com/solidproof/projects/tree/main/FundAnarchy"><span>kyc_audit</span></a>
                   </li>
 
                   <li data-current="false">
