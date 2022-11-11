@@ -286,7 +286,15 @@ export default function Directory(props) {
                   </li>
 
                   <li data-current="false">
-                    <a target="_blank" rel="nofollower" href="assets/docs/ADD-Token-Mechanics-Anarchist-DAO.pdf"><span>token_mechanics</span>{arrow}</a>
+                    <a target="_blank" rel="noreferrer" href="https://etherscan.io/token/0x6542c8f90915a57314f4167b81851a3cd731c6e2"><span>smart_contract</span></a>
+                  </li>
+
+                  <li data-current="false">
+                    <a target="_blank" rel="noreferrer" href="https://www.dextools.io/app/en/ether/pair-explorer/0x8fead6e1be5af7b5beda08688018d55079e6de35"><span>add_chart</span></a>
+                  </li>
+
+                  <li data-current="false">
+                    <a target="_blank" rel="noreferrer" href="assets/docs/ADD-Token-Mechanics-Anarchist-DAO.pdf"><span>token_mechanics</span></a>
                   </li>
 
                   <li data-current={ widgets == "donate" ? 'true' : 'false' }>
@@ -334,7 +342,7 @@ export default function Directory(props) {
           })()}
 
           <li id="purchase">
-            <a onClick={soundEffect} href="#" rel="noreferrer" target="_blank">
+            <a onClick={soundEffect} href="https://app.uniswap.org/#/swap?outputCurrency=0x6542c8f90915a57314f4167b81851a3cd731c6e2" rel="noreferrer" target="_blank">
               <span className="highlight">purchase_ADD</span>
             </a>
           </li>
