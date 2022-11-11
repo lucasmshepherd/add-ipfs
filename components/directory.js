@@ -92,9 +92,9 @@ export default function Directory(props) {
         <ul id="menu" className={styles.menu}>
 
           <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
-            <Link className="anchor" href="/dapp">
-              <a onClick={soundEffect}><span>dashboard</span>{arrow}</a>
-            </Link>
+
+              <a className="comingsoon"><span>dashboard</span>{arrow}</a>
+
           </li>
 
           <li data-current={ widgets == "stake" ? 'true' : 'false' }>
@@ -294,6 +294,10 @@ export default function Directory(props) {
                   </li>
 
                   <li data-current="false">
+                    <a target="_blank" rel="noreferrer" href="https://github.com/solidproof/projects/tree/main/FundAnarchy"><span>kyc_audit</span></a>
+                  </li>
+
+                  <li data-current="false">
                     <a target="_blank" rel="noreferrer" href="assets/docs/ADD-Token-Mechanics-Anarchist-DAO.pdf"><span>token_mechanics</span></a>
                   </li>
 
@@ -342,7 +346,7 @@ export default function Directory(props) {
           })()}
 
           <li id="purchase">
-            <a onClick={soundEffect} href="https://app.uniswap.org/#/swap?outputCurrency=0x6542c8f90915a57314f4167b81851a3cd731c6e2" rel="noreferrer" target="_blank">
+            <a onClick={soundEffect} href="https://app.uniswap.org/#/swap?inputCurrency=0x6542c8f90915a57314f4167b81851a3cd731c6e2&outputCurrency=ETH" rel="noreferrer" target="_blank">
               <span className="highlight">purchase_ADD</span>
             </a>
           </li>
