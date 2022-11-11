@@ -86,7 +86,7 @@ export default function Directory(props) {
     )
   }
 
-  else if ( widgets == 'dapp' || widgets == 'stake' || widgets == 'deposit' || widgets == 'withdrawal' || widgets == 'claim') {
+  else if ( widgets == 'dapp' || widgets == 'stake' || widgets == 'deposit' || widgets == 'withdrawal' || widgets == 'claim' || widgets == 'nfts' || widgets == 'mint' || widgets == 'loan' ) {
     return (
       <> 
         <ul id="menu" className={styles.menu}>
@@ -97,9 +97,27 @@ export default function Directory(props) {
             </Link>
           </li>
 
+          <li data-connected={connected} data-current={ widgets == "nfts" ? 'true' : 'false' }>
+            <Link className="anchor" href="/my-list">
+              <a>{wallet}<span>my_NFTs</span>{arrow}</a>
+            </Link>
+          </li>
+
+          <li data-child="true" data-current={ widgets == "mint" ? 'true' : 'false' }>
+            <Link className="anchor" href="/mint">
+              <a>{down}<span>mint</span>{arrow}</a>
+            </Link>
+          </li>
+
+          <li data-child="true" data-current={ widgets == "loan" ? 'true' : 'false' }>
+            <Link className="anchor" href="/loan">
+              <a>{down}<span>loan</span>{arrow}</a>
+            </Link>
+          </li>
+
           <li data-current={ widgets == "stake" ? 'true' : 'false' }>
             <Link className="anchor" href="/deposit">
-              <a onClick={soundEffect}>{folder}<span>stake_ADD</span>{arrow}</a>
+              <a onClick={soundEffect}>{wallet}<span>stake_ADD</span>{arrow}</a>
             </Link>
           </li>
 
@@ -177,38 +195,38 @@ export default function Directory(props) {
       <> 
         <ul id="menu" className={styles.menu}>
 
-          <li data-current={ widgets == "welcome" ? 'true' : 'false' }>
+          <li>
             <Link className="anchor" href="#">
-                <a onClick={soundEffect}>{folder}<span>rXoaat</span>{arrow}</a>
+                <a onClick={soundEffect}>{folder}<span>rXoaat</span></a>
             </Link>
           </li>
 
-          <li data-connected={active} data-current={ widgets == "dapp" ? 'true' : 'false' }>
+          <li data-connected={active}>
             <Link className="anchor" href="#">
-              <a onClick={soundEffect}>{folder}<span>da-p1p%</span>{arrow}</a>
+              <a onClick={soundEffect}>{folder}<span>da-p1p%</span></a>
             </Link>
           </li>
 
-          <li data-connected={active} data-current={ widgets == "mint" ? 'true' : 'false' }>
+          <li data-connected={active}>
             <Link className="anchor" href="#">
-              <a onClick={soundEffect}>{folder}<span>3min$t_nf-t!</span>{arrow}</a>
-            </Link>
-          </li>
-
-          <li data-current={ widgets == "manifesto" ? 'true' : 'false' }>
-            <Link className="anchor" href="#">
-              <a onClick={soundEffect}>{folder}<span>manF_if7es11to</span>{arrow}</a>
-            </Link>
-          </li>
-
-          <li data-current={ widgets == "tv" ? 'true' : 'false' }>
-            <Link className="anchor" href="#">
-              <a onClick={soundEffect}>{folder}<span>ana--rchiK#3st_tv</span>{arrow}</a>
+              <a onClick={soundEffect}>{folder}<span>3min$t_nf-t!</span></a>
             </Link>
           </li>
 
           <li>
-            <a onClick={soundEffect} href="https://anarchistdevelopmentdao.gitbook.io/anarchist-development-dao/" rel="noreferrer" target="_blank">
+            <Link className="anchor" href="#">
+              <a onClick={soundEffect}>{folder}<span>manF_if7es11to</span></a>
+            </Link>
+          </li>
+
+          <li>
+            <Link className="anchor" href="#">
+              <a onClick={soundEffect}>{folder}<span>ana--rchiK#3st_tv</span></a>
+            </Link>
+          </li>
+
+          <li>
+            <a onClick={soundEffect} href="#">
               <span>fa*$q.gitas23~book</span>
             </a>
           </li>
@@ -229,91 +247,57 @@ export default function Directory(props) {
 
           <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
             <Link className="anchor" href="/transition">
-              <a onClick={dappEffect}><span>stake_and_vote</span>{arrow}</a>
+              <a onClick={dappEffect}><span>stake_ADD</span>{arrow}</a>
             </Link>
           </li>
 
-          <li data-connected={connected} data-current={ widgets == "nfts" ? 'true' : 'false' }>
-            <Link className="anchor" href="/my-list">
-              <a><span>my_NFTs</span>{arrow}</a>
+          <li className={styles.title}>
+            <span>anarchist dao</span>
+          </li>
+
+          <li data-current="false">
+            <a target="_blank" rel="nofollower" href="assets/docs/ADD-Token-Mechanics-Anarchist-DAO.pdf"><span>token_mechanics</span>{arrow}</a>
+          </li>
+
+          <li data-current={ widgets == "donate" ? 'true' : 'false' }>
+            <Link className="anchor white-icon" href="/donate">
+              <a onClick={soundEffect}><span>further_the_cause</span>{arrow}</a>
             </Link>
           </li>
 
-          {(() => {
-            if ( widgets == "nfts" || widgets == "mint" || widgets == "loan" ) {
-              return (
-                <>
-                  <li data-child="true" data-current={ widgets == "mint" ? 'true' : 'false' }>
-                    <Link className="anchor" href="/mint">
-                      <a>{down}<span>mint</span>{arrow}</a>
-                    </Link>
-                  </li>
+          <li data-current={ widgets == "about" ? 'true' : 'false' }>
+            <Link className="anchor" href="/about">
+              <a onClick={soundEffect}><span>tEk_sup.port</span>{arrow}</a>
+            </Link>
+          </li>
 
-                  <li data-child="true" data-current={ widgets == "loan" ? 'true' : 'false' }>
-                    <Link className="anchor" href="/loan">
-                      <a>{down}<span>loan</span>{arrow}</a>
-                    </Link>
-                  </li>
-                </>
-              )
-            }
-          })()}
+          <li className={styles.title}>
+            <span>anarchists</span>
+          </li>
 
-          {(() => {
-            if ( widgets != "nfts" ) {
-              return (
-                <>
-                  <li className={styles.title}>
-                    <span>anarchist dao</span>
-                  </li>
+          <li>
+            <a onClick={soundEffect} className="anchor white-icon" target="_blank" rel="noreferrer" href="https://docs.fundanarchy.io">
+              <span>anarchist_docs</span>
+            </a>
+          </li>
 
-                  <li data-current="false">
-                    <a target="_blank" rel="nofollower" href="assets/docs/ADD-Token-Mechanics-Anarchist-DAO.pdf"><span>token_mechanics</span>{arrow}</a>
-                  </li>
+          <li className={styles.sitego} data-current={ widgets == "manifesto" ? 'true' : 'false' }>
+            <Link className="anchor" href="/manifesto">
+              <a onClick={soundEffect}><span>anarchist_manifesto</span>{arrow}</a>
+            </Link>
+          </li>
 
-                  <li data-current={ widgets == "donate" ? 'true' : 'false' }>
-                    <Link className="anchor white-icon" href="/donate">
-                      <a onClick={soundEffect}><span>further_the_cause</span>{arrow}</a>
-                    </Link>
-                  </li>
+          <li className={styles.sitego} data-current={ widgets == "tv" ? 'true' : 'false' }>
+            <Link className="anchor" href="/tv">
+              <a onClick={soundEffect}><span>anarchist_vision</span>{arrow}</a>
+            </Link>
+          </li>
 
-                  <li data-current={ widgets == "about" ? 'true' : 'false' }>
-                    <Link className="anchor" href="/about">
-                      <a onClick={soundEffect}><span>tEk_sup.port</span>{arrow}</a>
-                    </Link>
-                  </li>
-
-                  <li className={styles.title}>
-                    <span>anarchists</span>
-                  </li>
-
-                  <li>
-                    <a onClick={soundEffect} className="anchor white-icon" target="_blank" rel="noreferrer" href="https://docs.fundanarchy.io">
-                      <span>anarchist_docs</span>
-                    </a>
-                  </li>
-
-                  <li className={styles.sitego} data-current={ widgets == "manifesto" ? 'true' : 'false' }>
-                    <Link className="anchor" href="/manifesto">
-                      <a onClick={soundEffect}><span>anarchist_manifesto</span>{arrow}</a>
-                    </Link>
-                  </li>
-
-                  <li className={styles.sitego} data-current={ widgets == "tv" ? 'true' : 'false' }>
-                    <Link className="anchor" href="/tv">
-                      <a onClick={soundEffect}><span>anarchist_vision</span>{arrow}</a>
-                    </Link>
-                  </li>
-
-                  <li className={styles.sitego} data-current={ widgets == "training" ? 'true' : 'false' }>
-                    <Link className="anchor" href="/training">
-                      <a onClick={soundEffect}><span>anarchist_education</span>{arrow}</a>
-                    </Link>
-                  </li>
-                </>
-              )
-            }
-          })()}
+          <li className={styles.sitego} data-current={ widgets == "training" ? 'true' : 'false' }>
+            <Link className="anchor" href="/training">
+              <a onClick={soundEffect}><span>anarchist_education</span>{arrow}</a>
+            </Link>
+          </li>
 
           <li id="purchase">
             <a onClick={soundEffect} href="#" rel="noreferrer" target="_blank">

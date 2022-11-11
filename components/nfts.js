@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Nft from './nft.js'
 import styles from '../styles/components/nfts.module.sass'
 
 const nftList = [
@@ -61,7 +60,8 @@ const nftList = [
       "date": "10/01/22",
       "return": "10/06/22",
       "interest": ".02",
-      "borrower": "WALLET_ID"
+      "borrower": "WALLET_ID",
+      "claimable": ""
     }],
     "proposal": []
   },
@@ -98,6 +98,20 @@ const nftList = [
     }],
     "loaned": [],
     "proposal": []
+  },
+  {
+    "id": "0007",
+    "name": "Anarchist #501 Static",
+    "url": "/assets/images/nft/0501 Static.png",
+    "purchased": "",
+    "staked": "",
+    "purpose": "loans",
+    "borrowed": [],
+    "loaned": [{
+      "date": "10/01/22",      
+      "claimable": "0.00"
+    }],
+    "proposal": []
   }
 ]
 
@@ -125,18 +139,16 @@ function MyList() {
             if ( borrow.length > 0 ) {
               return (
                 <>
-                  <p className="clean highlight">Deadline {borrow[0].return}</p>
                   <p className="clean">Borrowed {borrow[0].date}</p>
+                  <p className="clean highlight">Returning {borrow[0].return}</p>
                   <p className="clean">Rate: {borrow[0].interest} ADD per day</p>
                 </>
               )
             } else if ( loan.length > 0 ) {
               return (
                 <>
+                  <p className="clean highlight">Loaned {loan[0].date}</p>
                   <p className="clean highlight">Returning {loan[0].return}</p>
-                  <p className="clean">Loaned {loan[0].date}</p>
-                  <p className="clean">Rate: {loan[0].interest} ADD per day</p>
-                  <p className="clean">Borrower: {loan[0].borrower}</p>
                 </>
               )
             } else if ( stake ) {
@@ -156,48 +168,55 @@ function MyList() {
         </span>
         <span className={styles.proposal}>
           {(() => {
-            if ( loan.length > 0 ) {
+            if ( loan.length > 0 && loan[0].claimable ) {
               return (
                 <>
-                  <p className="clean highlight">Not Available</p>
-  
+                  <p className="clean highlight">Reward: 0.00 ETH (<a href="$">claim</a>)</p>
+                </>
+              )
+            } else if ( loan.length > 0 ) {
+              return (
+                <>
+                  <p className="clean">Rate: {loan[0].interest} ADD per day</p>
+                  <p className="clean">Borrower: {loan[0].borrower}</p>
                 </>
               )
             } else if ( proposal.length > 0 ) {
               return (
                 <>
-                  <p className="clean highlight">Not Available</p>
+                  <p className="clean highlight">Currently submitted with</p>
                   <p className="clean">Proposal {proposal[0].id}</p>
                 </>
               )
             } else if ( borrow.length > 0 ) {
               return (
                 <>
-                  <p className="clean highlight">Available until {borrow[0].return}</p>
+                  <a href="#" className="button-mono btn-secondary btn-sm">Submit Proposal</a>
                 </>
               )
             } else if (purpose) {
               return (
                 <>
-                  <p className="clean highlight">Available for <b>{purpose}</b></p>
+                  <a href="#" className="button-mono btn-secondary btn-sm">Submit Proposal</a><br/>
+                  <a href="#" className="button-mono btn-sm btn-outline pretitled">Loans</a>
                 </>
               )
             } else if (stake) {
               return (
                 <>
-                  <p className="clean highlight">Available</p>
+                  <a href="#" className="button-mono btn-sm btn-outline pretitled">Proposals</a><br/>
+                  <a href="#" className="button-mono btn-sm btn-outline pretitled">Loans</a>
                 </>
               )
             } else {
               return (
                 <>
-                  <p className="clean highlight">Available for <b>staking</b></p>
+                  <a href="#" className="button-mono btn-sm">Stake Now</a>
                 </>
               )
             }
           })()}
         </span>
-        <span className={styles.stake}>Stake NFT</span>
       </li>
     )
     rows.push(item)
@@ -210,17 +229,16 @@ export default function Nfts(props) {
   return (
     <>
       <ul className={styles.nfts}>
-        <li className={styles.headings}>
+        {/*<li className={styles.headings}>
           <span className={styles.nfthead}>NFT</span>
           <span className={styles.namehead}>Title</span>
           <span className={styles.status}>Status</span>
           <span className={styles.proposal}>Availability</span>
-          <span className={styles.stake}>Stake NFT</span>
-        </li>
+        </li>*/}
         <MyList />
       </ul>
       <br/>
-      <p className={styles.notation}><b className="glitchme" data-text="Thank you for your support.">Thank you for your support.</b></p>
+      <p className={styles.notation}><b className="glitchme" data-text="Thank you for contributing to Anarchist DAO">Thank you for contributing to Anarchist DAO</b></p>
     </>
   )
 }

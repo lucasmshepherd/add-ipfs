@@ -1,8 +1,8 @@
 import styles from '../styles/components/mint.module.sass'
 import Image from 'next/image'
-import nftTier1 from '../public/assets/images/nft/21.jpg'
-import nftTier2 from '../public/assets/images/nft/22.jpg'
-import nftTier3 from '../public/assets/images/nft/23.jpg'
+import nftTier1 from '../public/assets/images/nft/0001.jpg'
+import nftTier2 from '../public/assets/images/nft/0002.png'
+import nftTier3 from '../public/assets/images/nft/0003.jpg'
 import parse from 'html-react-parser'
 
 export default function MintNft(props) {

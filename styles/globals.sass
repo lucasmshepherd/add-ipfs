@@ -353,6 +353,26 @@ a.onclick
   text-shadow: none
   cursor: pointer
   border-radius: 1px
+  &.btn-sm
+    max-width: 240px
+  &.pretitled:before
+    content: "Use for"
+    position: absolute
+    bottom: 21px
+    right: 17px
+    font-size: 8px
+    opacity: .5
+  &.btn-outline
+    outline: 1px solid #fff
+    background: none
+    color: #fff
+  &.btn-secondary
+    background: $color_3
+    color: $color_dark
+    &:active
+      background-color: lighten($color_3, 40%) !important
+    &:hover
+      background-color: lighten($color_3, 12%) !important
   &.btn-warning
     background: #af3535
     &:active
