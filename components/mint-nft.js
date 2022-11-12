@@ -19,7 +19,6 @@ export default function MintNft(props) {
     active,
     account
   } = useWeb3React();
-  
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false);
   const [approveTokensBtn, setApproveTokensBtn] = useState(true)
@@ -72,12 +71,13 @@ export default function MintNft(props) {
   const [PRICE_ONE, setPRICE_ONE] = useState(0)
   const [PRICE_TWO, setPRICE_TWO] = useState(0)
   const [PRICE_THREE, setPRICE_THREE] = useState(0)
+  
+  const [USD_ETH_ONE, setUSD_ETH_ONE] = useState(0)
+  const [USD_ETH_TWO, setUSD_ETH_TWO] = useState(0)
+  const [USD_ETH_THREE, setUSD_ETH_THREE] = useState(0)
 
   const [refresh, setRefresh] = useState(false);
 
-  // ONLOAD USE EFFECT 
-  // ONLOAD USE EFFECT 
-  // ONLOAD USE EFFECT 
   useEffect(() => {
     async function onLoad(){
         setLoading(true);
@@ -87,8 +87,7 @@ export default function MintNft(props) {
           await userInitFun();
         }
     }
-    
-
+    onLoad();
     fetch(`https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD`)
         .then((res) => res.json())
         .then((data) => {
@@ -99,17 +98,18 @@ export default function MintNft(props) {
         })
         .catch(error => console.error(error));
 
-        onLoad();
   }, [active, account, refresh]);
 
-useEffect(async()=>{
-  if(active){
-    await userInitFun()
-  }
-},[account,active])
+  useEffect(()=>{
+    const userEventLoad = async() => {
+      await userInitFun()
+    }
+    if(active){
+      userEventLoad()
+    }
+  },[account,active]);
 
   const init = async() => {
-
     const { ethereum } = window;
     Web3EthContract.setProvider(ethereum);
     const nftContract = new Web3EthContract(NFTContractJSON.abi, NFTContractJSON.NFTContractAddress);
@@ -129,8 +129,7 @@ useEffect(async()=>{
     }
     if(!saleEnableThree){
       setMintStatus_3("Minting Paused")
-    }
-    
+    }   
 
     setSALE_NFT_ONE(parseInt(await nftContract.methods.SALE_NFT_TIER_ONE().call()))
     setSALE_NFT_TWO(parseInt(await nftContract.methods.SALE_NFT_TIER_TWO().call()))
@@ -169,9 +168,10 @@ useEffect(async()=>{
     if(TRANSACTION_LIMIT > remainingNFT_Three){
       setTRANSACTION_LIMIT_THREE(remainingNFT_Three)
     }
+    console.log("remaining nft 3 ",remainingNFT_Three)
 
     setLoading(false);
-    setRefresh(true)
+    // setRefresh(true)
   }
 
   const userInitFun = async() => {
@@ -189,8 +189,6 @@ useEffect(async()=>{
     console.log('balacnce of ', balancoOf)
 
     setTokensForMint(await nftContract.methods.TOKEN_REQUIRED_FOR_MINT().call() / 10**18);
-
-    // const userMintedNft = (await nftContract.methods.users(account).call())[0];
 
     if(userStatus && balancoOf >= tokensForMint){
       console.log("user Info ==>> ",userStatus)
@@ -211,14 +209,15 @@ useEffect(async()=>{
         setMintStatus_3("Minting Paused")
       }
     }else{
+      setMintEnable(true)
       if(balancoOf < tokensForMint){
         setError("Insufficient Tokens")
       }else{
         if(mintApprove < tokensForMint){
             setApproveTokensBtn(true)
+            setMintEnable(false)
           }else{
             setApproveTokensBtn(false)
-            setMintEnable(true)
           }
         // setMintEnable(true)
         // if(mintEnable){
@@ -233,9 +232,6 @@ useEffect(async()=>{
     await userStatsUpdate();
   }
 
-  // USERSTATS UPDATE FUNCTION
-  // USERSTATS UPDATE FUNCTION
-  // USERSTATS UPDATE FUNCTION
   const userStatsUpdate = async() => {
     const { ethereum } = window;
     Web3EthContract.setProvider(ethereum);
@@ -245,6 +241,7 @@ useEffect(async()=>{
     setLimitPerWallet(limitPerWallet - getSaleMinted);
 
     if(limitPerWallet == 0){
+      setMintEnable(false)
       setMintButton_1(false)
       setMintButton_2(false)
       setMintButton_3(false)
@@ -265,65 +262,16 @@ useEffect(async()=>{
       setMintButton_3(false)
       setMintStatus_3("SOLD OUT")
     }
-    // priceChnage();
-    // setSALE_PRICE_ONE(count_1 * PRICE_ONE)
-    // setSALE_PRICE_TWO(count_2 * PRICE_TWO)
-    // setSALE_PRICE_THREE(count_3 * PRICE_THREE)
   }
 
-  // PRICE CHANGE FUNCTION
-  // PRICE CHANGE FUNCTION
-  // PRICE CHANGE FUNCTION
-
-  // const priceChnage = async() => {
-  //   const { ethereum } = window;
-  //   Web3EthContract.setProvider(ethereum);
-  //   const nftContract = new Web3EthContract(NFTContractJSON.abi, NFTContractJSON.NFTContractAddress);
-
-  //   let initPrice1 = await nftContract.methods.SALE_PRICE_TIER_ONE().call() / 10**18;
-  //   let initPrice2 = await nftContract.methods.SALE_PRICE_TIER_TWO().call() / 10**18;
-  //   let initPrice3 = await nftContract.methods.SALE_PRICE_TIER_THREE().call() / 10**18;
-
-  //   if(TRANSACTION_LIMIT_ONE >= 0 && count_1 > TRANSACTION_LIMIT_ONE){
-  //     if (TRANSACTION_LIMIT_ONE > remainingNFT_One) {
-  //       setTRANSACTION_LIMIT_ONE(remainingNFT_One);
-  //     }
-  //     setPRICE_ONE(TRANSACTION_LIMIT_ONE * initPrice1)
-  //   }else{
-  //     setPRICE_ONE(count_1 * initPrice1)
-  //     console.log("new price change ", PRICE_ONE)
-  //     console.log("new count change ", count_1)
-  //   }
-
-  //   if(TRANSACTION_LIMIT_TWO >= 0 && count_1 > TRANSACTION_LIMIT_TWO){
-  //     if (TRANSACTION_LIMIT_TWO > remainingNFT_Two) {
-  //       setTRANSACTION_LIMIT_TWO(remainingNFT_Two);
-  //     }
-  //     setPRICE_TWO(TRANSACTION_LIMIT_TWO * initPrice2)
-  //   }else{
-  //     setPRICE_TWO(count_2 * initPrice2)
-  //   }
-
-  //   if(TRANSACTION_LIMIT_THREE >= 0 && count_1 > TRANSACTION_LIMIT_THREE){
-  //     if (TRANSACTION_LIMIT_THREE > remainingNFT_Three) {
-  //       setTRANSACTION_LIMIT_THREE(remainingNFT_Three);
-  //     }
-  //     setPRICE_THREE(TRANSACTION_LIMIT_THREE * initPrice3)
-  //   }else{
-  //     setPRICE_THREE(count_3 * initPrice3)
-  //   }
-
-    
-  // }
-  
   useEffect(() => {
     console.log("TRANSACTION_LIMIT 1 ",TRANSACTION_LIMIT_ONE)
     setSALE_PRICE_ONE(count_1 * PRICE_ONE)
     
     if(TRANSACTION_LIMIT_ONE >= 0 && count_1 > TRANSACTION_LIMIT_ONE){
         if (TRANSACTION_LIMIT_ONE > remainingNFT_One) {
-        setTRANSACTION_LIMIT_ONE(remainingNFT_One);
-      }
+          setTRANSACTION_LIMIT_ONE(remainingNFT_One);
+        }
       setSALE_PRICE_ONE(TRANSACTION_LIMIT_ONE * PRICE_ONE)
     }
     }, [count_1,refresh]);
@@ -350,9 +298,69 @@ useEffect(async()=>{
     }
   },[count_3, refresh])
 
-  // MINT ENABLE FUNCTION
-  // MINT ENABLE FUNCTION
-  // MINT ENABLE FUNCTION
+  const doMin_1 = () => {
+    setCount_1(count_1 - 1) 
+    if(count_1 <= 1){
+      setCount_1(1)
+      setSALE_PRICE_ONE(count_1 * PRICE_ONE)
+    }
+  }
+  
+  const doPlus_1 = () => {
+      setCount_1(count_1 + 1) 
+      if(count_1 >= limitPerTrx){
+        if(limitPerTrx <= 0){
+          setCount_1(1)
+          setSALE_PRICE_ONE(PRICE_ONE)
+        }else{
+          setCount_1(limitPerTrx)
+          setSALE_PRICE_ONE(limitPerTrx * PRICE_ONE)
+        }
+      }
+  }
+  
+  const doMin_2 = () => {
+    setCount_2(count_2 - 1) 
+    if(count_2 <= 1){
+      setCount_2(1)
+      setSALE_PRICE_TWO(PRICE_TWO)
+    }
+  }
+  
+  const doPlus_2 = () => {
+    setCount_2(count_2 + 1) 
+    if(count_2 >= limitPerTrx){
+      if(limitPerTrx <= 0){
+        setCount_2(1)
+        setSALE_PRICE_TWO(PRICE_TWO)
+      }else{
+        setCount_2(limitPerTrx)
+        setSALE_PRICE_TWO(limitPerTrx * PRICE_TWO)
+      }
+    }
+  }
+
+  const doMin_3 = () => {
+    setCount_3(count_3 - 1);
+    if(count_3 <= 1){
+      setCount_3(1)
+      setSALE_PRICE_THREE(PRICE_THREE)
+    }
+  }
+
+  const doPlus_3 = () => {
+      setCount_3(count_3 + 1);
+      if(count_3 >= limitPerTrx){
+        if(limitPerTrx <= 0){
+          setCount_3(1)
+          setSALE_PRICE_THREE(PRICE_THREE)
+        }else{
+          setCount_3(limitPerTrx)
+          setSALE_PRICE_THREE(limitPerTrx * PRICE_THREE)
+        }
+      }
+  }
+
   const mintEnableFun = async() => {
     const { ethereum } = window;
     Web3EthContract.setProvider(ethereum);
@@ -390,8 +398,8 @@ useEffect(async()=>{
       }).catch(function (error) {
           swal({
               title: "Error Found",
-              text: 'Insufficient Funds For Transaction in Wallet',
-              // text: error.message,
+              // text: 'Insufficient Funds For Transaction in Wallet',
+              text: error.message,
               type: "error",
               showCancelButton: false,
               confirmButtonClass: "btn-danger",
@@ -415,9 +423,6 @@ useEffect(async()=>{
 
   }
 
-  // APPROVE TOKENS FOR MINT 
-  // APPROVE TOKENS FOR MINT 
-  // APPROVE TOKENS FOR MINT 
   const approveFun = async() =>{
     const { ethereum } = window;
     Web3EthContract.setProvider(ethereum);
@@ -472,314 +477,73 @@ useEffect(async()=>{
     setRefresh(!refresh)
   }
 
-  const doMin_1 = () => {
-    // var id = $(this).data("id");
-    // var inVarID="#input-quantity-"+id;
-    // if (isNaN($(inVarID).val() / 1) == false) {
-    //     var quantity = $(inVarID).val();
-    // } else {
-    //     var quantity = 1;
-    // }
-    // if ($(inVarID).val() > 1) {
-    //     $(inVarID).val(parseInt(quantity) - parseInt(1));
-    // }
-    setCount_1(count_1 - 1) 
-    if(count_1 <= 1){
-      setCount_1(1)
-      setSALE_PRICE_ONE(count_1 * PRICE_ONE)
-    }
-  }
-  
-  const doPlus_1 = () => {
-    // var id = $(this).data("id");
-    // var inVarID="#input-quantity-"+id;
-      setCount_1(count_1 + 1) 
-      if(count_1 >= limitPerTrx){
-        if(limitPerTrx <= 0){
-          setCount_1(1)
-          setSALE_PRICE_ONE(PRICE_ONE)
-        }else{
-          setCount_1(limitPerTrx)
-          setSALE_PRICE_ONE(limitPerTrx * PRICE_ONE)
-        }
-      }
-    // if (isNaN($(inVarID).val() / 1) == false) {
-    //     var quantity = $(inVarID).val();
-    // } else {
-    //     var quantity = 1;
-    // }
-    // $(inVarID).val(parseInt(quantity) + parseInt(1));
-
-    // priceChnage();
-  }
-  
-  const doMin_2 = () => {
-    setCount_2(count_2 - 1) 
-    if(count_2 <= 1){
-      setCount_2(1)
-      setSALE_PRICE_TWO(PRICE_TWO)
-    }
-    // priceChnage();
-  }
-  
-  const doPlus_2 = () => {
-    setCount_2(count_2 + 1) 
-    if(count_2 >= limitPerTrx){
-      if(limitPerTrx <= 0){
-        setCount_2(1)
-        setSALE_PRICE_TWO(PRICE_TWO)
-      }else{
-        setCount_2(limitPerTrx)
-        setSALE_PRICE_TWO(limitPerTrx * PRICE_TWO)
-      }
-    }
-    // priceChnage();
-  }
-
-  const doMin_3 = () => {
-    setCount_3(count_3 - 1);
-    if(count_3 <= 1){
-      setCount_3(1)
-      setSALE_PRICE_THREE(PRICE_THREE)
-    }
-    // priceChnage();
-  }
-
-  const doPlus_3 = () => {
-      setCount_3(count_3 + 1);
-      if(count_3 >= limitPerTrx){
-        if(limitPerTrx <= 0){
-          setCount_3(1)
-          setSALE_PRICE_THREE(PRICE_THREE)
-        }else{
-          setCount_3(limitPerTrx)
-          setSALE_PRICE_THREE(limitPerTrx * PRICE_THREE)
-        }
-      }
-      // priceChnage();
-  }
-
   const mintNft1 = async() => {
-            const { ethereum } = window;
-        Web3EthContract.setProvider(ethereum);
-    const nftContract = new Web3EthContract(NFTContractJSON.abi, NFTContractJSON.NFTContractAddress);
-    const tokenContract = new Web3EthContract(TokenContract.abi, TokenContract.TOKEN_CONTRACT_ADDRES);
-    
-    try {
-      if (count_1 <= 0) {
-          setError('Mint Atleast 1 NFT');
-      } else if (count_1 > remainingNFT_One) {
-          setError("Can't Mint More Than Remaning NFT");
-      } else {
-        let price = count_1 * SALE_PRICE_ONE * 10**18;
-        console.log("price for minting here ==>> ",price)
-        console.log("count 1 for minting here ==>> ",count_1)
-              if (count_1 > TRANSACTION_LIMIT) {
-                  setError("Can't Mint More Than " + TRANSACTION_LIMIT + " NFT");
-              } else {
-                 await nftContract.methods.mintSaleNFTTierOne(count_1).estimateGas({
-                      from: account,
-                      value: price
-                  }).then(function (gasAmount) {
-                      nftContract.methods.mintSaleNFTTierOne(count_1).send({
-                          from: account,
-                          value: price
-                      }, function (error, tx) {
-                          if (error) {
-                              swal({
-                                  title: "Error Found",
-                                  text: error.message,
-                                  icon: "error",                                    
-                                  showCancelButton: false,
-                                  confirmButtonClass: "btn-danger",
-                                  confirmButtonText: "Ok",
-                                  dangerMode: true,
-                                  closeModal: false
-                              });
-                          } else {
-                            swal({
-                              title: "Request Submitted Successfully",
-                              text: "Please Wait For Wallet Confirmation",
-                              icon: "success",
-                              showCancelButton: false,
-                              confirmButtonClass: "btn-danger",
-                              confirmButtonText: "Ok",
-                              dangerMode: true,
-                              closeModal: false
-                            });
-                          }
-                      });
-                  }).catch(function (error) {
-                      swal({
-                          title: "Error Found",
-                          // text: error.message,
-                          text: 'Insufficient Funds For Transaction in Wallet',
-                          icon: "error",                          
-                          showCancelButton: false,
-                          confirmButtonClass: "btn-danger",
-                          confirmButtonText: "Ok",
-                          dangerMode: true,
-                          closeModal: false
-                      });
-                  });
-          }
-      }
-  } catch (error) {
-      swal({
-          title: "Error Found",
-          text: error.message,
-          icon: "error",      
-          showCancelButton: false,
-          confirmButtonClass: "btn-danger",
-          confirmButtonText: "Ok",
-          dangerMode: true,
-          closeModal: false
-      });
-    }
-  }
-
-  const mintNft2 = async() => {
     const { ethereum } = window;
-    Web3EthContract.setProvider(ethereum);
-    const nftContract = new Web3EthContract(NFTContractJSON.abi, NFTContractJSON.NFTContractAddress);
-    const tokenContract = new Web3EthContract(TokenContract.abi, TokenContract.TOKEN_CONTRACT_ADDRES);
+  Web3EthContract.setProvider(ethereum);
+  const nftContract = new Web3EthContract(NFTContractJSON.abi, NFTContractJSON.NFTContractAddress);
+  const tokenContract = new Web3EthContract(TokenContract.abi, TokenContract.TOKEN_CONTRACT_ADDRES);
 
-    // let txLimit_2 = await nftContract.methods.MAX_BY_MINT_IN_TRANSACTION_SALE().call()
-    try {
-      if (count_2 <= 0) {
-          setError('Mint Atleast 1 NFT');
-      } else if (count_2 > remainingNFT_Two) {
-          setError("Can't Mint More Than Remaning NFT");
-      } else {
-        let price = count_2 * SALE_PRICE_TWO * 10**18;
-              if (count_2 > TRANSACTION_LIMIT) {
-                  setError("Can't Mint More Than " + TRANSACTION_LIMIT + " NFT");
-              } else {
-                  nftContract.methods.mintSaleNFTTierTwo(count_2).estimateGas({
+  try {
+    if (count_1 <= 0) {
+      setError('Mint Atleast 1 NFT');
+    } else if (count_1 > remainingNFT_One) {
+      setError("Can't Mint More Than Remaning NFT");
+    } else {
+    let price = count_1 * SALE_PRICE_ONE * 10**18;
+    console.log("price for minting here ==>> ",price)
+    console.log("count 1 for minting here ==>> ",count_1)
+          if (count_1 > TRANSACTION_LIMIT) {
+              setError("Can't Mint More Than " + TRANSACTION_LIMIT + " NFT");
+          } else {
+            await nftContract.methods.mintSaleNFTTierOne(count_1).estimateGas({
+                  from: account,
+                  value: price
+              }).then(function (gasAmount) {
+                  nftContract.methods.mintSaleNFTTierOne(count_1).send({
                       from: account,
                       value: price
-                  }).then(function (gasAmount) {
-                      nftContract.methods.mintSaleNFTTierTwo(count_2).send({
-                          from: account,
-                          value: price
-                      }, function (error, tx) {
-                          if (error) {
-                              swal({
-                                  title: "Error Found",
-                                  text: error.message,
-                                  icon: "error",                                    
-                                  showCancelButton: false,
-                                  confirmButtonClass: "btn-danger",
-                                  confirmButtonText: "Ok",
-                                  dangerMode: true,
-                                  closeModal: false
-                              });
-                          } else {
-                            swal({
-                              title: "Request Submitted Successfully",
-                              text: "Please Wait For Wallet Confirmation",
-                              icon: "success",
+                  }, function (error, tx) {
+                      if (error) {
+                          swal({
+                              title: "Error Found",
+                              text: error.message,
+                              icon: "error",                                    
                               showCancelButton: false,
                               confirmButtonClass: "btn-danger",
                               confirmButtonText: "Ok",
                               dangerMode: true,
                               closeModal: false
-                            });
-                          }
-                      });
-                  }).catch(function (error) {
-                      swal({
-                          title: "Error Found",
-                          text: 'Insufficient Funds For Transaction in Wallet',
-                          icon: "error",                          
+                          });
+                      } else {
+                        swal({
+                          title: "Request Submitted Successfully",
+                          text: "Please Wait For Wallet Confirmation",
+                          icon: "success",
                           showCancelButton: false,
                           confirmButtonClass: "btn-danger",
                           confirmButtonText: "Ok",
                           dangerMode: true,
                           closeModal: false
-                      });
+                        });
+                      }
                   });
-          }
+              }).catch(function (error) {
+                  swal({
+                      title: "Error Found",
+                      // text: error.message,
+                      text: 'Insufficient Funds For Transaction in Wallet',
+                      icon: "error",                          
+                      showCancelButton: false,
+                      confirmButtonClass: "btn-danger",
+                      confirmButtonText: "Ok",
+                      dangerMode: true,
+                      closeModal: false
+                  });
+              });
       }
-  } catch (error) {
-      swal({
-          title: "Error Found",
-          text: error.message,
-          icon: "error",      
-          showCancelButton: false,
-          confirmButtonClass: "btn-danger",
-          confirmButtonText: "Ok",
-          dangerMode: true,
-          closeModal: false
-      });
     }
-  }
-
-  const mintNft3 = () => {
-            const { ethereum } = window;
-        Web3EthContract.setProvider(ethereum);
-    const nftContract = new Web3EthContract(NFTContractJSON.abi, NFTContractJSON.NFTContractAddress);
-    const tokenContract = new Web3EthContract(TokenContract.abi, TokenContract.TOKEN_CONTRACT_ADDRES);
-
-
-    try {
-      if (count_3 <= 0) {
-          setError('Mint Atleast 1 NFT');
-      } else if (count_3 > remainingNFT_Three) {
-          setError("Can't Mint More Than Remaning NFT");
-      } else {
-        let price = count_3 * SALE_PRICE_THREE * 10**18;
-              if (count_3 > TRANSACTION_LIMIT) {
-                  setError("Can't Mint More Than " + TRANSACTION_LIMIT + " NFT");
-              } else {
-                  nftContract.methods.mintSaleNFTTierThree(count_3).estimateGas({
-                      from: userAddress,
-                      value: price
-                  }).then(function (gasAmount) {
-                      nftContract.methods.mintSaleNFTTierThree(count_3).send({
-                          from: userAddress,
-                          value: price
-                      }, function (error, tx) {
-                          if (error) {
-                              swal({
-                                  title: "Error Found",
-                                  text: error.message,
-                                  icon: "error",                                    
-                                  showCancelButton: false,
-                                  confirmButtonClass: "btn-danger",
-                                  confirmButtonText: "Ok",
-                                  dangerMode: true,
-                                  closeModal: false
-                              });
-                          } else {
-                            swal({
-                              title: "Request Submitted Successfully",
-                              text: "Please Wait For Wallet Confirmation",
-                              icon: "success",
-                              showCancelButton: false,
-                              confirmButtonClass: "btn-danger",
-                              confirmButtonText: "Ok",
-                              dangerMode: true,
-                              closeModal: false
-                            });
-                          }
-                      });
-                  }).catch(function (error) {
-                      swal({
-                          title: "Error Found",
-                          text: 'Insufficient Funds For Transaction in Wallet',
-                          icon: "error",                          
-                          showCancelButton: false,
-                          confirmButtonClass: "btn-danger",
-                          confirmButtonText: "Ok",
-                          dangerMode: true,
-                          closeModal: false
-                      });
-                  });
-          }
-      }
-} catch (error) {
-  swal({
+    } catch (error) {
+    swal({
       title: "Error Found",
       text: error.message,
       icon: "error",      
@@ -788,17 +552,164 @@ useEffect(async()=>{
       confirmButtonText: "Ok",
       dangerMode: true,
       closeModal: false
-  });
-}
+    });
+    }
   }
 
-  const [USD_ETH_ONE, setUSD_ETH_ONE] = useState(0)
-  const [USD_ETH_TWO, setUSD_ETH_TWO] = useState(0)
-  const [USD_ETH_THREE, setUSD_ETH_THREE] = useState(0)
+  const mintNft2 = async() => {
+  const { ethereum } = window;
+  Web3EthContract.setProvider(ethereum);
+  const nftContract = new Web3EthContract(NFTContractJSON.abi, NFTContractJSON.NFTContractAddress);
+  const tokenContract = new Web3EthContract(TokenContract.abi, TokenContract.TOKEN_CONTRACT_ADDRES);
+
+  // let txLimit_2 = await nftContract.methods.MAX_BY_MINT_IN_TRANSACTION_SALE().call()
+  try {
+  if (count_2 <= 0) {
+    setError('Mint Atleast 1 NFT');
+  } else if (count_2 > remainingNFT_Two) {
+    setError("Can't Mint More Than Remaning NFT");
+  } else {
+  let price = count_2 * SALE_PRICE_TWO * 10**18;
+        if (count_2 > TRANSACTION_LIMIT) {
+            setError("Can't Mint More Than " + TRANSACTION_LIMIT + " NFT");
+        } else {
+            nftContract.methods.mintSaleNFTTierTwo(count_2).estimateGas({
+                from: account,
+                value: price
+            }).then(function (gasAmount) {
+                nftContract.methods.mintSaleNFTTierTwo(count_2).send({
+                    from: account,
+                    value: price
+                }, function (error, tx) {
+                    if (error) {
+                        swal({
+                            title: "Error Found",
+                            text: error.message,
+                            icon: "error",                                    
+                            showCancelButton: false,
+                            confirmButtonClass: "btn-danger",
+                            confirmButtonText: "Ok",
+                            dangerMode: true,
+                            closeModal: false
+                        });
+                    } else {
+                      swal({
+                        title: "Request Submitted Successfully",
+                        text: "Please Wait For Wallet Confirmation",
+                        icon: "success",
+                        showCancelButton: false,
+                        confirmButtonClass: "btn-danger",
+                        confirmButtonText: "Ok",
+                        dangerMode: true,
+                        closeModal: false
+                      });
+                    }
+                });
+            }).catch(function (error) {
+                swal({
+                    title: "Error Found",
+                    text: 'Insufficient Funds For Transaction in Wallet',
+                    icon: "error",                          
+                    showCancelButton: false,
+                    confirmButtonClass: "btn-danger",
+                    confirmButtonText: "Ok",
+                    dangerMode: true,
+                    closeModal: false
+                });
+            });
+    }
+  }
+  } catch (error) {
+  swal({
+    title: "Error Found",
+    text: error.message,
+    icon: "error",      
+    showCancelButton: false,
+    confirmButtonClass: "btn-danger",
+    confirmButtonText: "Ok",
+    dangerMode: true,
+    closeModal: false
+  });
+  }
+  }
+
+  const mintNft3 = () => {
+      const { ethereum } = window;
+  Web3EthContract.setProvider(ethereum);
+  const nftContract = new Web3EthContract(NFTContractJSON.abi, NFTContractJSON.NFTContractAddress);
+  const tokenContract = new Web3EthContract(TokenContract.abi, TokenContract.TOKEN_CONTRACT_ADDRES);
 
 
+  try {
+  if (count_3 <= 0) {
+    setError('Mint Atleast 1 NFT');
+  } else if (count_3 > remainingNFT_Three) {
+    setError("Can't Mint More Than Remaning NFT");
+  } else {
+  let price = count_3 * SALE_PRICE_THREE * 10**18;
+        if (count_3 > TRANSACTION_LIMIT) {
+            setError("Can't Mint More Than " + TRANSACTION_LIMIT + " NFT");
+        } else {
+            nftContract.methods.mintSaleNFTTierThree(count_3).estimateGas({
+                from: userAddress,
+                value: price
+            }).then(function (gasAmount) {
+                nftContract.methods.mintSaleNFTTierThree(count_3).send({
+                    from: userAddress,
+                    value: price
+                }, function (error, tx) {
+                    if (error) {
+                        swal({
+                            title: "Error Found",
+                            text: error.message,
+                            icon: "error",                                    
+                            showCancelButton: false,
+                            confirmButtonClass: "btn-danger",
+                            confirmButtonText: "Ok",
+                            dangerMode: true,
+                            closeModal: false
+                        });
+                    } else {
+                      swal({
+                        title: "Request Submitted Successfully",
+                        text: "Please Wait For Wallet Confirmation",
+                        icon: "success",
+                        showCancelButton: false,
+                        confirmButtonClass: "btn-danger",
+                        confirmButtonText: "Ok",
+                        dangerMode: true,
+                        closeModal: false
+                      });
+                    }
+                });
+            }).catch(function (error) {
+                swal({
+                    title: "Error Found",
+                    text: 'Insufficient Funds For Transaction in Wallet',
+                    icon: "error",                          
+                    showCancelButton: false,
+                    confirmButtonClass: "btn-danger",
+                    confirmButtonText: "Ok",
+                    dangerMode: true,
+                    closeModal: false
+                });
+            });
+    }
+  }
+  } catch (error) {
+  swal({
+  title: "Error Found",
+  text: error.message,
+  icon: "error",      
+  showCancelButton: false,
+  confirmButtonClass: "btn-danger",
+  confirmButtonText: "Ok",
+  dangerMode: true,
+  closeModal: false
+  });
+  }
+  }
 
-   
   let tier = props.tier
   let image, content, tierText, price, mintbtn, dataId, saleMinted, saleNft, handleInc, handleDec, count, nftPrice, mintLive, mintStatusText, usdPrice, remainingNft
   tierText = "Tier" + props.tier
@@ -876,35 +787,41 @@ useEffect(async()=>{
           <h4 className="text-white text-center">Minted: {saleMinted} / {saleNft}</h4>
             {
               active ? 
-                <div>
-                  <div className="mint-input-gp">
-                    <button type="button" onClick={handleDec} data-id={dataId} className="btn_min_handle do_min">-</button>
-                    <input type="text" placeholder="count"  data-id={dataId} 
-                      name="quantity" defaultValue={1} value={count} id='input-quantity' className="form-control inputQuantity onlynumeric text-center"  />
-                    <button type="button" onClick={handleInc}  data-id={dataId} className="btn_min_handle do_plus">+</button>
-                  </div>
-                  <div style={{textAlign:'center'}}>
-                    <p>{nftPrice} ETH + GAS FEE</p>
-                    <p style={{color:'red'}}>{error}</p>
-                  </div>
-                  {approveTokensBtn ?
-                    <a className="button-mono button-fill push-right" onClick={approveFun}>APPROVE TOKENS</a>
+                <>
+                  {loading ?
+                    <p>Loading...</p>
                     :
-                    <>
-                      {mintEnable ? 
-                        <a className="button-mono button-fill push-right" onClick={mintEnableFun}>ENABLE MINT</a>
+                    <div>
+                      <div className="mint-input-gp">
+                        <button type="button" onClick={handleDec} data-id={dataId} className="btn_min_handle do_min">-</button>
+                        <input type="text" placeholder="count"  data-id={dataId} 
+                          name="quantity" defaultValue={1} value={count} id='input-quantity' className="form-control inputQuantity onlynumeric text-center" readOnly  />
+                        <button type="button" onClick={handleInc}  data-id={dataId} className="btn_min_handle do_plus">+</button>
+                      </div>
+                      <div style={{textAlign:'center'}}>
+                        <p>{nftPrice} ETH + GAS FEE</p>
+                        <p style={{color:'red'}}>{error}</p>
+                      </div>
+                      {approveTokensBtn ?
+                        <a className="button-mono button-fill push-right" onClick={approveFun}>APPROVE TOKENS</a>
                         :
                         <>
-                          {mintLive ? 
-                            <a className="button-mono button-fill push-right" onClick={mintbtn}>PURCHASE NFT</a>
+                          {mintEnable ? 
+                            <a className="button-mono button-fill push-right" onClick={mintEnableFun}>ENABLE MINT</a>
                             :
-                            <a className="button-mono button-fill push-right" disabled="true">{mintStatusText}</a>
+                            <>
+                              {mintLive ? 
+                                <a className="button-mono button-fill push-right" onClick={mintbtn}>PURCHASE NFT</a>
+                                :
+                                <a className="button-mono button-fill push-right" disabled={true}>{mintStatusText}</a>
+                              }
+                            </>
                           }
                         </>
                       }
-                    </>
+                    </div>
                   }
-                </div>
+                </>
               : <p style={{color:"red"}}>Connect Wallet First</p>
             }
 
