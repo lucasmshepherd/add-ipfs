@@ -92,13 +92,19 @@ export default function Directory(props) {
         <ul id="menu" className={styles.menu}>
 
           <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
-            <Link className="anchor" href="/dapp">
+            <Link className="anchor" href="/#">
               <a onClick={soundEffect} className="comingsoon"><span>dashboard</span>{arrow}</a>
             </Link>
           </li>
 
+          <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
+            <Link className="anchor" href="/#">
+              <a onClick={soundEffect} className="comingsoon">{folder}<span>proposals</span>{arrow}</a>
+            </Link>
+          </li>
+
           <li data-connected={connected} data-current={ widgets == "nfts" ? 'true' : 'false' }>
-            <Link className="anchor" href="/my-list">
+            <Link className="anchor" href="/#">
               <a className="comingsoon">{wallet}<span>my_NFTs</span>{arrow}</a>
             </Link>
           </li>
