@@ -14,6 +14,91 @@ const nftList = [
     "loaned": [],
     "proposal": []
   },
+  {
+    "id": "0002",
+    "name": "Anarchist #2 Razor2",
+    "url": "/assets/images/nft/0001 Razor.jpg",
+    "purchased": "10/01/22",
+    "staked": "10/01/22",
+    "purpose": "",
+    "borrowed": [],
+    "loaned": [],
+    "proposal": []
+  },
+  {
+    "id": "0002",
+    "name": "Anarchist #2 Razor2",
+    "url": "/assets/images/nft/0001 Razor.jpg",
+    "purchased": "10/01/22",
+    "staked": "10/01/22",
+    "purpose": "proposals",
+    "borrowed": [],
+    "loaned": [],
+    "proposal": []
+  },
+  {
+    "id": "0003",
+    "name": "Anarchist #2 Razor2",
+    "url": "/assets/images/nft/0001 Razor.jpg",
+    "purchased": "10/01/22",
+    "staked": "10/01/22",
+    "purpose": "proposals",
+    "borrowed": [],
+    "loaned": [],
+    "proposal": [{
+      "id": "PA000178"
+    }]
+  },
+  {
+    "id": "0004",
+    "name": "Anarchist #0087 Firefly",
+    "url": "/assets/images/nft/0087 Firefly.png",
+    "purchased": "10/01/22",
+    "staked": "10/01/22",
+    "purpose": "loans",
+    "borrowed": [],
+    "loaned": [{
+      "date": "10/01/22",
+      "return": "10/06/22",
+      "interest": ".02",
+      "borrower": "WALLET_ID"
+    }],
+    "proposal": []
+  },
+  {
+    "id": "0005",
+    "name": "Anarchist #501 Static",
+    "url": "/assets/images/nft/0501 Static.png",
+    "purchased": "",
+    "staked": "",
+    "purpose": "proposals",
+    "borrowed": [{
+      "date": "10/01/22",
+      "return": "10/06/22",
+      "interest": ".02",
+      "owner": "WALLET_ID"
+    }],
+    "loaned": [],
+    "proposal": [{
+      "id": "PA000084"
+    }]
+  },
+  {
+    "id": "0006",
+    "name": "Anarchist #501 Static",
+    "url": "/assets/images/nft/0501 Static.png",
+    "purchased": "",
+    "staked": "",
+    "purpose": "proposals",
+    "borrowed": [{
+      "date": "10/01/22",
+      "return": "10/06/22",
+      "interest": ".02",
+      "owner": "WALLET_ID"
+    }],
+    "loaned": [],
+    "proposal": []
+  }
 ]
 
 function MyList() {
