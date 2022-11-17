@@ -56,7 +56,7 @@ export default function Widget(props) {
             <div className={styles.indicator} data-state="off"></div>
           </header>
         }
-        <div className={styles.content} data-feed={type} data-scroll={scroll} data-nopad={nopad}>
+        <div className={styles.content} data-feed={type} data-scroll={scroll} data-nopad={nopad} id={type == "terminal" && "terminalPane" }>
           <div className={styles.scroll}>
             {props.children}
           </div>

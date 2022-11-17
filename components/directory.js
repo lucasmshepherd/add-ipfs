@@ -267,7 +267,7 @@ export default function Directory(props) {
 
           <li data-current={ widgets == "about" ? 'true' : 'false' }>
             <Link className="anchor" href="/about">
-              <a onClick={soundEffect}><span>tEk_sup.port</span>{arrow}</a>
+              <a onClick={soundEffect}><span>dapp_support</span>{arrow}</a>
             </Link>
           </li>
 
