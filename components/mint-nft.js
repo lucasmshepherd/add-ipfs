@@ -807,7 +807,8 @@ export default function MintNft(props) {
           <hr/>
           <br/>
           <small><i>* Required: 100k ADD Holdings</i></small><br/>
-          <small><i>* Required: Follow @fundanarcy on Twitter</i></small><br/><br/>
+          <small><i>* Required: Follow @fundanarcy on Twitter</i></small><br/>
+          <small><i>* Required: Member role in Discord</i></small><br/><br/>
           <small><i>Anarchist type and stats are currently just cosmetic</i></small>
           <br/>
           <br/>
