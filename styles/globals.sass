@@ -63,6 +63,11 @@ p.clean
   margin-top: 0
   margin-bottom: 0
 
+p.centered
+  text-align: center
+li.list-title
+  list-style-type: none
+  margin-left: -15px
 .clean-list
   margin: 0
   padding: 0
@@ -474,7 +479,7 @@ a.onclick
   flex: 1 0 auto
   min-height: 20px
 
-@media(max-width: 1600px)
+@media(max-width: 1300px)
   div#ui[data-layout="mint"]
     .interface_row__SIGHZ
       flex-direction: column
@@ -578,3 +583,36 @@ input, textarea
 
 .ReactModal__Overlay
   z-index: 999999999
+
+#t2,
+#t3
+  #price,
+  .mint-input-gp,
+  .mint-note,
+  a,
+  [class^="mint_gas"],
+  [class^="mint_content"],
+  [class^="mint_list"],
+  small,
+  hr,
+  br
+    display: none
+
+.swal-icon
+  &:before,
+  &:after
+    display: none
+
+.swal-icon--success__hide-corners
+  display: none
+
+.comingsoon
+  pointer-events: none
+  position: relative
+  opacity: .5
+  &:after
+    content: "(coming soon)"
+    font-style: italic
+    display: inline-block
+    color: #fff
+    font-size: 16px

@@ -1,3 +1,4 @@
+import Link from 'next/link.js'
 import Widget from './widget.js'
 import Files from './files.js'
 import TerminalStake from './terminal-stake.js'
@@ -74,17 +75,20 @@ export default function Interface(props) {
             {(() => {
               if ( page == "mint" ) {
                 return (
-                  <PaneRow name="primary">
-                    <Widget type={page} title="anarchy_nft_t_1_" icon="triangles">
-                      <MintNft tier="1" />
-                    </Widget>
-                    <Widget type={page} title="anarchy_nft_t_2_" icon="triangles">
-                      <MintNft tier="2" />
-                    </Widget>
-                    <Widget type={page} title="anarchy_nft_t_3_" icon="triangles">
-                      <MintNft tier="3" />
-                    </Widget>
-                  </PaneRow>
+                  <>
+                    <center className={styles.backlink}><Link href="/deposit">back</Link></center>
+                    <PaneRow name="primary">
+                      <Widget type={page} title="nft_tier_1_" icon="triangles">
+                        <MintNft tier="1" />
+                      </Widget>
+                      <Widget type={page} title="nft_tier_2_" icon="triangles">
+                        <MintNft tier="2" />
+                      </Widget>
+                      <Widget type={page} title="nft_tier_3_" icon="triangles">
+                        <MintNft tier="3" />
+                      </Widget>
+                    </PaneRow>
+                  </>
                 )
               }
             })()}

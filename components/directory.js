@@ -93,13 +93,13 @@ export default function Directory(props) {
 
           <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
             <Link className="anchor" href="/dapp">
-              <a onClick={soundEffect}><span>dashboard</span>{arrow}</a>
+              <a onClick={soundEffect} className="comingsoon"><span>dashboard</span>{arrow}</a>
             </Link>
           </li>
 
           <li data-connected={connected} data-current={ widgets == "nfts" ? 'true' : 'false' }>
             <Link className="anchor" href="/my-list">
-              <a>{wallet}<span>my_NFTs</span>{arrow}</a>
+              <a className="comingsoon">{wallet}<span>my_NFTs</span>{arrow}</a>
             </Link>
           </li>
 
@@ -109,11 +109,11 @@ export default function Directory(props) {
             </Link>
           </li>
 
-          <li data-child="true" data-current={ widgets == "loan" ? 'true' : 'false' }>
+          {/*<li data-child="true" data-current={ widgets == "loan" ? 'true' : 'false' }>
             <Link className="anchor" href="/loan">
-              <a>{down}<span>loan</span>{arrow}</a>
+              <a className="comingsoon">{down}<span>loan</span>{arrow}</a>
             </Link>
-          </li>
+          </li>*/}
 
           <li data-current={ widgets == "stake" ? 'true' : 'false' }>
             <Link className="anchor" href="/deposit">
@@ -248,6 +248,12 @@ export default function Directory(props) {
           <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
             <Link className="anchor" href="/transition">
               <a onClick={dappEffect}><span>stake_ADD</span>{arrow}</a>
+            </Link>
+          </li>
+
+          <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
+            <Link className="anchor" href="/transition_mint">
+              <a onClick={dappEffect}><span>mint_NFT</span>{arrow}</a>
             </Link>
           </li>
 

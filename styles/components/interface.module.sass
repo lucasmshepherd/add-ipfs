@@ -7,6 +7,10 @@
   position: relative
   margin-bottom: 30px
   //padding-bottom: 30px
+  &[data-layout="mint"]
+    aside
+      @media(min-width: 701px)
+        display: none
   &[data-layout]
     display: flex
     flex-flow: row nowrap
@@ -87,3 +91,6 @@
   min-width: 100%
   min-height: 100%
   object-fit: cover
+
+.backlink
+  font-family: $font_scifi

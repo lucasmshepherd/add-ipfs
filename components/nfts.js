@@ -5,7 +5,7 @@ const nftList = [
   {
     "id": "0001",
     "name": "Anarchist #1 Razor",
-    "url": "/assets/images/nft/0001 Razor.jpg",
+    "url": "/assets/images/nft/t1e.png",
     "purchased": "10/01/22",
     "staked": "",
     "purpose": "",
@@ -16,7 +16,7 @@ const nftList = [
   {
     "id": "0002",
     "name": "Anarchist #2 Razor2",
-    "url": "/assets/images/nft/0001 Razor.jpg",
+    "url": "/assets/images/nft/t1e.png",
     "purchased": "10/01/22",
     "staked": "10/01/22",
     "purpose": "",
@@ -27,7 +27,7 @@ const nftList = [
   {
     "id": "0002",
     "name": "Anarchist #2 Razor2",
-    "url": "/assets/images/nft/0001 Razor.jpg",
+    "url": "/assets/images/nft/t1e.png",
     "purchased": "10/01/22",
     "staked": "10/01/22",
     "purpose": "proposals",
@@ -38,7 +38,7 @@ const nftList = [
   {
     "id": "0003",
     "name": "Anarchist #2 Razor2",
-    "url": "/assets/images/nft/0001 Razor.jpg",
+    "url": "/assets/images/nft/t1e.png",
     "purchased": "10/01/22",
     "staked": "10/01/22",
     "purpose": "proposals",
@@ -51,7 +51,7 @@ const nftList = [
   {
     "id": "0004",
     "name": "Anarchist #0087 Firefly",
-    "url": "/assets/images/nft/0087 Firefly.png",
+    "url": "/assets/images/nft/t1e.png",
     "purchased": "10/01/22",
     "staked": "10/01/22",
     "purpose": "loans",
@@ -68,7 +68,7 @@ const nftList = [
   {
     "id": "0005",
     "name": "Anarchist #501 Static",
-    "url": "/assets/images/nft/0501 Static.png",
+    "url": "/assets/images/nft/t1e.png",
     "purchased": "",
     "staked": "",
     "purpose": "proposals",
@@ -86,7 +86,7 @@ const nftList = [
   {
     "id": "0006",
     "name": "Anarchist #501 Static",
-    "url": "/assets/images/nft/0501 Static.png",
+    "url": "/assets/images/nft/t1e.png",
     "purchased": "",
     "staked": "",
     "purpose": "proposals",
@@ -102,7 +102,7 @@ const nftList = [
   {
     "id": "0007",
     "name": "Anarchist #501 Static",
-    "url": "/assets/images/nft/0501 Static.png",
+    "url": "/assets/images/nft/t1e.png",
     "purchased": "",
     "staked": "",
     "purpose": "loans",
