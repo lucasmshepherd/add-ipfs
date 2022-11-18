@@ -97,6 +97,12 @@ export default function Directory(props) {
             </Link>
           </li>
 
+          <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
+            <Link className="anchor" href="/#">
+              <a onClick={soundEffect} className="comingsoon"><span>proposals</span>{arrow}</a>
+            </Link>
+          </li>
+
           <li data-current="false">
             <a target="_blank" rel="noreferrer" href="https://www.dextools.io/app/en/ether/pair-explorer/0x8fead6e1be5af7b5beda08688018d55079e6de35"><span>add_chart</span></a>
           </li>
@@ -107,12 +113,6 @@ export default function Directory(props) {
 
           <li data-current="false">
             <a target="_blank" rel="noreferrer" href="https://github.com/solidproof/projects/tree/main/FundAnarchy"><span>kyc_audit</span></a>
-          </li>
-
-          <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
-            <Link className="anchor" href="/#">
-              <a onClick={soundEffect} className="comingsoon">{folder}<span>proposals</span>{arrow}</a>
-            </Link>
           </li>
 
           <li data-current={ widgets == "stake" ? 'true' : 'false' }>
@@ -140,8 +140,8 @@ export default function Directory(props) {
           </li>
 
           <li data-connected={connected} data-current={ widgets == "nfts" ? 'true' : 'false' }>
-            <Link className="anchor" href="/#">
-              <a className="comingsoon">{wallet}<span>my_NFTs</span>{arrow}</a>
+            <Link className="anchor" href="/mint">
+              <a>{wallet}<span>my_NFTs</span>{arrow}</a>
             </Link>
           </li>
 
