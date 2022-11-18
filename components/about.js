@@ -1,6 +1,5 @@
 //styles
 import styles from '../styles/components/donations.module.sass'
-// media
 
 export default function Donations(props) {
   return (
