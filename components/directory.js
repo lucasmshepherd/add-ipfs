@@ -143,7 +143,7 @@ export default function Directory(props) {
             <Link className="anchor" href="/mint">
               <a className="comingsoon">{wallet}<span>my_NFTs</span>{arrow}</a>
             </Link>
-          </li>
+          </li> 
 
           <li data-child="true" data-current={ widgets == "mint" ? 'true' : 'false' }>
             <Link className="anchor" href="/mint">
