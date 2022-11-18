@@ -185,7 +185,7 @@ export default class Terminal extends React.Component {
         {/*<div id="container">*/}
           <div id="terminal-container" className="random">
             <div id="terminal">
-
+                
             </div>
           </div>
         {/*</div>*/}

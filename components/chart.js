@@ -585,7 +585,7 @@ export default class Chart extends React.Component {
         <div className={styles.chart} id="chart">
           <div className={styles.title}>
             <span className={styles.name}>ADD Price</span>
-            <span className={styles.price}>$0.00001251</span>
+            <span className={styles.price}>LOADING</span>
           </div>
         </div>
       </>
