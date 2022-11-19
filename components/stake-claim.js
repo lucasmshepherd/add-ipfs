@@ -192,7 +192,13 @@ export default function Donater() {
           <>
             {claimPeriodLeft <= 0 ?
               // {pendingReward > 0 && claimPeriodLeft <= 0 ?
-              <button type="button" onClick={withdrawReward} className="button-mono push-right">{accent}Claim Rewards</button>
+              <>
+                {tokensStaked > 0 ?
+                  <button type="button" onClick={withdrawReward} className="button-mono push-right">{accent}Claim Rewards</button>
+                  :
+                  <div style={{ color: '#af3535', fontStyle: 'italic' }}>ADD Not Staked</div>
+                }
+              </>
               :
               // <button type="button" onClick={error} className="button-mono push-right" disabled>{accent}Claim Rewards</button>
               <div><i>Claim again in {day} {hour} {min} {sec}</i></div>
