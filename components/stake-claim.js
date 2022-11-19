@@ -195,7 +195,7 @@ export default function Donater() {
                 <button type="button" onClick={withdrawReward} className="button-mono push-right">{accent}Claim Rewards</button>
                 :
                 // <button type="button" onClick={error} className="button-mono push-right" disabled>{accent}Claim Rewards</button>
-                <div><i>{day ? "Claim again in " + day + hour + min + sec : "" }</i></div>
+                <div><i>Claim again in {day} {hour} {min} {sec}</i></div>
                 // <div>Cooldown : {timeRemaining}</div>
               }
             </>
