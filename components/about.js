@@ -26,7 +26,7 @@ export default function Donations(props) {
             <p>x1 blockchain_integration_engineer</p>
             <p>x1 smart_contract_engineer</p>
             <p>x2 smart_contract_dev</p>
-            <p>x1 w3js_engineer</p>
+            <p>x1 web3_engineer</p>
         </div>
       </div>
     </>
