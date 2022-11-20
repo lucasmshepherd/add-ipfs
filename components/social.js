@@ -35,7 +35,7 @@ export default function Social(props){
     <> 
       <div className={styles.wrapper}>
         <div className={styles.social}>
-          <a href="mailto:info@fundanarchy.io" rel="noreferrer" className={styles.link} onClick={soundEffect}>
+          <a href="https://www.dextools.io/app/en/ether/pair-explorer/0x8fead6e1be5af7b5beda08688018d55079e6de35" rel="noreferrer" className={styles.link} onClick={soundEffect}>
             <Image layout="fixed" src={Icon2} priority="true" alt="Reddit" width="100" height="100" />
             <Image layout="fixed" src={IconBG} priority="true" alt="BG" width="100" height="100" />
           </a>
