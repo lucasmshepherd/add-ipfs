@@ -324,7 +324,7 @@ export default function Directory(props) {
           </li>
 
           <li id="purchase">
-            <a onClick={soundEffect} href="https://app.uniswap.org/#/swap?inputCurrency=0x6542c8f90915a57314f4167b81851a3cd731c6e2&outputCurrency=ETH" rel="noreferrer" target="_blank">
+            <a onClick={soundEffect} href="https://app.uniswap.org/#/swap?outputCurrency=0x6542c8f90915a57314f4167b81851a3cd731c6e2" rel="noreferrer" target="_blank">
               <span className="highlight">purchase_ADD</span>
             </a>
           </li>

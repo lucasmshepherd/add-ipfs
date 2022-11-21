@@ -173,7 +173,7 @@ export default function Balance() {
           {active ? 
             <>
               {balance <= 1 ?
-                <a href='https://app.uniswap.org/#/swap?inputCurrency=0x6542c8f90915a57314f4167b81851a3cd731c6e2&outputCurrency=ETH' target='_blank' rel='noreferrer'>Purchase ADD</a>
+                <a href='https://app.uniswap.org/#/swap?outputCurrency=0x6542c8f90915a57314f4167b81851a3cd731c6e2' target='_blank' rel='noreferrer'>Purchase ADD</a>
                 :
                 bal
               }

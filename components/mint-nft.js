@@ -223,16 +223,16 @@ export default function MintNft(props) {
     const nftContract = new Web3EthContract(NFTContractJSON.abi, NFTContractJSON.NFTContractAddress);
 
     const getSaleMinted = (await nftContract.methods.users(account).call())[0];
-    console.log("get sale minted ", getSaleMinted)
+    //console.log("get sale minted ", getSaleMinted)
     // setLimitPerWallet(limitPerWallet - getSaleMinted);
     // console.log("limtit per wallet", limitPerWallet)
-    console.log("limtit per wallet ", mintLimit)
+    //console.log("limit per wallet ", mintLimit)
     setMintLimit(limitPerWallet - getSaleMinted)
-    console.log("limtit per wallet after here ---- ", mintLimit)
+    //console.log("limit per wallet after here ---- ", mintLimit)
   }
 
   useEffect(() => {
-    console.log("limtit per wallet use effect => ", mintLimit)
+    console.log("limit per wallet use effect => ", mintLimit)
     if (limitPerTrx > mintLimit) {
       setLimitPerTrx(mintLimit)
       setCount_1(mintLimit)
@@ -367,7 +367,7 @@ export default function MintNft(props) {
           } else {
             swal({
               title: "Minting has been enabled on your account",
-              text: "Your Anarchist is waiting for you...",
+              text: "Please wait for wallet confirmation...",
               type: "success",
               showCancelButton: false,
               confirmButtonClass: "btn-danger",
@@ -465,9 +465,9 @@ export default function MintNft(props) {
 
     try {
       if (count_1 <= 0) {
-        setError('Mint Atleast 1 NFT');
+        setError('Mint at least x1 NFT');
       } else if (count_1 > remainingNFT_One) {
-        setError("Can't Mint More Than Remaning NFT");
+        setError("Can't mint more than available");
       } else {
         let price = count_1 * PRICE_ONE * 10 ** 18;
         console.log("price for minting here ==>> ", price)
@@ -545,9 +545,9 @@ export default function MintNft(props) {
     // let txLimit_2 = await nftContract.methods.MAX_BY_MINT_IN_TRANSACTION_SALE().call()
     try {
       if (count_2 <= 0) {
-        setError('Mint Atleast 1 NFT');
+        setError('Mint at least x1 NFT');
       } else if (count_2 > remainingNFT_Two) {
-        setError("Can't Mint More Than Remaning NFT");
+        setError("Can't mint more than available");
       } else {
         let price = count_2 * PRICE_TWO * 10 ** 18;
         if (count_2 > TRANSACTION_LIMIT) {
