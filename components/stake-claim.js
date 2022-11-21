@@ -66,7 +66,6 @@ export default function Donater() {
   }
 
   const getPendingReward = async () => {
-    // const web3 = new Web3(SACN_LINK_PROVIDER);
     const { ethereum } = window;
     Web3EthContract.setProvider(ethereum);
     const contract = new Web3EthContract(StakeContract.abi, StakeContract.STAKE_CONTRACT_ADDRESS);
@@ -74,24 +73,32 @@ export default function Donater() {
     let claimInterval = await contract.methods.claimInterval().call();
     setClaimAfter(claimInterval / 86400); // 86400 seconds in a day, diving by seconds set in contract will return number of days from seconds 
 
-    // setInterval(async()=>{
-    //   let claimPeriodLeft = await contract.methods.claimPeriodLeft(account).call();
-    //   const formatted = moment.utc(claimPeriodLeft*1000).format('DD:HH:mm:ss');
-    //   // setDaysLeft(claimPeriodLeft/86400)
-    //   // setHoursLeft(claimPeriodLeft/168)
-    //   // setMinLeft(claimPeriodLeft/60)
-    //   setTimeRemaining(formatted);
-    //   console.log("running here",formatted.slice(9,11))
-    // },12000)
-
     let userInfo = await contract.methods.getUserInfo(account).call();
     setTokensStaked((userInfo[0]) / 10 ** 18);
 
     if (tokensStaked > 0) {
-
       setPendingReward(await contract.methods.pendingreward(account).call() / 10 ** 18);
     }
   }
+  const [currentReward, setCurrentReward] = useState(0);
+
+  useEffect(() => {
+    const getRealTimeReward = async () => {
+      console.log("running 123")
+      const web3 = new Web3("https://mainnet.infura.io/v3/84807e24ba43429cbf4912fe7c337dfb");
+      const { ethereum } = window;
+      Web3EthContract.setProvider(ethereum);
+      const contract = new Web3EthContract(StakeContract.abi, StakeContract.STAKE_CONTRACT_ADDRESS);
+
+      let contractBalance = await web3.eth.getBalance(StakeContract.STAKE_CONTRACT_ADDRESS) / 10 ** 18;
+
+      let totalStakedByAll = await contract.methods.totalStaked().call() / 10 ** 18;
+
+      setCurrentReward((contractBalance * tokensStaked) / totalStakedByAll)
+      console.log("testing ", currentReward)
+    }
+    getRealTimeReward();
+  }, [currentReward, tokensStaked])
 
   useEffect(() => {
     const getTimeRemaining = async () => {
@@ -186,7 +193,7 @@ export default function Donater() {
         <p>Claim your Anarchist DAO rewards!  Payouts are based on the amount you have staked <a href="https://docs.fundanarchy.io/anarchist-development-dao/staking/anarchist-develoment-dao-staking/what-is-the-benefit-to-staking" target="_blank" rel="noreferrer" title="DAO FAQ">and more</a>.</p>
         <p><span className="note">NOTE</span> You can claim your rewards once every ({claimAfter}) days after staking.</p>
         <label>claim_rewards</label>
-        <input type="text" name="amount" placeholder="0.00 ETH" value={pendingReward == 0 ? "0.00 ETH" : pendingReward.toFixed(18) + " ETH"} className="eth-input" readOnly />
+        <input type="text" name="amount" placeholder="0.00 ETH" value={pendingReward == 0 ? currentReward + " ETH" : pendingReward.toFixed(18) + " ETH"} className="eth-input" readOnly />
 
         {active ?
           <>
