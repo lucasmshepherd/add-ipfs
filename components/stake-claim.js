@@ -193,7 +193,7 @@ export default function Donater() {
         <p>Below are your <i>projected</i> earnings.   Payouts are based on the amount you have staked <a href="https://docs.fundanarchy.io/anarchist-development-dao/staking/anarchist-develoment-dao-staking/what-is-the-benefit-to-staking" target="_blank" rel="noreferrer" title="DAO FAQ">and more</a> and will fluctuate depending on the number of stakers and transactional volume.</p>
         <p><span className="note">NOTE</span> You can claim your rewards once every ({claimAfter}) days after staking.</p>
         <label>potential_rewards</label>
-        <input type="text" name="amount" placeholder="0.00 ETH" value={pendingReward == 0 ? currentReward + " ETH" : pendingReward.toFixed(18) + " ETH"} className="eth-input" readOnly />
+        <input type="text" name="amount" placeholder="0.00 ETH" value={currentReward + " ETH"} className="eth-input" readOnly />
 
         {active ?
           <>
