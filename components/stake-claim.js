@@ -95,7 +95,7 @@ export default function Donater() {
       let totalStakedByAll = await contract.methods.totalStaked().call() / 10 ** 18;
 
       setCurrentReward((contractBalance * tokensStaked) / totalStakedByAll)
-      console.log("testing ", currentReward)
+      //console.log("testing ", currentReward)
     }
     getRealTimeReward();
   }, [currentReward, tokensStaked])
