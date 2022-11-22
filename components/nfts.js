@@ -30,9 +30,9 @@ function MyList() {
   } = useWeb3React();
 
   const [nftOwned, setNftOwned] = useState(10);
-  const [nftName, setNftName] = useState('');
   const [nftList, setNftList] = useState([
-    //   {
+    // {
+    //   key: -1,
     //   "id": "0001",
     //   "name": "Anarchist #1 Razor",
     //   "url": "/assets/nft/1.jpg",
@@ -50,6 +50,8 @@ function MyList() {
       // await init();
       if (active) {
         await userInitFun();
+      } else {
+        setNftList([])
       }
     }
     onLoad();
@@ -64,53 +66,42 @@ function MyList() {
     // let nftOwnedVar = await nftContract.methods.tokensOfOwner('0xAE4380884911451cf8708B958fAc7A5AE3504800').call()
     setNftOwned(nftOwnedVar);
     console.log("owners nft ", nftOwned)
+  }
 
+  useEffect(() => {
     if (nftOwned.length > 0) {
       {
-        nftOwned.map((token_id, index) => (
-          setNftList(current => [...current,
-          {
-            key: index,
-            "id": `${metadata[token_id].edition}`,
-            "name": `Anarchist #${metadata[token_id].edition} ${metadata[token_id].name}`,
-            "url": `/assets/images/nft/${token_id}.jpg`,
-            "purchased": "2022",
-            "staked": "",
-            "purpose": "",
-            "borrowed": [],
-            "loaned": [],
-            "proposal": [],
+        nftOwned.map((token_id, index) => {
+          console.log("already present ", nftList)
+          if (nftList.length > 0 && token_id == nftList[token_id].key) {
+            console.log("already present ", token_id)
+          } else {
+            console.log("nftList ===> ", nftList)
+            setNftList(current => [...current,
+            {
+              key: token_id,
+              "id": `${metadata[token_id].edition}`,
+              "name": `Anarchist  #${metadata[token_id].edition} ${metadata[token_id].name}`,
+              "url": `/assets/images/nft/${token_id}.jpg`,
+              "purchased": "2022/10",
+              "staked": "",
+              "purpose": "",
+              "borrowed": [],
+              "loaned": [],
+              "proposal": [],
+            }
+            ])
           }
-          ])
-
-          // fetch(`https://testnets-api.opensea.io/api/v1/asset/${NFTContractJSON.NFTContractAddress}/${token_id}/`, { method: 'GET' })
-          // .then(response => response.json())
-          // .then((response) => {
-          //   setNftList(current => [...current,
-          //   {
-          //     key: index,
-          //     "id": `${response.token_id}`,
-          //     "name": `Anarchist #${response.token_id} ${response.name}`,
-          //     "url": `/assets/nft/${response.token_id}.jpg`,
-          //     "purchased": "2022",
-          //     "staked": "",
-          //     "purpose": "",
-          //     "borrowed": [],
-          //     "loaned": [],
-          //     "proposal": [],
-          //   }
-          //   ])
-          // })
-          // .catch(err => console.error(err))
-        ))
+        })
       }
 
     }
-  }
+  }, [nftOwned])
 
 
   let list = nftList
   let rows = []
+  // if (active) {
   for (let i = 0; i < list.length; i++) {
     let current = list[i]
     let name = current.name
@@ -209,11 +200,13 @@ function MyList() {
     )
     rows.push(item)
   }
+  // } else {
+  //   rows.push(<p className={styles.notation} style={{ color: 'red' }}>Wallet Not Connected</p>)
+  // }
   return rows
 }
 
 export default function Nfts(props) {
-
   return (
     <>
       <ul className={styles.nfts}>
