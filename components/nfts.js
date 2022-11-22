@@ -1,22 +1,114 @@
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Nft from './nft.js'
 import styles from '../styles/components/nfts.module.sass'
+//For Integration
+import NFTContractJSON from './integration/nft.json'
+import swal from 'sweetalert';
+import Web3EthContract from "web3-eth-contract";
+import { useWeb3React } from "@web3-react/core";
+import metadata from '../public/assets/json/_metadata.json';
 
-const nftList = [
-  {
-    "id": "0001",
-    "name": "Anarchist #1 Razor",
-    "url": "/assets/images/nft/0001 Razor.jpg",
-    "purchased": "10/01/22",
-    "staked": "",
-    "purpose": "",
-    "borrowed": [],
-    "loaned": [],
-    "proposal": []
-  },
-]
+// const nftList = [
+//   // {
+//   //   "id": "0001",
+//   //   "name": "Anarchist #1 Razor",
+//   //   "url": "/assets/images/nft/0001 Razor.jpg",
+//   //   "purchased": "10/01/22",
+//   //   "staked": "",
+//   //   "purpose": "",
+//   //   "borrowed": [],
+//   //   "loaned": [],
+//   //   "proposal": [],
+//   // },
+// ]
 
 function MyList() {
+  const {
+    active,
+    account
+  } = useWeb3React();
+
+  const [nftOwned, setNftOwned] = useState(10);
+  const [nftName, setNftName] = useState('');
+  const [nftList, setNftList] = useState([
+    //   {
+    //   "id": "0001",
+    //   "name": "Anarchist #1 Razor",
+    //   "url": "/assets/nft/1.jpg",
+    //   "purchased": "10/01/22",
+    //   "staked": "",
+    //   "purpose": "",
+    //   "borrowed": [],
+    //   "loaned": [],
+    //   "proposal": [],
+    // }
+  ]);
+
+  useEffect(() => {
+    async function onLoad() {
+      // await init();
+      if (active) {
+        await userInitFun();
+      }
+    }
+    onLoad();
+  }, [active, account]);
+
+  const userInitFun = async () => {
+    const { ethereum } = window;
+    Web3EthContract.setProvider(ethereum);
+    const nftContract = new Web3EthContract(NFTContractJSON.abi, NFTContractJSON.NFTContractAddress);
+
+    let nftOwnedVar = await nftContract.methods.tokensOfOwner(account).call()
+    // let nftOwnedVar = await nftContract.methods.tokensOfOwner('0xAE4380884911451cf8708B958fAc7A5AE3504800').call()
+    setNftOwned(nftOwnedVar);
+    console.log("owners nft ", nftOwned)
+
+    if (nftOwned.length > 0) {
+      {
+        nftOwned.map((token_id, index) => (
+          setNftList(current => [...current,
+          {
+            key: index,
+            "id": `${metadata[token_id].edition}`,
+            "name": `Anarchist #${metadata[token_id].edition} ${metadata[token_id].name}`,
+            "url": `/assets/images/nft/${token_id}.jpg`,
+            "purchased": "2022",
+            "staked": "",
+            "purpose": "",
+            "borrowed": [],
+            "loaned": [],
+            "proposal": [],
+          }
+          ])
+
+          // fetch(`https://testnets-api.opensea.io/api/v1/asset/${NFTContractJSON.NFTContractAddress}/${token_id}/`, { method: 'GET' })
+          // .then(response => response.json())
+          // .then((response) => {
+          //   setNftList(current => [...current,
+          //   {
+          //     key: index,
+          //     "id": `${response.token_id}`,
+          //     "name": `Anarchist #${response.token_id} ${response.name}`,
+          //     "url": `/assets/nft/${response.token_id}.jpg`,
+          //     "purchased": "2022",
+          //     "staked": "",
+          //     "purpose": "",
+          //     "borrowed": [],
+          //     "loaned": [],
+          //     "proposal": [],
+          //   }
+          //   ])
+          // })
+          // .catch(err => console.error(err))
+        ))
+      }
+
+    }
+  }
+
+
   let list = nftList
   let rows = []
   for (let i = 0; i < list.length; i++) {
@@ -37,7 +129,7 @@ function MyList() {
         <span className={styles.name}>{name}</span>
         <span className={styles.status}>
           {(() => {
-            if ( borrow.length > 0 ) {
+            if (borrow.length > 0) {
               return (
                 <>
                   <p className="clean highlight">Deadline {borrow[0].return}</p>
@@ -45,7 +137,7 @@ function MyList() {
                   <p className="clean">Rate: {borrow[0].interest} ADD per day</p>
                 </>
               )
-            } else if ( loan.length > 0 ) {
+            } else if (loan.length > 0) {
               return (
                 <>
                   <p className="clean highlight">Returning {loan[0].return}</p>
@@ -54,7 +146,7 @@ function MyList() {
                   <p className="clean">Borrower: {loan[0].borrower}</p>
                 </>
               )
-            } else if ( stake ) {
+            } else if (stake) {
               return (
                 <>
                   <p className="clean highlight">Staked {stake}</p>
@@ -71,21 +163,21 @@ function MyList() {
         </span>
         <span className={styles.proposal}>
           {(() => {
-            if ( loan.length > 0 ) {
+            if (loan.length > 0) {
               return (
                 <>
                   <p className="clean highlight">Not Available</p>
-  
+
                 </>
               )
-            } else if ( proposal.length > 0 ) {
+            } else if (proposal.length > 0) {
               return (
                 <>
                   <p className="clean highlight">Not Available</p>
                   <p className="clean">Proposal {proposal[0].id}</p>
                 </>
               )
-            } else if ( borrow.length > 0 ) {
+            } else if (borrow.length > 0) {
               return (
                 <>
                   <p className="clean highlight">Available until {borrow[0].return}</p>
@@ -112,7 +204,7 @@ function MyList() {
             }
           })()}
         </span>
-        <span className={styles.stake}>Stake NFT</span>
+        <span className={styles.stake}>Coming Soon</span>
       </li>
     )
     rows.push(item)
@@ -134,7 +226,7 @@ export default function Nfts(props) {
         </li>
         <MyList />
       </ul>
-      <br/>
+      <br />
       <p className={styles.notation}><b className="glitchme" data-text="Thank you for your support.">Thank you for your support.</b></p>
     </>
   )
