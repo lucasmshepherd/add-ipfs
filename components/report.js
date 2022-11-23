@@ -101,7 +101,7 @@ export default function Report(props) {
               <div className={styles.cell}><h4>total_eth_sent</h4><span>{active ? ethSent : lock}</span></div>
             </div>*/}
             <div className={styles.row}>
-              <div className={styles.cell}><h4>treasury_balance</h4><span>{active ? numberWithCommas(treasuryBalance.toFixed(2)) : lock}</span></div>
+              <div className={styles.cell}><h4>treasury_balance</h4><span>{active ? numberWithCommas(treasuryBalance.toFixed(2)) + " ETH" : lock}</span></div>
             </div>
           </>
         }

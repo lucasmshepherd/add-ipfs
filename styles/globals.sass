@@ -63,6 +63,11 @@ p.clean
   margin-top: 0
   margin-bottom: 0
 
+p.centered
+  text-align: center
+li.list-title
+  list-style-type: none
+  margin-left: -15px
 .clean-list
   margin: 0
   padding: 0
@@ -129,6 +134,10 @@ blockquote
   color: #fff
   word-wrap: break-word
   display: inline-block
+
+  @media(max-width: 700px)
+    font-size: 16px
+    padding: 0
 
   & + h3
     margin-top: 0
@@ -214,7 +223,7 @@ button.switcher-item
 
 #terminal
   white-space: pre-wrap
-  line-height: 1.2
+  line-height: 1
   b
     color: $color_4
     font-weight: normal
@@ -329,6 +338,7 @@ body.screener a.header_icon__Ss1uo
 
 a.onclick
   color: #fff
+  text-transform: lowercase
 
 .button-mono,
 .swal-button
@@ -353,6 +363,26 @@ a.onclick
   text-shadow: none
   cursor: pointer
   border-radius: 1px
+  &.btn-sm
+    max-width: 240px
+  &.pretitled:before
+    content: "Use for"
+    position: absolute
+    bottom: 21px
+    right: 17px
+    font-size: 8px
+    opacity: .5
+  &.btn-outline
+    outline: 1px solid #fff
+    background: none
+    color: #fff
+  &.btn-secondary
+    background: $color_3
+    color: $color_dark
+    &:active
+      background-color: lighten($color_3, 40%) !important
+    &:hover
+      background-color: lighten($color_3, 12%) !important
   &.btn-warning
     background: #af3535
     &:active
@@ -450,7 +480,7 @@ a.onclick
   flex: 1 0 auto
   min-height: 20px
 
-@media(max-width: 1600px)
+@media(max-width: 1300px)
   div#ui[data-layout="mint"]
     .interface_row__SIGHZ
       flex-direction: column
@@ -554,3 +584,45 @@ input, textarea
 
 .ReactModal__Overlay
   z-index: 999999999
+
+#t2,
+#t3
+  #price,
+  .mint-input-gp,
+  .mint-note,
+  a,
+  [class^="mint_gas"],
+  [class^="mint_content"],
+  [class^="mint_list"],
+  small,
+  hr,
+  br
+    display: none
+
+.swal-icon
+  &:before,
+  &:after
+    display: none
+
+.swal-icon--success__hide-corners
+  display: none
+
+.comingsoon
+  pointer-events: none
+  position: relative
+  opacity: .5
+  &:after
+    //content: "v4"
+    display: inline-block
+    color: rgba(255,255,255,.5)
+    font-size: 16px
+
+.new
+  position: relative
+  &:after
+    content: "new"
+    font-style: italic
+    display: inline-block
+    font-size: 16px
+    padding-left: 5px
+    color: $color_4

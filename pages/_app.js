@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 // state
 import { wrapper } from '../store/store'
 // components
@@ -45,6 +46,7 @@ function MyApp({ Component, pageProps }) {
           <Layout>
             <Component {...pageProps} />
           </Layout>
+          <Analytics />
         </Web3ReactProvider>
       </>
     )

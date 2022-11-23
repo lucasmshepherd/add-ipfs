@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react"
 import styles from '../styles/components/mint.module.sass'
 import Image from 'next/image'
-import nftTier1 from '../public/assets/images/nft/21.jpg'
-import nftTier2 from '../public/assets/images/nft/22.jpg'
-import nftTier3 from '../public/assets/images/nft/23.jpg'
+import nftTier1 from '../public/assets/images/nft/t1e.png'
+import nftTier2 from '../public/assets/images/nft/t2e.gif'
+import nftTier3 from '../public/assets/images/nft/t3e.gif'
 import parse from 'html-react-parser'
 import $ from 'jquery'
 //For Integration
@@ -223,16 +223,16 @@ export default function MintNft(props) {
     const nftContract = new Web3EthContract(NFTContractJSON.abi, NFTContractJSON.NFTContractAddress);
 
     const getSaleMinted = (await nftContract.methods.users(account).call())[0];
-    console.log("get sale minted ", getSaleMinted)
+    //console.log("get sale minted ", getSaleMinted)
     // setLimitPerWallet(limitPerWallet - getSaleMinted);
     // console.log("limtit per wallet", limitPerWallet)
-    console.log("limtit per wallet ", mintLimit)
+    //console.log("limit per wallet ", mintLimit)
     setMintLimit(limitPerWallet - getSaleMinted)
-    console.log("limtit per wallet after here ---- ", mintLimit)
+    //console.log("limit per wallet after here ---- ", mintLimit)
   }
 
   useEffect(() => {
-    console.log("limtit per wallet use effect => ", mintLimit)
+    //console.log("limit per wallet use effect => ", mintLimit)
     if (limitPerTrx > mintLimit) {
       setLimitPerTrx(mintLimit)
       setCount_1(mintLimit)
@@ -366,8 +366,8 @@ export default function MintNft(props) {
             });
           } else {
             swal({
-              title: "Request Submitted Successfully",
-              text: "Please Wait For Wallet Confirmation",
+              title: "Minting has been enabled on your account",
+              text: "Please wait for wallet confirmation...",
               type: "success",
               showCancelButton: false,
               confirmButtonClass: "btn-danger",
@@ -379,7 +379,7 @@ export default function MintNft(props) {
       }).catch(function (error) {
         swal({
           title: "Error Found",
-          // text: 'Insufficient Funds For Transaction in Wallet',
+          // text: 'Insufficient funds in wallet for this transaction',
           text: error.message,
           type: "error",
           showCancelButton: false,
@@ -391,7 +391,7 @@ export default function MintNft(props) {
     } else {
       swal({
         title: "Error Found",
-        text: 'Insufficient ADD Tokens To Enable Mint',
+        text: 'Insufficient ADD tokens to enable minting',
         // text: error.message,
         type: "error",
         showCancelButton: false,
@@ -431,8 +431,8 @@ export default function MintNft(props) {
           });
         } else {
           swal({
-            title: "Request Submitted Successfully",
-            text: "Please Wait For Wallet Confirmation",
+            title: "Approval Successful",
+            text: "Please wait for wallet confirmation...",
             icon: "success",
             showCancelButton: false,
             confirmButtonClass: "btn-danger",
@@ -445,7 +445,7 @@ export default function MintNft(props) {
     }).catch(function (error) {
       swal({
         title: "Error Found",
-        text: 'Insufficient Funds For Transaction in Wallet',
+        text: 'Insufficient funds in wallet for this transaction',
         // text: error.message,
         icon: "error",
         showCancelButton: false,
@@ -465,9 +465,9 @@ export default function MintNft(props) {
 
     try {
       if (count_1 <= 0) {
-        setError('Mint Atleast 1 NFT');
+        setError('Mint at least x1 NFT');
       } else if (count_1 > remainingNFT_One) {
-        setError("Can't Mint More Than Remaning NFT");
+        setError("Can't mint more than available");
       } else {
         let price = count_1 * PRICE_ONE * 10 ** 18;
         console.log("price for minting here ==>> ", price)
@@ -496,8 +496,8 @@ export default function MintNft(props) {
                 });
               } else {
                 swal({
-                  title: "Request Submitted Successfully",
-                  text: "Please Wait For Wallet Confirmation",
+                  title: "Purchase added to your wallet!",
+                  text: "View your Anarchist NFTs on OpenSea\n🔥 Thank you for your support 🔥",
                   icon: "success",
                   showCancelButton: false,
                   confirmButtonClass: "btn-danger",
@@ -511,7 +511,7 @@ export default function MintNft(props) {
             swal({
               title: "Error Found",
               // text: error.message,
-              text: 'Insufficient Funds For Transaction in Wallet',
+              text: 'Insufficient funds in wallet for this transaction',
               icon: "error",
               showCancelButton: false,
               confirmButtonClass: "btn-danger",
@@ -545,9 +545,9 @@ export default function MintNft(props) {
     // let txLimit_2 = await nftContract.methods.MAX_BY_MINT_IN_TRANSACTION_SALE().call()
     try {
       if (count_2 <= 0) {
-        setError('Mint Atleast 1 NFT');
+        setError('Mint at least x1 NFT');
       } else if (count_2 > remainingNFT_Two) {
-        setError("Can't Mint More Than Remaning NFT");
+        setError("Can't mint more than available");
       } else {
         let price = count_2 * PRICE_TWO * 10 ** 18;
         if (count_2 > TRANSACTION_LIMIT) {
@@ -575,7 +575,7 @@ export default function MintNft(props) {
               } else {
                 swal({
                   title: "Request Submitted Successfully",
-                  text: "Please Wait For Wallet Confirmation",
+                  text: "Please wait for wallet confirmation...",
                   icon: "success",
                   showCancelButton: false,
                   confirmButtonClass: "btn-danger",
@@ -588,7 +588,7 @@ export default function MintNft(props) {
           }).catch(function (error) {
             swal({
               title: "Error Found",
-              text: 'Insufficient Funds For Transaction in Wallet',
+              text: 'Insufficient funds in wallet for this transaction',
               icon: "error",
               showCancelButton: false,
               confirmButtonClass: "btn-danger",
@@ -652,7 +652,7 @@ export default function MintNft(props) {
               } else {
                 swal({
                   title: "Request Submitted Successfully",
-                  text: "Please Wait For Wallet Confirmation",
+                  text: "Please wait for wallet confirmation...",
                   icon: "success",
                   showCancelButton: false,
                   confirmButtonClass: "btn-danger",
@@ -665,7 +665,7 @@ export default function MintNft(props) {
           }).catch(function (error) {
             swal({
               title: "Error Found",
-              text: 'Insufficient Funds For Transaction in Wallet',
+              text: 'Insufficient funds in wallet for this transaction',
               icon: "error",
               showCancelButton: false,
               confirmButtonClass: "btn-danger",
@@ -691,11 +691,11 @@ export default function MintNft(props) {
   }
 
   let tier = props.tier
-  let image, content, tierText, price, mintbtn, dataId, saleMinted, saleNft, handleInc, handleDec, count, nftPrice, mintLive, mintStatusText, usdPrice, remainingNft
-  tierText = "Tier" + props.tier
-  if (tier == "1") {
+  let category, image, content, tierText, price, mintbtn, dataId, saleMinted, saleNft, handleInc, handleDec, count, nftPrice, mintLive, mintStatusText, usdPrice, remainingNft
+  tierText = "t" + props.tier
+  if (tier  == "1") {
     image = nftTier1.src
-    content = parse("<p><b>Chaos Theory</b>: The privileged few who attain the Chaos Theory NFTs are essential to the Anarchist Development DAO and its overall ecosystem.</p><p>Chaos Theorists are the embodiment of Defi and hold to the values of the overall betterment of society and crush tyranny within the same breath. Chaos Theorists are not scared to bend the rules to fit the needs of the overall goal.</p><p>We will combine science and philosophy. Our perceived randomness to the masses has underlying patterns of complexity, constant feedback loops, repetition, and self-organization—Chaos Theory at its core.</p>")
+    content = parse("<p>The privileged few who attain the Chaos Theory NFTs are essential to the Anarchist Development DAO and its overall ecosystem.</p><p>Chaos Theorists are the embodiment of Defi and hold to the values of the overall betterment of society and crush tyranny within the same breath. Chaos Theorists are not scared to bend the rules to fit the needs of the overall goal.</p><p>We will combine science and philosophy. Our perceived randomness to the masses has underlying patterns of complexity, constant feedback loops, repetition, and self-organization — Chaos Theory at its core.</p>")
     price = PRICE_ONE
     mintbtn = mintNft1
     dataId = 1
@@ -706,13 +706,15 @@ export default function MintNft(props) {
     count = count_1
     mintLive = mintButton_1
     mintStatusText = mintStatus_1
-    usdPrice = USD_ETH_ONE
+    usdPrice = USD_ETH_ONE + " USD"
     remainingNft = remainingNFT_One
+    category = "CHAOS THEORY"
   }
   else if (tier == "2") {
     image = nftTier2.src
-    content = parse("<p><b>Anarchy</b>: Every movement needs soldiers. Our Anarchy NFTs are for the soldiers on the front lines uniting like-minded individuals who can perpetuate change on a local or global scale.</p><p>Anarchy is a society being freely constituted without authorities or a governing body. It may also refer to a society or group of people that entirely rejects a set hierarchy.</p><p>We can all get behind that movement.</p><p>Our Anarchists will lead the way, will you join?</p>")
-    price = PRICE_TWO
+    content = parse("<p>Every movement needs soldiers. Our Anarchy NFTs are for the soldiers on the front lines uniting like-minded individuals who can perpetuate change on a local or global scale.</p><p>Anarchy is a society being freely constituted without authorities or a governing body. It may also refer to a society or group of people that entirely rejects a set hierarchy.</p><p>We can all get behind that movement.</p><p>Our Anarchists will lead the way, will you join?</p>")
+    //price = PRICE_TWO
+    price = ""
     mintbtn = mintNft2
     dataId = 2
     saleMinted = SALE_MINTED_TWO
@@ -722,13 +724,16 @@ export default function MintNft(props) {
     count = count_2
     mintLive = mintButton_2
     mintStatusText = mintStatus_2
-    usdPrice = USD_ETH_TWO
+    //usdPrice = USD_ETH_TWO + " USD"
+    usdPrice = ""
     remainingNft = remainingNFT_Two
+    category = "ANARCHY"
   }
   else if (tier == "3") {
     image = nftTier3.src
-    content = parse("<p><b>Revolution</b>: Revolutions start with a defining catalyst. The American Revolution; Boston Tea Party, Taxation Without Representation. French Revolution; massive taxes across the social spectrum until the people had enough.</p><p>What will be the modern-day catalyst? Our Revolutionaries will help foresee potential conflicts that have no other recourse than revolution.</p><p>Revolution Tier NFT holders will demonstrate the utmost capabilities in organizational skills to bring about regime change, whether it be within our ranks or on a global scale.</p><p>Revolutionaries are the gatekeepers to the DAO.")
-    price = PRICE_THREE
+    content = parse("<p>Revolutions start with a defining catalyst. The American Revolution; Boston Tea Party, Taxation Without Representation. French Revolution; massive taxes across the social spectrum until the people had enough.</p><p>What will be the modern-day catalyst? Our Revolutionaries will help foresee potential conflicts that have no other recourse than revolution.</p><p>Revolution Tier NFT holders will demonstrate the utmost capabilities in organizational skills to bring about regime change, whether it be within our ranks or on a global scale.</p><p>Revolutionaries are the gatekeepers to the DAO.")
+    //price = PRICE_THREE
+    price = ""
     mintbtn = mintNft3
     dataId = 3
     saleMinted = SALE_MINTED_THREE
@@ -738,79 +743,94 @@ export default function MintNft(props) {
     count = count_3
     mintLive = mintButton_3
     mintStatusText = mintStatus_3
-    usdPrice = USD_ETH_THREE
-    remainingNft = remainingNFT_Three
+    //usdPrice = USD_ETH_THREE + " USD"
+    usdPrice = ""
+    //remainingNft = remainingNFT_Three
+    remainingNft = "500"
+    category = "REVOLUTION"
   }
   return (
-    <>
-      <div className={styles.mint}>
-        <div data-tier={props.tier} className={styles.nft}>
-          <Image src={image} alt="Anarchist NFT" layout="responsive" priority="true" width="200" height="200" />
+    <> 
+      <div className={styles.mint} id={tierText}>
+        <div className={styles.mintbuy}>
+          <h3 className={styles.title}><span>{tierText} / {category}</span></h3>
+          <p className="clean"><b className="note">{remainingNft}</b> available</p>
+          <div data-tier={props.tier} className={styles.nft} style={{backgroundImage: "url("+image+")"}}></div>
         </div>
         <div className={styles.content}>
-          <h3 className={styles.title}><span className="glitchme" data-text={tierText}>{tierText}</span></h3>
-          <div className={styles.price}>
-            {price} ETH
+          <div className={styles.price} id="price">
+            {count * price} ETH
+            <span>{usdPrice}</span>
           </div>
-          <div className={styles.text}>
-            <b>{remainingNft} spots left</b><br /><br />
-            {content}
-          </div>
-          <div className={styles.price}>
-            {usdPrice} USD
-          </div>
-
-          <h4 className="text-white text-center">Minted: {saleMinted} / {saleNft}</h4>
+          <p className={styles.gas}>+ GAS FEE +<br/><br/></p>
           {
-            active ?
-              <>
-                {/* {loading ?
+              active ? 
+                <>
+                  {/* {loading ?
                     <p>Loading...</p>
                     : */}
-                <div>
-                  <div className="mint-input-gp">
-                    {count == 1 ?
-                      <button type="button" onClick={handleDec} data-id={dataId} className="btn_min_handle do_min" disabled>-</button>
-                      :
-                      <button type="button" onClick={handleDec} data-id={dataId} className="btn_min_handle do_min">-</button>
-                    }
-                    <input type="text" placeholder="count" data-id={dataId}
-                      name="quantity" value={count} id='input-quantity' className="form-control inputQuantity onlynumeric text-center" readOnly />
-                    {count == mintLimit ?
-                      <button type="button" onClick={handleInc} data-id={dataId} className="btn_min_handle do_plus" disabled>+</button>
-                      :
-                      <button type="button" onClick={handleInc} data-id={dataId} className="btn_min_handle do_plus">+</button>
-                    }
-                  </div>
-                  <div style={{ textAlign: 'center' }}>
-                    <p>{count * price} ETH + GAS FEE</p>
-                    <p style={{ color: 'red' }}>{error}</p>
-                  </div>
-                  {approveTokensBtn ?
-                    <a className="button-mono button-fill push-right" onClick={approveFun}>APPROVE TOKENS</a>
-                    :
-                    <>
-                      {mintEnableBtn ?
-                        <a className="button-mono button-fill push-right" onClick={mintEnableFun}>ENABLE MINT</a>
+                    <div>
+                      <div className="mint-input-gp">
+                        {count == 1 ?
+                          <button type="button" onClick={handleDec} data-id={dataId} className="btn_min_handle do_min" disabled>-</button>
+                          :
+                          <button type="button" onClick={handleDec} data-id={dataId} className="btn_min_handle do_min">-</button>
+                        }
+                        <input type="text" placeholder="count" data-id={dataId}
+                          name="quantity" value={count} id='input-quantity' className="form-control inputQuantity onlynumeric text-center" readOnly />
+                        {count == mintLimit ?
+                          <button type="button" onClick={handleInc} data-id={dataId} className="btn_min_handle do_plus" disabled>+</button>
+                          :
+                          <button type="button" onClick={handleInc} data-id={dataId} className="btn_min_handle do_plus">+</button>
+                        }
+                      </div>
+                      <div className="mint-note" style={{textAlign:'center'}}>
+                        <p style={{color:'red'}}>{error}</p>
+                      </div>
+                      {approveTokensBtn ?
+                        <a className="button-mono button-fill push-right" onClick={approveFun}>APPROVE TOKENS</a>
                         :
                         <>
-                          {mintLive ?
-                            <a className="button-mono button-fill push-right" onClick={mintbtn}>PURCHASE NFT</a>
+                          {mintEnableBtn ?
+                            <a className="button-mono button-fill push-right" onClick={mintEnableFun}>ENABLE MINT</a>
                             :
-                            <a className="button-mono button-fill push-right" disabled={true}>{mintStatusText}</a>
+                            <>
+                              {mintLive ?
+                                <a className="button-mono button-fill push-right" onClick={mintbtn}>PURCHASE NFT</a>
+                                :
+                                <a className="button-mono button-fill push-right" disabled={true}>{mintStatusText}</a>
+                              }
+                            </>
                           }
                         </>
                       }
-                    </>
-                  }
-                </div>
-                {/* } */}
-              </>
-              : <p style={{ color: "red" }}>Connect Wallet First</p>
-          }
-
-
+                    </div>
+                  {/* } */}
+                </>
+              : <p style={{color:"red"}}>Connect Wallet First</p>
+            }
           {/* <a href="#" className="button-mono button-fill push-right">PURCHASE NFT</a> */}
+        </div>
+        <div className={styles.list}>
+
+            <ul className={styles.details}>
+              <li><b className={styles.highlight}>Use for proposal submissions</b></li>
+              <li><b className={styles.highlight}>Loan out and earn daily interest</b></li> 
+              <li>Access the Guild *</li>
+              <li>Access the Guild NFT chat *</li>
+              <li>Show unique badge on DAO servers</li>
+            </ul>
+        </div>
+        <div className={styles.text}>
+          {content}
+          <hr/>
+          <br/>
+          <small><i>* Required: 500k ADD Holdings</i></small><br/>
+          <small><i>* Required: Follow @fundanarchy on Twitter</i></small><br/>
+          <small><i>* Required: Member role in Discord</i></small><br/><br/>
+          <small><i>Anarchist type and stats are currently just cosmetic</i></small>
+          <br/>
+          <br/>
         </div>
       </div>
     </>
