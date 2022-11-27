@@ -3,19 +3,21 @@
 .footer
   text-align: center
   font-family: $font_scifi
-  font-size: 15px
+  font-size: 16px
   letter-spacing: 1px
   position: fixed
   bottom: 0
   left: 0
   width: 100%
-  padding: 2px 5px 2px
+  padding: 0 5px 2px
   background: $color_dark
   z-index: 999999999999
   font-family: $font_mono
   b
-    text-transform: uppercase
+    text-transform: lowercase
     padding-right: 6px
   a
-    line-height: 15px
+    line-height: 16px
     display: block
+  &[data-connected="true"]
+    background: $color_2
