@@ -1,0 +1,2002 @@
+[
+    {
+        "name": "razor",
+        "edition": "0001"
+    },
+    {
+        "name": "fox",
+        "edition": "0002"
+    },
+    {
+        "name": "buttons",
+        "edition": "0003"
+    },
+    {
+        "name": "malice",
+        "edition": "0004"
+    },
+    {
+        "name": "flex",
+        "edition": "0005"
+    },
+    {
+        "name": "who",
+        "edition": "0006"
+    },
+    {
+        "name": "vitalik",
+        "edition": "0007"
+    },
+    {
+        "name": "sleeper",
+        "edition": "0008"
+    },
+    {
+        "name": "mimic",
+        "edition": "0009"
+    },
+    {
+        "name": "trick",
+        "edition": "0010"
+    },
+    {
+        "name": "vio",
+        "edition": "0011"
+    },
+    {
+        "name": "reflection",
+        "edition": "0012"
+    },
+    {
+        "name": "ice",
+        "edition": "0013"
+    },
+    {
+        "name": "atlas",
+        "edition": "0014"
+    },
+    {
+        "name": "whats_hood",
+        "edition": "0015"
+    },
+    {
+        "name": "spy",
+        "edition": "0016"
+    },
+    {
+        "name": "max",
+        "edition": "0017"
+    },
+    {
+        "name": "nom",
+        "edition": "0018"
+    },
+    {
+        "name": "rider",
+        "edition": "0019"
+    },
+    {
+        "name": "shady",
+        "edition": "0020"
+    },
+    {
+        "name": "crossfire",
+        "edition": "0021"
+    },
+    {
+        "name": "echo",
+        "edition": "0022"
+    },
+    {
+        "name": "specs",
+        "edition": "0023"
+    },
+    {
+        "name": "sub_hero",
+        "edition": "0024"
+    },
+    {
+        "name": "twenty_four_seven",
+        "edition": "0025"
+    },
+    {
+        "name": "noise",
+        "edition": "0026"
+    },
+    {
+        "name": "nope",
+        "edition": "0027"
+    },
+    {
+        "name": "swan_dive",
+        "edition": "0028"
+    },
+    {
+        "name": "gobblin",
+        "edition": "0029"
+    },
+    {
+        "name": "striker",
+        "edition": "0030"
+    },
+    {
+        "name": "scout",
+        "edition": "0031"
+    },
+    {
+        "name": "spike",
+        "edition": "0032"
+    },
+    {
+        "name": "the_doc",
+        "edition": "0033"
+    },
+    {
+        "name": "get_on_my_level",
+        "edition": "0034"
+    },
+    {
+        "name": "thorns",
+        "edition": "0035"
+    },
+    {
+        "name": "rain",
+        "edition": "0036"
+    },
+    {
+        "name": "sway",
+        "edition": "0037"
+    },
+    {
+        "name": "rail",
+        "edition": "0038"
+    },
+    {
+        "name": "rust",
+        "edition": "0039"
+    },
+    {
+        "name": "signal",
+        "edition": "0040"
+    },
+    {
+        "name": "misfit",
+        "edition": "0041"
+    },
+    {
+        "name": "trace",
+        "edition": "0042"
+    },
+    {
+        "name": "oblique",
+        "edition": "0043"
+    },
+    {
+        "name": "night_time",
+        "edition": "0044"
+    },
+    {
+        "name": "ditch",
+        "edition": "0045"
+    },
+    {
+        "name": "ecstacy",
+        "edition": "0046"
+    },
+    {
+        "name": "phil",
+        "edition": "0047"
+    },
+    {
+        "name": "spiral",
+        "edition": "0048"
+    },
+    {
+        "name": "john_dough",
+        "edition": "0049"
+    },
+    {
+        "name": "vega",
+        "edition": "0050"
+    },
+    {
+        "name": "alleyway",
+        "edition": "0051"
+    },
+    {
+        "name": "bobble",
+        "edition": "0052"
+    },
+    {
+        "name": "wings",
+        "edition": "0053"
+    },
+    {
+        "name": "pinky",
+        "edition": "0054"
+    },
+    {
+        "name": "scarecrow",
+        "edition": "0055"
+    },
+    {
+        "name": "levy",
+        "edition": "0056"
+    },
+    {
+        "name": "overhead",
+        "edition": "0057"
+    },
+    {
+        "name": "shrapnel",
+        "edition": "0058"
+    },
+    {
+        "name": "ankles",
+        "edition": "0059"
+    },
+    {
+        "name": "schism",
+        "edition": "0060"
+    },
+    {
+        "name": "straight_jacker",
+        "edition": "0061"
+    },
+    {
+        "name": "underworld",
+        "edition": "0062"
+    },
+    {
+        "name": "dead_city",
+        "edition": "0063"
+    },
+    {
+        "name": "patches",
+        "edition": "0064"
+    },
+    {
+        "name": "stiletto",
+        "edition": "0065"
+    },
+    {
+        "name": "venus",
+        "edition": "0066"
+    },
+    {
+        "name": "switch",
+        "edition": "0067"
+    },
+    {
+        "name": "axis",
+        "edition": "0068"
+    },
+    {
+        "name": "bassment",
+        "edition": "0069"
+    },
+    {
+        "name": "tremor",
+        "edition": "0070"
+    },
+    {
+        "name": "cyclops",
+        "edition": "0071"
+    },
+    {
+        "name": "hail",
+        "edition": "0072"
+    },
+    {
+        "name": "public_transmit",
+        "edition": "0073"
+    },
+    {
+        "name": "misery",
+        "edition": "0074"
+    },
+    {
+        "name": "eve",
+        "edition": "0075"
+    },
+    {
+        "name": "acid_reign",
+        "edition": "0076"
+    },
+    {
+        "name": "shatter",
+        "edition": "0077"
+    },
+    {
+        "name": "link",
+        "edition": "0078"
+    },
+    {
+        "name": "gambit",
+        "edition": "0079"
+    },
+    {
+        "name": "crater",
+        "edition": "0080"
+    },
+    {
+        "name": "ravin",
+        "edition": "0081"
+    },
+    {
+        "name": "grip",
+        "edition": "0082"
+    },
+    {
+        "name": "vice",
+        "edition": "0083"
+    },
+    {
+        "name": "stranger",
+        "edition": "0084"
+    },
+    {
+        "name": "hatter",
+        "edition": "0085"
+    },
+    {
+        "name": "euphoria",
+        "edition": "0086"
+    },
+    {
+        "name": "sensei",
+        "edition": "0087"
+    },
+    {
+        "name": "luke",
+        "edition": "0088"
+    },
+    {
+        "name": "headstrong",
+        "edition": "0089"
+    },
+    {
+        "name": "uzi",
+        "edition": "0090"
+    },
+    {
+        "name": "mopar",
+        "edition": "0091"
+    },
+    {
+        "name": "abram",
+        "edition": "0092"
+    },
+    {
+        "name": "forza",
+        "edition": "0093"
+    },
+    {
+        "name": "gotenks",
+        "edition": "0094"
+    },
+    {
+        "name": "fireball",
+        "edition": "0095"
+    },
+    {
+        "name": "samzi",
+        "edition": "0096"
+    },
+    {
+        "name": "incubate",
+        "edition": "0097"
+    },
+    {
+        "name": "replicate",
+        "edition": "0098"
+    },
+    {
+        "name": "mass_effect",
+        "edition": "0099"
+    },
+    {
+        "name": "kyber",
+        "edition": "0100"
+    },
+    {
+        "name": "sushi",
+        "edition": "0101"
+    },
+    {
+        "name": "archangel",
+        "edition": "0102"
+    },
+    {
+        "name": "invincible",
+        "edition": "0103"
+    },
+    {
+        "name": "vegeta",
+        "edition": "0104"
+    },
+    {
+        "name": "ye",
+        "edition": "0105"
+    },
+    {
+        "name": "elon",
+        "edition": "0106"
+    },
+    {
+        "name": "harpoon",
+        "edition": "0107"
+    },
+    {
+        "name": "dr_friedman",
+        "edition": "0108"
+    },
+    {
+        "name": "yezus",
+        "edition": "0109"
+    },
+    {
+        "name": "standoff",
+        "edition": "0110"
+    },
+    {
+        "name": "stand_tall",
+        "edition": "0111"
+    },
+    {
+        "name": "imp",
+        "edition": "0112"
+    },
+    {
+        "name": "morph",
+        "edition": "0113"
+    },
+    {
+        "name": "timeflex",
+        "edition": "0114"
+    },
+    {
+        "name": "shapeshifter",
+        "edition": "0115"
+    },
+    {
+        "name": "changling",
+        "edition": "0116"
+    },
+    {
+        "name": "mars",
+        "edition": "0117"
+    },
+    {
+        "name": "burnt",
+        "edition": "0118"
+    },
+    {
+        "name": "blazed",
+        "edition": "0119"
+    },
+    {
+        "name": "gassed",
+        "edition": "0120"
+    },
+    {
+        "name": "a_1",
+        "edition": "0121"
+    },
+    {
+        "name": "blitzed",
+        "edition": "0122"
+    },
+    {
+        "name": "looking",
+        "edition": "0123"
+    },
+    {
+        "name": "low_key",
+        "edition": "0124"
+    },
+    {
+        "name": "opening",
+        "edition": "0125"
+    },
+    {
+        "name": "kimber",
+        "edition": "0126"
+    },
+    {
+        "name": "m4",
+        "edition": "0127"
+    },
+    {
+        "name": "shootout",
+        "edition": "0128"
+    },
+    {
+        "name": "4k_magic",
+        "edition": "0129"
+    },
+    {
+        "name": "carorth",
+        "edition": "0130"
+    },
+    {
+        "name": "narvy",
+        "edition": "0131"
+    },
+    {
+        "name": "ryldrit",
+        "edition": "0132"
+    },
+    {
+        "name": "frersanth",
+        "edition": "0133"
+    },
+    {
+        "name": "seeker",
+        "edition": "0134"
+    },
+    {
+        "name": "lover_boy",
+        "edition": "0135"
+    },
+    {
+        "name": "kill_shot",
+        "edition": "0136"
+    },
+    {
+        "name": "intuitive",
+        "edition": "0137"
+    },
+    {
+        "name": "lost_bot",
+        "edition": "0138"
+    },
+    {
+        "name": "lurking",
+        "edition": "0139"
+    },
+    {
+        "name": "vibez",
+        "edition": "0140"
+    },
+    {
+        "name": "big_howl",
+        "edition": "0141"
+    },
+    {
+        "name": "d_d_dude",
+        "edition": "0142"
+    },
+    {
+        "name": "lucrative",
+        "edition": "0143"
+    },
+    {
+        "name": "protectiv e",
+        "edition": "0144"
+    },
+    {
+        "name": "redeemer",
+        "edition": "0145"
+    },
+    {
+        "name": "champion",
+        "edition": "0146"
+    },
+    {
+        "name": "bruh",
+        "edition": "0147"
+    },
+    {
+        "name": "heisback",
+        "edition": "0148"
+    },
+    {
+        "name": "black",
+        "edition": "0149"
+    },
+    {
+        "name": "white",
+        "edition": "0150"
+    },
+    {
+        "name": "vast",
+        "edition": "0151"
+    },
+    {
+        "name": "hawkeye",
+        "edition": "0152"
+    },
+    {
+        "name": "goku",
+        "edition": "0153"
+    },
+    {
+        "name": "vegeta",
+        "edition": "0154"
+    },
+    {
+        "name": "fiasco",
+        "edition": "0155"
+    },
+    {
+        "name": "azeile",
+        "edition": "0156"
+    },
+    {
+        "name": "banksy",
+        "edition": "0157"
+    },
+    {
+        "name": "jewlz",
+        "edition": "0158"
+    },
+    {
+        "name": "karl",
+        "edition": "0159"
+    },
+    {
+        "name": "gel_low",
+        "edition": "0160"
+    },
+    {
+        "name": "liberty",
+        "edition": "0161"
+    },
+    {
+        "name": "kropotkin",
+        "edition": "0162"
+    },
+    {
+        "name": "libertine",
+        "edition": "0163"
+    },
+    {
+        "name": "mikhail",
+        "edition": "0164"
+    },
+    {
+        "name": "rebel",
+        "edition": "0165"
+    },
+    {
+        "name": "sham",
+        "edition": "0166"
+    },
+    {
+        "name": "sinner",
+        "edition": "0167"
+    },
+    {
+        "name": "soledad",
+        "edition": "0168"
+    },
+    {
+        "name": "morrigan",
+        "edition": "0169"
+    },
+    {
+        "name": "stza",
+        "edition": "0170"
+    },
+    {
+        "name": "astro.nuts",
+        "edition": "0171"
+    },
+    {
+        "name": "zeno",
+        "edition": "0172"
+    },
+    {
+        "name": "zero",
+        "edition": "0173"
+    },
+    {
+        "name": "victory",
+        "edition": "0174"
+    },
+    {
+        "name": "valeria",
+        "edition": "0175"
+    },
+    {
+        "name": "green_arrow",
+        "edition": "0176"
+    },
+    {
+        "name": "jack_frosty",
+        "edition": "0177"
+    },
+    {
+        "name": "king_mob",
+        "edition": "0178"
+    },
+    {
+        "name": "pope_smoke",
+        "edition": "0179"
+    },
+    {
+        "name": "pillock",
+        "edition": "0180"
+    },
+    {
+        "name": "tank",
+        "edition": "0181"
+    },
+    {
+        "name": "vlay",
+        "edition": "0182"
+    },
+    {
+        "name": "corky",
+        "edition": "0183"
+    },
+    {
+        "name": "laputa",
+        "edition": "0184"
+    },
+    {
+        "name": "hagbard",
+        "edition": "0185"
+    },
+    {
+        "name": "leo_gold",
+        "edition": "0186"
+    },
+    {
+        "name": "lucian",
+        "edition": "0187"
+    },
+    {
+        "name": "mafile",
+        "edition": "0188"
+    },
+    {
+        "name": "paula",
+        "edition": "0189"
+    },
+    {
+        "name": "merlyn",
+        "edition": "0190"
+    },
+    {
+        "name": "ossipon",
+        "edition": "0191"
+    },
+    {
+        "name": "robby",
+        "edition": "0192"
+    },
+    {
+        "name": "cosmo",
+        "edition": "0193"
+    },
+    {
+        "name": "tastes_like_burning",
+        "edition": "0194"
+    },
+    {
+        "name": "dol_suk",
+        "edition": "0195"
+    },
+    {
+        "name": "double_d",
+        "edition": "0196"
+    },
+    {
+        "name": "floren",
+        "edition": "0197"
+    },
+    {
+        "name": "g.in",
+        "edition": "0198"
+    },
+    {
+        "name": "jonny_red",
+        "edition": "0199"
+    },
+    {
+        "name": "karla",
+        "edition": "0200"
+    },
+    {
+        "name": "lee_geun",
+        "edition": "0201"
+    },
+    {
+        "name": "nando",
+        "edition": "0202"
+    },
+    {
+        "name": "pedro",
+        "edition": "0203"
+    },
+    {
+        "name": "puck",
+        "edition": "0204"
+    },
+    {
+        "name": "rick_pratt",
+        "edition": "0205"
+    },
+    {
+        "name": "sweeny",
+        "edition": "0206"
+    },
+    {
+        "name": "seregay",
+        "edition": "0207"
+    },
+    {
+        "name": "tina",
+        "edition": "0208"
+    },
+    {
+        "name": "yorgi",
+        "edition": "0209"
+    },
+    {
+        "name": "mason",
+        "edition": "0210"
+    },
+    {
+        "name": "ziggy",
+        "edition": "0211"
+    },
+    {
+        "name": "duncan",
+        "edition": "0212"
+    },
+    {
+        "name": "baker",
+        "edition": "0213"
+    },
+    {
+        "name": "seth",
+        "edition": "0214"
+    },
+    {
+        "name": "zaheer",
+        "edition": "0215"
+    },
+    {
+        "name": "quazi",
+        "edition": "0216"
+    },
+    {
+        "name": "tom_ate_jerry",
+        "edition": "0217"
+    },
+    {
+        "name": "mario",
+        "edition": "0218"
+    },
+    {
+        "name": "down.up",
+        "edition": "0219"
+    },
+    {
+        "name": "up.down",
+        "edition": "0220"
+    },
+    {
+        "name": "slinder",
+        "edition": "0221"
+    },
+    {
+        "name": "forecast",
+        "edition": "0222"
+    },
+    {
+        "name": "shadow_realm",
+        "edition": "0223"
+    },
+    {
+        "name": "alan_granted",
+        "edition": "0224"
+    },
+    {
+        "name": "dennis",
+        "edition": "0225"
+    },
+    {
+        "name": "phil_dick",
+        "edition": "0226"
+    },
+    {
+        "name": "highspeed",
+        "edition": "0227"
+    },
+    {
+        "name": "burn.ey",
+        "edition": "0228"
+    },
+    {
+        "name": "tholl",
+        "edition": "0229"
+    },
+    {
+        "name": "esoqq",
+        "edition": "0230"
+    },
+    {
+        "name": "farscaped",
+        "edition": "0231"
+    },
+    {
+        "name": "fly_lord",
+        "edition": "0232"
+    },
+    {
+        "name": "zahaanish",
+        "edition": "0233"
+    },
+    {
+        "name": "theodore",
+        "edition": "0234"
+    },
+    {
+        "name": "u.knighted",
+        "edition": "0235"
+    },
+    {
+        "name": "0x0",
+        "edition": "0236"
+    },
+    {
+        "name": "tre_arrow",
+        "edition": "0237"
+    },
+    {
+        "name": "kate_austio",
+        "edition": "0238"
+    },
+    {
+        "name": "randall_amster",
+        "edition": "0239"
+    },
+    {
+        "name": "sherman_2",
+        "edition": "0240"
+    },
+    {
+        "name": "jim_bell",
+        "edition": "0241"
+    },
+    {
+        "name": "henry_bool",
+        "edition": "0242"
+    },
+    {
+        "name": "klee_benally",
+        "edition": "0243"
+    },
+    {
+        "name": "jo_labadie",
+        "edition": "0244"
+    },
+    {
+        "name": "dyer_lum",
+        "edition": "0245"
+    },
+    {
+        "name": "oscar_neebe",
+        "edition": "0246"
+    },
+    {
+        "name": "audrey_tang",
+        "edition": "0247"
+    },
+    {
+        "name": "anti_flag",
+        "edition": "0248"
+    },
+    {
+        "name": "crass",
+        "edition": "0249"
+    },
+    {
+        "name": "res_kennedys",
+        "edition": "0250"
+    },
+    {
+        "name": "dog_byte",
+        "edition": "0251"
+    },
+    {
+        "name": "govn.t_flu",
+        "edition": "0252"
+    },
+    {
+        "name": "pouper",
+        "edition": "0253"
+    },
+    {
+        "name": "holi.daze",
+        "edition": "0254"
+    },
+    {
+        "name": "loud_ne55",
+        "edition": "0255"
+    },
+    {
+        "name": "get_out",
+        "edition": "0256"
+    },
+    {
+        "name": "acab",
+        "edition": "0257"
+    },
+    {
+        "name": "#free",
+        "edition": "0258"
+    },
+    {
+        "name": "subtract",
+        "edition": "0259"
+    },
+    {
+        "name": "free_dum",
+        "edition": "0260"
+    },
+    {
+        "name": "move_em_out",
+        "edition": "0261"
+    },
+    {
+        "name": "1_2_3_four",
+        "edition": "0262"
+    },
+    {
+        "name": "oi.oi.oi",
+        "edition": "0263"
+    },
+    {
+        "name": "roll_in",
+        "edition": "0264"
+    },
+    {
+        "name": "dont_look_up",
+        "edition": "0265"
+    },
+    {
+        "name": "bruv",
+        "edition": "0266"
+    },
+    {
+        "name": "love_n_blud",
+        "edition": "0267"
+    },
+    {
+        "name": "sta.tick",
+        "edition": "0268"
+    },
+    {
+        "name": "fox.trot",
+        "edition": "0269"
+    },
+    {
+        "name": "woke",
+        "edition": "0270"
+    },
+    {
+        "name": "fiddles.tick",
+        "edition": "0271"
+    },
+    {
+        "name": "outribe",
+        "edition": "0272"
+    },
+    {
+        "name": "bulkhead",
+        "edition": "0273"
+    },
+    {
+        "name": "screable",
+        "edition": "0274"
+    },
+    {
+        "name": "close.handed",
+        "edition": "0275"
+    },
+    {
+        "name": "complimentative",
+        "edition": "0276"
+    },
+    {
+        "name": "falcate",
+        "edition": "0277"
+    },
+    {
+        "name": "terrifical",
+        "edition": "0278"
+    },
+    {
+        "name": "epicureous",
+        "edition": "0279"
+    },
+    {
+        "name": "discriminating",
+        "edition": "0280"
+    },
+    {
+        "name": "pantisocratic",
+        "edition": "0281"
+    },
+    {
+        "name": "noematical",
+        "edition": "0282"
+    },
+    {
+        "name": "brains_ick",
+        "edition": "0283"
+    },
+    {
+        "name": "dag_lock",
+        "edition": "0284"
+    },
+    {
+        "name": "scaling",
+        "edition": "0285"
+    },
+    {
+        "name": "plumviametrical",
+        "edition": "0286"
+    },
+    {
+        "name": "schistaceous",
+        "edition": "0287"
+    },
+    {
+        "name": "consistently",
+        "edition": "0288"
+    },
+    {
+        "name": "dulciness",
+        "edition": "0289"
+    },
+    {
+        "name": "tin",
+        "edition": "0290"
+    },
+    {
+        "name": "scary",
+        "edition": "0291"
+    },
+    {
+        "name": "half-hatched",
+        "edition": "0292"
+    },
+    {
+        "name": "crustaceology",
+        "edition": "0293"
+    },
+    {
+        "name": "corporality",
+        "edition": "0294"
+    },
+    {
+        "name": "chasseur",
+        "edition": "0295"
+    },
+    {
+        "name": "oscitant",
+        "edition": "0296"
+    },
+    {
+        "name": "crackleware",
+        "edition": "0297"
+    },
+    {
+        "name": "cite",
+        "edition": "0298"
+    },
+    {
+        "name": "word_catcher",
+        "edition": "0299"
+    },
+    {
+        "name": "sublition",
+        "edition": "0300"
+    },
+    {
+        "name": "un_apped",
+        "edition": "0301"
+    },
+    {
+        "name": "tri.weekly",
+        "edition": "0302"
+    },
+    {
+        "name": "scald",
+        "edition": "0303"
+    },
+    {
+        "name": "scene",
+        "edition": "0304"
+    },
+    {
+        "name": "gene.tic",
+        "edition": "0305"
+    },
+    {
+        "name": "blind_folded",
+        "edition": "0306"
+    },
+    {
+        "name": "pentahedrous",
+        "edition": "0307"
+    },
+    {
+        "name": "perversedly",
+        "edition": "0308"
+    },
+    {
+        "name": "silkman",
+        "edition": "0309"
+    },
+    {
+        "name": "date",
+        "edition": "0310"
+    },
+    {
+        "name": "slicy",
+        "edition": "0311"
+    },
+    {
+        "name": "dela.ware",
+        "edition": "0312"
+    },
+    {
+        "name": "financiered",
+        "edition": "0313"
+    },
+    {
+        "name": "neven",
+        "edition": "0314"
+    },
+    {
+        "name": "repay",
+        "edition": "0315"
+    },
+    {
+        "name": "theomancy",
+        "edition": "0316"
+    },
+    {
+        "name": "xylogen",
+        "edition": "0317"
+    },
+    {
+        "name": "drabbing",
+        "edition": "0318"
+    },
+    {
+        "name": "ration",
+        "edition": "0319"
+    },
+    {
+        "name": "trousseau",
+        "edition": "0320"
+    },
+    {
+        "name": "biogenist",
+        "edition": "0321"
+    },
+    {
+        "name": "coring",
+        "edition": "0322"
+    },
+    {
+        "name": "requiring",
+        "edition": "0323"
+    },
+    {
+        "name": "welding",
+        "edition": "0324"
+    },
+    {
+        "name": "faster",
+        "edition": "0325"
+    },
+    {
+        "name": "hyper.time",
+        "edition": "0326"
+    },
+    {
+        "name": "flowing",
+        "edition": "0327"
+    },
+    {
+        "name": "alpha_gear",
+        "edition": "0328"
+    },
+    {
+        "name": "phalanx",
+        "edition": "0329"
+    },
+    {
+        "name": "prometheus",
+        "edition": "0330"
+    },
+    {
+        "name": "chomsky",
+        "edition": "0331"
+    },
+    {
+        "name": "devastation",
+        "edition": "0332"
+    },
+    {
+        "name": "a11",
+        "edition": "0333"
+    },
+    {
+        "name": "the_answer",
+        "edition": "0334"
+    },
+    {
+        "name": "k_bee",
+        "edition": "0335"
+    },
+    {
+        "name": "jet.set",
+        "edition": "0336"
+    },
+    {
+        "name": "lonely.forever",
+        "edition": "0337"
+    },
+    {
+        "name": "fire.starter",
+        "edition": "0338"
+    },
+    {
+        "name": "cream",
+        "edition": "0339"
+    },
+    {
+        "name": "rusty",
+        "edition": "0340"
+    },
+    {
+        "name": "arrival",
+        "edition": "0341"
+    },
+    {
+        "name": "sanguine",
+        "edition": "0342"
+    },
+    {
+        "name": "lvrian",
+        "edition": "0343"
+    },
+    {
+        "name": "tendrac",
+        "edition": "0344"
+    },
+    {
+        "name": "peninsulating",
+        "edition": "0345"
+    },
+    {
+        "name": "ultra_violet",
+        "edition": "0346"
+    },
+    {
+        "name": "refiner",
+        "edition": "0347"
+    },
+    {
+        "name": "salivary",
+        "edition": "0348"
+    },
+    {
+        "name": "double_dealer",
+        "edition": "0349"
+    },
+    {
+        "name": "untrust",
+        "edition": "0350"
+    },
+    {
+        "name": "stalked",
+        "edition": "0351"
+    },
+    {
+        "name": "skull",
+        "edition": "0352"
+    },
+    {
+        "name": "vincentian",
+        "edition": "0353"
+    },
+    {
+        "name": "johnny_nosleep",
+        "edition": "0354"
+    },
+    {
+        "name": "rapine",
+        "edition": "0355"
+    },
+    {
+        "name": "nectosac",
+        "edition": "0356"
+    },
+    {
+        "name": "tornado",
+        "edition": "0357"
+    },
+    {
+        "name": "binotonous",
+        "edition": "0358"
+    },
+    {
+        "name": "luxurious",
+        "edition": "0359"
+    },
+    {
+        "name": "coolness",
+        "edition": "0360"
+    },
+    {
+        "name": "max_777",
+        "edition": "0361"
+    },
+    {
+        "name": "affrayed",
+        "edition": "0362"
+    },
+    {
+        "name": "tenma",
+        "edition": "0363"
+    },
+    {
+        "name": "crack",
+        "edition": "0364"
+    },
+    {
+        "name": "yodled",
+        "edition": "0365"
+    },
+    {
+        "name": "maul",
+        "edition": "0366"
+    },
+    {
+        "name": "apostle",
+        "edition": "0367"
+    },
+    {
+        "name": "jamie_110",
+        "edition": "0368"
+    },
+    {
+        "name": "inexpressibles",
+        "edition": "0369"
+    },
+    {
+        "name": "linux",
+        "edition": "0370"
+    },
+    {
+        "name": "powershell",
+        "edition": "0371"
+    },
+    {
+        "name": "metaboi",
+        "edition": "0372"
+    },
+    {
+        "name": "multicast",
+        "edition": "0373"
+    },
+    {
+        "name": "unicast",
+        "edition": "0374"
+    },
+    {
+        "name": "broadspec",
+        "edition": "0375"
+    },
+    {
+        "name": "up.time",
+        "edition": "0376"
+    },
+    {
+        "name": "subnet",
+        "edition": "0377"
+    },
+    {
+        "name": "iguana",
+        "edition": "0378"
+    },
+    {
+        "name": "idle",
+        "edition": "0379"
+    },
+    {
+        "name": "inactive",
+        "edition": "0380"
+    },
+    {
+        "name": "vadqua",
+        "edition": "0381"
+    },
+    {
+        "name": "isa_mitsuo",
+        "edition": "0382"
+    },
+    {
+        "name": "abe_isamu",
+        "edition": "0383"
+    },
+    {
+        "name": "crocket",
+        "edition": "0384"
+    },
+    {
+        "name": "vorlander",
+        "edition": "0385"
+    },
+    {
+        "name": "orion",
+        "edition": "0386"
+    },
+    {
+        "name": "carn_age",
+        "edition": "0387"
+    },
+    {
+        "name": "value_add",
+        "edition": "0388"
+    },
+    {
+        "name": "mad_maxxed",
+        "edition": "0389"
+    },
+    {
+        "name": "slender",
+        "edition": "0390"
+    },
+    {
+        "name": "rouge",
+        "edition": "0391"
+    },
+    {
+        "name": "terminalist",
+        "edition": "0392"
+    },
+    {
+        "name": "failsafe",
+        "edition": "0393"
+    },
+    {
+        "name": "error_404",
+        "edition": "0394"
+    },
+    {
+        "name": "putty",
+        "edition": "0395"
+    },
+    {
+        "name": "omw",
+        "edition": "0396"
+    },
+    {
+        "name": "anti.state",
+        "edition": "0397"
+    },
+    {
+        "name": "frog",
+        "edition": "0398"
+    },
+    {
+        "name": "abolition",
+        "edition": "0399"
+    },
+    {
+        "name": "blockchain_shimmy",
+        "edition": "0400"
+    },
+    {
+        "name": "freyed",
+        "edition": "0401"
+    },
+    {
+        "name": "eternal",
+        "edition": "0402"
+    },
+    {
+        "name": "saiya",
+        "edition": "0403"
+    },
+    {
+        "name": "initialize",
+        "edition": "0404"
+    },
+    {
+        "name": "fallback",
+        "edition": "0405"
+    },
+    {
+        "name": "masses",
+        "edition": "0406"
+    },
+    {
+        "name": "splice",
+        "edition": "0407"
+    },
+    {
+        "name": "fusion",
+        "edition": "0408"
+    },
+    {
+        "name": "reload",
+        "edition": "0409"
+    },
+    {
+        "name": "hostname",
+        "edition": "0410"
+    },
+    {
+        "name": "interface",
+        "edition": "0411"
+    },
+    {
+        "name": "adrian",
+        "edition": "0412"
+    },
+    {
+        "name": "nommy_44",
+        "edition": "0413"
+    },
+    {
+        "name": "shut",
+        "edition": "0414"
+    },
+    {
+        "name": "dizzy_wizzy",
+        "edition": "0415"
+    },
+    {
+        "name": "show_cdp",
+        "edition": "0416"
+    },
+    {
+        "name": "show_interfaces",
+        "edition": "0417"
+    },
+    {
+        "name": "int_vlan_1",
+        "edition": "0418"
+    },
+    {
+        "name": "switchport",
+        "edition": "0419"
+    },
+    {
+        "name": "crypto_keygen",
+        "edition": "0420"
+    },
+    {
+        "name": "rsa_mod",
+        "edition": "0421"
+    },
+    {
+        "name": "celethor",
+        "edition": "0422"
+    },
+    {
+        "name": "nv_ram",
+        "edition": "0423"
+    },
+    {
+        "name": "kenetic",
+        "edition": "0424"
+    },
+    {
+        "name": "dareen",
+        "edition": "0425"
+    },
+    {
+        "name": "cyber_where",
+        "edition": "0426"
+    },
+    {
+        "name": "ccp",
+        "edition": "0427"
+    },
+    {
+        "name": "sho_run",
+        "edition": "0428"
+    },
+    {
+        "name": "no_limit",
+        "edition": "0429"
+    },
+    {
+        "name": "limitless",
+        "edition": "0430"
+    },
+    {
+        "name": "rally",
+        "edition": "0431"
+    },
+    {
+        "name": "333",
+        "edition": "0432"
+    },
+    {
+        "name": "ancap",
+        "edition": "0433"
+    },
+    {
+        "name": "quiet",
+        "edition": "0434"
+    },
+    {
+        "name": "silent_professional",
+        "edition": "0435"
+    },
+    {
+        "name": "riseup",
+        "edition": "0436"
+    },
+    {
+        "name": "phonk",
+        "edition": "0437"
+    },
+    {
+        "name": "kordhell",
+        "edition": "0438"
+    },
+    {
+        "name": "badtrip",
+        "edition": "0439"
+    },
+    {
+        "name": "tanjirooo",
+        "edition": "0440"
+    },
+    {
+        "name": "dystopian",
+        "edition": "0441"
+    },
+    {
+        "name": "brain_shot",
+        "edition": "0442"
+    },
+    {
+        "name": "send_1",
+        "edition": "0443"
+    },
+    {
+        "name": "encore",
+        "edition": "0444"
+    },
+    {
+        "name": "big_sal",
+        "edition": "0445"
+    },
+    {
+        "name": "ready",
+        "edition": "0446"
+    },
+    {
+        "name": "aggressive",
+        "edition": "0447"
+    },
+    {
+        "name": "hittas",
+        "edition": "0448"
+    },
+    {
+        "name": "hop3",
+        "edition": "0449"
+    },
+    {
+        "name": "ga5",
+        "edition": "0450"
+    },
+    {
+        "name": "hit_this",
+        "edition": "0451"
+    },
+    {
+        "name": "samur_ai",
+        "edition": "0452"
+    },
+    {
+        "name": "wow",
+        "edition": "0453"
+    },
+    {
+        "name": "fast_err",
+        "edition": "0454"
+    },
+    {
+        "name": "thumbs_up",
+        "edition": "0455"
+    },
+    {
+        "name": "md_ma",
+        "edition": "0456"
+    },
+    {
+        "name": "blinding",
+        "edition": "0457"
+    },
+    {
+        "name": "v.endetta",
+        "edition": "0458"
+    },
+    {
+        "name": "magick",
+        "edition": "0459"
+    },
+    {
+        "name": "sidewinder",
+        "edition": "0460"
+    },
+    {
+        "name": "slicker",
+        "edition": "0461"
+    },
+    {
+        "name": "drifter",
+        "edition": "0462"
+    },
+    {
+        "name": "jarod",
+        "edition": "0463"
+    },
+    {
+        "name": "run_script.exe",
+        "edition": "0464"
+    },
+    {
+        "name": "masterful",
+        "edition": "0465"
+    },
+    {
+        "name": "materless",
+        "edition": "0466"
+    },
+    {
+        "name": "autonomous",
+        "edition": "0467"
+    },
+    {
+        "name": "beat_down_low",
+        "edition": "0468"
+    },
+    {
+        "name": "duplicate",
+        "edition": "0469"
+    },
+    {
+        "name": "reverb",
+        "edition": "0470"
+    },
+    {
+        "name": "hardc.or.e",
+        "edition": "0471"
+    },
+    {
+        "name": "eight_five",
+        "edition": "0472"
+    },
+    {
+        "name": "burnout",
+        "edition": "0473"
+    },
+    {
+        "name": "endless",
+        "edition": "0474"
+    },
+    {
+        "name": "primer",
+        "edition": "0475"
+    },
+    {
+        "name": "ignition",
+        "edition": "0476"
+    },
+    {
+        "name": "final_shot",
+        "edition": "0477"
+    },
+    {
+        "name": "totaled_recall",
+        "edition": "0478"
+    },
+    {
+        "name": "high_4_this",
+        "edition": "0479"
+    },
+    {
+        "name": "mem.or.y",
+        "edition": "0480"
+    },
+    {
+        "name": "fix_8",
+        "edition": "0481"
+    },
+    {
+        "name": "knock_back",
+        "edition": "0482"
+    },
+    {
+        "name": "throw_back",
+        "edition": "0483"
+    },
+    {
+        "name": "sensei",
+        "edition": "0484"
+    },
+    {
+        "name": "dream",
+        "edition": "0485"
+    },
+    {
+        "name": "re_member",
+        "edition": "0486"
+    },
+    {
+        "name": "bit_boy",
+        "edition": "0487"
+    },
+    {
+        "name": "bullish",
+        "edition": "0488"
+    },
+    {
+        "name": "make_a_wish",
+        "edition": "0489"
+    },
+    {
+        "name": "look_up",
+        "edition": "0490"
+    },
+    {
+        "name": "forward",
+        "edition": "0491"
+    },
+    {
+        "name": "like_dsub",
+        "edition": "0492"
+    },
+    {
+        "name": "over_sized",
+        "edition": "0493"
+    },
+    {
+        "name": "widow_maker",
+        "edition": "0494"
+    },
+    {
+        "name": "clubscene",
+        "edition": "0495"
+    },
+    {
+        "name": "modfather",
+        "edition": "0496"
+    },
+    {
+        "name": "sunder",
+        "edition": "0497"
+    },
+    {
+        "name": "insight",
+        "edition": "0498"
+    },
+    {
+        "name": "with_in",
+        "edition": "0499"
+    },
+    {
+        "name": "strange_lanes",
+        "edition": "0500"
+    }
+]

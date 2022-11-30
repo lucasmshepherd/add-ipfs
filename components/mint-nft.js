@@ -11,7 +11,7 @@ import NFTContractJSON from './integration/nft.json'
 import TokenContract from './integration/token.json'
 import swal from 'sweetalert';
 import Web3EthContract from "web3-eth-contract";
-import {  useWeb3React } from "@web3-react/core";
+import { useWeb3React } from "@web3-react/core";
 
 export default function MintNft(props) {
 
@@ -232,7 +232,7 @@ export default function MintNft(props) {
   }
 
   useEffect(() => {
-    console.log("limit per wallet use effect => ", mintLimit)
+    //console.log("limit per wallet use effect => ", mintLimit)
     if (limitPerTrx > mintLimit) {
       setLimitPerTrx(mintLimit)
       setCount_1(mintLimit)
@@ -710,7 +710,7 @@ export default function MintNft(props) {
     remainingNft = remainingNFT_One
     category = "CHAOS THEORY"
   }
-  else if (tier  == "2") {
+  else if (tier == "2") {
     image = nftTier2.src
     content = parse("<p>Every movement needs soldiers. Our Anarchy NFTs are for the soldiers on the front lines uniting like-minded individuals who can perpetuate change on a local or global scale.</p><p>Anarchy is a society being freely constituted without authorities or a governing body. It may also refer to a society or group of people that entirely rejects a set hierarchy.</p><p>We can all get behind that movement.</p><p>Our Anarchists will lead the way, will you join?</p>")
     //price = PRICE_TWO
@@ -729,7 +729,7 @@ export default function MintNft(props) {
     remainingNft = remainingNFT_Two
     category = "ANARCHY"
   }
-  else if (tier  == "3") {
+  else if (tier == "3") {
     image = nftTier3.src
     content = parse("<p>Revolutions start with a defining catalyst. The American Revolution; Boston Tea Party, Taxation Without Representation. French Revolution; massive taxes across the social spectrum until the people had enough.</p><p>What will be the modern-day catalyst? Our Revolutionaries will help foresee potential conflicts that have no other recourse than revolution.</p><p>Revolution Tier NFT holders will demonstrate the utmost capabilities in organizational skills to bring about regime change, whether it be within our ranks or on a global scale.</p><p>Revolutionaries are the gatekeepers to the DAO.")
     //price = PRICE_THREE
@@ -759,7 +759,7 @@ export default function MintNft(props) {
         </div>
         <div className={styles.content}>
           <div className={styles.price} id="price">
-            {price} ETH
+            {count * price} ETH
             <span>{usdPrice}</span>
           </div>
           <p className={styles.gas}>+ GAS FEE +<br/><br/></p>
@@ -771,10 +771,18 @@ export default function MintNft(props) {
                     : */}
                     <div>
                       <div className="mint-input-gp">
-                        <button type="button" onClick={handleDec} data-id={dataId} className="btn_min_handle do_min">-</button>
-                        <input type="text" placeholder="count"  data-id={dataId} 
+                        {count == 1 ?
+                          <button type="button" onClick={handleDec} data-id={dataId} className="btn_min_handle do_min" disabled>-</button>
+                          :
+                          <button type="button" onClick={handleDec} data-id={dataId} className="btn_min_handle do_min">-</button>
+                        }
+                        <input type="text" placeholder="count" data-id={dataId}
                           name="quantity" value={count} id='input-quantity' className="form-control inputQuantity onlynumeric text-center" readOnly />
-                        <button type="button" onClick={handleInc}  data-id={dataId} className="btn_min_handle do_plus">+</button>
+                        {count == mintLimit ?
+                          <button type="button" onClick={handleInc} data-id={dataId} className="btn_min_handle do_plus" disabled>+</button>
+                          :
+                          <button type="button" onClick={handleInc} data-id={dataId} className="btn_min_handle do_plus">+</button>
+                        }
                       </div>
                       <div className="mint-note" style={{textAlign:'center'}}>
                         <p style={{color:'red'}}>{error}</p>

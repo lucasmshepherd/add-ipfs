@@ -16,8 +16,8 @@ import swal from 'sweetalert';
     };
 
     const networkCheck = async(walletType) => {
-      const chainId = 1;
-      // const chainId = 5;
+      // const chainId = 1;
+      const chainId = 5;
 
       if (window.ethereum.networkVersion != chainId) {
         try {
@@ -32,18 +32,20 @@ import swal from 'sweetalert';
               method: 'wallet_addEthereumChain',
               params: [
                 {
-                  chainName: 'Mainnet',
+                  chainName: 'Testnet',
+                  // chainName: 'Mainnet',
                   chainId: web3.utils.toHex(chainId),
                   nativeCurrency: { name: 'ETH', decimals: 18, symbol: 'ETH' },
-                  rpcUrls: ['https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161']
-                  // rpcUrls: ['https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161']
+                  // rpcUrls: ['https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161']
+                  rpcUrls: ['https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161']
                 }
               ]
             });
           }
             swal({
               title: "Network Error",
-              text: 'Please Switch To ETH Mainnet',
+              text: 'Please Switch To Goerli Testnet',
+              // text: 'Please Switch To ETH Mainnet',
               icon: "error",
               showCancelbutton: false,
               confirmbuttonClass: "btn-danger",

@@ -1,123 +1,106 @@
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import styles from '../styles/components/nfts.module.sass'
+//For Integration
+import NFTContractJSON from './integration/nft.json'
+import swal from 'sweetalert';
+import Web3EthContract from "web3-eth-contract";
+import { useWeb3React } from "@web3-react/core";
+import metadata from '../public/assets/json/_metadata.json';
 
-const nftList = [
-  {
-    "id": "0001",
-    "name": "Anarchist #1 Razor",
-    "url": "/assets/images/nft/t1e.png",
-    "purchased": "10/01/22",
-    "staked": "",
-    "purpose": "",
-    "borrowed": [],
-    "loaned": [],
-    "proposal": []
-  },
-  {
-    "id": "0002",
-    "name": "Anarchist #2 Razor2",
-    "url": "/assets/images/nft/t1e.png",
-    "purchased": "10/01/22",
-    "staked": "10/01/22",
-    "purpose": "",
-    "borrowed": [],
-    "loaned": [],
-    "proposal": []
-  },
-  {
-    "id": "0002",
-    "name": "Anarchist #2 Razor2",
-    "url": "/assets/images/nft/t1e.png",
-    "purchased": "10/01/22",
-    "staked": "10/01/22",
-    "purpose": "proposals",
-    "borrowed": [],
-    "loaned": [],
-    "proposal": []
-  },
-  {
-    "id": "0003",
-    "name": "Anarchist #2 Razor2",
-    "url": "/assets/images/nft/t1e.png",
-    "purchased": "10/01/22",
-    "staked": "10/01/22",
-    "purpose": "proposals",
-    "borrowed": [],
-    "loaned": [],
-    "proposal": [{
-      "id": "PA000178"
-    }]
-  },
-  {
-    "id": "0004",
-    "name": "Anarchist #0087 Firefly",
-    "url": "/assets/images/nft/t1e.png",
-    "purchased": "10/01/22",
-    "staked": "10/01/22",
-    "purpose": "loans",
-    "borrowed": [],
-    "loaned": [{
-      "date": "10/01/22",
-      "return": "10/06/22",
-      "interest": ".02",
-      "borrower": "WALLET_ID",
-      "claimable": ""
-    }],
-    "proposal": []
-  },
-  {
-    "id": "0005",
-    "name": "Anarchist #501 Static",
-    "url": "/assets/images/nft/t1e.png",
-    "purchased": "",
-    "staked": "",
-    "purpose": "proposals",
-    "borrowed": [{
-      "date": "10/01/22",
-      "return": "10/06/22",
-      "interest": ".02",
-      "owner": "WALLET_ID"
-    }],
-    "loaned": [],
-    "proposal": [{
-      "id": "PA000084"
-    }]
-  },
-  {
-    "id": "0006",
-    "name": "Anarchist #501 Static",
-    "url": "/assets/images/nft/t1e.png",
-    "purchased": "",
-    "staked": "",
-    "purpose": "proposals",
-    "borrowed": [{
-      "date": "10/01/22",
-      "return": "10/06/22",
-      "interest": ".02",
-      "owner": "WALLET_ID"
-    }],
-    "loaned": [],
-    "proposal": []
-  },
-  {
-    "id": "0007",
-    "name": "Anarchist #501 Static",
-    "url": "/assets/images/nft/t1e.png",
-    "purchased": "",
-    "staked": "",
-    "purpose": "loans",
-    "borrowed": [],
-    "loaned": [{
-      "date": "10/01/22",      
-      "claimable": "0.00"
-    }],
-    "proposal": []
-  }
-]
+// const nftList = [
+//   // {
+//   //   "id": "0001",
+//   //   "name": "Anarchist #1 Razor",
+//   //   "url": "/assets/images/nft/0001 Razor.jpg",
+//   //   "purchased": "10/01/22",
+//   //   "staked": "",
+//   //   "purpose": "",
+//   //   "borrowed": [],
+//   //   "loaned": [],
+//   //   "proposal": [],
+//   // },
+// ]
 
 function MyList() {
+  const {
+    active,
+    account
+  } = useWeb3React();
+
+  const [nftOwned, setNftOwned] = useState(10);
+  const [nftList, setNftList] = useState([
+    // {
+    //   key: -1,
+    //   "id": "0001",
+    //   "name": "Anarchist #1 Razor",
+    //   "url": "/assets/nft/1.jpg",
+    //   "purchased": "10/01/22",
+    //   "staked": "",
+    //   "purpose": "",
+    //   "borrowed": [],
+    //   "loaned": [],
+    //   "proposal": [],
+    // }
+  ]);
+
+  useEffect(() => {
+    async function onLoad() {
+      // await init();
+      if (active) {
+        await userInitFun();
+      } else {
+        setNftList([])
+      }
+    }
+    onLoad();
+  }, [active, account]);
+
+  const userInitFun = async () => {
+    const { ethereum } = window;
+    Web3EthContract.setProvider(ethereum);
+    const nftContract = new Web3EthContract(NFTContractJSON.abi, NFTContractJSON.NFTContractAddress);
+
+    let nftOwnedVar = await nftContract.methods.tokensOfOwner(account).call()
+    // let nftOwnedVar = await nftContract.methods.tokensOfOwner('0xAE4380884911451cf8708B958fAc7A5AE3504800').call()
+    setNftOwned(nftOwnedVar);
+    console.log("owners nft ", nftOwned)
+  }
+
+  useEffect(() => {
+    if (nftOwned.length > 0) {
+      {
+        nftOwned.map((token_id, index) => {
+          console.log("already present ", nftList)
+          if (nftList.length > 0 && token_id == nftList[token_id].key) {
+            console.log("already present ", token_id)
+          } else {
+            console.log("nftList ===> ", nftList)
+            setNftList(current => [...current,
+            {
+              key: token_id,
+              "id": `${metadata[token_id].edition}`,
+              "name": `Anarchist  #${metadata[token_id].edition} ${metadata[token_id].name}`,
+              "url": `/assets/images/nft/${token_id}.jpg`,
+              "purchased": "2022/10",
+              "staked": "",
+              "purpose": "",
+              "borrowed": [],
+              "loaned": [],
+              "proposal": [],
+            }
+            ])
+          }
+        })
+      }
+
+    }
+  }, [nftOwned])
+
+
   let list = nftList
   let rows = []
+  // if (active) {
   for (let i = 0; i < list.length; i++) {
     let current = list[i]
     let name = current.name
@@ -136,7 +119,7 @@ function MyList() {
         <span className={styles.name}>{name}</span>
         <span className={styles.status}>
           {(() => {
-            if ( borrow.length > 0 ) {
+            if (borrow.length > 0) {
               return (
                 <>
                   <p className="clean">Borrowed {borrow[0].date}</p>
@@ -144,14 +127,14 @@ function MyList() {
                   <p className="clean">Rate: {borrow[0].interest} ADD per day</p>
                 </>
               )
-            } else if ( loan.length > 0 ) {
+            } else if (loan.length > 0) {
               return (
                 <>
                   <p className="clean highlight">Loaned {loan[0].date}</p>
                   <p className="clean highlight">Returning {loan[0].return}</p>
                 </>
               )
-            } else if ( stake ) {
+            } else if (stake) {
               return (
                 <>
                   <p className="clean highlight">Staked {stake}</p>
@@ -181,14 +164,14 @@ function MyList() {
                   <p className="clean">Borrower: {loan[0].borrower}</p>
                 </>
               )
-            } else if ( proposal.length > 0 ) {
+            } else if (proposal.length > 0) {
               return (
                 <>
                   <p className="clean highlight">Currently submitted with</p>
                   <p className="clean">Proposal {proposal[0].id}</p>
                 </>
               )
-            } else if ( borrow.length > 0 ) {
+            } else if (borrow.length > 0) {
               return (
                 <>
                   <a href="#" className="button-mono btn-secondary btn-sm">Submit Proposal</a>
@@ -221,11 +204,13 @@ function MyList() {
     )
     rows.push(item)
   }
+  // } else {
+  //   rows.push(<p className={styles.notation} style={{ color: 'red' }}>Wallet Not Connected</p>)
+  // }
   return rows
 }
 
 export default function Nfts(props) {
-
   return (
     <>
       <ul className={styles.nfts}>
