@@ -603,7 +603,7 @@ export default class Chart extends React.Component {
         </div>
         <ul className={styles.board}>
           <li data-current="false">
-            <span className={styles.label}>{exlink} dextools</span>
+            <span className={styles.label}>{exlink} dextools<br/> <i>DEX API chart coming soon!</i></span>
             <a target="_blank" rel="noreferrer" href="https://www.dextools.io/app/en/ether/pair-explorer/0x8fead6e1be5af7b5beda08688018d55079e6de35" style={{backgroundImage: "url(/assets/images/gifs/" + cell1 + ".gif)"}}><span>chart</span></a>
           </li>
 
