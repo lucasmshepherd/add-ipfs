@@ -18,9 +18,9 @@ export const truncateAddress = (address) => {
 
   export const providerURL = () => {
     const SCAN_LINK = {
-        testnet : 'https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
-        mainnet : 'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161'
+        // rinkeby : 'https://rinkeby.infura.io/v3/84807e24ba43429cbf4912fe7c337dfb',
+        testnet : 'https://goerli.infura.io/v3/84807e24ba43429cbf4912fe7c337dfb',
+        mainnet : 'https://mainnet.infura.io/v3/84807e24ba43429cbf4912fe7c337dfb'
     }
-    return SCAN_LINK.testnet
-    // return SCAN_LINK.mainnet
+    return SCAN_LINK.mainnet
   }
