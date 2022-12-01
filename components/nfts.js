@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../styles/components/nfts.module.sass'
 //For Integration
@@ -210,13 +211,17 @@ function MyList() {
   // } else {
   //   rows.push(<p className={styles.notation} style={{ color: 'red' }}>Wallet Not Connected</p>)
   // }
-  return rows
+  if(nftList.length > 0) {
+    return <>{rows}</>
+  } else {
+    return <><center><i>Please connect to a wallet with NFTs or...</i><br/><br/><Link href="mint"><a class="button-mono">Mint a fresh NFT</a></Link></center></>
+  }
 }
 
 export default function Nfts(props) {
   return (
     <>
-      <h2>My NFTs</h2>
+      <center><h2>My NFTs</h2></center>
       <ul className={styles.nfts}>
         {/*<li className={styles.headings}>
           <span className={styles.nfthead}>NFT</span>
@@ -227,8 +232,10 @@ export default function Nfts(props) {
         <MyList />
       </ul>
       <br/>
-      <h2>My Borrowed NFTs</h2>
-      <p>NFT loan marketplace coming soon!</p>
+      <center>
+        <h2>My Borrowed NFTs</h2>
+        <p><i>NFT loan marketplace coming soon!</i></p>
+      </center>
       <br/>
       <br/>
       <blockquote className={styles.notation}><b className="glitchme" data-text="Thank you for contributing to Anarchist DAO">Thank you for contributing to Anarchist DAO</b></blockquote>

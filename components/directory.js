@@ -91,7 +91,7 @@ export default function Directory(props) {
       <> 
         <ul id="menu" className={styles.menu}>
 
-          <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
+          <li data-current={ widgets == "dapp" ? 'true' : 'false' }>
             <Link className="anchor" href="/dapp">
               <a onClick={soundEffect} className="new"><span>dashboard</span>{arrow}</a>
             </Link>
@@ -115,31 +115,31 @@ export default function Directory(props) {
             </Link>
           </li>
 
-          <li data-child="true" data-current={ widgets == "loan" ? 'true' : 'false' }>
+          <li data-connected={connected} data-child="true" data-current={ widgets == "loan" ? 'true' : 'false' }>
             <Link className="anchor" href="/loan">
               <a className="comingsoon">{down}<span>loan</span>{arrow}</a>
             </Link>
           </li>
 
-          <li data-current={ widgets == "stake" ? 'true' : 'false' }>
+          <li data-connected={connected} data-current={ widgets == "stake" ? 'true' : 'false' }>
             <Link className="anchor" href="/deposit">
               <a onClick={soundEffect}>{wallet}<span>stake_ADD</span>{arrow}</a>
             </Link>
           </li>
 
-          <li data-child="true" data-current={ widgets == "deposit" ? 'true' : 'false' }>
+          <li data-connected={connected} data-child="true" data-current={ widgets == "deposit" ? 'true' : 'false' }>
             <Link className="anchor" href="/deposit">
               <a onClick={soundEffect}>{down}<span>deposit</span>{arrow}</a>
             </Link>
           </li>
 
-          <li data-child="true" data-current={ widgets == "claim" ? 'true' : 'false' }>
+          <li data-connected={connected} data-child="true" data-current={ widgets == "claim" ? 'true' : 'false' }>
             <Link className="anchor" href="/claim">
               <a onClick={soundEffect}>{down}<span>claim_reward</span>{arrow}</a>
             </Link>
           </li>
 
-          <li data-current={ widgets == "withdrawal" ? 'true' : 'false' } data-dimmed="true">
+          <li data-connected={connected} data-current={ widgets == "withdrawal" ? 'true' : 'false' } data-dimmed="true">
             <Link className="anchor" href="/withdrawal">
               <a onClick={soundEffect}>{excl}<span>withdrawal</span>{arrow}</a>
             </Link>
