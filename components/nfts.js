@@ -65,7 +65,6 @@ function MyList() {
     let nftOwnedVar = await nftContract.methods.tokensOfOwner(account).call()
     // let nftOwnedVar = await nftContract.methods.tokensOfOwner('0xAE4380884911451cf8708B958fAc7A5AE3504800').call()
     setNftOwned(nftOwnedVar);
-    console.log("owners nft ", nftOwned)
   }
 
   useEffect(() => {
@@ -114,7 +113,7 @@ function MyList() {
     let proposal = current.proposal
     let purpose = current.purpose
     let item = (
-      <li className={styles.nft}>
+      <li className={styles.nft} key={num}>
         <span className={styles.media}>
           <a href={img} target="_blank" rel="noreferrer">
             <Image src={img} layout="fixed" width="200" height="200" alt={name} />
@@ -214,7 +213,7 @@ function MyList() {
   if(nftList.length > 0) {
     return <>{rows}</>
   } else {
-    return <><center><i>Please connect to a wallet with NFTs or...</i><br/><br/><Link href="mint"><a class="button-mono">Mint a fresh NFT</a></Link></center></>
+    return <><center><i>Please connect to a wallet with NFTs or...</i><br/><br/><Link href="mint"><a className="button-mono">Mint a fresh NFT</a></Link></center></>
   }
 }
 
@@ -242,7 +241,6 @@ export default function Nfts(props) {
       <br/>
       <ul className={styles.roadmap}>
         <li><b>Coming soon:</b></li>
-        <li>NFT Staking</li>
         <li>NFT Loans<br/><br/></li>
         <li><b>Additional Features:</b></li>
         <li><strike>400x sold: NFT List</strike></li>
