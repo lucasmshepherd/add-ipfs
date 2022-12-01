@@ -1297,4 +1297,4 @@ async function withdrawReward(){
             closeOnConfirm: false
         });
     });
-}
+}   
