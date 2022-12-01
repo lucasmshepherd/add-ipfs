@@ -62,10 +62,12 @@ function MyList() {
     Web3EthContract.setProvider(ethereum);
     const nftContract = new Web3EthContract(NFTContractJSON.abi, NFTContractJSON.NFTContractAddress);
 
-    let nftOwnedVar = await nftContract.methods.tokensOfOwner(account).call()
-    // let nftOwnedVar = await nftContract.methods.tokensOfOwner('0xAE4380884911451cf8708B958fAc7A5AE3504800').call()
-    setNftOwned(nftOwnedVar);
-    console.log("owners nft ", nftOwned)
+    let checkMinted = await nftContract.methods.users(account).call()
+    if (checkMinted.salemint > 0) {
+      let nftOwnedVar = await nftContract.methods.tokensOfOwner(account).call()
+      // let nftOwnedVar = await nftContract.methods.tokensOfOwner('0xAE4380884911451cf8708B958fAc7A5AE3504800').call()
+      setNftOwned(nftOwnedVar);
+    }
   }
 
   useEffect(() => {
@@ -155,13 +157,13 @@ function MyList() {
         </span>
         <span className={styles.proposal}>
           {(() => {
-            if ( loan.length > 0 && loan[0].claimable ) {
+            if (loan.length > 0 && loan[0].claimable) {
               return (
                 <>
                   <p className="clean highlight">Reward: 0.00 ETH (<a href="$">claim</a>)</p>
                 </>
               )
-            } else if ( loan.length > 0 ) {
+            } else if (loan.length > 0) {
               return (
                 <>
                   <p className="clean">Rate: {loan[0].interest} ADD per day</p>
@@ -184,18 +186,18 @@ function MyList() {
             } else if (purpose) {
               return (
                 <>
-                  <a href="#" className="button-mono btn-secondary btn-sm">Submit Proposal</a><br/>
+                  <a href="#" className="button-mono btn-secondary btn-sm">Submit Proposal</a><br />
                   <a href="#" className="button-mono btn-sm btn-outline pretitled">Loans</a>
                 </>
               )
             } else if (stake) {
               return (
                 <>
-                  <a href="#" className="button-mono btn-sm btn-outline pretitled">Proposals</a><br/>
+                  <a href="#" className="button-mono btn-sm btn-outline pretitled">Proposals</a><br />
                   <a href="#" className="button-mono btn-sm btn-outline pretitled">Loans</a>
                 </>
               )
-            }{/*} else {
+            } {/*} else {
               return (
                 <>
                   <a href="#" className="button-mono btn-sm">Stake Now</a>
@@ -211,10 +213,10 @@ function MyList() {
   // } else {
   //   rows.push(<p className={styles.notation} style={{ color: 'red' }}>Wallet Not Connected</p>)
   // }
-  if(nftList.length > 0) {
+  if (nftList.length > 0) {
     return <>{rows}</>
   } else {
-    return <><center><i>Please connect to a wallet with NFTs or...</i><br/><br/><Link href="mint"><a class="button-mono">Mint a fresh NFT</a></Link></center></>
+    return <><center><i>Please connect to a wallet with NFTs or...</i><br /><br /><Link href="mint"><a className="button-mono">Mint a fresh NFT</a></Link></center></>
   }
 }
 
@@ -231,19 +233,19 @@ export default function Nfts(props) {
         </li>*/}
         <MyList />
       </ul>
-      <br/>
+      <br />
       <center>
         <h2>My Borrowed NFTs</h2>
         <p><i>NFT loan marketplace coming soon!</i></p>
       </center>
-      <br/>
-      <br/>
+      <br />
+      <br />
       <blockquote className={styles.notation}><b className="glitchme" data-text="Thank you for contributing to Anarchist DAO">Thank you for contributing to Anarchist DAO</b></blockquote>
-      <br/>
+      <br />
       <ul className={styles.roadmap}>
         <li><b>Coming soon:</b></li>
         <li>NFT Staking</li>
-        <li>NFT Loans<br/><br/></li>
+        <li>NFT Loans<br /><br /></li>
         <li><b>Additional Features:</b></li>
         <li><strike>400x sold: NFT List</strike></li>
         <li><b>300x sold: </b> NFT Single Pages</li>
