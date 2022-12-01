@@ -216,7 +216,14 @@ function MyList() {
   if (nftList.length > 0) {
     return <>{rows}</>
   } else {
-    return <><center><i>Please connect to a wallet with NFTs or...</i><br /><br /><Link href="mint"><a className="button-mono">Mint a fresh NFT</a></Link></center></>
+    return <><center><i>{
+      active ?
+        <>
+          No NFTs owned
+        </>
+        :
+        <>Please connect to a wallet with NFTs or...</>
+    }</i><br /><br /><Link href="mint"><a className="button-mono">Mint a fresh NFT</a></Link></center></>
   }
 }
 
