@@ -231,8 +231,17 @@ export default function Nfts(props) {
       <p>NFT loan marketplace coming soon!</p>
       <br/>
       <br/>
-      <p className={styles.notation}><b className="glitchme" data-text="Thank you for contributing to Anarchist DAO">Thank you for contributing to Anarchist DAO</b></p>
-
+      <blockquote className={styles.notation}><b className="glitchme" data-text="Thank you for contributing to Anarchist DAO">Thank you for contributing to Anarchist DAO</b></blockquote>
+      <br/>
+      <ul className={styles.roadmap}>
+        <li><b>Coming soon:</b></li>
+        <li>NFT Staking</li>
+        <li>NFT Loans<br/><br/></li>
+        <li><b>Additional Features:</b></li>
+        <li><strike>400x sold: NFT List</strike></li>
+        <li><b>300x sold: </b> NFT Single Pages</li>
+        <li><b>200x sold: </b> Revealed when reach previous sales mark</li>
+      </ul>
     </>
   )
 }
