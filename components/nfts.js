@@ -251,7 +251,6 @@ export default function Nfts(props) {
       <br />
       <ul className={styles.roadmap}>
         <li><b>Coming soon:</b></li>
-        <li>NFT Staking</li>
         <li>NFT Loans<br /><br /></li>
         <li><b>Additional Features:</b></li>
         <li><strike>400x sold: NFT List</strike></li>
