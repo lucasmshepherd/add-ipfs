@@ -92,27 +92,33 @@ export default function Directory(props) {
         <ul id="menu" className={styles.menu}>
 
           <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
-            <Link className="anchor" href="/#">
-              <a onClick={soundEffect} className="comingsoon"><span>dashboard</span>{arrow}</a>
+            <Link className="anchor" href="/dapp">
+              <a onClick={soundEffect} className="new"><span>dashboard</span>{arrow}</a>
             </Link>
           </li>
 
-          <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
+          <li data-connected={connected} data-current={ widgets == "proposals" ? 'true' : 'false' }>
             <Link className="anchor" href="/#">
               <a onClick={soundEffect} className="comingsoon"><span>proposals</span>{arrow}</a>
             </Link>
           </li>
 
-          <li data-current="false">
-            <a target="_blank" rel="noreferrer" href="https://www.dextools.io/app/en/ether/pair-explorer/0x8fead6e1be5af7b5beda08688018d55079e6de35"><span>add_chart</span></a>
+          <li data-connected={connected} data-current={ widgets == "nfts" ? 'true' : 'false' }>
+            <Link className="anchor" href="/my-list">
+              <a className="new">{wallet}<span>my_NFTs</span>{arrow}</a>
+            </Link>
+          </li> 
+
+          <li data-child="true" data-current={ widgets == "mint" ? 'true' : 'false' }>
+            <Link className="anchor" href="/mint">
+              <a>{down}<span>mint</span>{arrow}</a>
+            </Link>
           </li>
 
-          <li data-current="false">
-            <a target="_blank" rel="noreferrer" href="https://etherscan.io/token/0x6542c8f90915a57314f4167b81851a3cd731c6e2"><span>smart_contract</span></a>
-          </li>
-
-          <li data-current="false">
-            <a target="_blank" rel="noreferrer" href="https://github.com/solidproof/projects/tree/main/FundAnarchy"><span>kyc_audit</span></a>
+          <li data-child="true" data-current={ widgets == "loan" ? 'true' : 'false' }>
+            <Link className="anchor" href="/loan">
+              <a className="comingsoon">{down}<span>loan</span>{arrow}</a>
+            </Link>
           </li>
 
           <li data-current={ widgets == "stake" ? 'true' : 'false' }>
@@ -136,24 +142,6 @@ export default function Directory(props) {
           <li data-current={ widgets == "withdrawal" ? 'true' : 'false' } data-dimmed="true">
             <Link className="anchor" href="/withdrawal">
               <a onClick={soundEffect}>{excl}<span>withdrawal</span>{arrow}</a>
-            </Link>
-          </li>
-
-          <li data-connected={connected} data-current={ widgets == "nfts" ? 'true' : 'false' }>
-            <Link className="anchor" href="/mint">
-              <a className="comingsoon">{wallet}<span>my_NFTs</span>{arrow}</a>
-            </Link>
-          </li> 
-
-          <li data-child="true" data-current={ widgets == "mint" ? 'true' : 'false' }>
-            <Link className="anchor" href="/mint">
-              <a className="new">{down}<span>mint</span>{arrow}</a>
-            </Link>
-          </li>
-
-          <li data-child="true" data-current={ widgets == "loan" ? 'true' : 'false' }>
-            <Link className="anchor" href="/loan">
-              <a className="comingsoon">{down}<span>loan</span>{arrow}</a>
             </Link>
           </li>
 

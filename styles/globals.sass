@@ -6,6 +6,7 @@ body
   margin: 0
   width: 100%
   height: 100%
+  overflow-x: hidden  
 
 a
   color: inherit
@@ -480,6 +481,10 @@ a.onclick
   flex: 1 0 auto
   min-height: 20px
 
+@media(max-width: 984px)
+  div#ui[data-layout="dapp"]
+    .interface_row__SIGHZ
+      display: flex
 @media(max-width: 1300px)
   div#ui[data-layout="mint"]
     .interface_row__SIGHZ
@@ -612,7 +617,7 @@ input, textarea
   position: relative
   opacity: .5
   &:after
-    //content: "v4"
+    content: "v4"
     display: inline-block
     color: rgba(255,255,255,.5)
     font-size: 16px

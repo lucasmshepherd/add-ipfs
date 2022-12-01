@@ -21,7 +21,7 @@
 
 .nft
   display: flex
-  flex-flow: row nowrap
+  flex-flow: row wrap
   justify-content: flex-start
   align-items: stretch
   border: 2px solid rgba(255,255,255,.12)
@@ -32,9 +32,9 @@
     background: $color_1
   .media
     padding: 0
-    height: 102px
-  span
+    min-height: 202px
     line-height: 0
+  span
     img
       line-height: 0
   small
@@ -43,11 +43,21 @@
     border: 1px solid $color_1
     margin: 2px 1px
   .name
-    flex: 1 0 auto
-    padding: 10px
+    flex: 1 0 200px
+    padding: 20px
+    font-size: 36px
+    color: $color_3
+    b
+      font-weight: normal
+      text-transform: uppercase
+      font-size: 16px
+      display: block
+      color: $color_4
+      line-height: 16px
+      margin-bottom: -5px
   .status
     flex: 1 0 auto
-    padding: 10px
+    padding: 20px
   h2
     margin: 0
     line-height: .6

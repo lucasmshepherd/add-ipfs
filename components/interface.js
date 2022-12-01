@@ -76,7 +76,7 @@ export default function Interface(props) {
               if ( page == "mint" ) {
                 return (
                   <>
-                    <center className={styles.backlink}><Link href="/deposit">back</Link></center>
+                    <center className={styles.backlink}><Link href="/my-list">My NFTs</Link></center>
                     <PaneRow name="primary">
                       <Widget type={page} title="nft_tier_1_" icon="triangles">
                         <MintNft tier="1" />

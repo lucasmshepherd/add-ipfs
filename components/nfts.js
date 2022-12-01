@@ -80,7 +80,7 @@ function MyList() {
             {
               key: token_id,
               "id": `${metadata[token_id].edition}`,
-              "name": `Anarchist  #${metadata[token_id].edition} ${metadata[token_id].name}`,
+              "name": `${metadata[token_id].name}`,
               "url": `/assets/images/nft/${token_id}.jpg`,
               "purchased": "2022/10",
               "staked": "",
@@ -103,6 +103,7 @@ function MyList() {
   // if (active) {
   for (let i = 0; i < list.length; i++) {
     let current = list[i]
+    let num = current.id
     let name = current.name
     let img = current.url
     let purchase = current.purchased
@@ -114,9 +115,11 @@ function MyList() {
     let item = (
       <li className={styles.nft}>
         <span className={styles.media}>
-          <Image src={img} layout="fixed" width="100" height="100" alt={name} />
+          <a href={img} target="_blank" rel="noreferrer">
+            <Image src={img} layout="fixed" width="200" height="200" alt={name} />
+          </a>
         </span>
-        <span className={styles.name}>{name}</span>
+        <span className={styles.name}><b>Anarchist #{num}</b>{name}</span>
         <span className={styles.status}>
           {(() => {
             if (borrow.length > 0) {
@@ -143,7 +146,7 @@ function MyList() {
             } else {
               return (
                 <>
-                  <p className="clean highlight"><b>Not Staked</b></p>
+                  <p className="clean highlight"><b>Not staked yet. Coming soon!</b></p>
                 </>
               )
             }
@@ -191,13 +194,13 @@ function MyList() {
                   <a href="#" className="button-mono btn-sm btn-outline pretitled">Loans</a>
                 </>
               )
-            } else {
+            }{/*} else {
               return (
                 <>
                   <a href="#" className="button-mono btn-sm">Stake Now</a>
                 </>
               )
-            }
+            }*/}
           })()}
         </span>
       </li>
@@ -213,6 +216,7 @@ function MyList() {
 export default function Nfts(props) {
   return (
     <>
+      <h2>My NFTs</h2>
       <ul className={styles.nfts}>
         {/*<li className={styles.headings}>
           <span className={styles.nfthead}>NFT</span>
@@ -223,7 +227,12 @@ export default function Nfts(props) {
         <MyList />
       </ul>
       <br/>
+      <h2>My Borrowed NFTs</h2>
+      <p>NFT loan marketplace coming soon!</p>
+      <br/>
+      <br/>
       <p className={styles.notation}><b className="glitchme" data-text="Thank you for contributing to Anarchist DAO">Thank you for contributing to Anarchist DAO</b></p>
+
     </>
   )
 }

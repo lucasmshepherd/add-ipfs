@@ -1,5 +1,4 @@
-.chart
-
+@import '/styles/variables.sass'
 
 .title
   position: absolute
@@ -10,3 +9,84 @@
   .price
     font-size: 50px
     line-height: 30px
+
+.board
+  list-style-type: none
+  margin: 0
+  padding: 0
+  display: flex
+  flex-flow: row wrap
+  justify-content: stretch
+  align-items: stretch
+  width: 100%
+  padding: 20px
+
+  @media(max-width: 984px)
+    justify-content: flex-start
+  @media(max-width: 600px)
+    flex-flow: column nowrap
+    align-items: center
+
+  li
+    flex: 1 0 33%
+    padding: 20px
+    position: relative
+    @media(max-width: 984px)
+      min-height: 400px
+      padding: 10px
+    @media(max-width: 600px)
+      width: 100%
+      min-height: 600px
+      //max-width: 300px
+
+    .label
+      position: absolute
+      top: 26px
+      left: 32px
+      z-index: 3
+      display: inline-block
+      color: $color_3
+      font-size: 18px
+
+      svg
+        width: 8px
+        fill: $color_3
+    
+    a
+      height: 100%
+      position: relative
+      display: block
+      border: 2px solid $color_2
+      display: flex
+      flex-flow: row nowrap
+      justify-content: center
+      align-items: center
+      background-size: cover
+      background-position: 50% 0
+      transition: border-color 0.3s
+      &:hover,
+      &:active
+        border-color: $color_3
+      &:before
+        content: ""
+        position: absolute
+        background-color: transparentize($color_1, .25)
+        top: 0
+        right: 0
+        left: 0
+        bottom: 0
+        z-index: 1
+      span
+        display: inline-block
+        z-index: 2
+        font-size: 16px
+        font-family: $font_scifi
+        text-shadow: 0 2px 0 $color_1
+        width: 100%
+        background: linear-gradient(0deg, $color_1, lighten($color_1, 3%))
+        text-align: center
+        padding: 5px 0
+        box-shadow: 0 2px 0 $color_2
+        @media(max-width: 700px)
+          font-size: 12px
+

@@ -557,8 +557,8 @@ export default class Chart extends React.Component {
       },
     });
     
-    document.getElementById('chart').appendChild(chartElement);
-    document.getElementById('chart').appendChild(switcherElement);
+    //document.getElementById('chart').appendChild(chartElement);
+    //document.getElementById('chart').appendChild(switcherElement);
     
     var areaSeries = null;
     
@@ -577,17 +577,46 @@ export default class Chart extends React.Component {
     }
     
     syncToInterval(intervals[0]);
+
   }
 
-  render () {
+  render () {   
+
+    function getNumber(min, max) {
+      var output = Math.floor(Math.random() * (max - min) + min)
+      var s = "000" + output
+      return s.substr(s.length - 4)
+    }
+
+    let cell1 = getNumber(1,9)
+    let cell2 = getNumber(10,18)
+    let cell3 = getNumber(19,27)
+    const exlink = (<svg className="icon-xlink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 135"><rect y="120" width="15" height="15"/><rect x="15" y="105" width="15" height="15"/><rect x="30" y="90" width="15" height="15"/><rect x="45" y="75" width="15" height="15"/><rect x="60" y="60" width="15" height="15"/><rect x="75" y="45" width="15" height="15"/><rect x="90" y="30" width="15" height="15"/><polygon points="135 0 135 60 120 60 120 30 105 30 105 14.99 75 14.99 75 0 135 0"/></svg>)
+    
     return (
       <> 
         <div className={styles.chart} id="chart">
           <div className={styles.title}>
-            <span className={styles.name}>ADD Price</span>
-            <span className={styles.price}>LOADING</span>
+            {/*<span className={styles.name}>ADD Price</span>
+            <span className={styles.price}>Chart coming soon!</span>*/}
           </div>
         </div>
+        <ul className={styles.board}>
+          <li data-current="false">
+            <span className={styles.label}>{exlink} dextools</span>
+            <a target="_blank" rel="noreferrer" href="https://www.dextools.io/app/en/ether/pair-explorer/0x8fead6e1be5af7b5beda08688018d55079e6de35" style={{backgroundImage: "url(/assets/images/gifs/" + cell1 + ".gif)"}}><span>chart</span></a>
+          </li>
+
+          <li data-current="false">
+            <span className={styles.label}>{exlink} etherscan</span>
+            <a target="_blank" rel="noreferrer" href="https://etherscan.io/token/0x6542c8f90915a57314f4167b81851a3cd731c6e2" style={{backgroundImage: "url(/assets/images/gifs/" + cell2 + ".gif)"}}><span>smart contract</span></a>
+          </li>
+
+          <li data-current="false">
+            <span className={styles.label}>{exlink} github</span>
+            <a target="_blank" rel="noreferrer" href="https://github.com/solidproof/projects/tree/main/FundAnarchy" style={{backgroundImage: "url(/assets/images/gifs/" + cell3 + ".gif)"}}><span>kyc audit</span></a>
+          </li>
+        </ul>
       </>
     )
   }
