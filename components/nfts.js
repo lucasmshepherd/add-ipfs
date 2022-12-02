@@ -158,7 +158,7 @@ function MyList() {
         </li>
         <div className={styles.staking}>
           {(() => {
-              if ( loan.length > 0 && loan[0].claimable ) {
+              if (loan.length > 0) {
                 return (
                   <>
                     <div className={styles.stakerow}>
@@ -166,7 +166,7 @@ function MyList() {
                     </div>
                   </>
                 )
-              } else if ( loan.length > 0 ) {
+              } else if (loan.length > 0) {
                 return (
                   <>
                     <div className={styles.stakerow}>
@@ -187,10 +187,10 @@ function MyList() {
                   <>
                     <div className={styles.stakerow}>
                       <span><i>Available for proposals</i></span><a href="#" className="button-mono btn-outline btn-sm">Submit Proposal</a>
-                    </div>
+                    </div> 
                   </>
                 )
-              } else if (!stake) {
+              } else if (stake) {
                 return (
                   <>
                     <div className={styles.stakerow}>

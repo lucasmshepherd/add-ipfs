@@ -104,6 +104,17 @@ export default function Interface(props) {
               }
             })()}
             {(() => {
+              if ( page == "loan" ) {
+                return (
+                  <PaneRow name="primary">
+                    <Widget type={page} title="my_nft_list_" icon="triangles">
+                      <Nfts />
+                    </Widget>
+                  </PaneRow>
+                )
+              }
+            })()}
+            {(() => {
               if ( page == "stake" ) {
                 return (
                   <>
