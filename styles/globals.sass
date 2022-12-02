@@ -364,6 +364,8 @@ a.onclick
   text-shadow: none
   cursor: pointer
   border-radius: 1px
+  &.btn-full
+    height: 100%
   &.btn-sm
     max-width: 240px
   &.pretitled:before
@@ -519,7 +521,7 @@ label
   a
     color: #fff
 
-input, textarea
+input, textarea, select
   background: $color_dark
   padding: 10px
   font-size: 26px
@@ -631,3 +633,7 @@ input, textarea
     font-size: 16px
     padding-left: 5px
     color: $color_4
+
+ul.checked
+  padding: 0
+  list-style-type: none

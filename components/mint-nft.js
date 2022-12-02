@@ -760,9 +760,8 @@ export default function MintNft(props) {
         <div className={styles.content}>
           <div className={styles.price} id="price">
             {count * price} ETH
-            <span>{usdPrice}</span>
+            <span>PLUS GAS</span><br/>
           </div>
-          <p className={styles.gas}>+ GAS FEE +<br/><br/></p>
           {
               active ? 
                 <>
@@ -788,22 +787,28 @@ export default function MintNft(props) {
                         <p style={{color:'red'}}>{error}</p>
                       </div>
                       {approveTokensBtn ?
-                        <a className="button-mono button-fill push-right" onClick={approveFun}>APPROVE TOKENS</a>
-                        :
-                        <>
-                          {mintEnableBtn ?
-                            <a className="button-mono button-fill push-right" onClick={mintEnableFun}>ENABLE MINT</a>
-                            :
-                            <>
-                              {mintLive ?
-                                <a className="button-mono button-fill push-right" onClick={mintbtn}>PURCHASE NFT</a>
-                                :
-                                <a className="button-mono button-fill push-right" disabled={true}>{mintStatusText}</a>
-                              }
-                            </>
-                          }
-                        </>
-                      }
+                          <a className="button-mono button-fill push-right" onClick={approveFun}>APPROVE TOKENS</a>
+                          :
+                          <>
+                            {mintEnableBtn ?
+                              <>
+                                <a className="button-mono button-fill push-right" onClick={mintEnableFun}>ENABLE MINT</a>
+                                <small className={styles.gas}>One-time fee 1,000,000 ADD</small>
+                              </>
+                              :
+                              <>
+                                {mintLive ?
+                                  <>
+                                    <a className="button-mono button-fill push-right" onClick={mintbtn}>PURCHASE NFT</a>
+                                    <small className={styles.gas}>Need 1,000,000 ADD in wallet</small>
+                                  </>
+                                  :
+                                  <a className="button-mono button-fill push-right" disabled={true}>{mintStatusText}</a>
+                                }
+                              </>
+                            }
+                          </>
+                        }
                     </div>
                   {/* } */}
                 </>
