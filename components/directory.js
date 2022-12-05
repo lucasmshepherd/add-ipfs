@@ -58,7 +58,7 @@ export default function Directory(props) {
   const num = (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 135"><rect y="30" width="15" height="75"/><rect x="30.62" width="74.38" height="15"/><rect x="120" y="30" width="15" height="75"/><rect x="30.34" y="120" width="74.66" height="15"/><rect x="105" y="105" width="15" height="15"/><rect x="105" y="15" width="15" height="15"/><rect x="15" y="15" width="15" height="15"/><rect x="15" y="105" width="15" height="15"/><rect x="45" y="45" width="15" height="45"/><rect x="75" y="45" width="15" height="45"/><rect x="60" y="75" width="15" height="15"/><rect x="60" y="45" width="15" height="15"/><rect x="30" y="45" width="15" height="15"/><rect x="45" y="30" width="15" height="15"/><rect x="75" y="30" width="15" height="15"/><rect x="90" y="45" width="15" height="15"/><rect x="90" y="75" width="15" height="15"/><rect x="75" y="90" width="15" height="15"/><rect x="45" y="90" width="15" height="15"/><rect x="30" y="75" width="15" height="15"/></svg>)
   const excl = (<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 135"><rect y="30" width="15" height="75"/><rect x="30.62" width="74.38" height="15"/><rect x="120" y="30" width="15" height="75"/><rect x="30.34" y="120" width="74.66" height="15"/><rect x="105" y="105" width="15" height="15"/><rect x="105" y="15" width="15" height="15"/><rect x="15" y="15" width="15" height="15"/><rect x="15" y="105" width="15" height="15"/><rect x="60" y="30" width="15" height="45"/><rect x="60" y="90" width="15" height="15"/></svg>)
 
-  if(widgets == 'freedom' || widgets == 'system' || widgets == 'need') {
+  if(widgets == 'freedom' || widgets == 'system' || widgets == 'need' || widgets == 'howtobuy') {
     return (
       <> 
         <ul id="menu" className={styles.menu}>
@@ -117,7 +117,7 @@ export default function Directory(props) {
 
           <li data-connected={connected} data-child="true" data-current={ widgets == "loan" ? 'true' : 'false' }>
             <Link className="anchor" href="/loan">
-              <a className="comingsoon">{down}<span>loan</span>{arrow}</a>
+              <a>{down}<span>loan</span>{arrow}</a>
             </Link>
           </li>
 
@@ -190,7 +190,7 @@ export default function Directory(props) {
               <a onClick={soundEffect}>{down}<span>delegate_votes</span>{arrow}</a>
             </Link>
           </li>
-
+                                                                                                               
         </ul>
       </>
     )
@@ -295,25 +295,25 @@ export default function Directory(props) {
 
           <li>
             <a onClick={soundEffect} className="anchor white-icon" target="_blank" rel="noreferrer" href="https://docs.fundanarchy.io">
-              <span>anarchist_docs</span>
+              <span>_docs</span>
             </a>
           </li>
 
           <li className={styles.sitego} data-current={ widgets == "manifesto" ? 'true' : 'false' }>
             <Link className="anchor" href="/manifesto">
-              <a onClick={soundEffect}><span>anarchist_manifesto</span>{arrow}</a>
+              <a onClick={soundEffect}><span>_manifesto</span>{arrow}</a>
             </Link>
           </li>
 
           <li className={styles.sitego} data-current={ widgets == "tv" ? 'true' : 'false' }>
             <Link className="anchor" href="/tv">
-              <a onClick={soundEffect}><span>anarchist_vision</span>{arrow}</a>
+              <a onClick={soundEffect}><span>_vision</span>{arrow}</a>
             </Link>
           </li>
 
           <li className={styles.sitego} data-current={ widgets == "training" ? 'true' : 'false' }>
             <Link className="anchor" href="/training">
-              <a onClick={soundEffect}><span>anarchist_education</span>{arrow}</a>
+              <a onClick={soundEffect}><span>_education</span>{arrow}</a>
             </Link>
           </li>
 

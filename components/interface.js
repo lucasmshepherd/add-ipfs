@@ -229,6 +229,18 @@ export default function Interface(props) {
                 </video>
                 </Widget>
               </PaneRow>
+            } {/* howtobuy */} { 
+            page == "howtobuy" &&
+              <PaneRow name="primary">
+                <Widget type="video" title="howtobuy_" icon="triangles">
+                <video style={{ width: '100%', height: '100%', position: 'absolute' }} controls autoPlay preload="auto">
+                  <source src="/assets/video/howtobuadd.mp4" type="video/mp4"/>
+                  <source src="/assets/video/howtobuyadd.webm" type="video/webm"/>
+                  <source src="/assets/video/howtobuyadd.ogg" type="video/ogg"/>
+                  Your browser does not support the video tag.
+                </video>
+                </Widget>
+              </PaneRow>
             } {/* system */} { 
             page == "system" &&
               <PaneRow name="primary">
@@ -289,7 +301,7 @@ export default function Interface(props) {
                     </Widget>
                   </PaneRow>
                 )
-              } else if ( page == "freedom" || page == "system" || page == "need" ) { // Media Files
+              } else if ( page == "freedom" || page == "system" || page == "need" || page == "howtobuy" ) { // Media Files
                 return (
                   <PaneRow name="fill">
                     <Widget type="files" title="files_" icon="triangles">
