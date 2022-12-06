@@ -14,8 +14,8 @@ export default function Donations(props) {
           <label>Proposal ID <a href="#" style={{float: "right"}}>view</a></label>
           <input type="text" name="propnumber" placeholder="0000000" value="000001" disabled />
           <div className={styles.stats}>
-            <p><span>Yes</span><b id="voteyes">312</b></p>
-            <p><span>No</span><b id="voteno">110</b></p>
+            <p><span>Yes</span><b id="voteyes">30</b></p>
+            <p><span>No</span><b id="voteno">10</b></p>
           </div>
           <div className={styles.buttons}>
             <p><a className="button-mono disabled" href="#">Approve</a></p>
