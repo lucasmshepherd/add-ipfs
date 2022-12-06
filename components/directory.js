@@ -93,19 +93,19 @@ export default function Directory(props) {
 
           <li data-current={ widgets == "dapp" ? 'true' : 'false' }>
             <Link className="anchor" href="/dapp">
-              <a onClick={soundEffect} className="new"><span>dashboard</span>{arrow}</a>
+              <a onClick={soundEffect}><span>dashboard</span>{arrow}</a>
             </Link>
           </li>
 
           <li data-connected={connected} data-current={ widgets == "proposals" ? 'true' : 'false' }>
             <Link className="anchor" href="/#">
-              <a onClick={soundEffect} className="comingsoon"><span>proposals</span>{arrow}</a>
+              <a onClick={soundEffect}>{wallet}<span className="soon">proposals</span>{arrow}</a>
             </Link>
           </li>
 
           <li data-connected={connected} data-current={ widgets == "nfts" ? 'true' : 'false' }>
             <Link className="anchor" href="/my-list">
-              <a className="new">{wallet}<span>my_NFTs</span>{arrow}</a>
+              <a>{wallet}<span>my_NFTs</span>{arrow}</a>
             </Link>
           </li> 
 
@@ -117,7 +117,7 @@ export default function Directory(props) {
 
           <li data-connected={connected} data-child="true" data-current={ widgets == "loan" ? 'true' : 'false' }>
             <Link className="anchor" href="/loan">
-              <a>{down}<span>loan</span>{arrow}</a>
+              <a>{down}<span className="soon">loan</span>{arrow}</a>
             </Link>
           </li>
 
@@ -265,7 +265,7 @@ export default function Directory(props) {
 
           <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
             <Link className="anchor" href="/transition_mint">
-              <a onClick={dappEffect}><span>mint_NFT</span>{arrow}</a>
+              <a onClick={dappEffect}><span>my_NFTs</span>{arrow}</a>
             </Link>
           </li>
 
@@ -283,9 +283,15 @@ export default function Directory(props) {
             </Link>
           </li>
 
+          <li data-current={ widgets == "roadmap" ? 'true' : 'false' }>
+            <Link className="anchor white-icon" href="/roadmap">
+              <a onClick={soundEffect}><span className="new">dev_roadmap</span>{arrow}</a>
+            </Link>
+          </li>
+
           <li data-current={ widgets == "about" ? 'true' : 'false' }>
             <Link className="anchor" href="/about">
-              <a onClick={soundEffect}><span>dapp_support</span>{arrow}</a>
+              <a onClick={soundEffect}><span>dev_support</span>{arrow}</a>
             </Link>
           </li>
 

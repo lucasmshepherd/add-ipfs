@@ -9,6 +9,7 @@ import TerminalPending from './terminal-pending.js'
 import TerminalClosed from './terminal-closed.js'
 import Terminal from './terminal.js'
 import Directory from './directory.js'
+import Admin from './admin.js'
 import Report from './report.js'
 import Social from './social.js'
 import MintNft from './mint-nft.js'
@@ -16,6 +17,7 @@ import Announcements from './discord-announcements.js'
 import Members from './discord-members.js'
 import Feed from './feed.js'
 import Manifesto from './manifesto.js'
+import Roadmap from './upcoming.js'
 //import Donations from './donations.js'
 import About from './about.js'
 import Donations2 from './donations2.js'
@@ -89,6 +91,17 @@ export default function Interface(props) {
                       </Widget>
                     </PaneRow>
                   </>
+                )
+              }
+            })()}
+            {(() => {
+              if ( page == "admin" ) {
+                return (
+                  <PaneRow name="primary">
+                    <Widget type="report" title="admin_" icon="triangles"  scroll="true">
+                      <Admin page={page} />
+                    </Widget>
+                  </PaneRow>
                 )
               }
             })()}
@@ -176,6 +189,13 @@ export default function Interface(props) {
               <PaneRow name="primary">
                 <Widget type={page} title="manifesto_" icon="triangles" page="true" scroll="true">
                   <Manifesto />
+                </Widget>
+              </PaneRow>
+            } {/* roadmap */} { 
+            page == "roadmap" &&
+              <PaneRow name="primary">
+                <Widget type={page} title="roadmap_" icon="triangles" page="true" scroll="true">
+                  <Roadmap />
                 </Widget>
               </PaneRow>
             } {/* tv */} { 
