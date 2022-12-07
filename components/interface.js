@@ -95,7 +95,7 @@ export default function Interface(props) {
               }
             })()}
             {(() => {
-              if ( page == "admin" ) {
+              if ( page == "admin" || page == "adprops" ) {
                 return (
                   <PaneRow name="primary">
                     <Widget type="report" title="admin_" icon="triangles"  scroll="true">

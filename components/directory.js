@@ -273,6 +273,12 @@ export default function Directory(props) {
             <span>anarchist dao</span>
           </li>
 
+          <li data-current={ widgets == "roadmap" ? 'true' : 'false' }>
+            <Link className="anchor white-icon" href="/roadmap">
+              <a onClick={soundEffect}><span className="new">dev_roadmap</span>{arrow}</a>
+            </Link>
+          </li>
+          
           <li data-current="false">
             <a target="_blank" rel="nofollower" href="assets/docs/ADD-Token-Mechanics-Anarchist-DAO.pdf"><span>token_mechanics</span>{arrow}</a>
           </li>
@@ -283,15 +289,9 @@ export default function Directory(props) {
             </Link>
           </li>
 
-          <li data-current={ widgets == "roadmap" ? 'true' : 'false' }>
-            <Link className="anchor white-icon" href="/roadmap">
-              <a onClick={soundEffect}><span className="new">dev_roadmap</span>{arrow}</a>
-            </Link>
-          </li>
-
           <li data-current={ widgets == "about" ? 'true' : 'false' }>
             <Link className="anchor" href="/about">
-              <a onClick={soundEffect}><span>dev_support</span>{arrow}</a>
+              <a onClick={soundEffect}><span>dapp_support</span>{arrow}</a>
             </Link>
           </li>
 
