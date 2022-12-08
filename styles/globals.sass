@@ -33,32 +33,42 @@ a
     border-radius: 2px
     transition: background 0.3s, color 0.3s
     background: $color_dark
+    box-shadow: 0 0 3px 3px transparentize($color_3,.85), inset 0 0 3px 3px transparentize($color_3,.85)
 
   &:hover
     span.highlight
-      background: $color_4
+      background: $color_3
       color: $color_dark
   &:active
     span.highlight
-      background: $color_3
+      background: lighten($color_3, 15%)
       color: $color_dark
 
 *
   box-sizing: border-box
 
-.container
+.container,
+#page
   width: 100%
   max-width: 1440px
   margin-left: auto
   margin-right: auto
-  
-main
-  height: calc(100vh - 130px)
+
+#page
+  height: 100vh
   display: flex
   flex-flow: column nowrap
   justify-content: flex-start
   align-items: stretch
   align-content: stretch
+  
+main
+  display: flex
+  flex-flow: column nowrap
+  justify-content: flex-start
+  align-items: stretch
+  align-content: stretch
+  flex: 1 0 auto
 
   & > *
     flex: 1 0 auto
@@ -348,6 +358,12 @@ a.onclick
   color: #fff
   text-transform: lowercase
 
+.formrow
+  display: flex
+  flex-flow: row nowrap
+  justify-content: flex-start
+  align-items: stretch
+
 .button-mono,
 .swal-button
   color: #fff
@@ -372,6 +388,12 @@ a.onclick
   text-shadow: none
   cursor: pointer
   border-radius: 1px
+  &.btn-inline
+    display: inline-block
+    min-width: none
+    width: auto
+    padding-top: 20px
+    height: 42px
   &.btn-full
     height: 100%
   &.btn-sm
@@ -396,6 +418,8 @@ a.onclick
       background-color: lighten($color_3, 12%) !important
   &.btn-warning
     background: #af3535
+  &.btn-warning,
+  &.btn-outline-warning
     &:active
       background-color: lighten(#af3535, 2%) !important
     &:hover
@@ -533,6 +557,7 @@ input, textarea, select
   background: $color_dark
   padding: 10px
   font-size: 26px
+  line-height: 1.2
   color: #fff
   font-family: $font_mono
   width: 100%

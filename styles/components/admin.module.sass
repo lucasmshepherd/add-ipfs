@@ -14,20 +14,34 @@
     padding: 10px
     margin: 0 2px 30px
     border-radius: 3px
+    position: relative
+    border: 2px solid transparent
     &:nth-child(2)
       border-color: $color_error
+      span,
+      b
+        color: $color_error
     span
-      display: block
-      font-size: 30px
-      line-height: 30px
-      &:before
-        content: "Vote for "
+      display: inline-block
+      font-size: 20px
+      line-height: 20px
+      text-transform: uppercase
+      position: absolute
+      top: 0
+      left: 8px
+      color: $color_2
     b
       font-size: 48px
       line-height: 48px
-      padding: 5px 10px
+      padding: 5px 10px 5px 28px
       border-radius: 4px
       background: transparentize($color_dark, .5)
+      display: block
+      margin-bottom: -15px
+      color: $color_2
+    i
+      opacity: .3 
+      font-style: normal
 
     a
       margin: 0 auto
@@ -46,3 +60,6 @@
     border-radius: 3px
     a
       max-width: 100%
+
+.outline
+  border: 2px solid $color_3
