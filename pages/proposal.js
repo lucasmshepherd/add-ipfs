@@ -7,7 +7,7 @@ const Index = (props) => {
       <Head>
         <title>Anarchy dApp - Proposals</title>
       </Head>
-      <Interface page="proposals" />
+      <Interface page="proposal" />
     </>
   )
 }

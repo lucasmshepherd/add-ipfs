@@ -10,6 +10,7 @@ import TerminalClosed from './terminal-closed.js'
 import Terminal from './terminal.js'
 import Directory from './directory.js'
 import Admin from './admin.js'
+import Proposal from './submission.js'
 import Report from './report.js'
 import Social from './social.js'
 import MintNft from './mint-nft.js'
@@ -100,6 +101,17 @@ export default function Interface(props) {
                   <PaneRow name="primary">
                     <Widget type="report" title="admin_" icon="triangles"  scroll="true">
                       <Admin page={page} />
+                    </Widget>
+                  </PaneRow>
+                )
+              }
+            })()}
+            {(() => {
+              if ( page == "proposal" ) {
+                return (
+                  <PaneRow name="primary">
+                    <Widget type="report" title="admin_" icon="triangles"  scroll="true">
+                      <Proposal page={page} />
                     </Widget>
                   </PaneRow>
                 )
