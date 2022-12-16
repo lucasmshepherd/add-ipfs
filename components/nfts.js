@@ -158,7 +158,7 @@ function MyList() {
 
           <div className={styles.staking}>
             {(() => {
-              if (loan.length > 0) {
+              if (loan.length > 0) { 
                 return (
                   <>
                     <div className={styles.stakerow}>
