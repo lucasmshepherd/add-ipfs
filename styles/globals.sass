@@ -9,7 +9,7 @@ body
   overflow-x: hidden  
 
 a
-  color: inherit
+  color: $color_3
   text-decoration: none
 
 p
@@ -19,8 +19,15 @@ p
 p.highlight
   color: #fff
 
+.no-top-margin
+  margin-top: 0
+
+.no-bot-margin
+  margin-bottom: 0
+
 a 
-  span.highlight
+  span.highlight,
+  span.highlight-secondary
     border: 1px solid $color_3
     color: $color_3
     width: 100%
@@ -30,32 +37,46 @@ a
     border-radius: 2px
     transition: background 0.3s, color 0.3s
     background: $color_dark
-
+    box-shadow: 0 0 3px 3px transparentize($color_3,.85), inset 0 0 3px 3px transparentize($color_3,.85)
+  span.highlight-secondary
+    border: 1px solid $color_4
+    color: $color_4
   &:hover
-    span.highlight
-      background: $color_4
+    span.highlight,
+    span.highlight-secondary
+      background: $color_3
       color: $color_dark
   &:active
-    span.highlight
-      background: $color_3
+    span.highlight,
+    span.highlight-secondary
+      background: lighten($color_3, 15%)
       color: $color_dark
 
 *
   box-sizing: border-box
 
-.container
+.container,
+#page
   width: 100%
   max-width: 1440px
   margin-left: auto
   margin-right: auto
-  
-main
-  height: calc(100vh - 130px)
+
+#page
+  height: 100vh
   display: flex
   flex-flow: column nowrap
   justify-content: flex-start
   align-items: stretch
   align-content: stretch
+  
+main
+  display: flex
+  flex-flow: column nowrap
+  justify-content: flex-start
+  align-items: stretch
+  align-content: stretch
+  flex: 1 0 auto
 
   & > *
     flex: 1 0 auto
@@ -121,6 +142,18 @@ h1,h2,h3,h4,h5,h6
   color: $color_4
   margin-top: 30px
   margin-bottom: 20px
+
+h2
+  color: #fff
+  &:first-child
+    margin-top: 0
+
+h3
+  font-size: 30px
+  margin-top: 10px
+
+h2 + h3
+  margin-top: 0px
 
 blockquote
   background: transparent
@@ -337,12 +370,23 @@ body.screener a.header_icon__Ss1uo
   &:active
     background: $color_1
 
+.disabled
+  opacity: .5
+  pointer-events: none
+
 a.onclick
   color: #fff
   text-transform: lowercase
 
+.formrow
+  display: flex
+  flex-flow: row nowrap
+  justify-content: flex-start
+  align-items: stretch
+
 .button-mono,
 .swal-button
+  color: #fff
   background-color: $color_1
   border: 1px solid $color_1
   position: relative
@@ -356,6 +400,7 @@ a.onclick
   padding-top: 28px
   padding-right: 16px
   padding-bottom: 6px
+  padding-left: 10px
   text-transform: uppercase
   font-family: $font_scifi
   font-size: 11px
@@ -364,6 +409,14 @@ a.onclick
   text-shadow: none
   cursor: pointer
   border-radius: 1px
+  &.btn-inline
+    display: inline-block
+    min-width: none
+    width: auto
+    padding-top: 20px
+    height: 42px
+  &.btn-full
+    height: 100%
   &.btn-sm
     max-width: 240px
   &.pretitled:before
@@ -386,6 +439,8 @@ a.onclick
       background-color: lighten($color_3, 12%) !important
   &.btn-warning
     background: #af3535
+  &.btn-warning,
+  &.btn-outline-warning
     &:active
       background-color: lighten(#af3535, 2%) !important
     &:hover
@@ -393,6 +448,12 @@ a.onclick
 
   &.button-fill
     max-width: none
+    background: #fff
+    color: $color_dark
+    &:active
+      background-color: $color_3 !important
+    &:hover
+      background-color: lighten($color_3, 4%) !important
 
   svg
     fill: $color_5
@@ -519,10 +580,11 @@ label
   a
     color: #fff
 
-input, textarea
+input, textarea, select
   background: $color_dark
   padding: 10px
   font-size: 26px
+  line-height: 1.2
   color: #fff
   font-family: $font_mono
   width: 100%
@@ -545,13 +607,13 @@ input, textarea
   padding: 3px 5px
 
 #purchase
-  margin-top: 10px
-
   a
     background: none!important
+    margin: 15px 5px 0
 .swal-overlay
 
-
+#nolink
+  cursor: default !important
 .swal-modal
   background: lighten($color_1, 2%)
   position: fixed
@@ -631,3 +693,60 @@ input, textarea
     font-size: 16px
     padding-left: 5px
     color: $color_4
+
+label
+  a
+    color: $color_3
+
+.soon
+  position: relative
+  color: $color_2
+  svg
+    fill: $color_2
+  &:after
+    content: "v4"
+    font-style: italic
+    display: inline-block
+    font-size: 16px
+    padding-left: 5px
+    color: $color_2
+
+ul.checked
+  padding: 0
+  list-style-type: none
+
+#ui[data-layout="mint"]
+  #treasuryBalance
+    background: $color_1
+
+#ui[data-layout="mint"]
+  #treasuryBalance
+    background: $color_1
+
+#ui[data-layout="adprops"],
+#ui[data-layout="proposal"],
+#ui[data-layout="loan"]
+  &:after
+    content: "This is a demo.  Please send any feedback or issues in Discord.  Thanks!"
+    position: fixed
+    bottom: 0
+    left: 0
+    right: 0
+    padding: 20px 10px
+    font-style: italic
+    background: $color_5
+    z-index: 9999999
+    text-align: center
+    font-size: 16px
+    text-shadow: 0 2px 3px rgba(0,0,0,.4)
+    animation: 15s gradchange infinite
+
+@keyframes gradchange
+  0%
+    background-color: $color_5
+  33%
+    background-color: $color_2
+  66%
+    background-color: $color_dark
+  100%
+    background-color: $color_5

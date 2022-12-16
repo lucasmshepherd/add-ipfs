@@ -5,12 +5,8 @@
   height: 100%
   max-width: 100%
   position: relative
-  padding-bottom: 30px
+  padding-bottom: 10px
   //padding-bottom: 30px
-  &[data-layout="mint"]
-    aside
-      @media(min-width: 701px)
-        display: none
   &[data-layout]
     display: flex
     flex-flow: row nowrap
@@ -94,3 +90,9 @@
 
 .backlink
   font-family: $font_scifi
+  display: none
+  a
+    color: #fff
+    &:hover,
+    &:active
+      color: $color_3

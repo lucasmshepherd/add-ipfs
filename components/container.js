@@ -5,3 +5,11 @@ export default function Container(props) {
     </div>
   )
 }
+
+export function Page(props) {
+  return (
+    <div id="page">
+      {props.children}
+    </div>
+  )
+}

@@ -63,48 +63,29 @@ export default function Report(props) {
   return (
     <> 
       <div className={styles.table}>
-            {(() => {
-              if ( page == "stake" || page == "deposit" || page == "withdrawal" || page == "claim" ) {
-                return (
-                  <>
-                    {/*<div className={styles.row}>
-                      <div className={styles.cell}><h4>ADD_price</h4><span>{active ? addPrice.toFixed(2) : lock}</span></div>
-                    </div>
-                    <div className={styles.row}>
-                      <div className={styles.cell}><h4>APR</h4><span>{active ? apRate + "%" : lock}</span></div>
-                    </div>*/} 
-                    <div className={styles.row}>
-                      <div className={styles.cell}><h4>total_staked</h4><span>{active ? numberWithCommas(totalStaked.toFixed(2)) + " ADD" : lock}</span></div>
-                    </div>
-                  </>
-                )
-              }
-            })()}
-        { page == "dapp" &&
-          <>
-            {/*<div className={styles.row}>
-              <div className={styles.cell}><h4>days_since_launch</h4><span>{active ? daySinceLaunch : lock}</span></div>
-            </div>
-            <div className={styles.row}>
-              <div className={styles.cell}><h4>projects_funded_in_ETH</h4><span>{active ? projectsFunded : lock}</span></div>
-            </div>
-            <div className={styles.row}>
-              <div className={styles.cell}><h4>anarchist_wallet_count</h4><span>{active ? walletCount : lock}</span></div>
-            </div>
-            <div className={styles.row}>
-              <div className={styles.cell}><h4>marketcap</h4><span>{active ? marketCap.toFixed(2) : lock}</span></div>
-            </div>*/}
-            <div className={styles.row}>
-              <div className={styles.cell}><h4>total_staked</h4><span>{active ? numberWithCommas(totalStaked.toFixed(2)) + " ADD" : lock}</span></div>
-            </div>
-            {/*<div className={styles.row}>
-              <div className={styles.cell}><h4>total_eth_sent</h4><span>{active ? ethSent : lock}</span></div>
-            </div>*/}
-            <div className={styles.row}>
-              <div className={styles.cell}><h4>treasury_balance</h4><span>{active ? numberWithCommas(treasuryBalance.toFixed(2)) + " ETH" : lock}</span></div>
-            </div>
-          </>
-        }
+        <>
+          {/*<div className={styles.row}>
+            <div className={styles.cell}><h4>days_since_launch</h4><span>{active ? daySinceLaunch : lock}</span></div>
+          </div>
+          <div className={styles.row}>
+            <div className={styles.cell}><h4>projects_funded_in_ETH</h4><span>{active ? projectsFunded : lock}</span></div>
+          </div>
+          <div className={styles.row}>
+            <div className={styles.cell}><h4>anarchist_wallet_count</h4><span>{active ? walletCount : lock}</span></div>
+          </div>
+          <div className={styles.row}>
+            <div className={styles.cell}><h4>marketcap</h4><span>{active ? marketCap.toFixed(2) : lock}</span></div>
+          </div>*/}
+          <div className={styles.row} id="treasuryBalance">
+            <div className={styles.cell}><h4>treasury_balance</h4><span>{active ? numberWithCommas(treasuryBalance.toFixed(2)) + " ETH" : lock}</span></div>
+          </div>
+          <div className={styles.row} id="totalStaked">
+            <div className={styles.cell}><h4>total_staked</h4><span>{active ? numberWithCommas(totalStaked.toFixed(2)) + " ADD" : lock}</span></div>
+          </div>
+          {/*<div className={styles.row}>
+            <div className={styles.cell}><h4>total_eth_sent</h4><span>{active ? ethSent : lock}</span></div>
+          </div>*/}
+        </>
       </div>
     </>
   )

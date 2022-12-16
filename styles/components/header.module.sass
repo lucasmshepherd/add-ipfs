@@ -15,8 +15,15 @@
   width: 100%
   background: transparentize(#050505, 0.5)
   z-index: 999
+  &:before
+    content: ""
+    height: 2px
+    width: 100%
+    position: absolute
+    background-color: $color_dark
+    //box-shadow: 0 3px 12px #fee500
 
-  @media (max-width: 984px)
+  @media (max-width: 800px)
     height: 47px
     background: $color_dark
 
@@ -27,12 +34,17 @@
   transform: translateX(-50%)
   width: 255px
   height: 50px
-  @media(max-width: 984px)
-    left: 100%
+
+  .icon
+    position: absolute !important
+    top: -5px !important
+    left: 50%
+    margin-left: -29px!important
+
 
 .tabg
   fill: transparentize(#050505, 0.5)
-  @media(max-width: 984px)
+  @media(max-width: 800px)
     fill: $color_dark
 
 .addbar
@@ -43,7 +55,7 @@
   align-content: stretch
   height: 80px
   padding: 0 10px
-  @media(max-width: 984px)
+  @media(max-width: 800px)
     height: 108px
 
 .logo
@@ -57,34 +69,17 @@
 
 .mobicon
   position: absolute
-  top: 10px
-  left: 65px
+  top: 75px
+  right: 15px
   display: inline-block
   font-size: 12px
   line-height: 14px
   font-family: $font_scifi
   cursor: pointer
   user-select: none
-  @media(min-width: 984px)
+  color: #fff
+  @media(min-width: 800px)
     display: none
-
-.icon
-  position: absolute
-  left: 50%
-  top: 50%
-  text-align: center
-  transform: translate(-50%, -50%)
-  svg
-    width: 48px
-    height: 48px
-  span:nth-child(2) 
-    display: none!important
-  @media(max-width: 984px)
-    //cursor: pointer
-  @media(max-width: 984px)
-    margin-left: -18%
-    display: none!important
-
 
 .logout,
 .login
@@ -109,8 +104,8 @@
     left: 50%
     transform: translate(-50%,-50%)
     transition: 0.3s fill
-  @media (max-width: 984px)
-    position: fixed
+  @media (max-width: 800px)
+    position: absolute
     top: 0
     right: 3px
     z-index: 99999
@@ -127,13 +122,15 @@
       fill: $color_3
 
 .login
-  background-color: $color_1
+  background-color: $color_3
+  svg
+    fill: $color_dark
   &:hover
-    background-color: $color_2
+    background-color: $color_4
   &:active
-    background-color: $color_5
+    background-color: #fff
     svg
-      fill: #fff
+      fill: $color_2
 
 .balance
   //background: url('/assets/images/add-logo.svg') no-repeat 93% 50%
@@ -174,22 +171,23 @@
     line-height: 14px
     color: $color_5
     padding: 0 2px
-    @media (max-width: 984px)
+    @media (max-width: 800px)
       display: none
   a
     transition: 0.3s color
+    color: $color_4
   a:hover,
   a:active
     color: $color_3
   &[data-connected="true"]
     //cursor: default
   
-  @media (max-width: 984px)
-    position: fixed
+  @media (max-width: 800px)
+    position: absolute
     top: 0
     left: 4px
     z-index: 9999
-    width: 100%
+    width: 100vw
     height: 40px
     line-height: 36px
     background: $color_dark
@@ -205,6 +203,9 @@
   margin: -24px 0 0 20px
   cursor: pointer
   line-height: 48px
+
+  @media (max-width: 800px)
+    display: none
 
   & > span
     position: absolute!important
@@ -237,21 +238,18 @@
       line-height: 8px
 
 .identity
-  font-size: 13px
-  line-height: 13px
+  font-size: 30px
+  line-height: 30px
   display: block
+  text-align: center
   position: absolute
   font-family: $font_mono
-  top: 1px
-  letter-spacing: 0.07em
-  right: 5px
+  top: 6px
+  letter-spacing: 0.02em
+  left: 50%
+  transform: translateX(-50%)
+  z-index: 10
   //transform: translateX(-50%)
-  color: rgba(255,255,255,.2)
-  @media (max-width: 984px)
-    top: auto
-    text-align: center
-    width: 100%
-    position: fixed
-    bottom: 0
-    width: 100%
-    background-color: $color_dark
+  color: $color_4
+  text-shadow: 0 0 10px #fee500
+  cursor: default

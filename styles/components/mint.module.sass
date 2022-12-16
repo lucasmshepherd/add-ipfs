@@ -1,70 +1,132 @@
 @import '/styles/variables.sass'
 
+
 .mint
   display: flex
   flex-flow: column nowrap
   justify-content: flex-start
+  align-items: stretch
+  align-content: stretch
+  
+.wrapper
+  display: flex
+  flex-flow: row nowrap
+  justify-content: flex-start
+  align-items: stretch
+  align-content: stretch
+  @media(max-width: 700px)
+    flex-direction: column
+    padding-top: 0
+
+.header
+  flex: 0 1 auto
+
+.primary
+  display: inline-flex
+  flex-flow: column nowrap
+  justify-content: flex-start
   align-items: center
   align-content: stretch
-  @media(max-width: 1300px)
-    flex-direction: column
-    text-align: center
-    align-items: center
-    max-width: 480px
-    margin-left: auto
-    margin-right: auto
+  background: darken($color_1, 3%)
+  padding: 30px
+  border: 2px solid $color_dark
+  flex: 0 1 30%
+  border-radius: 2px
+  @media(max-width: 1200px)
+    padding: 30px 15px 15px
+  @media(max-width: 700px)
+    margin-bottom: 30px
+
+.secondary
+  display: inline-flex
+  flex-flow: column nowrap
+  justify-content: flex-start
+  align-items: stretch
+  align-content: stretch
+  flex: 0 1 70%
+  padding: 0 40px 0 30px
+  span
+    width: 100% !important
+    height: auto
+  h2
+    color: #fff
 
 .mintbuy
-  flex: 0 1 340px
-  width:  340px
+  flex: 0 1 auto
+  width:  100%
+  max-width: 340px
   display: flex
   flex-flow: column nowrap
   justify-content: flex-start
   align-items: center
   align-content: stretch
-  @media(max-width: 1300px)
-    padding: 20px
+
+  @media(max-width: 1200px)
+    max-width: 200px
+  @media(max-width: 700px)
+    max-width: 300px
 
 .nft
   flex: 0 1 300px
-  margin: 20px 0
+  margin: 0 0 15px
   width: 100%
   background-size: contain
   background-repeat: no-repeat
   background-position: 50% 50%
+  text-align: center
   img
     width: 100%
     height: auto
-  @media(max-width: 1300px)
-    flex: 0 1 300px
-    min-height: 300px
-  @media(max-width: 600px)
-    margin-top: 30px
+  @media(max-width: 1200px)
+    flex-basis: 200px
+
+  @media(max-width: 700px)
+    flex-basis: 300px
 
 .title
   color: $color_5
-  margin-bottom: 10px
-  margin-top: w0px
-  text-transform: lowercase
+  margin-bottom: -15px
+  //text-transform: lowercase
+  margin-top: 0
 
 .text
-  margin-top: 20px
   line-height: 1
   flex: 0 1 auto
   text-align: left
+  padding: 0 30px 20px
   p
     margin-top: 0
-  @media(max-width: 1300px)
-    padding: 20px 40px
   
+.available
+  text-align: center
+  margin: 20px 0 0
+  position: relative
+  font-size: 34px
+  span
+    font-size: 10px
+    //letter-spacing: 0
+    //background: $color_1
+    //margin-top: -8px
+    position: absolute
+    line-height: 10px
+    bottom: -8px
+    left: 50%
+    z-index: 1
+    padding: 0 1px 0 3px
+    transform: translateX(-50%)
+    text-transform: uppercase
+
+.purchase
+  margin-top: 10px
+  border-radius: 3px
 
 .price
   font-size: 32px
-  //margin-bottom: 15px
-  color: $color_4
+  color: #fff
   line-height: 40px
   text-align: center
   font-family: $font_scifi
+  margin: 10px 0
   span
     font-family: $font_mono
     display: block
@@ -72,12 +134,11 @@
     color: rgba(255,255,255,.5)
     line-height: 20px
     margin-top: -6px
+    margin-bottom: 10px
 
 .usd
   color: rgba(255,255,255,.5)
   margin-top: 0
-  @media(max-width: 1300px)
-    //margin-bottom: 10px
 
 .content
   display: flex
@@ -87,34 +148,86 @@
   align-content: stretch
   flex: 0 1 auto
   width: 100%
-  @media(max-width: 1300px)
-    padding-top: 0
-    flex: 0 1 280px
-    width: 100%
 
 .gas
-  margin: 0
-  padding-top: 5px
-  font-style: italic
-  opacity: .5
+  display: block
+  margin: 10px 0 0 
+  padding: 5px
+  //font-style: italic
+  color: $color_4
+  text-align: center
       
 .mint-input-gp
   button
     border: 0
 
 .list
-  margin-top: 30px
   display: block
   width: 100%
-  @media(max-width: 1300px)
-    margin: -20px 20px
-  @media(max-width: 600px)
-    margin: -30px 0
+  margin-top: -10px
+
+  p
+    margin-top: -3px
+    padding: 0 10px
+    color: $color_2
+    line-height: 1
+    font-size: 90%
+    margin-bottom: 3px
 
 .details
-  outline: 1px solid $color_3
-  padding: 20px 10px 20px 40px
   list-style-type: circle
+  margin-top: 0
+  padding-left: 24px
 
 .highlight
   color: $color_5
+
+.accordion
+  margin-top: 40px
+  & > *
+    display: block
+
+.acchead
+  background: $color_dark
+  border: 1px solid #fff
+  border-radius: 2px
+  padding: 10px
+  h3
+    font-family: $font_scifi
+    font-size: 14px
+    line-height: 14px
+    margin: 0
+    letter-spacing: 0.15em
+    color: #fff
+    text-transform: uppercase
+    font-weight: normal
+
+.accbody
+  padding: 15px 20px 0
+  //background: $color_dark
+  h4
+    margin-top: 10px
+
+.locked
+  border-top: 1px dashed #777
+  width: 100%
+  margin-top: 10px
+  padding-top: 20px
+  position: relative
+  color: #777
+  h3
+    color: #777
+  b.highlight
+    color: #757575
+  p
+    color: #555
+  &:before
+    font-size: 12px
+    text-transform: uppercase
+    color: #ccc
+    font-family: $font_scifi
+    content: "locked"
+    position: absolute
+    left: 50%
+    top: -7px
+    transform: translateX(-50%)

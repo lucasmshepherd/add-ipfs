@@ -74,15 +74,15 @@ function MyList() {
     if (nftOwned.length > 0) {
       {
         nftOwned.map((token_id, index) => {
-          console.log("already present ", nftList)
+          //console.log("already present ", nftList)
           if (nftList.length > 0 && token_id == nftList[token_id].key) {
-            console.log("already present ", token_id)
+            //console.log("already present ", token_id)
           } else {
-            console.log("nftList ===> ", nftList)
+            //console.log("nftList ===> ", nftList)
             setNftList(current => [...current,
             {
               key: token_id,
-              "id": `${metadata[token_id].edition}`,
+              "id": `${metadata[token_id].edition}`, 
               "name": `${metadata[token_id].name}`,
               "url": `/assets/images/nft/${token_id}.jpg`,
               "purchased": "2022/10",
@@ -116,97 +116,114 @@ function MyList() {
     let proposal = current.proposal
     let purpose = current.purpose
     let item = (
-      <li className={styles.nft}>
-        <span className={styles.media}>
-          <a href={img} target="_blank" rel="noreferrer">
-            <Image src={img} layout="fixed" width="200" height="200" alt={name} />
-          </a>
-        </span>
-        <span className={styles.name}><b>Anarchist #{num}</b>{name}</span>
-        <span className={styles.status}>
-          {(() => {
-            if (borrow.length > 0) {
-              return (
-                <>
-                  <p className="clean">Borrowed {borrow[0].date}</p>
-                  <p className="clean highlight">Returning {borrow[0].return}</p>
-                  <p className="clean">Rate: {borrow[0].interest} ADD per day</p>
-                </>
-              )
-            } else if (loan.length > 0) {
-              return (
-                <>
-                  <p className="clean highlight">Loaned {loan[0].date}</p>
-                  <p className="clean highlight">Returning {loan[0].return}</p>
-                </>
-              )
-            } else if (stake) {
-              return (
-                <>
-                  <p className="clean highlight">Staked {stake}</p>
-                </>
-              )
-            } else {
-              return (
-                <>
-                  <p className="clean highlight"><b>Not staked yet. Coming soon!</b></p>
-                </>
-              )
-            }
-          })()}
-        </span>
-        <span className={styles.proposal}>
-          {(() => {
-            if (loan.length > 0 && loan[0].claimable) {
-              return (
-                <>
-                  <p className="clean highlight">Reward: 0.00 ETH (<a href="$">claim</a>)</p>
-                </>
-              )
-            } else if (loan.length > 0) {
-              return (
-                <>
-                  <p className="clean">Rate: {loan[0].interest} ADD per day</p>
-                  <p className="clean">Borrower: {loan[0].borrower}</p>
-                </>
-              )
-            } else if (proposal.length > 0) {
-              return (
-                <>
-                  <p className="clean highlight">Currently submitted with</p>
-                  <p className="clean">Proposal {proposal[0].id}</p>
-                </>
-              )
-            } else if (borrow.length > 0) {
-              return (
-                <>
-                  <a href="#" className="button-mono btn-secondary btn-sm">Submit Proposal</a>
-                </>
-              )
-            } else if (purpose) {
-              return (
-                <>
-                  <a href="#" className="button-mono btn-secondary btn-sm">Submit Proposal</a><br />
-                  <a href="#" className="button-mono btn-sm btn-outline pretitled">Loans</a>
-                </>
-              )
-            } else if (stake) {
-              return (
-                <>
-                  <a href="#" className="button-mono btn-sm btn-outline pretitled">Proposals</a><br />
-                  <a href="#" className="button-mono btn-sm btn-outline pretitled">Loans</a>
-                </>
-              )
-            } {/*} else {
-              return (
-                <>
-                  <a href="#" className="button-mono btn-sm">Stake Now</a>
-                </>
-              )
-            }*/}
-          })()}
-        </span>
-      </li>
+      <>
+        <li className={styles.nft} key={num}>
+          <span className={styles.media}>
+            <a href={img} target="_blank" rel="noreferrer">
+              <Image src={img} layout="fixed" width="200" height="200" alt={name} />
+            </a>
+          </span>
+          <span className={styles.name}><b>Anarchist #{num}</b>{name}</span>
+          <span className={styles.status}>
+            {(() => {
+              if (borrow.length > 0) {
+                return (
+                  <>
+                    <p className="clean">Borrowed {borrow[0].date}</p>
+                    <p className="clean highlight">Returning {borrow[0].return}</p>
+                    <p className="clean">Rate: {borrow[0].interest} ADD per day</p>
+                  </>
+                )
+              } else if (loan.length > 0) {
+                return (
+                  <>
+                    <p className="clean highlight">Loaned {loan[0].date}</p>
+                    <p className="clean highlight">Returning {loan[0].return}</p>
+                  </>
+                )
+              } else if (stake) {
+                return (
+                  <>
+                    <p className="clean highlight">Staked {stake}</p>
+                  </>
+                )
+              } else {
+                return (
+                  <>
+                    <ul className="checked">
+                      <li className="">Not staked yet</li>
+                    </ul>
+                  </>
+                )
+              }
+            })()}
+          </span>
+
+          <div className={styles.staking}>
+            {(() => {
+              if (loan.length > 0) {
+                return (
+                  <>
+                    <div className={styles.stakerow}>
+                      <span><i>Reward: 0.00 ETH</i></span><a href="#" className="button-mono btn-outline btn-sm">Claim Interest</a>
+                    </div>
+                  </>
+                )
+              } else if (loan.length > 0) {
+                return (
+                  <>
+                    <div className={styles.stakerow}>
+                      <span><i>Currently loaned to {loan[0].borrower} at {loan[0].interest} per day <a href="#">#{proposal[0].id}</a></i></span>
+                    </div>
+                  </>
+                )
+              } else if (proposal.length > 0) {
+                return (
+                  <>
+                    <div className={styles.stakerow}>
+                      <span><i>Currently submitted with <a href="#">#{proposal[0].id}</a></i></span>
+                    </div>
+                  </>
+                )
+              } else if (borrow.length > 0) {
+                return (
+                  <>
+                    <div className={styles.stakerow}>
+                      <span><i>Available for proposals</i></span><a href="#" className="button-mono btn-outline btn-sm">Submit Proposal</a>
+                    </div> 
+                  </>
+                )
+              } else if (stake) {
+                return (
+                  <>
+                    <div className={styles.stakerow}>
+                      <span><i>Available for proposals</i></span><a href="#" className="button-mono btn-outline btn-sm">Submit Proposal</a>
+                    </div>
+                    <div className={styles.loanrow}>
+                      <span><i>Available for loans</i></span>
+                    </div>
+                    <div className={styles.subrow}>
+                      <span><label>Loan duration</label></span><select><option>Select duration...</option><option>5 Days</option></select>
+                      <span><label>Daily interest (ETH)</label></span><input type="number" />
+                      <a href="#" className="button-mono btn-outline btn-sm">Offer to Loan</a>
+                    </div>
+                  </>
+                )
+              } else {
+                return (
+                  <>
+                    <div className={styles.stakerow}>
+                      <span><i>Coming soon!</i></span><a href="#" className="button-mono btn-outline btn-sm disabled">Stake Now</a>
+                    </div>
+                  </>
+                )
+              }
+            })()}
+          </div>
+
+        </li>
+
+      </>
     )
     rows.push(item)
   }
@@ -230,7 +247,10 @@ function MyList() {
 export default function Nfts(props) {
   return (
     <>
-      <center><h2>My NFTs</h2></center>
+      <div className={styles.mintbg}><div className={styles.mintbgglitch}>&nbsp;</div></div>
+      <div className={styles.minty}>
+        <h2 className={styles.heading}>My NFTs</h2>
+      </div>
       <ul className={styles.nfts}>
         {/*<li className={styles.headings}>
           <span className={styles.nfthead}>NFT</span>
@@ -248,16 +268,6 @@ export default function Nfts(props) {
       <br />
       <br />
       <blockquote className={styles.notation}><b className="glitchme" data-text="Thank you for contributing to Anarchist DAO">Thank you for contributing to Anarchist DAO</b></blockquote>
-      <br />
-      <ul className={styles.roadmap}>
-        <li><b>Coming soon:</b></li>
-        <li>NFT Staking</li>
-        <li>NFT Loans<br /><br /></li>
-        <li><b>Additional Features:</b></li>
-        <li><strike>400x sold: NFT List</strike></li>
-        <li><b>300x sold: </b> NFT Single Pages</li>
-        <li><b>200x sold: </b> Revealed when reach previous sales mark</li>
-      </ul>
     </>
   )
 }
