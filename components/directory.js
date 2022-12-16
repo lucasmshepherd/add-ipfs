@@ -58,7 +58,7 @@ export default function Directory(props) {
   const num = (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 135"><rect y="30" width="15" height="75"/><rect x="30.62" width="74.38" height="15"/><rect x="120" y="30" width="15" height="75"/><rect x="30.34" y="120" width="74.66" height="15"/><rect x="105" y="105" width="15" height="15"/><rect x="105" y="15" width="15" height="15"/><rect x="15" y="15" width="15" height="15"/><rect x="15" y="105" width="15" height="15"/><rect x="45" y="45" width="15" height="45"/><rect x="75" y="45" width="15" height="45"/><rect x="60" y="75" width="15" height="15"/><rect x="60" y="45" width="15" height="15"/><rect x="30" y="45" width="15" height="15"/><rect x="45" y="30" width="15" height="15"/><rect x="75" y="30" width="15" height="15"/><rect x="90" y="45" width="15" height="15"/><rect x="90" y="75" width="15" height="15"/><rect x="75" y="90" width="15" height="15"/><rect x="45" y="90" width="15" height="15"/><rect x="30" y="75" width="15" height="15"/></svg>)
   const excl = (<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 135"><rect y="30" width="15" height="75"/><rect x="30.62" width="74.38" height="15"/><rect x="120" y="30" width="15" height="75"/><rect x="30.34" y="120" width="74.66" height="15"/><rect x="105" y="105" width="15" height="15"/><rect x="105" y="15" width="15" height="15"/><rect x="15" y="15" width="15" height="15"/><rect x="15" y="105" width="15" height="15"/><rect x="60" y="30" width="15" height="45"/><rect x="60" y="90" width="15" height="15"/></svg>)
 
-  if(widgets == 'freedom' || widgets == 'system' || widgets == 'need') {
+  if(widgets == 'freedom' || widgets == 'system' || widgets == 'need' || widgets == 'howtobuy') {
     return (
       <> 
         <ul id="menu" className={styles.menu}>
@@ -86,26 +86,26 @@ export default function Directory(props) {
     )
   }
 
-  else if ( widgets == 'dapp' || widgets == 'stake' || widgets == 'deposit' || widgets == 'withdrawal' || widgets == 'claim' || widgets == 'nfts' || widgets == 'mint' || widgets == 'loan' ) {
+  else if ( widgets == 'dapp' || widgets == 'proposal' || widgets == 'adprops' || widgets == 'stake' || widgets == 'deposit' || widgets == 'withdrawal' || widgets == 'claim' || widgets == 'nfts' || widgets == 'mint' || widgets == 'loan' ) {
     return (
       <> 
         <ul id="menu" className={styles.menu}>
 
           <li data-current={ widgets == "dapp" ? 'true' : 'false' }>
             <Link className="anchor" href="/dapp">
-              <a onClick={soundEffect} className="new"><span>dashboard</span>{arrow}</a>
+              <a onClick={soundEffect}><span>dashboard</span>{arrow}</a>
             </Link>
           </li>
 
-          <li data-connected={connected} data-current={ widgets == "proposals" ? 'true' : 'false' }>
-            <Link className="anchor" href="/#">
-              <a onClick={soundEffect} className="comingsoon"><span>proposals</span>{arrow}</a>
+          <li data-connected={connected} data-current={ widgets == "adprops" ? 'true' : 'false' }>
+            <Link className="anchor" href="/proposals">
+              <a onClick={soundEffect}>{wallet}<span className="soon">proposals</span>{arrow}</a>
             </Link>
           </li>
 
           <li data-connected={connected} data-current={ widgets == "nfts" ? 'true' : 'false' }>
             <Link className="anchor" href="/my-list">
-              <a className="new">{wallet}<span>my_NFTs</span>{arrow}</a>
+              <a>{wallet}<span>my_NFTs</span>{arrow}</a>
             </Link>
           </li> 
 
@@ -117,7 +117,7 @@ export default function Directory(props) {
 
           <li data-connected={connected} data-child="true" data-current={ widgets == "loan" ? 'true' : 'false' }>
             <Link className="anchor" href="/loan">
-              <a className="comingsoon">{down}<span>loan</span>{arrow}</a>
+              <a>{down}<span className="soon">loan</span>{arrow}</a>
             </Link>
           </li>
 
@@ -190,7 +190,7 @@ export default function Directory(props) {
               <a onClick={soundEffect}>{down}<span>delegate_votes</span>{arrow}</a>
             </Link>
           </li>
-
+                                                                                                               
         </ul>
       </>
     )
@@ -253,19 +253,19 @@ export default function Directory(props) {
 
           <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
             <Link className="anchor" href="/transition_dapp">
-              <a onClick={dappEffect}><span className="new">dashboard</span>{arrow}</a>
+              <a onClick={dappEffect}><span>dashboard</span>{arrow}</a>
             </Link>
           </li>
 
           <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
             <Link className="anchor" href="/transition">
-              <a onClick={dappEffect}><span>stake_ADD</span>{arrow}</a>
+              <a onClick={dappEffect}><span>stake_and_claim</span>{arrow}</a>
             </Link>
           </li>
 
           <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
             <Link className="anchor" href="/transition_mint">
-              <a onClick={dappEffect}><span>mint_NFT</span>{arrow}</a>
+              <a onClick={dappEffect}><span>view_NFTs</span>{arrow}</a>
             </Link>
           </li>
 
@@ -273,6 +273,12 @@ export default function Directory(props) {
             <span>anarchist dao</span>
           </li>
 
+          <li data-current={ widgets == "roadmap" ? 'true' : 'false' }>
+            <Link className="anchor white-icon" href="/roadmap">
+              <a onClick={soundEffect}><span className="new">dev_roadmap</span>{arrow}</a>
+            </Link>
+          </li>
+          
           <li data-current="false">
             <a target="_blank" rel="nofollower" href="assets/docs/ADD-Token-Mechanics-Anarchist-DAO.pdf"><span>token_mechanics</span>{arrow}</a>
           </li>
@@ -295,32 +301,37 @@ export default function Directory(props) {
 
           <li>
             <a onClick={soundEffect} className="anchor white-icon" target="_blank" rel="noreferrer" href="https://docs.fundanarchy.io">
-              <span>anarchist_docs</span>
+              <span>_docs</span>
             </a>
           </li>
 
           <li className={styles.sitego} data-current={ widgets == "manifesto" ? 'true' : 'false' }>
             <Link className="anchor" href="/manifesto">
-              <a onClick={soundEffect}><span>anarchist_manifesto</span>{arrow}</a>
+              <a onClick={soundEffect}><span>_manifesto</span>{arrow}</a>
             </Link>
           </li>
 
           <li className={styles.sitego} data-current={ widgets == "tv" ? 'true' : 'false' }>
             <Link className="anchor" href="/tv">
-              <a onClick={soundEffect}><span>anarchist_vision</span>{arrow}</a>
+              <a onClick={soundEffect}><span>_vision</span>{arrow}</a>
             </Link>
           </li>
 
           <li className={styles.sitego} data-current={ widgets == "training" ? 'true' : 'false' }>
             <Link className="anchor" href="/training">
-              <a onClick={soundEffect}><span>anarchist_education</span>{arrow}</a>
+              <a onClick={soundEffect}><span>_education</span>{arrow}</a>
             </Link>
           </li>
 
           <li id="purchase">
             <a onClick={soundEffect} href="https://app.uniswap.org/#/swap?outputCurrency=0x6542c8f90915a57314f4167b81851a3cd731c6e2" rel="noreferrer" target="_blank">
-              <span className="highlight">purchase_ADD</span>
+              <span className="highlight">buy_ADD</span>
             </a>
+            <Link href="/mint">
+              <a onClick={soundEffect}>
+                <span className="highlight-secondary">mint_NFT</span>
+              </a>
+            </Link>
           </li>
 
         </ul>

@@ -12,8 +12,8 @@ import Balance from './balance.js'
 import styles from '../styles/components/header.module.sass'
 // media
 import Logo from '../public/assets/images/logo.svg'
-import LogoIcon from '../public/assets/images/logo-icon.svg'
-//import LogoIconHighlight from '../public/assets/images/logo-icon-highlight-01.svg'
+import LogoIcon from '../public/assets/images/icon2.svg'
+import LogoIcon2 from '../public/assets/images/icon1_1.svg'
 import AudioOnIcon from '../public/assets/images/audio-on-icon.svg'
 import AudioOffIcon from '../public/assets/images/audio-off-icon.svg'
 //Account Address
@@ -27,6 +27,7 @@ export default function Header() {
 
   let audioPlaying
   let audioIconSource = AudioOffIcon
+
   const dispatch = useDispatch()
   // state
   const playing = useSelector((state) => state.music.playing)
@@ -158,22 +159,21 @@ export default function Header() {
       {/*<Player />*/}
       <header className={styles.header} data-connected={active}>
         <div className={styles.bar}>
-          {/* active &&
-            <span className={styles.identity}>{account}</span>
-          */}
           <div className={styles.tab}>
             <svg className={styles.tabg} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 255.17 50.89"><g id="Layer_1-2"><path d="M255.17,0c-4.01,0-9.62,2.35-12.44,5.21l-40,40.47c-2.84,2.87-8.44,5.21-12.44,5.21H64.88c-4.01,0-9.61-2.35-12.44-5.21L12.44,5.21C9.61,2.34,4,0,0,0H255.17Z"/></g></svg>
-            <a className={styles.mobicon}>
-              OPEN<br/>MENU
-            </a>
-            <Link href="/"> 
-              <a className={styles.icon}>
-                <Image layout="fixed" src={LogoIcon} priority="true" alt="ADD" width="48" height="48" />
-              </a> 
-            </Link>
+            { active ?
+              <span title={account} className={styles.identity}><small>{account.slice(0,2)}</small>{account.slice(2,5)}...{account.slice(-4)}</span>
+            :
+              <span className={styles.icon}>
+                <Image layout="fixed" src={LogoIcon2} priority="true" alt="ADD" width="58" height="58" />
+              </span>
+            }
           </div>
         </div>
         <Container>
+          <a className={styles.mobicon}>
+            OPEN<br/>MENU
+          </a>  
           <div className={styles.addbar}>
             <h1 className={styles.logo}>
             <Link href="/welcome"> 

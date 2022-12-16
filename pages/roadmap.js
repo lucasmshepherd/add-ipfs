@@ -5,9 +5,9 @@ const Index = (props) => {
   return (
     <>
       <Head>
-        <title>Anarchist DAO - Proposals</title>
+        <title>Anarchist DAO - Roadmap</title>
       </Head>
-      <Interface page="adprops" />
+      <Interface page="roadmap" />
     </>
   )
 }

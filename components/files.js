@@ -5,6 +5,7 @@ import Icon1 from '../public/assets/images/folder.svg'
 import FreedomThumb from '../public/assets/images/fr33d0m-thumb.jpg'
 import SystemThumb from '../public/assets/video/system_failure_thumb.jpg'
 import NeedThumb from '../public/assets/video/they_need_us_thumb.jpg'
+import HowThumb from '../public/assets/video/how_to_buy_thumb.jpg'
 
 import styles from '../styles/components/widget.module.sass'
 
@@ -14,10 +15,17 @@ export default function Files() {
       <div className={styles.files}>
         <div className={styles.folder} data-connected="true" data-video="live">
           <Image layout="responsive" src={Icon1} priority="true" alt="folder" />
-          <Link className="anchor" href="/freedom">
-            <div className={styles.fthumb} style={{ background: "url(" + FreedomThumb.src + ") no-repeat 50% 50%" }}/>
+          <Link className="anchor" href="/howtobuy">
+          <div className={styles.fthumb} style={{ background: "url(" + HowThumb.src + ") no-repeat 50% 0" }}/>
           </Link>
-          <div className={styles.flabel}>fr33d0m</div>
+          <div className={styles.flabel}>h0w_2_buy</div>
+        </div>
+        <div className={styles.folder} data-connected="true" data-video="live">
+          <Image layout="responsive" src={Icon1} priority="true" alt="folder" />
+          <Link className="anchor" href="/need">
+          <div className={styles.fthumb} style={{ background: "url(" + NeedThumb.src + ") no-repeat 50% 0" }}/>
+          </Link>
+          <div className={styles.flabel}>th3y_n33d_u5</div>
         </div>
         <div className={styles.folder} data-connected="true" data-video="live">
           <Image layout="responsive" src={Icon1} priority="true" alt="folder" />
@@ -28,10 +36,10 @@ export default function Files() {
         </div>
         <div className={styles.folder} data-connected="true" data-video="live">
           <Image layout="responsive" src={Icon1} priority="true" alt="folder" />
-          <Link className="anchor" href="/need">
-          <div className={styles.fthumb} style={{ background: "url(" + NeedThumb.src + ") no-repeat 50% 0" }}/>
+          <Link className="anchor" href="/freedom">
+            <div className={styles.fthumb} style={{ background: "url(" + FreedomThumb.src + ") no-repeat 50% 50%" }}/>
           </Link>
-          <div className={styles.flabel}>th3y_n33d_u5</div>
+          <div className={styles.flabel}>fr33d0m</div>
         </div>
       </div>
     </>

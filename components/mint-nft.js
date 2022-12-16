@@ -4,6 +4,7 @@ import Image from 'next/image'
 import nftTier1 from '../public/assets/images/nft/t1e.png'
 import nftTier2 from '../public/assets/images/nft/t2e.gif'
 import nftTier3 from '../public/assets/images/nft/t3e.gif'
+import Ad from '../public/assets/images/ad-revolution.png'
 import parse from 'html-react-parser'
 import $ from 'jquery'
 //For Integration
@@ -12,6 +13,7 @@ import TokenContract from './integration/token.json'
 import swal from 'sweetalert';
 import Web3EthContract from "web3-eth-contract";
 import { useWeb3React } from "@web3-react/core";
+import { SubTitle } from "chart.js"
 
 export default function MintNft(props) {
 
@@ -470,8 +472,6 @@ export default function MintNft(props) {
         setError("Can't mint more than available");
       } else {
         let price = count_1 * PRICE_ONE * 10 ** 18;
-        console.log("price for minting here ==>> ", price)
-        console.log("count 1 for minting here ==>> ", count_1)
         if (count_1 > TRANSACTION_LIMIT) {
           setError("Can't Mint More Than " + TRANSACTION_LIMIT + " NFT");
         } else {
@@ -692,7 +692,7 @@ export default function MintNft(props) {
 
   let tier = props.tier
   let category, image, content, tierText, price, mintbtn, dataId, saleMinted, saleNft, handleInc, handleDec, count, nftPrice, mintLive, mintStatusText, usdPrice, remainingNft
-  tierText = "t" + props.tier
+  tierText = "Tier " + props.tier
   if (tier  == "1") {
     image = nftTier1.src
     content = parse("<p>The privileged few who attain the Chaos Theory NFTs are essential to the Anarchist Development DAO and its overall ecosystem.</p><p>Chaos Theorists are the embodiment of Defi and hold to the values of the overall betterment of society and crush tyranny within the same breath. Chaos Theorists are not scared to bend the rules to fit the needs of the overall goal.</p><p>We will combine science and philosophy. Our perceived randomness to the masses has underlying patterns of complexity, constant feedback loops, repetition, and self-organization — Chaos Theory at its core.</p>")
@@ -708,7 +708,7 @@ export default function MintNft(props) {
     mintStatusText = mintStatus_1
     usdPrice = USD_ETH_ONE + " USD"
     remainingNft = remainingNFT_One
-    category = "CHAOS THEORY"
+    category = "Chaos Theory"
   }
   else if (tier == "2") {
     image = nftTier2.src
@@ -749,93 +749,154 @@ export default function MintNft(props) {
     remainingNft = "500"
     category = "REVOLUTION"
   }
+
   return (
     <> 
       <div className={styles.mint} id={tierText}>
-        <div className={styles.mintbuy}>
-          <h3 className={styles.title}><span>{tierText} / {category}</span></h3>
-          <p className="clean"><b className="note">{remainingNft}</b> available</p>
-          <div data-tier={props.tier} className={styles.nft} style={{backgroundImage: "url("+image+")"}}></div>
+        <div className={styles.header}>
         </div>
-        <div className={styles.content}>
-          <div className={styles.price} id="price">
-            {count * price} ETH
-            <span>PLUS GAS</span><br/>
-          </div>
-          {
-              active ? 
-                <>
-                  {/* {loading ?
-                    <p>Loading...</p>
-                    : */}
-                    <div>
-                      <div className="mint-input-gp">
-                        {count == 1 ?
-                          <button type="button" onClick={handleDec} data-id={dataId} className="btn_min_handle do_min" disabled>-</button>
-                          :
-                          <button type="button" onClick={handleDec} data-id={dataId} className="btn_min_handle do_min">-</button>
-                        }
-                        <input type="text" placeholder="count" data-id={dataId}
-                          name="quantity" value={count} id='input-quantity' className="form-control inputQuantity onlynumeric text-center" readOnly />
-                        {count == mintLimit ?
-                          <button type="button" onClick={handleInc} data-id={dataId} className="btn_min_handle do_plus" disabled>+</button>
-                          :
-                          <button type="button" onClick={handleInc} data-id={dataId} className="btn_min_handle do_plus">+</button>
-                        }
-                      </div>
-                      <div className="mint-note" style={{textAlign:'center'}}>
-                        <p style={{color:'red'}}>{error}</p>
-                      </div>
-                      {approveTokensBtn ?
-                          <a className="button-mono button-fill push-right" onClick={approveFun}>APPROVE TOKENS</a>
+        <div className={styles.wrapper}>
+          <div className={styles.primary}>
+            <div className={styles.mintbuy}>
+              <div data-tier={props.tier} className={styles.nft} style={{backgroundImage: "url("+image+")"}}></div>
+              <h3 className={styles.title}>NFT <span>{tierText}/3</span></h3>
+            </div>
+            { active ? 
+              <>
+                <div className={styles.content}>
+                  <div className={styles.available}><b className="note">{remainingNft}</b> <span>available</span></div>
+
+                  <div className={styles.purchase}>
+
+                    <div className={styles.price} id="price">
+                      {count * price} ETH
+                      {/*<span>PLUS GAS</span>*/}
+                    </div>
+
+                    <div className="mint-input-gp">
+                      {count == 1 ?
+                        <button type="button" onClick={handleDec} data-id={dataId} className="btn_min_handle do_min" disabled>-</button>
+                        :
+                        <button type="button" onClick={handleDec} data-id={dataId} className="btn_min_handle do_min">-</button>
+                      }
+                        <input type="text" placeholder="count" data-id={dataId} name="quantity" value={count} id='input-quantity' className="form-control inputQuantity onlynumeric text-center" readOnly />
+                      {count == mintLimit ?
+                        <button type="button" onClick={handleInc} data-id={dataId} className="btn_min_handle do_plus" disabled>+</button>
+                        :
+                        <button type="button" onClick={handleInc} data-id={dataId} className="btn_min_handle do_plus">+</button>
+                      }
+                    </div>
+
+                    <div className="mint-note" style={{textAlign:'center'}}>
+                      <p style={{color:'red'}}>{error}</p>
+                    </div>
+
+                    {approveTokensBtn ?
+                      <a className="button-mono button-fill push-right" onClick={approveFun}>APPROVE TOKENS</a>
+                      :
+                      <>
+                        {mintEnableBtn ?
+                          <>
+                            <a className="button-mono button-fill push-right" onClick={mintEnableFun}>ENABLE MINT</a>
+                            <small className={styles.gas}><b>Total $ADD required:</b> 2,000,000</small>
+                            <small className={styles.gas}><i>One-time fee: 1,000,000</i><br/><i>Hold in wallet: 1,000,000</i></small>
+                          </>
                           :
                           <>
-                            {mintEnableBtn ?
+                            {mintLive ?
                               <>
-                                <a className="button-mono button-fill push-right" onClick={mintEnableFun}>ENABLE MINT</a>
-                                <small className={styles.gas}>One-time fee 1,000,000 ADD</small>
+                                <a className="button-mono button-fill push-right" onClick={mintbtn}>PURCHASE NFT</a>
+                                <small className={styles.gas}>Hold 1,000,000 ADD in wallet<br/>[ not a fee ]</small>
                               </>
                               :
-                              <>
-                                {mintLive ?
-                                  <>
-                                    <a className="button-mono button-fill push-right" onClick={mintbtn}>PURCHASE NFT</a>
-                                    <small className={styles.gas}>Need 1,000,000 ADD in wallet</small>
-                                  </>
-                                  :
-                                  <a className="button-mono button-fill push-right" disabled={true}>{mintStatusText}</a>
-                                }
-                              </>
+                              <a className="button-mono button-fill push-right" disabled={true}>{mintStatusText}</a>
                             }
                           </>
                         }
-                    </div>
-                  {/* } */}
-                </>
-              : <p style={{color:"red"}}>Connect Wallet First</p>
-            }
-          {/* <a href="#" className="button-mono button-fill push-right">PURCHASE NFT</a> */}
-        </div>
-        <div className={styles.list}>
+                      </>
+                    }
+                  
+                  </div> {/* .purchase */}
 
-            <ul className={styles.details}>
-              <li><b className={styles.highlight}>Use for proposal submissions</b></li>
-              <li><b className={styles.highlight}>Loan out and earn daily interest</b></li> 
-              <li>Access the Guild *</li>
-              <li>Access the Guild NFT chat *</li>
-              <li>Show unique badge on DAO servers</li>
-            </ul>
-        </div>
+                </div> {/* .content */}
+              </>
+              : 
+              <p style={{color:"red"}}>Connect Wallet First</p>
+            }
+          </div> {/* .primary */}
+          <div className={styles.secondary}><br/>
+            <Image src={Ad.src} layout="responsive" width="1000" height="154" alt="NFT Evolutions Coming Soon" />
+            <h2>Mint Anarchist NFT</h2>
+            <h3>Tier One</h3>
+            <div className={styles.list}>
+              <ul className={styles.details}>
+                <li>Access <b className={styles.highlight}>proposal submissions</b>
+                  <p>Request project funding</p>
+                </li>
+                <li>Earn <b className={styles.highlight}>daily interest</b>
+                  <p>NFT lending marketplace</p>
+                </li>
+                <li>Receive <b className={styles.highlight}>1% kickback</b>
+                  <p>Disbursed to NFT holders on approved proposals</p>
+                </li>
+                <li>Receive <b className={styles.highlight}>FREE debit card</b>
+                </li>
+                <li>Includes <b className={styles.highlight}>Guild membership</b>
+                </li>
+                <li>Includes <b className={styles.highlight}>Guild invite to VIP Lounge</b>
+                </li>
+                <li>Includes <b className={styles.highlight}>anonymous crypto-to-fiat</b>
+                </li>
+                <li>Show unique badge on DAO servers
+                </li>
+              </ul>
+            </div>
+            <div className={styles.locked}>
+              <h3>Tier Two</h3>
+              <div className={styles.list}>
+                <ul className={styles.details}>
+                  <li><i>Everything above plus...</i></li>
+                  <li>Includes <b className={styles.highlight}>FREE Anarchist Hoodie</b>
+                    <p>For the first one hundred (100) minters</p>
+                  </li>
+                  <li>Earn <b className={styles.highlight}>3% kickback</b>
+                    <p>Disbursed to NFT holders on approved proposals</p>
+                  </li>
+                  <li>Earn <b className={styles.highlight}>100% of bridge fees</b>
+                    <p>Disbursed to NFT holders on approved proposals</p>
+                  </li>
+                  <li>Access <b className={styles.highlight}>partner programs</b>
+                    <p>Discounts at participating hotels and resorts and more!</p>
+                  </li>
+                  <li>Support ticket prioritization
+                  </li>
+                </ul>
+              </div>
+              <h3>Tier Three</h3>
+              <div className={styles.list}>
+                <ul className={styles.details}>
+                  <li><i>Everything above plus...</i></li>
+                  <li>Includes <b className={styles.highlight}>Custom 3D printed Anarchist Mask</b>
+                    <p>For the first fifty (50) minters</p>
+                  </li>
+                  <li>Priority support from core team
+                  </li>
+                  <li>More announcements coming!</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div> {/* .wrapper */}
         <div className={styles.text}>
-          {content}
-          <hr/>
-          <br/>
-          <small><i>* Required: 500k ADD Holdings</i></small><br/>
-          <small><i>* Required: Follow @fundanarchy on Twitter</i></small><br/>
-          <small><i>* Required: Member role in Discord</i></small><br/><br/>
-          <small><i>Anarchist type and stats are currently just cosmetic</i></small>
-          <br/>
-          <br/>
+          <div className={styles.accordion}>
+            <div className={styles.acchead}>
+              <h3>Description</h3>
+            </div>
+            <div className={styles.accbody}>
+              <h4 className="glitchme" data-text={category}>{category}</h4>
+              {content}
+            </div>
+          </div>
         </div>
       </div>
     </>

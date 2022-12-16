@@ -2,14 +2,11 @@
 
 .nfts
   list-style-type: none
-  padding: 10px 30px
+  padding: 0 20px
   display: flex
   flex-flow: row wrap
   justify-content: flex-start
   align-items: stretch
-
-  center
-    width: 100%
   
 .notation
   text-align: center
@@ -34,15 +31,19 @@
   border: 2px solid rgba(255,255,255,.12)
   margin-bottom: 2px
   color: $color_5
-  flex: 1 0 50%
   padding: 5px
+  margin: 1%
+  flex: 1 0 30%
   &:hover,
   &:active
     //background: $color_1
   .media
     padding: 0
-    min-height: 202px
+    min-height: 102px
     line-height: 0
+    span
+      width: 100px !important
+      height: 100px !important
   span
     img
       line-height: 0
@@ -64,9 +65,6 @@
       color: $color_4
       line-height: 16px
       margin-bottom: -5px
-  .status
-    flex: 0 1 100%
-    padding: 20px
   h2
     margin: 0
     line-height: .6
@@ -103,6 +101,7 @@
   a
     max-width: none !important
     margin-bottom: 10px
+    margin-top: 10px
   label
     text-transform: uppercase
     font-size: 18px
@@ -137,8 +136,9 @@
     @media(max-width: 700px)
       margin-right: auto
 
+
 .mintbg
-  background: url('/assets/images/banner-lending3.jpg') no-repeat 50% 50%
+  background: url('/assets/images/banner-lending4.jpg') no-repeat 50% 50%
   position: absolute
   background-size: cover
   height: 300px
