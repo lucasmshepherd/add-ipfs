@@ -253,7 +253,7 @@ export default function Directory(props) {
 
           <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
             <Link className="anchor" href="/transition_dapp">
-              <a onClick={dappEffect}><span className="new">dashboard</span>{arrow}</a>
+              <a onClick={dappEffect}><span>dashboard</span>{arrow}</a>
             </Link>
           </li>
 
@@ -265,7 +265,7 @@ export default function Directory(props) {
 
           <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
             <Link className="anchor" href="/transition_mint">
-              <a onClick={dappEffect}><span>my_NFTs</span>{arrow}</a>
+              <a onClick={dappEffect}><span>view_NFTs</span>{arrow}</a>
             </Link>
           </li>
 

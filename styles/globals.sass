@@ -143,6 +143,11 @@ h1,h2,h3,h4,h5,h6
   margin-top: 30px
   margin-bottom: 20px
 
+h2
+  color: #fff
+  &:first-child
+    margin-top: 0
+
 h3
   font-size: 30px
   margin-top: 10px
@@ -717,3 +722,31 @@ ul.checked
 #ui[data-layout="mint"]
   #treasuryBalance
     background: $color_1
+
+#ui[data-layout="adprops"],
+#ui[data-layout="proposal"],
+#ui[data-layout="loan"]
+  &:after
+    content: "This is a demo.  Please send any feedback or issues in Discord.  Thanks!"
+    position: fixed
+    bottom: 0
+    left: 0
+    right: 0
+    padding: 20px 10px
+    font-style: italic
+    background: $color_5
+    z-index: 9999999
+    text-align: center
+    font-size: 16px
+    text-shadow: 0 2px 3px rgba(0,0,0,.4)
+    animation: 15s gradchange infinite
+
+@keyframes gradchange
+  0%
+    background-color: $color_5
+  33%
+    background-color: $color_2
+  66%
+    background-color: $color_dark
+  100%
+    background-color: $color_5

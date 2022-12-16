@@ -122,7 +122,7 @@ export default function Interface(props) {
               if ( page == "nfts" ) {
                 return (
                   <PaneRow name="primary">
-                    <Widget type={page} title="my_nft_list_" icon="triangles">
+                    <Widget type={page} title="my_nft_list_" icon="triangles" page="true">
                       <Nfts />
                     </Widget>
                   </PaneRow>
@@ -207,7 +207,7 @@ export default function Interface(props) {
             } {/* roadmap */} { 
             page == "roadmap" &&
               <PaneRow name="primary">
-                <Widget type={page} title="roadmap_" icon="triangles" page="true" scroll="true">
+                <Widget type={page} title="roadmap_" icon="triangles" scroll="true">
                   <Roadmap />
                 </Widget>
               </PaneRow>

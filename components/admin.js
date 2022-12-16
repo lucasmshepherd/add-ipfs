@@ -197,7 +197,7 @@ export default function Admin(props) {
                 <Link href="/proposal">
                   <a className={styles.proprowfull}>
                     <h3 className="no-top-margin">
-                      DAO development proposal
+                      DAO Development Proposal
                     </h3>
                   </a>
                 </Link>

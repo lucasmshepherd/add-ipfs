@@ -125,7 +125,7 @@ function MyList() {
 
           <div className={styles.staking}>
             <div className={styles.stakerow}>
-              <a href="#" className="button-mono btn-outline btn-sm">Borrow</a>
+              <a href="#" className="button-mono btn-outline btn-sm disabled">Borrow</a>
             </div>
           </div>
 

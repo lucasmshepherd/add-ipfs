@@ -210,7 +210,7 @@ function MyList() {
                 return (
                   <>
                     <div className={styles.stakerow}>
-                      <span><i>Available for staking</i></span><a href="#" className="button-mono btn-outline btn-sm">Stake Now</a>
+                      <span><i>Coming soon!</i></span><a href="#" className="button-mono btn-outline btn-sm disabled">Stake Now</a>
                     </div>
                   </>
                 )
@@ -237,7 +237,10 @@ function MyList() {
 export default function Nfts(props) {
   return (
     <>
-      <center><h2>My NFTs</h2></center>
+      <div className={styles.mintbg}><div className={styles.mintbgglitch}>&nbsp;</div></div>
+      <div className={styles.minty}>
+        <h2 className={styles.heading}>My NFTs</h2>
+      </div>
       <ul className={styles.nfts}>
         {/*<li className={styles.headings}>
           <span className={styles.nfthead}>NFT</span>
