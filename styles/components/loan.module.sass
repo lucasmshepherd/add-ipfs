@@ -2,7 +2,7 @@
 
 .nfts
   list-style-type: none
-  padding: 0
+  padding: 0 20px
   display: flex
   flex-flow: row wrap
   justify-content: flex-start
@@ -135,3 +135,47 @@
     margin-left: auto
     @media(max-width: 700px)
       margin-right: auto
+
+
+.mintbg
+  background: url('/assets/images/banner-lending3.jpg') no-repeat 50% 50%
+  position: absolute
+  background-size: cover
+  height: 300px
+  width: 100%
+  opacity: .5
+
+.mintbgglitch
+  background: url('https://media.giphy.com/media/MfLZdaDjjTxaU/giphy.gif')
+  background-position: center
+  background-repeat: no-repeat
+  background-size: cover
+  /*effect*/
+  mix-blend-mode: color
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  filter: hue-rotate(220deg)
+
+.minty
+  position: relative
+  padding: 150px 60px
+  height: 300px
+  font-size: 16px
+  line-height: 1.6
+  width: 100%
+  @media(max-width: 600px)
+    padding-left: 30px
+    padding-right: 30px
+
+.heading
+  font-family: $font_title
+  font-size: 58px
+  line-height: 1
+  margin-bottom: 15px
+  color: $color_3
+  mix-blend-mode: color-dodge
+  @media(max-width: 600px)
+    font-size: 42px

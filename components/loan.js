@@ -116,16 +116,16 @@ function MyList() {
       <>
         <li className={styles.nft} key={num}>
           <span className={styles.media}>
-            <a href={img} target="_blank" rel="noreferrer">
+
               <Image src={img} layout="fixed" width="200" height="200" alt={name} />
-            </a>
+            
           </span>
           <span className={styles.name}><b>per day</b>.1 ETH</span>
           <span className={styles.name}><b>for</b>7 Days</span>
 
           <div className={styles.staking}>
             <div className={styles.stakerow}>
-              <a href="#" className="button-mono btn-outline btn-sm">Loan Now</a>
+              <a href="#" className="button-mono btn-outline btn-sm">Borrow</a>
             </div>
           </div>
 
@@ -148,7 +148,10 @@ function MyList() {
 export default function Nfts(props) {
   return (
     <>
-      <center><h2>NFT Lending Marketplace</h2></center>
+      <div className={styles.mintbg}><div className={styles.mintbgglitch}>&nbsp;</div></div>
+      <div className={styles.minty}>
+        <h2 className={styles.heading}>NFT Lending</h2>
+      </div>
       <ul className={styles.nfts}>
         {/*<li className={styles.headings}>
           <span className={styles.nfthead}>NFT</span>

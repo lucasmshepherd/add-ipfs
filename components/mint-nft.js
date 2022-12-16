@@ -4,6 +4,7 @@ import Image from 'next/image'
 import nftTier1 from '../public/assets/images/nft/t1e.png'
 import nftTier2 from '../public/assets/images/nft/t2e.gif'
 import nftTier3 from '../public/assets/images/nft/t3e.gif'
+import Ad from '../public/assets/images/ad-revolution.png'
 import parse from 'html-react-parser'
 import $ from 'jquery'
 //For Integration
@@ -769,7 +770,7 @@ export default function MintNft(props) {
 
                     <div className={styles.price} id="price">
                       {count * price} ETH
-                      <span>PLUS GAS</span>
+                      {/*<span>PLUS GAS</span>*/}
                     </div>
 
                     <div className="mint-input-gp">
@@ -797,7 +798,8 @@ export default function MintNft(props) {
                         {mintEnableBtn ?
                           <>
                             <a className="button-mono button-fill push-right" onClick={mintEnableFun}>ENABLE MINT</a>
-                            <small className={styles.gas}>One-time fee 1,000,000 ADD</small>
+                            <small className={styles.gas}><b>Total $ADD required:</b> 2,000,000</small>
+                            <small className={styles.gas}><i>One-time fee: 1,000,000</i><br/><i>Hold in wallet: 1,000,000</i></small>
                           </>
                           :
                           <>
@@ -822,7 +824,8 @@ export default function MintNft(props) {
               <p style={{color:"red"}}>Connect Wallet First</p>
             }
           </div> {/* .primary */}
-          <div className={styles.secondary}>
+          <div className={styles.secondary}><br/>
+            <Image src={Ad.src} layout="responsive" width="1000" height="154" alt="NFT Evolutions Coming Soon" />
             <h2>Mint Anarchist NFT</h2>
             <h3>Tier One</h3>
             <div className={styles.list}>

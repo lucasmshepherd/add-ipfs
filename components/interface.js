@@ -133,7 +133,7 @@ export default function Interface(props) {
               if ( page == "loan" ) {
                 return (
                   <PaneRow name="primary">
-                    <Widget type={page} title="nft_lending_" icon="triangles">
+                    <Widget type={page} title="nft_lending_" icon="triangles" page="true">
                       <Loan />
                     </Widget>
                   </PaneRow>
