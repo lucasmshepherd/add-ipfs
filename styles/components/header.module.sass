@@ -23,7 +23,7 @@
     background-color: $color_dark
     //box-shadow: 0 3px 12px #fee500
 
-  @media (max-width: 984px)
+  @media (max-width: 800px)
     height: 47px
     background: $color_dark
 
@@ -34,8 +34,6 @@
   transform: translateX(-50%)
   width: 255px
   height: 50px
-  @media(max-width: 984px)
-    left: 100%
 
   .icon
     position: absolute !important
@@ -46,7 +44,7 @@
 
 .tabg
   fill: transparentize(#050505, 0.5)
-  @media(max-width: 984px)
+  @media(max-width: 800px)
     fill: $color_dark
 
 .addbar
@@ -57,7 +55,7 @@
   align-content: stretch
   height: 80px
   padding: 0 10px
-  @media(max-width: 984px)
+  @media(max-width: 800px)
     height: 108px
 
 .logo
@@ -71,8 +69,8 @@
 
 .mobicon
   position: absolute
-  top: 10px
-  left: 65px
+  top: 75px
+  right: 15px
   display: inline-block
   font-size: 12px
   line-height: 14px
@@ -80,7 +78,7 @@
   cursor: pointer
   user-select: none
   color: #fff
-  @media(min-width: 984px)
+  @media(min-width: 800px)
     display: none
 
 .logout,
@@ -106,8 +104,8 @@
     left: 50%
     transform: translate(-50%,-50%)
     transition: 0.3s fill
-  @media (max-width: 984px)
-    position: fixed
+  @media (max-width: 800px)
+    position: absolute
     top: 0
     right: 3px
     z-index: 99999
@@ -173,7 +171,7 @@
     line-height: 14px
     color: $color_5
     padding: 0 2px
-    @media (max-width: 984px)
+    @media (max-width: 800px)
       display: none
   a
     transition: 0.3s color
@@ -184,12 +182,12 @@
   &[data-connected="true"]
     //cursor: default
   
-  @media (max-width: 984px)
-    position: fixed
+  @media (max-width: 800px)
+    position: absolute
     top: 0
     left: 4px
     z-index: 9999
-    width: 100%
+    width: 100vw
     height: 40px
     line-height: 36px
     background: $color_dark
@@ -205,6 +203,9 @@
   margin: -24px 0 0 20px
   cursor: pointer
   line-height: 48px
+
+  @media (max-width: 800px)
+    display: none
 
   & > span
     position: absolute!important
@@ -252,11 +253,3 @@
   color: $color_4
   text-shadow: 0 0 10px #fee500
   cursor: default
-  @media (max-width: 984px)
-    top: auto
-    text-align: center
-    width: 100%
-    position: fixed
-    bottom: 0
-    width: 100%
-    background-color: $color_dark

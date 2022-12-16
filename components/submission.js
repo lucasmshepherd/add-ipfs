@@ -14,8 +14,8 @@ export default function Admin(props) {
 
   let favor, oppose
   let totalVoters = 852
-  let voteYes = 72
-  let voteNo = 213
+  let voteYes = 401
+  let voteNo = 189
   let totalVotes = voteYes  + voteNo
   let undecidedVotes = totalVoters - totalVotes
   let undecidedPercentage = undecidedVotes / totalVoters * 100
@@ -70,13 +70,13 @@ export default function Admin(props) {
       <form>
         <div className="formrow">
           <select name="propnumber">
-            <option value="1">prop_1 :: DAO Marketing Proposal :: ✓8.45% ✗25.00% :: 33.45%</option>
+            <option value="1">prop_1 :: DAO Development Proposal :: ✓47.07% ✗22.18% :: 30.75%</option>
           </select>
           <button type="submit" className="button-mono btn-inline">Go</button>
         </div>
       </form>
       <div className={styles.propsingle}>
-        <h2>DAO development proposal</h2>
+        <h2>DAO Development Proposal</h2>
         <article className={styles.proposal}>
           <div className={styles.donut}>
             <Doughnut data={data} width={196}	height={196} />
@@ -84,7 +84,7 @@ export default function Admin(props) {
           <div className={styles.nft}>
             <Image src={Nft.src} width="120" height="120" alt="NFT" layout="fill" />
           </div>
-          <div className={styles.propcontent}>
+          <div className={styles.propcontent} id="nolink">
             <div className={styles.proptitlerow}>
               <a href="#" className={styles.propid}><b>000001</b>
                 <svg className={styles.tabg} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 255.17 50.89"><g id="Layer_1-2"><path d="M255.17,0c-4.01,0-9.62,2.35-12.44,5.21l-40,40.47c-2.84,2.87-8.44,5.21-12.44,5.21H64.88c-4.01,0-9.61-2.35-12.44-5.21L12.44,5.21C9.61,2.34,4,0,0,0H255.17Z"/></g></svg>
@@ -95,11 +95,11 @@ export default function Admin(props) {
             </div>
             <div className={styles.proprow}>
               <span className={styles.proplabel}><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 135"><rect x="30" y="60.65" width="75" height="15"/><rect x="15" width="105" height="15"/><rect x="15" y="120" width="105" height="15"/></svg></span>
-              <span className={styles.propcell} title="ETH amount requested">8.0 Requested</span>
+              <span className={styles.propcell} title="ETH amount requested">2.0 ETH Requested</span>
             </div>
             <div className={styles.proprowfull}>
               <span className={styles.proplabel}><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 135"><rect y="30" width="15" height="75"/><rect x="30.62" width="74.38" height="15"/><rect x="120" y="30" width="15" height="75"/><rect x="30.34" y="120" width="74.66" height="15"/><rect x="105" y="105" width="15" height="15"/><rect x="105" y="15" width="15" height="15"/><rect x="15" y="15" width="15" height="15"/><rect x="15" y="105" width="15" height="15"/><rect x="60" y="15" width="15" height="60"/><rect x="90" y="90" width="15" height="15"/><rect x="75" y="75" width="15" height="15"/></svg></span>
-              <span className={styles.propcell} title="Time left for voting">5d : 4h : 32m : 13s</span>
+              <span className={styles.propcell} title="Time left for voting">Expired</span>
             </div>
             <div className={styles.proprowfull}>
               <span className={styles.proplabel}>Favored</span>
@@ -130,6 +130,11 @@ export default function Admin(props) {
         <p>Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia.</p>
 
         <p>Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut eros et nisl sagittis vestibulum. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede. Sed lectus. Donec mollis hendrerit risus. Phasellus nec sem in justo pellentesque facilisis. Etiam imperdiet imperdiet orci. Nunc nec neque. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Curabitur ligula sapien, tincidunt non, euismod vitae, posuere imperdiet, leo. Maecenas malesuada. Praesent congue erat at massa. Sed cursus turpis vitae tortor. Donec posuere vulputate arcu. Phasellus accumsan cursus velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed aliquam, nisi quis porttitor congue, elit erat euismod orci, ac</p>
+
+        <div className={styles.buttons}>
+          <p><a className="button-mono btn-outline disabled" href="#">✓ Favor</a></p>
+          <p><a className="button-mono btn-outline btn-outline-warning disabled" href="#">✗ Oppose</a></p>
+        </div>
       </div>
     </>
   )

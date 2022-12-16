@@ -26,7 +26,8 @@ p.highlight
   margin-bottom: 0
 
 a 
-  span.highlight
+  span.highlight,
+  span.highlight-secondary
     border: 1px solid $color_3
     color: $color_3
     width: 100%
@@ -37,13 +38,17 @@ a
     transition: background 0.3s, color 0.3s
     background: $color_dark
     box-shadow: 0 0 3px 3px transparentize($color_3,.85), inset 0 0 3px 3px transparentize($color_3,.85)
-
+  span.highlight-secondary
+    border: 1px solid $color_4
+    color: $color_4
   &:hover
-    span.highlight
+    span.highlight,
+    span.highlight-secondary
       background: $color_3
       color: $color_dark
   &:active
-    span.highlight
+    span.highlight,
+    span.highlight-secondary
       background: lighten($color_3, 15%)
       color: $color_dark
 
@@ -137,6 +142,13 @@ h1,h2,h3,h4,h5,h6
   color: $color_4
   margin-top: 30px
   margin-bottom: 20px
+
+h3
+  font-size: 30px
+  margin-top: 10px
+
+h2 + h3
+  margin-top: 0px
 
 blockquote
   background: transparent
@@ -383,6 +395,7 @@ a.onclick
   padding-top: 28px
   padding-right: 16px
   padding-bottom: 6px
+  padding-left: 10px
   text-transform: uppercase
   font-family: $font_scifi
   font-size: 11px
@@ -430,6 +443,12 @@ a.onclick
 
   &.button-fill
     max-width: none
+    background: #fff
+    color: $color_dark
+    &:active
+      background-color: $color_3 !important
+    &:hover
+      background-color: lighten($color_3, 4%) !important
 
   svg
     fill: $color_5
@@ -583,13 +602,13 @@ input, textarea, select
   padding: 3px 5px
 
 #purchase
-  margin-top: 10px
-
   a
     background: none!important
+    margin: 15px 5px 0
 .swal-overlay
 
-
+#nolink
+  cursor: default !important
 .swal-modal
   background: lighten($color_1, 2%)
   position: fixed
@@ -690,3 +709,11 @@ label
 ul.checked
   padding: 0
   list-style-type: none
+
+#ui[data-layout="mint"]
+  #treasuryBalance
+    background: $color_1
+
+#ui[data-layout="mint"]
+  #treasuryBalance
+    background: $color_1

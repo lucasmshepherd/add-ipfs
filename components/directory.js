@@ -86,7 +86,7 @@ export default function Directory(props) {
     )
   }
 
-  else if ( widgets == 'dapp' || widgets == 'stake' || widgets == 'deposit' || widgets == 'withdrawal' || widgets == 'claim' || widgets == 'nfts' || widgets == 'mint' || widgets == 'loan' ) {
+  else if ( widgets == 'dapp' || widgets == 'proposal' || widgets == 'adprops' || widgets == 'stake' || widgets == 'deposit' || widgets == 'withdrawal' || widgets == 'claim' || widgets == 'nfts' || widgets == 'mint' || widgets == 'loan' ) {
     return (
       <> 
         <ul id="menu" className={styles.menu}>
@@ -97,8 +97,8 @@ export default function Directory(props) {
             </Link>
           </li>
 
-          <li data-connected={connected} data-current={ widgets == "proposals" ? 'true' : 'false' }>
-            <Link className="anchor" href="/#">
+          <li data-connected={connected} data-current={ widgets == "adprops" ? 'true' : 'false' }>
+            <Link className="anchor" href="/proposals">
               <a onClick={soundEffect}>{wallet}<span className="soon">proposals</span>{arrow}</a>
             </Link>
           </li>
@@ -259,7 +259,7 @@ export default function Directory(props) {
 
           <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
             <Link className="anchor" href="/transition">
-              <a onClick={dappEffect}><span>stake_ADD</span>{arrow}</a>
+              <a onClick={dappEffect}><span>stake_and_claim</span>{arrow}</a>
             </Link>
           </li>
 
@@ -325,8 +325,13 @@ export default function Directory(props) {
 
           <li id="purchase">
             <a onClick={soundEffect} href="https://app.uniswap.org/#/swap?outputCurrency=0x6542c8f90915a57314f4167b81851a3cd731c6e2" rel="noreferrer" target="_blank">
-              <span className="highlight">purchase_ADD</span>
+              <span className="highlight">buy_ADD</span>
             </a>
+            <Link href="/mint">
+              <a onClick={soundEffect}>
+                <span className="highlight-secondary">mint_NFT</span>
+              </a>
+            </Link>
           </li>
 
         </ul>

@@ -14,8 +14,8 @@ export default function Admin(props) {
 
   let favor, oppose
   let totalVoters = 852
-  let voteYes = 72
-  let voteNo = 213
+  let voteYes = 401
+  let voteNo = 189
   let totalVotes = voteYes  + voteNo
   let undecidedVotes = totalVoters - totalVotes
   let undecidedPercentage = undecidedVotes / totalVoters * 100
@@ -184,7 +184,7 @@ export default function Admin(props) {
             <div className={styles.nft}>
               <Image src={Nft.src} width="120" height="120" alt="NFT" layout="fill" />
             </div>
-            <Link href="/proposal">
+            <Link href="/proposal?propnumber=1">
               <div className={styles.propcontent}>
                 <div className={styles.proptitlerow}>
                   <a href="#" className={styles.propid}><b>000001</b>
@@ -203,9 +203,9 @@ export default function Admin(props) {
                 </Link>
                 <div className={styles.proprow}>
                   <span className={styles.proplabel}><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 135"><rect x="30" y="60.65" width="75" height="15"/><rect x="15" width="105" height="15"/><rect x="15" y="120" width="105" height="15"/></svg></span>
-                  <span className={styles.propcell} title="ETH amount requested">8.0</span>
+                  <span className={styles.propcell} title="ETH amount requested">2.0</span>
                   <span className={styles.proplabel}><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 135"><rect y="30" width="15" height="75"/><rect x="30.62" width="74.38" height="15"/><rect x="120" y="30" width="15" height="75"/><rect x="30.34" y="120" width="74.66" height="15"/><rect x="105" y="105" width="15" height="15"/><rect x="105" y="15" width="15" height="15"/><rect x="15" y="15" width="15" height="15"/><rect x="15" y="105" width="15" height="15"/><rect x="60" y="15" width="15" height="60"/><rect x="90" y="90" width="15" height="15"/><rect x="75" y="75" width="15" height="15"/></svg></span>
-                  <span className={styles.propcell} title="Time left for voting">5d : 4h : 32m : 13s</span>
+                  <span className={styles.propcell} title="Time left for voting">Expired</span>
                 </div>
                 <div className={styles.proprowfull}>
                   <span className={styles.proplabel}>Fav</span>

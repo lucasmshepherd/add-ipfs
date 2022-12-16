@@ -26,6 +26,7 @@ import Donater from './donater.js'
 //import DonateId from './donate-id.js'
 import Deposit, {StakeInfo} from './stake-deposit.js'
 import Nfts from './nfts.js'
+import Loan from './loan.js'
 //import Nfts from './nft-list.js'
 import Withdrawal from './stake-withdrawal.js'
 import Claim from './stake-claim.js'
@@ -81,15 +82,15 @@ export default function Interface(props) {
                   <>
                     <center className={styles.backlink}><Link href="/my-list">My NFTs</Link></center>
                     <PaneRow name="primary">
-                      <Widget type={page} title="nft_tier_1_" icon="triangles">
+                      <Widget type={page} title="nft_tier_1_" icon="triangles" page="true">
                         <MintNft tier="1" />
                       </Widget>
-                      <Widget type={page} title="nft_tier_2_" icon="triangles">
+                      {/*<Widget type={page} title="nft_tier_2_" icon="triangles">
                         <MintNft tier="2" />
                       </Widget>
                       <Widget type={page} title="nft_tier_3_" icon="triangles">
                         <MintNft tier="3" />
-                      </Widget>
+                      </Widget>*/}
                     </PaneRow>
                   </>
                 )
@@ -132,8 +133,8 @@ export default function Interface(props) {
               if ( page == "loan" ) {
                 return (
                   <PaneRow name="primary">
-                    <Widget type={page} title="my_nft_list_" icon="triangles">
-                      <Nfts />
+                    <Widget type={page} title="nft_lending_" icon="triangles">
+                      <Loan />
                     </Widget>
                   </PaneRow>
                 )
@@ -317,15 +318,7 @@ export default function Interface(props) {
                     </Widget>
                   </PaneRow>
                 )
-              } else if ( page == "dapp" ) { // Reporting
-                return (
-                  <PaneRow name="fill">
-                    <Widget type="report" title="report_num_" icon="triangles" page="true" scroll="true">
-                      <Report page={page} />
-                    </Widget>
-                  </PaneRow>
-                )
-              } else if ( page == "stake" || page == "deposit" || page == "withdrawal" || page == "claim" ) { // Reporting
+              } else if ( page == "dapp" || page == "mint" || page == "stake" || page == "deposit" || page == "withdrawal" || page == "claim" ) { // Reporting
                 return (
                   <PaneRow name="fill">
                     <Widget type="report" title="report_num_" icon="triangles" page="true" scroll="true">
@@ -354,7 +347,7 @@ export default function Interface(props) {
             })()}
             {/* Social */}
             {(() => {
-              if ( page == "welcome" || page == "training" || page == "nfts" || page == "mint" || page == "tv" || page == "manifesto" || page == "stake" || page == "dapp" || page == "deposit" || page == "withdrawal" || page == "claim" || page == "donate" || page == "about" ) {
+              if ( page == "welcome" || page == "training" || page == "nfts" || page == "tv" || page == "manifesto" || page == "stake" || page == "dapp" || page == "deposit" || page == "withdrawal" || page == "claim" || page == "donate" || page == "about" ) {
                 return (
                   <PaneRow>
                     <Widget type="social" title="social_" icon="triangles">
@@ -368,138 +361,5 @@ export default function Interface(props) {
         </UserInterface>
       </>
     )
-
-
-  if (page == "proposals") {
-    return (
-      <> 
-        <UserInterface layout={page}>
-          <Pane>
-            <PaneRow name="primary">
-              <Widget type={page} title="dapp_" icon="triangles">
-                <TerminalProposals page={page} />
-              </Widget>
-            </PaneRow>
-          </Pane>
-          <Sidebar>
-            <PaneRow name="small">
-              <Widget type="audio" title="freq_v_" icon="arc">
-
-              </Widget>
-            </PaneRow>
-            <PaneRow>
-              <Widget type="menu" title="dir_nav_" icon="triangles">
-                <Directory widgets={page} />
-              </Widget>
-            </PaneRow>
-            <PaneRow name="fill">
-              <Widget type="report" title="num_rep_" icon="triangles">
-                <Report  page={page} />
-              </Widget>
-            </PaneRow>
-          </Sidebar>
-        </UserInterface>
-      </>
-    )
-  }
-
-  else if (page == "submit") {
-    return (
-      <> 
-        <UserInterface layout={page}>
-          <Pane>
-            <PaneRow name="primary">
-              <Widget type={page} title="dapp_" icon="triangles">
-                <TerminalSubmit page={page} />
-              </Widget>
-            </PaneRow>
-          </Pane>
-          <Sidebar>
-            <PaneRow name="small">
-              <Widget type="audio" title="freq_v_" icon="arc">
-
-              </Widget>
-            </PaneRow>
-            <PaneRow>
-              <Widget type="menu" title="dir_nav_" icon="triangles">
-                <Directory widgets={page} />
-              </Widget>
-            </PaneRow>
-            <PaneRow name="fill">
-              <Widget type="report" title="num_rep_" icon="triangles">
-                <Report />
-              </Widget>
-            </PaneRow>
-          </Sidebar>
-        </UserInterface>
-      </>
-    )
-  }
-
-  else if (page == "pending") {
-    return (
-      <> 
-        <UserInterface layout={page}>
-          <Pane>
-            <PaneRow name="primary">
-              <Widget type={page} title="dapp_" icon="triangles">
-                <TerminalPending page={page} />
-              </Widget>
-            </PaneRow>
-          </Pane>
-          <Sidebar>
-            <PaneRow name="small">
-              <Widget type="audio" title="freq_v_" icon="arc">
-
-              </Widget>
-            </PaneRow>
-            <PaneRow>
-              <Widget type="menu" title="dir_nav_" icon="triangles">
-                <Directory widgets={page} />
-              </Widget>
-            </PaneRow>
-            <PaneRow name="fill">
-              <Widget type="report" title="num_rep_" icon="triangles">
-                <Report  page={page} />
-              </Widget>
-            </PaneRow>
-          </Sidebar>
-        </UserInterface>
-      </>
-    )
-  }
-
-  else if (page == "closed") {
-    return (
-      <> 
-        <UserInterface layout={page}>
-          <Pane>
-            <PaneRow name="primary">
-              <Widget type={page} title="dapp_" icon="triangles">
-                <TerminalClosed page={page} />
-              </Widget>
-            </PaneRow>
-          </Pane>
-          <Sidebar>
-            <PaneRow name="small">
-              <Widget type="audio" title="freq_v_" icon="arc">
-   
-              </Widget>
-            </PaneRow>
-            <PaneRow>
-              <Widget type="menu" title="dir_nav_" icon="triangles">
-                <Directory widgets={page} />
-              </Widget>
-            </PaneRow>
-            <PaneRow name="fill">
-              <Widget type="report" title="num_rep_" icon="triangles">
-                <Report />
-              </Widget>
-            </PaneRow>
-          </Sidebar>
-        </UserInterface>
-      </>
-    )
-  }
 
 }

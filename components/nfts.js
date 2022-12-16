@@ -155,9 +155,9 @@ function MyList() {
               }
             })()}
           </span>
-        </li>
-        <div className={styles.staking}>
-          {(() => {
+
+          <div className={styles.staking}>
+            {(() => {
               if (loan.length > 0) {
                 return (
                   <>
@@ -216,7 +216,10 @@ function MyList() {
                 )
               }
             })()}
-        </div>
+          </div>
+
+        </li>
+
       </>
     )
     rows.push(item)
@@ -252,15 +255,6 @@ export default function Nfts(props) {
       <br/>
       <br/>
       <blockquote className={styles.notation}><b className="glitchme" data-text="Thank you for contributing to Anarchist DAO">Thank you for contributing to Anarchist DAO</b></blockquote>
-      <br/>
-      <ul className={styles.roadmap}>
-        <li><b>Coming soon:</b></li>
-        <li>NFT Loans<br/><br/></li>
-        <li><b>Additional Features:</b></li>
-        <li><strike>400x sold: NFT List</strike></li>
-        <li><b>300x sold: </b> NFT Single Pages</li>
-        <li><b>200x sold: </b> Revealed when reach previous sales mark</li>
-      </ul>
     </>
   )
 }
