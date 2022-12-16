@@ -5,7 +5,7 @@ import Icon1 from '../public/assets/images/folder.svg'
 import FreedomThumb from '../public/assets/images/fr33d0m-thumb.jpg'
 import SystemThumb from '../public/assets/video/system_failure_thumb.jpg'
 import NeedThumb from '../public/assets/video/they_need_us_thumb.jpg'
-import HowThumb from '../public/assets/video/how_to_buy_thumb.jpg'
+import HowThumb from '../public/assets/video/how_to_buy_thumb2.jpg'
 
 import styles from '../styles/components/widget.module.sass'
 
