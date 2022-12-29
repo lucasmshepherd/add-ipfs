@@ -36,7 +36,7 @@ export default function News() {
 
   return (
     <>
-      <div className={styles.article}>
+      <div className={styles.article}>111111111111111111
         {/*<h2 className={styles.title}>Announcements</h2>*/}
         <div>{rows}</div>
       </div>
