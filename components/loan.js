@@ -87,7 +87,7 @@ function MyList() {
               "purpose": "",
               "borrowed": [],
               "loaned": [],
-              "proposal": [],
+              "proposal": [], 
             }
             ])
           }
