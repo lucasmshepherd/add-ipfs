@@ -334,19 +334,10 @@ export default function Interface(props) {
                     </Widget>
                   </PaneRow>
                 )
-              } else if ( page == "welcome" ) { 
-                return (
-                  <PaneRow name="fill"> 
-                    {/* Members */}
-                    <Widget type="members" title="discord_mem_" icon="triangles" scroll="true">
-                      <Members />
-                    </Widget>
-                  </PaneRow>
-                )
               }
             })()}
             {/* Social */}
-            {(() => {
+            {/*(() => {
               if ( page == "welcome" || page == "training" || page == "nfts" || page == "tv" || page == "manifesto" || page == "stake" || page == "dapp" || page == "deposit" || page == "withdrawal" || page == "claim" || page == "donate" || page == "about" ) {
                 return (
                   <PaneRow>
@@ -356,7 +347,7 @@ export default function Interface(props) {
                   </PaneRow>
                 )
               }
-            })()}
+            })()*/}
           </Sidebar>
         </UserInterface>
       </>

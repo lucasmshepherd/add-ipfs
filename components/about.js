@@ -12,21 +12,16 @@ export default function Donations(props) {
       <div className={styles.sidebyside}>
         <div className={styles.content}>
           <h3>DAO Structure & Authority</h3>
-          <p>There is no central authority.</p>
-          <p>$ADD tokenholders are the collective authority whom make decisions for the DAO through voting. </p>
+          <p>There is no structure.</p>
+          <p>$ADD tokenholders are the collective authority whom make decisions for the DAO <strike>through voting</strike>. </p>
           <h3>History</h3>
-          <p><big><b>The Anarchist Development DAO was founded by a small group of individuals who believe in a more decentralized society.</b></big></p>
-          <p>Our core principles are trust, free and open markets, private ownership of property and capital, and the complete abolishment of legacy financial systems.</p>
-          <p>The Anarchist Development DAO and its contributors have helped execute on this ideology and further the cause of making our mission, not just an idea, but a reality.</p>
-          <p>Every individual who has contributed to the Anarchist Development DAO has dedicated most of their professional lives to the advancement of decentralized technologies, activist movements, cryptocurrency, software development or finance.</p>
+          <p><big><b>The Anarchist Development DAO was founded by one guy who believes in a more decentralized society because DYOR is transparency.</b></big></p>
+          <p>Our core principles are <strike>trust</strike>, free and open markets, private ownership of property and capital, and the complete abolishment of legacy financial systems.</p>
+          <p>The Anarchist Development DAO and its contributors alone have helped execute on this ideology and further the cause of making our mission not just an idea but a reality when I'm not too busy to finish the project.</p>
+          <p>Every individual who has contributed to the Anarchist Development DAO has dedicated most of their professional lives to the advancement of decentralized technologies, activist movements, cryptocurrency, software development or finance which is why I feel terrible for ghosting the entire community.</p>
 
           <h3>dApp Support</h3>
-            <p>x2 dev_mngr</p>
-            <p>x1 lead_dev / artist <span className="note">doxxed</span></p>
-            <p>x1 blockchain_integration_engineer</p>
-            <p>x1 smart_contract_engineer</p>
-            <p>x2 smart_contract_dev</p>
-            <p>x1 web3_engineer</p>
+            <p>x1 Dev Mngr: Prime <span className="note">doxxed</span></p>
         </div>
       </div>
     </>

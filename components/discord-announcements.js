@@ -38,7 +38,7 @@ export default function News() {
     <>
       <div className={styles.article}>
         {/*<h2 className={styles.title}>Announcements</h2>*/}
-        <div>{rows}</div>
+        <div>Thank you for your support. We are incredibly sorry to announce this project is indefinitely on pause.</div>
       </div>
     </>
   )

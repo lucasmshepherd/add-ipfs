@@ -8,10 +8,10 @@ export default class Splash extends React.Component {
   componentDidMount () {
 
     const MESSAGES = [];
-    MESSAGES.push({delay:0,    text:"The Anarchist Development DAO is geared toward"});
-    MESSAGES.push({delay:1200, text:"the rapid advancement of a more decentralized"});
-    MESSAGES.push({delay:2200, text:"society while providing the means to fund projects"});
-    MESSAGES.push({delay:3600, text:"without censorship from central authorities."});
+    MESSAGES.push({delay:0,    text:"Although we still believe in our defi ideals"});
+    MESSAGES.push({delay:1200, text:"we took anarchy a little too seriously."});
+    MESSAGES.push({delay:2200, text:"It is with great regret we must announce"});
+    MESSAGES.push({delay:3600, text:"this project is on an indefinent pause. -S"});
     //MESSAGES.push({delay:5200, text:"from central authorities."});
 
     const $container = $("#introductionWrapper");
