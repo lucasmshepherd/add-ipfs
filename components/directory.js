@@ -257,11 +257,11 @@ export default function Directory(props) {
             </Link>
           </li>
 
-          <li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
+          {/*<li data-connected={connected} data-current={ widgets == "dapp" ? 'true' : 'false' }>
             <Link className="anchor" href="/transition">
               <a onClick={dappEffect}><span>stake_and_claim</span>{arrow}</a>
             </Link>
-          </li>
+          </li>*/}
 
           <li data-connected={connected} data-current={ widgets == "withdrawal" ? 'true' : 'false' } data-dimmed="true">
             <Link className="anchor" href="/withdrawal">
