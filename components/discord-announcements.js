@@ -35,8 +35,7 @@ export default function News() {
     <>
       <div className={styles.article}>
         {/*<h2 className={styles.title}>Announcements</h2>*/}
-        <div><p>Hi, my name is Brian Ness.  I recently was upset because I fired my lead developer and most of the community left with him.  Turns out nobody would invest in me which is why I need to take advantage of others. When I realized I was worthless I immediately maxxed taxes, cleared the DAO wallet and then I drained the treasury.  You should know even with all this I didn't make my money back on the project and still took a loss because I'm a chump.  Sorry not sorry.</p>
-
+        <div><p>Hi, my name is Brian Ness.  I recently was upset because I fired my lead developer and most of the community left with him.  Turns out nobody would invest in me which is why I need to take advantage of others. When I realized this I immediately raised taxes, cleared the DAO wallet and then I drained the treasury a few days later.  You should know even with all this I still took a loss thanks to Dream and my lack of intelligence.</p>
         <p>In case you would like to get in touch with me here is some info of mine:</p>
 
         <ul>
