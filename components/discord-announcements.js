@@ -43,13 +43,13 @@ export default function News() {
           <li><b>Last know phone</b>: (725) 200-6859</li>
           <li><b>Addresses found</b>:</li>
           <li>201 Hay Street Suite 401-B Fayetteville, NC 28301</li>
-          <li>301 Hay Street Fayetteville, NC 28301 </li>
-          <li><b>Websites found attached to phone</b>: https://techtacsol.com/contact-us</li>
+          <li>301 Hay Street Fayetteville, NC 28301</li>
+          <li>https://techtacsol.com/contact-us</li>
           <li><b>Emails</b>:</li>
           <li>ness.brian1@outlook.com</li>
           <li>0xethgod0x@protonmail.com</li>
           <li>0xethgod0x@gmail.com</li>
-          <li><b>Socials found</b>:</li>
+          <li><b>Socials</b>:</li>
           <li>https://twitter.com/NAZZ_NEGG</li>
           <li>https://twitter.com/NAZZNEGGFLEyRH</li>
           <li>https://twitter.com/OdaETH</li>
