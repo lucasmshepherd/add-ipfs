@@ -40,7 +40,7 @@ export default function News() {
 
         <ul>
           <li><b>Name</b>: Brian Ness</li>
-          <li><b>Last know phone</b>: (725) 200-6859</li>
+          <li><b>One of my phones</b>: (725) 200-6859</li>
           <li><b>Addresses found</b>:</li>
           <li>201 Hay Street Suite 401-B Fayetteville, NC 28301</li>
           <li>301 Hay Street Fayetteville, NC 28301</li>
